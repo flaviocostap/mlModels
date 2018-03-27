@@ -1,0 +1,18 @@
+
+# Latex
+*~ 
+*.dvi 
+*.ps 
+*.backup 
+*.aux 
+*.log
+*.lof 
+*.lot 
+*.bbl 
+*.blg 
+*.brf 
+*.toc 
+*.idx
+
+
+
