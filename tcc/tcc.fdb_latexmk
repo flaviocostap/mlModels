@@ -2,16 +2,16 @@
 ["bibtex tcc"] 0 "tcc.aux" "tcc.bbl" "tcc" 0
   "/usr/share/texlive/texmf-dist/bibtex/bib/abntex2/abntex2-options.bib" 1356995954 5396 4eb260dac60f150ae608d45252853090 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/abntex2/abntex2-alf.bst" 1456875486 60064 6469892b646cc99dbd8ecd5e965537d8 ""
-  "bibliografia.bib" 1524916732 3421 e9743c1c0f04e0328ec66e79cc76c5f1 ""
-  "tcc.aux" 1524917875 13110 65d0c5a76d8bd2beae53003d5e960a5c ""
+  "bibliografia.bib" 1524928168 4899 1984523d5d1af99f01043349ad1604e4 ""
+  "tcc.aux" 1524928214 13746 8f509793286e625f0853984eb3ab08a4 ""
   "tcc.bcf" 0 -1 0 ""
   (generated)
   "tcc.bbl"
 ["makeindex tcc.idx"] 0 "tcc.idx" "tcc.ind" "tcc" 0
-  "tcc.idx" 1524917875 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "tcc.idx" 1524928214 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
   "tcc.ind"
-["pdflatex"] 1524917875 "/home/flavio/Documentos/TCC/modelos/mlModels/tcc/tcc.tex" "tcc.pdf" "tcc" 1524917875
+["pdflatex"] 1524928213 "/home/flavio/Documentos/TCC/modelos/mlModels/tcc/tcc.tex" "tcc.pdf" "tcc" 1524928213
   "/etc/texmf/web2c/texmf.cnf" 1522022890 1101 af7716885e081ab43982cab7b4672c1a ""
   "/home/flavio/Documentos/TCC/modelos/mlModels/tcc/tcc.tex" 1524917873 889 3e4fba481e6a517bd72e9b1172a9c571 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -155,7 +155,7 @@
   "editaveis/errata.tex" 1522067330 840 9736dfb1ec6c21db6031c2c7d8c643be ""
   "editaveis/informacoes.tex" 1523124683 698 d118178c54254cf6ec86b986e5aa89ea ""
   "editaveis/introducao.tex" 1522067330 493 2815f3c7cba1a23f5a80923aac12b0d8 ""
-  "editaveis/machineLearning.tex" 1524917873 6219 e48e24a8fe6b3e480e6893224f74fc30 ""
+  "editaveis/machineLearning.tex" 1524928213 6298 1b0833740e2cd1a9b3b2136188d6fc90 ""
   "editaveis/metodologia.tex" 1523124683 212 a4c25e06270ebc839822b2a44bba92f8 ""
   "editaveis/parkinson.tex" 1524916732 2277 9feabb723ff03d236d2de0b4b15052a6 ""
   "editaveis/resumo.tex" 1522067330 835 168c810318408e91971f1c89934c973b ""
@@ -171,15 +171,15 @@
   "fixos/listasAutomaticas.tex" 1522067330 140 3d9123a8ba3eeb3da4258aa67285a406 ""
   "fixos/pacotes.tex" 1522067330 415 4fb49de893c987ee101b44c4a7926a45 ""
   "fixos/setup.tex" 1522067330 641 ad68ffb8f767383eb90edeeb2a1db271 ""
-  "tcc.aux" 1524917875 8 a94a2480d3289e625eea47cd1b285758 ""
+  "tcc.aux" 1524928213 8 a94a2480d3289e625eea47cd1b285758 ""
   "tcc.bbl" 0 -1 0 "bibtex tcc"
   "tcc.ind" 0 -1 0 "makeindex tcc.idx"
   "tcc.tex" 1524917873 889 3e4fba481e6a517bd72e9b1172a9c571 ""
   (generated)
-  "tcc.lot"
-  "tcc.lof"
-  "tcc.aux"
-  "tcc.pdf"
-  "tcc.idx"
-  "tcc.toc"
   "tcc.log"
+  "tcc.pdf"
+  "tcc.toc"
+  "tcc.lof"
+  "tcc.lot"
+  "tcc.idx"
+  "tcc.aux"
