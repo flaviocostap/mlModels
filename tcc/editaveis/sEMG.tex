@@ -6,11 +6,36 @@ Um sinal sEMG é um sinal obtido na medição das tensões relacionados as corre
 
 A sEMG caracteriza-se pela utilização de um dispositivo sobre a pele do paciente, o qual implica a detecção dos potências elétricos relativos as fibras musculares, ou seja é possivel detectar quando um musculo é ativado e qual o movimento foi execultado, e ainda relacionar o associação dos diferentes musculos envolvidos \cite{botelho2010avaliaccao}.
 
-O sinal EMG é registrado normalmente por eletrodos de superfície, mas pode também ser utilizado eletrodos de agulha \cite{soderberg1984electromyography}.
+O sinal EMG é registrado normalmente por eletrodos de superfície, mas pode também ser utilizado eletrodos de agulha \cite{eftaxias2015detection}.
 
 \section{Características do sinal}
+
+Primeiramente temos a Unidade motora (UM), uma coleção de fibras musculares inervadas por um único neurônio motor alfa, sendo a menor unidade operacional de um musculo, podendo ser ativada pelo controle neural. A atividade muscular ocorre a ativação do neurônio alfa dentro da UM, produzindo tensão nas fibras musculares ao passo que ocorre a propagação do sinal ao longo das fibras, o musculo é relaxado quano o neurônio alfa para a atividade \cite{yousefi2014characterizing}.
+
+O potencial de ação da unidade motora (PAUM) é a soma dos potenciais de ação das contrações musculares em uma unidade motora, as voltagens detectadas pelos eletrodos da sEMG, descrevem a soma de todas as UM ativas, ou seja a soma de todos os PAUM \cite{yousefi2014characterizing}.
+
+A equação que descreve um sEMG é ~\ref{eq:EMGT}. Um sEMG é a medida ao longo do tempo da contração de um PAUM m, de um total de N PAUMs, a função n(t) representa possiveis ruidos encontrados na coleta, ambas as funções são parametrizadas pelo tempo \cite{yousefi2014characterizing}.
+
+\begin{equation} \label{eq:EMGT}
+    EMG_{t} =\sum_{m=1}^{N} PAUMs_{m}(t)+n(t)
+\end{equation}
+
+Este tipo de sinal inevitavelmente contera ruído do equipamento, de outras fontes biológicas presentes no corpo do individuo \cite{yousefi2014characterizing}.
+
+
+
+
+
 
 Um sEMG comum varia entre 0.1 a 0.5 millivolt, podendo conter frequência de até 10 kHz, a amplitude do sinal depende de vários fatores como o tipo de eletrodo utilizado, nivel do esforço muscular, colocação dos eletrodos.
 
 \section{Usos}
 A sEMG é largamente utilizada por pelas diversas áreas cientificas que estudam o movimento humano, como Médicos, Fisioterapeutas, Fonoaudiólogos e profissionais em Educação Física\cite{nascimento2012surface}.
+
+\section{sEMG e machine learning}
+A utilização de Aprendisado de máquinas em conjunto com sEMG para o auxilio na detecção de alguma doença, já é um tópico bem explorado possuindo diversas publicações relacionadas a esta área de estudo, na base de dados Capes a string de busca '(emg AND (Machine learning))' retornou 4.217 resultados, no \textit{ScienceDirect} a mesma \textit{string} retornou 2.396 \section{Parkinson e sEMG} e no \textit{ieeexplore} 169.
+
+Como observado na revisão acadêmica de \cite{yousefi2014characterizing}, os transtornos neuromusculares podem são comumente separados em Miopatia e Neuropatia, onde Miopatia refere-se a um grupo de patologias que atigem diretamente o tecido muscular sem relação com disfunções do sistema nevorso. Já a Neuropatia, onde encontra-se a doença de Parkinson, é caracterizada por qualquer dano nos nervos envolvidos no controle muscular.
+
+Em resumo as diversas tecnicas de Aprendizado de máquinas sobre sEMG, pode ser catalogadas em três etapas os dados devem ser analisados, decompostos e classificados\cite{yousefi2014characterizing}.
+
