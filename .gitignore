@@ -15,5 +15,6 @@
 *.idx
 *.pdf
 tcc.synctex.gz
+tcc.fls
 
 

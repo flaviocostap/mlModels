@@ -10,24 +10,29 @@ O sinal EMG é registrado normalmente por eletrodos de superfície, mas pode tam
 
 \section{Características do sinal}
 
-Primeiramente temos a Unidade motora (UM), uma coleção de fibras musculares inervadas por um único neurônio motor alfa, sendo a menor unidade operacional de um musculo, podendo ser ativada pelo controle neural. A atividade muscular ocorre a ativação do neurônio alfa dentro da UM, produzindo tensão nas fibras musculares ao passo que ocorre a propagação do sinal ao longo das fibras, o musculo é relaxado quano o neurônio alfa para a atividade \cite{yousefi2014characterizing}.
+Primeiramente temos a Unidade motora (MU - \textit{Motor Unit}), uma coleção de fibras musculares inervadas por um único neurônio motor alfa, sendo a menor unidade operacional de um musculo, podendo ser ativada pelo controle neural. A atividade muscular ocorre a ativação do neurônio alfa dentro da MU, produzindo tensão nas fibras musculares ao passo que ocorre a propagação do sinal ao longo das fibras, o musculo é relaxado quano o neurônio alfa para a atividade \cite{yousefi2014characterizing}.
 
-O potencial de ação da unidade motora (PAUM) é a soma dos potenciais de ação das contrações musculares em uma unidade motora, as voltagens detectadas pelos eletrodos da sEMG, descrevem a soma de todas as UM ativas, ou seja a soma de todos os PAUM \cite{yousefi2014characterizing}.
+O potencial de ação da unidade motora (\textit{motor unit potential} (MUP)) é a soma dos potenciais de ação das contrações musculares em uma unidade motora, as voltagens detectadas pelos eletrodos da sEMG, descrevem a soma de todas as UM ativas, ou seja a soma de todos os MUP \cite{yousefi2014characterizing}.
 
-A equação que descreve um sEMG é ~\ref{eq:EMGT}. Um sEMG é a medida ao longo do tempo da contração de um PAUM m, de um total de N PAUMs, a função n(t) representa possiveis ruidos encontrados na coleta, ambas as funções são parametrizadas pelo tempo \cite{yousefi2014characterizing}.
+A figura ~\ref{UnidadeMotora}, representa um esquema simplificado da comunicação do neurônio com a unidade motora do musculo, o detalhamento dessa comunicação não é o objetivo desse trabalho.
+
+\begin{figure}[!htb]
+    \centering
+	\includegraphics[width=0.8\textwidth]{figuras/motor-neuron.eps}
+	\caption{Modelo de uma unidade motora.}
+	\label{UnidadeMotora}
+\end{figure}
+
+A equação que descreve um sEMG é ~\ref{eq:EMGT}. Um sEMG é a medida ao longo do tempo da contração de um MUP m, de um total de N MUPs, a função n(t) representa possiveis ruidos encontrados na coleta, ambas as funções são parametrizadas pelo tempo \cite{yousefi2014characterizing}.
 
 \begin{equation} \label{eq:EMGT}
-    EMG_{t} =\sum_{m=1}^{N} PAUMs_{m}(t)+n(t)
+	EMG_{t} =\sum_{m=1}^{N} MUPs_{m}(t)+n(t)
 \end{equation}
 
-Este tipo de sinal inevitavelmente contera ruído do equipamento, de outras fontes biológicas presentes no corpo do individuo \cite{yousefi2014characterizing}.
+Este tipo de sinal inevitavelmente contera ruído do equipamento e de outras fontes biológicas presentes no corpo do individuo \cite{yousefi2014characterizing}.
 
-
-
-
-
-
-Um sEMG comum varia entre 0.1 a 0.5 millivolt, podendo conter frequência de até 10 kHz, a amplitude do sinal depende de vários fatores como o tipo de eletrodo utilizado, nivel do esforço muscular, colocação dos eletrodos.
+Com relação a DP o tremor de repouso é o sintoma mais comum, possuindo uma frequência entre 4 e 6 Hz.
+\cite{jankovic2008parkinson}
 
 \section{Usos}
 A sEMG é largamente utilizada por pelas diversas áreas cientificas que estudam o movimento humano, como Médicos, Fisioterapeutas, Fonoaudiólogos e profissionais em Educação Física\cite{nascimento2012surface}.
