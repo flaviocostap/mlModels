@@ -16,5 +16,7 @@
 *.pdf
 tcc.synctex.gz
 tcc.fls
+tcc.ind
+tcc.fdb_latexmk
 
 
