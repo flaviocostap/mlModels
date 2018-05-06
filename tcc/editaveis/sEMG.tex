@@ -38,9 +38,26 @@ Com relação a DP o tremor de repouso é o sintoma mais comum, possuindo uma fr
 A sEMG é largamente utilizada por pelas diversas áreas cientificas que estudam o movimento humano, como Médicos, Fisioterapeutas, Fonoaudiólogos e profissionais em Educação Física\cite{nascimento2012surface}.
 
 \section{sEMG e machine learning}
-A utilização de Aprendisado de máquinas em conjunto com sEMG para o auxilio na detecção de alguma doença, já é um tópico bem explorado possuindo diversas publicações relacionadas a esta área de estudo, na base de dados Capes a string de busca '(emg AND (Machine learning))' retornou 4.217 resultados, no \textit{ScienceDirect} a mesma \textit{string} retornou 2.396 \section{Parkinson e sEMG} e no \textit{ieeexplore} 169.
+A utilização de Aprendisado de máquinas em conjunto com sEMG para o auxilio na detecção de alguma doença, já é um tópico bem explorado possuindo diversas publicações relacionadas a esta área de estudo, na base de dados Capes a string de busca '(emg AND (Machine learning))' retornou 4.217 resultados, no \textit{ScienceDirect} a mesma \textit{string} retornou 2.396 no \textit{ieeexplore} 169.
 
 Como observado na revisão acadêmica de \cite{yousefi2014characterizing}, os transtornos neuromusculares podem são comumente separados em Miopatia e Neuropatia, onde Miopatia refere-se a um grupo de patologias que atigem diretamente o tecido muscular sem relação com disfunções do sistema nevorso. Já a Neuropatia, onde encontra-se a doença de Parkinson, é caracterizada por qualquer dano nos nervos envolvidos no controle muscular.
 
 Em resumo as diversas tecnicas de Aprendizado de máquinas sobre sEMG, pode ser catalogadas em três etapas os dados devem ser analisados, decompostos e classificados\cite{yousefi2014characterizing}.
 
+\subsection{Analise}
+O pré-preprocessamento ou analise dos dados é uma das partes mais importantes do processo de Aprendisado, essa etapa consiste na etapa seguinte a coleta onde estes são organizados na forma de conjuntos de dados, e possiveis problemas nos dados como ruídos e valores desconhecidos são tratados, ou simplesmente aprender mais sobre os modelos plotando gráficos, ou ainda realizar tratamento nos dados como transformações lineares para um conjunto de dados mais simples de ser trabalhado \cite{batista2003pre}, a figura ~\ref{tremor_i_parkinson} representa o sinal EMG do tremor de intensão do grupo com a doença de Parkinson e  a figura ~\ref{tremor_intensao} corresponde ao grupo de controle, estes modelos foram coletados na fase de pré-preprocessamento do projeto. 
+
+
+\begin{figure}[!htb]
+    \centering
+	\includegraphics[width=1\textwidth]{figuras/tremor_i_parkinson.eps}
+	\caption{PROVISSORIO!!!sEMG do tremor de intensão grupo com a Doença de Parkinson}
+	\label{tremor_i_parkinson}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+	\includegraphics[width=1\textwidth]{figuras/tremor_intensao.eps}
+	\caption{PROVISSORIO!!!sEMG do tremor de intensão grupo de controle}
+	\label{tremor_intensao}
+\end{figure}
