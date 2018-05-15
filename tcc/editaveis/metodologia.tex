@@ -1,7 +1,32 @@
 \chapter{Metodologia}
-\section{Processo de machine learning}
-\subsection{Tecnologias utilizadas}
+\section{Processo de construção de uma aplicação de Aprendizado de Máquina}
+
+Segundo o guia do desenvolvedor de aprendizado de máquina da Amazon e o livro “Hands-On Machine Learning with Scikit-Learn & TensorFlow, Concepts, Tools, and Techniques to Build Intelligent Systems” escrito por Aurélien Géron, o processo de desenvolvimento de uma aplicação de AM é interativo e envolve uma série sequencial de passos que de maneira geral vão desde entender a “big picture” até a apresentação da solução de proposta da aplicação de AP. O processo pode ser visualizado pela representação Business Process Model and Notation - BPNM - da figura:
+
+Figura do processo
+
+\subsection{Abstrair o problema no contexto}
+
+Entender o principal problema de AM do contexto e a natureza desse problema observando o quais respostas o modelo escolhido deverá predizer. Formular o problema é primeiro passo para decidir o que é desejado predizer.
+
+Imagine o seguinte cenário, no qual você deseja fabricar produtos, porém sua decisão de qual produto fabricar depende do número de vendas em potencial. Nesse cenário, você precisa saber a quantidade de vezes que cada produto foi comprado, ou seja, predizer o número de vendas. Existem diversas maneiras de definir esse problema utilizando AM, porém a escolha de como definir o problema depende do seu caso de uso ou necessidade comercial \cite{Amazon}.
+
+Em termos mais técnicos dentro do AM, o ponto importante do entendimento do contexto e a abstração do problema, é que essa etapa tem um papel fundamental na escolha dos modelos, pois tendo o entendimento da natureza do problema será selecionado o modelo para predizer os resultados para esse dado problema com base no tipo de aprendizado mais adequado a este contexto.
+
 \subsection{Coleta de dados}
+
+Os dados coletados nessa etapa devem estar ligado diretamente ao que é requerido pelo problema e atender esses requisitos a fim de atender as necessidades do contexto é de suma importância, pois alguns dos já citados desafios encontrados no desenvolvimento de sistema de AM estão relacionados aos dados que serão utilizados \cite{Aurélien}
+
+A quantidade de dados coletados nessa etapa ainda é incerta, porém é levado em consideração que quanto maior a quantidade de dados coletados, melhor. Neste trabalho foram utilizados sinais neuromusculares obtidos por aparelhos denomidados sEMG, assim como foi demonstrado no (...)
+
+\subsection{Processar Dados}
+
+\subsection{Selecionar o Modelo}
+
+\subsection{Treinar o Modelo}
+
+\subsection{Apresentar a solução}
+
 \subsection{Sinais sEMG}
 \subsection{Classificações}
 \subsection{Pré-processamento}
