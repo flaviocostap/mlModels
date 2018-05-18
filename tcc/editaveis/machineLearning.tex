@@ -18,10 +18,17 @@ Considerando ainda que o Aprendizado de Máquina, com seu foco na predição no 
 Como é demonstrado no guia para desenvolvedores em aprendizado de máquina esses modelos de são classificados quanto ao seu tipo de aprendizado, são duas amplas categorias que se diferem de acordo com a natureza do “sinal” ou “feedback” de aprendizado disponível para um sistema de aprendizado, sendo \cite{Aurélien}:
  
 \subsection{Aprendizado Supervisionado}
-O objetivo principal do aprendizado supervisionado é ensinar um modelos através de uma base de treino etiquetada na qual nos permite fazer predições de futuros dados. O termos supervisionado se refere a um grupo de dados onde o sinal, ou etiqueta desejada já é conhecida. As tarefas do aprendizado supervisionado podem ser divididas em classificação e regressão, onde a classificação tem as etiquetas esperadas com um valor fixo, como por exemplo uma avaliação binária, e a regressão é referente a um sinal com valor contínuo esperado, como uma regressão polinomial \cite{kirk2014thoughtful}.
+O objetivo principal do aprendizado supervisionado é ensinar um modelos através de uma base de treino etiquetada na qual nos permite fazer predições de futuros dados. O termos supervisionado se refere a um grupo de dados onde o sinal, ou etiqueta desejada já é conhecida. As tarefas do aprendizado supervisionado podem ser divididas em classificação e regressão, onde a classificação tem as etiquetas esperadas com um valor fixo, como por exemplo uma avaliação binária, e a regressão é referente a um sinal com valor contínuo, como uma regressão polinomial \cite{geron2017hands}, ou segundo \cite{kirk2014thoughtful} é ajustar o conjunto de dados á uma função qualquer.
+
+Exemplos de algoritmos existentes \cite{kirk2014thoughtful}:
+\begin{itemize}
+    \item \textit{\textbf{KNN}, K-Nearest Neighbor}: (K vizinhos mais próximos) Determina o rótulo de classificação de um dado baseando nos valores das amostras vizinhas mais próximos \cite{kirk2014thoughtful}.
+    \item \textit{Decision Trees and Random Forests}: 
+    \item \textit{Support Vector Machines (SVMs)}: 
+\end{itemize}
 
 \subsection{Aprendizado não-supervisionado}
-Ao contrário do aprendizado supervisionado, os dados não estão etiquetados ou até mesmo possuem uma estrutura desconhecida. Utilizando as técnicas do aprendizado não supervisionado é possível explorar a estrutura para extrair informações necessárias dos dados sem a orientação de uma variável de resultado conhecida ou uma função de recompensa \cite{kirk2014thoughtful} .
+Ao contrário do aprendizado supervisionado, os dados não estão etiquetados ou até mesmo possuem uma estrutura desconhecida. Utilizando as técnicas do aprendizado não supervisionado é possível explorar a estrutura para extrair informações necessárias dos dados sem a orientação de uma variável de resultado conhecida ou uma função de recompensa \cite{geron2017hands} .
 
 Exemplos de algoritmos existentes \cite{kirk2014thoughtful}:
 \begin{itemize}
