@@ -17,9 +17,33 @@ Em termos mais técnicos dentro do AM, o ponto importante do entendimento do con
 
 Os dados coletados nessa etapa devem estar ligado diretamente ao que é requerido pelo problema e atender esses requisitos a fim de atender as necessidades do contexto é de suma importância, pois alguns dos já citados desafios encontrados no desenvolvimento de sistema de AM estão relacionados aos dados que serão utilizados \cite{geron2017hands}
 
-A quantidade de dados coletados nessa etapa ainda é incerta, porém é levado em consideração que quanto maior a quantidade de dados coletados, melhor. Neste trabalho foram utilizados sinais neuromusculares obtidos por aparelhos denomidados sEMG, assim como foi demonstrado no (...)
+A quantidade de dados coletados nessa etapa ainda é incerta, porém é levado em consideração que quanto maior a quantidade de dados coletados, melhor. A quantidade de dados coletados nessa etapa ainda é incerta, porém é levado em consideração que quanto maior a quantidade de dados coletados, melhor. Neste trabalho é utilizado sinais neuromusculares captados por dispositivos sEMG. 
+
+\subsection{Analisar os Dados}
+
+Antes de passar os dados para o algoritmo de AM é considerado uma boa prática inspecionar seus dados para identificar problemas e obter insights sobre os dados que se está utilizando \cite{Amazon}, quanto melhor for os dados, melhor será o modelo preditivo que está utilizando esses dados.
+
+Segundo o guia do desenvolvedor de aprendizado de máquina da Amazon, enquanto você está analisando seus dados é importante responder às seguintes perguntas:
+\begin{itemize}  
+    \item Os dados correspondem às suas expectativas?
+    \item Houveram problemas nas coletas dos dados?
+    \item Quais classes são as mais frequentes dentre os seus dados?
+    \item Existem mais valores ausentes ou inválidos do que o esperado?
+\end{itemize}
+
+Além de construir um resumo dos dados relacionados a essas perguntas, também é uma boa prática conhecer a correlação entre cada variável e a classe de destino. Em geral, você deseja incluir variáveis com alta correlação, porque elas são aquelas com maior poder preditivo (sinal) e deixam de fora as variáveis com baixa correlação, porque são provavelmente irrelevante \cite{Amazon}. 
+
+Essas práticas são importantes para conhecer os dados que serão utilizados podendo prevenir ou facilitar a identificação de possíveis erros futuros com relação a utilização dos dados.
 
 \subsection{Processar Dados}
+
+Após a etapa de análise dos dados, é necessário tornar as variáveis mais significativas. essa etapa é conhecida como processamento de features. Essa é a etapa responsável por preparar os dados para serem consumidos pelos algoritmos de AM e consiste em três etapas mais comuns \cite{prepareDataML}.
+
+Formatar: Os dados selecionados podem não estar no formato desejado ou os dados estão em um banco de dados relacional e é desejado que os mesmos estejam em um arquivo simples. Formatar os dados para um padrão que facilita o trabalho com esses dados é a primeira etapa do processamento.
+
+Limpar: Remover ou consertar os dados que faltam dentro de um banco de dados  Pode haver instâncias de dados incompletas e não conter os dados que você acredita que precisam solucionar o problema. Essas instâncias podem precisar ser removidas. Além disso, pode haver informações confidenciais em alguns dos atributos e esses atributos podem precisar ser anonimizados ou removidos dos dados completamente.
+
+Selecionar Amostras: No caso de se trabalhar com uma grande massa de dados, nem sempre todos esses dados serão utilizados. A quantidade exagerada de dados pode levar à tempos de execução muito elevados e maiores requisitos computacionais. Selecionar uma amostra representativa dos dados selecionados pode ser muito mais rápida para explorar os resultados. 
 
 \subsection{Selecionar o Modelo}
 
