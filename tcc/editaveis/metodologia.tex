@@ -1,17 +1,19 @@
 \chapter{Metodologia}
 \section{Processo de construção de uma aplicação de Aprendizado de Máquina}
 
-Segundo o guia do desenvolvedor de aprendizado de máquina da Amazon e o livro \textit{Hands-on machine learning with Scikit-Learn and TensorFlow: concepts, tools, and techniques to build intelligent systems} escrito por \cite{geron2017hands}, o processo de desenvolvimento de uma aplicação de AM é interativo e envolve uma série sequencial de passos que de maneira geral vão desde entender a \textit{big picture} até a apresentação da solução de proposta da aplicação de AP. O processo pode ser visualizado pela representação \textit{Business Process Model and Notation} - BPNM - da figura:
+Segundo o guia do desenvolvedor de aprendizado de máquina da \cite{Amazon} e o livro \textit{Hands-on machine learning with Scikit-Learn and TensorFlow: concepts, tools, and techniques to build intelligent systems} escrito por \cite{geron2017hands}, o processo de desenvolvimento de uma aplicação de aprendizado de máquina é iterativo e envolve uma série sequencial de passos que de maneira geral vão desde entender a \textit{big picture} até a apresentação da solução de proposta da aplicação. O processo pode ser visualizado pela representação \textit{Business Process Model and Notation} - BPNM - da figura:
 
 Figura do processo
 
 \subsection{Abstrair o problema no contexto}
-
-Entender o principal problema de AM do contexto e a natureza desse problema observando o quais respostas o modelo escolhido deverá predizer. Formular o problema é primeiro passo para decidir o que é desejado predizer.
+0
+O primeiro passo é entender o que é será predito, ou seja analisar a natureza do problema observando quais respostas o modelo escolhido deverá predizer, para auxiliar na solução do problema \cite{geron2017hands}.
 
 Imagine o seguinte cenário, no qual você deseja fabricar produtos, porém sua decisão de qual produto fabricar depende do número de vendas em potencial. Nesse cenário, você precisa saber a quantidade de vezes que cada produto foi comprado, ou seja, predizer o número de vendas. Existem diversas maneiras de definir esse problema utilizando AM, porém a escolha de como definir o problema depende do seu caso de uso ou necessidade comercial \cite{Amazon}.
 
 Em termos mais técnicos dentro do AM, o ponto importante do entendimento do contexto e a abstração do problema, é que essa etapa tem um papel fundamental na escolha dos modelos, pois tendo o entendimento da natureza do problema será selecionado o modelo para predizer os resultados para esse dado problema com base no tipo de aprendizado mais adequado a este contexto.
+
+Além disto é necessario definir claramente quais os objetivos deverão ser atingidos, qual a métrica de desempenho utilizar para validar o modelo, quais algoritmos utilizar, qual o desempenho esperado e com estas e outras respostas será possível enquadrar o problema, é supervisionado, não supervisionado ou por reforço? É classificação, regressão ou outra coisa\cite{geron2017hands}. Enfim essa etapa de análise serve para orientar o trabalho para evitar a criação de modelos que não respodem o problema akém de otimizar o esforço no desenvolvimento \cite{Amazon}.
 
 \subsection{Coleta de dados}
 
@@ -37,7 +39,7 @@ Essas práticas são importantes para conhecer os dados que serão utilizados po
 
 \subsection{Processar Dados}
 
-Após a etapa de análise dos dados, é necessário tornar as variáveis mais significativas. essa etapa é conhecida como processamento de features. Essa é a etapa responsável por preparar os dados para serem consumidos pelos algoritmos de AM e consiste em três etapas mais comuns \cite{prepareDataML}.
+Após a etapa de análise dos dados, é necessário tornar as variáveis mais significativas. essa etapa é conhecida como processamento de \textit{features}. Essa é a etapa responsável por preparar os dados para serem consumidos pelos algoritmos de AM e consiste em três etapas mais comuns \cite{prepareDataML}.
 
 Formatar: Os dados selecionados podem não estar no formato desejado ou os dados estão em um banco de dados relacional e é desejado que os mesmos estejam em um arquivo simples. Formatar os dados para um padrão que facilita o trabalho com esses dados é a primeira etapa do processamento.
 
@@ -52,6 +54,6 @@ Selecionar Amostras: No caso de se trabalhar com uma grande massa de dados, nem 
 \subsection{Apresentar a solução}
 
 \subsection{Sinais sEMG}
-\subsection{Features}
-\subsection{Classificações}
+\subsection{\textit{features}
+\subse}ction{Classificações}
 \subsection{Pré-processamento}

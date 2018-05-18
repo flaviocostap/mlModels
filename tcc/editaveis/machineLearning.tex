@@ -2,9 +2,8 @@
 \section{Definição}
 O termo Aprendizado de Máquina do inglês Machine Learning, é considerado uma disciplina dentro da área da Inteligência Artificial na qual é focada na construção de softwares computacionais dotados da capacidade de aprender autonomamente \cite{Hosch}. Essa disciplina trabalha com o estudo e construção de algoritmos capazes de aprender com seus “erros” e fazerem previsões sobre determinados dados, sendo esses algoritmos de indução considerados um grande passo na descoberta do conhecimento \cite{Kohavi}.
 
-Apesar da dada complexidade que é a área do Aprendizado de Máquina, essa disciplina pode ser contextualizada de maneira mais geral como o campo de estudo que dá ao computador a habilidade de aprender sem ser explicitamente programado \cite{Arthur}, porém uma visão mais orientada para a área da engenharia, que segundo Tom Mitchell, é dito que um programa de computador aprende com a experiência “E” em relação a alguma tarefa “T” e alguma medida de desempenho “P”, se seu desempenho em “T” e medido por “P” melhora com a experiência “E” \cite{Tom}.
+Apesar da complexidade que é a área do Aprendizado de Máquina, essa disciplina pode ser contextualizada de maneira mais geral como o campo de estudo que dá ao computador a habilidade de aprender sem ser explicitamente programado \cite{Arthur}, porém uma visão mais orientada para a área da engenharia, que segundo Tom Mitchell, é dito que um programa de computador aprende com a experiência “E” em relação a alguma tarefa “T” e alguma medida de desempenho “P”, se seu desempenho em “T” e medido por “P” melhora com a experiência “E” \cite{Tom}.
 
-\section{Breve histórico}
 \section{Usos do Aprendizado de Máquina}
 O Aprendizado de Máquina serve de auxílio para diversos contextos de naturezas diferentes, sendo assim consegue auxiliar com o uso de dados históricos para escolher a melhor decisão de um negócio, como por exemplo uma possível aplicação de um modelo de Aprendizado de Máquina é predizer qual a probabilidade de um cliente comprar um determinado produto com base no seu histórico de compras passadas \cite{Amazon}. Este trabalho de conclusão de curso tem por objetivo geral trabalhar com a aplicação de um modelo de Aprendizado de Máquina na área da saúde, sendo que já existem estudos semelhantes que já evidenciaram os resultados da utilização desses modelos nessa mesma área.
 
@@ -13,34 +12,47 @@ Na saúde é uma tendência crescente na indústria médica, graças ao advento 
 \section{Funcionamento de um algoritmo de Aprendizado de Máquina}
 Cada algoritmo tem suas peculiaridades quanto ao seu funcionamento, entretanto esses algoritmos em seu estado mais básico trabalham com a entrada de dados num sistema que processa os mesmos utilizando um modelo de predição geralmente já postulado no qual derivam um resultado que se refere à dada predição que o modelo fez sobre os dados de entrada, além desse processo de entrada e saída, esses algoritmos possuem outros métodos e técnicas para validar seu funcionamento, como por exemplo declarando uma dada porcentagem para avaliar o grau da acurácia de seu resultado, permitindo assim verificar se a predição gerada pelo algoritmo se aproxima do resultado esperado do contexto dos dados, o que é utilizado como parâmetro para avaliar a situação do algoritmo, que nesse caso se remete ao cenário de treinamento desse sistema, sendo esse e outras situações melhor contextualizado neste capítulo.
 
-Considerando ainda que o Aprendizado de Máquina, com seu foco na predição no desenvolvimento de algoritmos capazes de aprender com seus erros, essa disciplina é muito atrelada a otimização matemática, além de que uma de suas principais características utiliza de métodos estatísticos para validar seu funcionamento, sendo que todos esses aspectos matemáticos estão ligados à complexidade computacional o que linhas gerais é a representação de um algoritmo de Aprendizado de Máquina.
+Considerando ainda que o Aprendizado de Máquina, com seu foco na predição no desenvolvimento de algoritmos capazes de aprender com seus erros, essa disciplina é muito atrelada a otimização matemática, além de que uma de suas principais características utiliza de métodos estatísticos para validar seu funcionamento, sendo que todos esses aspectos matemáticos estão ligados à complexidade computacional o que em linhas gerais é a representação de um algoritmo de Aprendizado de Máquina.
 
 \section{Tipos de Aprendizado}
 Como é demonstrado no guia para desenvolvedores em aprendizado de máquina esses modelos de são classificados quanto ao seu tipo de aprendizado, são duas amplas categorias que se diferem de acordo com a natureza do “sinal” ou “feedback” de aprendizado disponível para um sistema de aprendizado, sendo \cite{Aurélien}:
-    
-Aprendizado Supervisionado: O objetivo principal do aprendizado supervisionado é ensinar um modelos através de uma base de treino etiquetada na qual nos permite fazer predições de futuros dados. O termos supervisionado se refere a um grupo de dados onde o sinal, ou etiqueta desejada já é conhecida. As tarefas do aprendizado supervisionado podem ser divididas em classificação e regressão, onde a classificação tem as etiquetas esperadas com um valor fixo, como por exemplo uma avaliação binária, e a regressão é referente a um sinal com valor contínuo esperado.
+ 
+\subsection{Aprendizado Supervisionado}
+O objetivo principal do aprendizado supervisionado é ensinar um modelos através de uma base de treino etiquetada na qual nos permite fazer predições de futuros dados. O termos supervisionado se refere a um grupo de dados onde o sinal, ou etiqueta desejada já é conhecida. As tarefas do aprendizado supervisionado podem ser divididas em classificação e regressão, onde a classificação tem as etiquetas esperadas com um valor fixo, como por exemplo uma avaliação binária, e a regressão é referente a um sinal com valor contínuo esperado, como uma regressão polinomial \cite{kirk2014thoughtful}.
 
-Aprendizado não-supervisionado: Ao contrário do aprendizado supervisionado, os dados não estão etiquetados ou até mesmo possuem uma estrutura desconhecida, Utilizando as técnicas do aprendizado não supervisionado é possível explorar a estrutura para extrair informações necessárias dos dados sem a orientação de uma variável de resultado conhecida ou uma função de recompensa.
+\subsection{Aprendizado não-supervisionado}
+Ao contrário do aprendizado supervisionado, os dados não estão etiquetados ou até mesmo possuem uma estrutura desconhecida. Utilizando as técnicas do aprendizado não supervisionado é possível explorar a estrutura para extrair informações necessárias dos dados sem a orientação de uma variável de resultado conhecida ou uma função de recompensa \cite{kirk2014thoughtful} .
+
+Exemplos de algoritmos existentes \cite{kirk2014thoughtful}:
+\begin{itemize}
+    \item \textit{Clustering}: É utilizado para agrupar padrões, ou melhor, no treinamento é introduzido um conjunto de dados e o algoritmo procura relações entre eles agrupandos tais dados em grupos por grau de semelhança, na predição, com um novo dado inserido o algoritmo busca padrões existentes nele e cataloga-o no respectivo grupo \cite{kirk2014thoughtful}.   
+    \item \textit{Collaborative Filtering}: É utilizado no desenvolvimento de sistemas de recomendação, basicamente utiliza informações cruzadas dos usuários para predizer gostos em comum, por exemplo se você compra bastante cerveja em um site de compras, o sistema recomendará cerveja para você, caso um grupo significante de usuários compre cerveja e carvão, o sistema recomendará conjuntamente o carvão. \cite{kirk2014thoughtful}.  
+\end{itemize}
+
+\subsection{Aprendizado por reforço} 
+Utiliza um sistema de recompensas para reforçar a continuidade de um comportamento esperado, como por exemplo um jogo onde o personagem é beneficiado com uma recompensa sempre que atinge um golpe no adversário, quanto mais forte for o golpe maior a recompensa, deste modo o modelo memoriza quais os comandos geraram as maiores recompensas \cite{kirk2014thoughtful}.
+
 
 \section{Desafios do Aprendizado de Máquina}
-Em um projeto de Aprendizado de Máquina, existem diversos aspectos que podem levar a um péssimo resultado ou problemas na execução do mesmo, em resumo, a tarefa principal do Aprendizado de Máquina é a seleção de um algoritmo, ou modelo, e treiná-lo utilizando algum tipo de dado, logo onde se espera que os problemas de um péssimo resultado pode se encontrar tanto o próprio algo modelo ou nos dados que o modelo utilizou \cite{Aurélien}.
+Em um projeto de Aprendizado de Máquina, existem diversos aspectos que podem levar a um péssimo resultado ou problemas na execução do mesmo, em resumo, a tarefa principal do Aprendizado de Máquina é a seleção de um algoritmo, ou modelo, e treiná-lo utilizando algum tipo de dado, logo ao analisar os problemas de um provenientes de um péssimo resultado, pode se o encontrar principalmente duas origenes para o problema a escolha de um \"algoritmo ruim\" ou  \"dados ruins\".\cite{Aurélien}.
 
-Quanto aos dados podem ser por conta de:
+O conceito de \"dados ruins\", não deve ser considerado ao per da letra, sendo um pouco mais complexo, e envolve principalemtne a coleta destes e tramento associado. Para exemplificar,  pode-se listar alguns exemplos retirados do livro \cite{Aurélien}:
 
-Quantidade insuficiente de dados de treino: Para um funcionamento pleno de um sistema de machine learning  é necessário uma grande quantidade de dados, pois até mesmo simples problemas é geralmente necessário milhares de exemplos logo para problemas mais complexos, como análise de imagem e reconhecimento de voz a escala necessária está na casa dos milhões de exemplares.
+\begin{itemize}
+    \item \textbf{Quantidade insuficiente de dados de treino}: Para um funcionamento pleno de um sistema de machine learning  é necessário uma grande quantidade de dados, pois até mesmo simples problemas é geralmente necessário milhares de exemplos logo para problemas mais complexos, como análise de imagem e reconhecimento de voz a escala necessária está na casa dos milhões de exemplares.
+    \item \textbf{Dados não representativos}: Com o intuito de alcançar a boa generalização é crucial que os dados de treino sejam representativos para os casos nos quais é demandada a generalização.
+    \item \textbf{Dados de baixa qualidade}: É evidente que caso os dados de treinos tenham muitos erros e ruídos, originados de um péssimo processo de coleta, isso irá dificultar o sistema a detectar os padrões necessários ou até mesmo alcançar o mínimo de performance requerido.
+    \item \textbf{\textit{Features}  irrelevantes}: Seguindo a lógica por trás do ditado “Lixo entra e lixo sai” (garbage-in garbage-out), o sistema apenas será capaz de gerar resultados caso exista dados contendo o suficiente de features relevantes ao invés das não relevantes.
+\end{itemize}
 
-Dados não representativos: Com o intuito de alcançar a boa generalização é crucial que os dados de treino sejam representativos para os casos nos quais é demandada a generalização.
+Com relação a \"algoritmo ruim\", também não deve ser interpretado literalmente, ou seja, um \"algoritmo ruim\" pode ser proveniente da escolha de um modelo de algoritmo para tratar um problema no qual o algoritmo não foi otimizado para solucionar, exitem dois principais problemas associados ao manejo de um algoritmo, sendo eles:
 
-Dados de baixa qualidade: É evidente que caso os dados de treinos tenham muitos erros e ruídos, originados de um péssimo processo de coleta, isso irá dificultar o sistema a detectar os padrões necessários ou até mesmo alcançar o mínimo de performance requerido. 
-	
-Features  irrelevantes: Seguindo a lógica por trás do ditado “Lixo entra e lixo sai” (garbage-in garbage-out), o sistema apenas será capaz de gerar resultados caso exista dados contendo o suficiente de features relevantes ao invés das não relevantes.
-
-Overfitting dos dados de treino: Overfitting acontece quando o modelo apresenta uma boa performance na sua base de treino, mas não generaliza muito bem.
-
-Underfitting dos dados de treino: Ao contrário do Overfitting, Underfitting acontece quando o modelo é muito simples para ser utilizado com a estrutura de dados selecionada.
+\begin{itemize}
+    \item \textbf{\textit{Overfitting} dos dados de treino}: \textit{Overfitting} acontece quando o modelo apresenta uma boa performance na sua base de treino, mas não generaliza muito bem, ou seja o modelo pode ser considerado \"viciado\", um erro bem comum ocorrendo no treinamento do modelo, por exemplo uma amostragem com muito ruido pode encontrar algum padão no próprio ruido e generalizar para o mesmo, não generalizando para novos dados.
+    \item \textbf{\textit{Underfitting} dos dados de treino}: Ao contrário do \textit{Overfitting}, \textit{Underfitting} acontece quando o modelo é muito simples para ser utilizado com a estrutura de dados selecionada, resultando em um modelo imprecisso para ser utilizado no mundo real, isto devido aos dados reais serem provavelmente mais complexos que os utilizados no treinamento do modelo.
+\end{itemize}
 
 \section{Ferramentas}
-\section{Algoritimos}
 
 
 
