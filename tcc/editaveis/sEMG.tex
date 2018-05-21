@@ -9,13 +9,14 @@ A sEMG caracteriza-se pela utilização de um dispositivo sobre a pele do pacien
 O sinal EMG é registrado normalmente por eletrodos de superfície, mas pode também ser utilizado eletrodos de agulha \cite{eftaxias2015detection}.
 
 \section{Características do sinal}
+Para melhor entender as características do sinal gerado pelo sEMG, introduzimos um breve resumo sobre os elementos que compõe a musculatura humana.
 
-\subsection{Contração musuclar}
-O proecesso de ativiação muscular começa com a liberação acetilcolina (ACo - neurotransmissor que opera na comunicação de impulso nervoso do neurônio para as celulares musuclares \cite{flores2005estructura}) pelo axônio do neurônio motor até a ligação muscular. Esta ACo liberada como consequência no potencial de ação pré-sinaptico, resulta na exitação das fibras musculares no processo pós-sinaptico (PEPS) devido a abertura dos canais ionicos na membrana plámatica, no caso os receptores nicotínicos, através dos PEPS abertos canais de cálcio necessitantes de voltagem se abrem provocando o potencial de ação pós-sinapitico, que se propraga ao longo da fribra muscular \cite{da2005detecccao}.
+\subsection{Contração muscular}
+O processo de ativação muscular começa com a liberação acetilcolina (ACo - neurotransmissor que opera na comunicação de impulso nervoso do neurônio para as celulares musculares \cite{flores2005estructura}) pelo axônio do neurônio motor até a ligação muscular. Esta acetilcolina liberada como consequência no potencial de ação pré-sináptico, resulta na excitação das fibras musculares no processo pós-sináptico (PEPS) devido a abertura dos canais iónicos na membrana plasmática, no caso os receptores nicotínicos, através dos PEPS abertos canais de cálcio necessitantes de voltagem se abrem provocando o potencial de ação pós-sináptico, que se propaga ao longo da fibra muscular \cite{da2005detecccao}.
 
-A contração muscular ocorre com liagações quimicas envolvendo cálcio e as enzimas Troponina, actina e miosina, com a liberação cálcio Ca2+ devido a depolarização nesse processo de propagação, isto devido a ligação de cálcio a ensima troponina, que libera os sitios de ligação na actina para a miosiona, provocando o encurtamento das fibras e logo a contração do musculo, a desconecção da miosina com a actina consume ATP (Trifosfato de adenosina, um nucleotídeo encarregado do armazenamento de energia nas ligações químicas)\cite{da2005detecccao}. 
+A contração muscular ocorre com ligações químicas envolvendo cálcio e as enzimas Troponina, actina e miosina, com a liberação cálcio Ca2+ devido a depolarização nesse processo de propagação, isto devido a ligação de cálcio a enzima troponina, que libera os sítios de ligação na actina para a miosina, provocando o encurtamento das fibras e logo a contração do músculo, a desconexão da miosina com a actina consume ATP (Trifosfato de adenosina, um nucleotídeo encarregado do armazenamento de energia nas ligações químicas)\cite{da2005detecccao}. 
 
-O relazamento musuclar ocorre quando o cálcio e recapturado pelo retículo sarcoplasmático (reticulo endoplasmatico especializado no armazenamento de íons de cálcio), por uma bomba de ATP \cite{da2005detecccao}. 
+O relaxamento muscular ocorre quando o cálcio é recapturado pelo retículo sarcoplasmático (retículo endoplasmático especializado no armazenamento de íons de cálcio), por uma bomba de ATP \cite{da2005detecccao}. 
 
 \subsection{Unidade Motora}
 Primeiramente temos a Unidade motora (MU - \textit{Motor Unit}), uma coleção de fibras musculares inervadas por um único neurônio motor alfa, sendo a menor unidade operacional de um músculo, podendo ser ativada pelo controle neural. A atividade muscular ocorre a ativação do neurônio alfa dentro da MU, produzindo tensão nas fibras musculares ao passo que ocorre a propagação do sinal ao longo das fibras, o músculo é relaxado quando o neurônio alfa para a atividade \cite{yousefi2014characterizing}.
@@ -31,7 +32,7 @@ A figura ~\ref{UnidadeMotora}, representa um esquema simplificado da comunicaç�
     \label{UnidadeMotora}
 \end{figure}
 
-A equação que descreve um sEMG é ~\ref{eq:EMGT}. Um sEMG é a medida ao longo do tempo da contração de um MUP m, de um total de N MUPs, a função n(t) representa possíveis ruídos encontrados na coleta, ambas as funções são parametrizadas pelo tempo \cite{yousefi2014characterizing}.
+A equação que descreve um sEMG é ~\ref{eq:EMGT}. Um sEMG é a medida ao longo do tempo da contração de um MUP m, de um total de \textit{N, MUPs}, a função n(t) representa possíveis ruídos encontrados na coleta, ambas as funções são parametrizadas pelo tempo \cite{yousefi2014characterizing}.
 
 \begin{equation} \label{eq:EMGT}
     EMG_{t} =\sum_{m=1}^{N} MUPs_{m}(t)+n(t)
@@ -45,13 +46,13 @@ Com relação a DP o tremor de repouso é o sintoma mais comum, possuindo uma fr
 \section{Usos}
 A sEMG é largamente utilizada por pelas diversas áreas científicas que estudam o movimento humano, como Médicos, Fisioterapeutas, Fonoaudiólogos e profissionais em Educação Física\cite{nascimento2012surface}.
 
-\section{sEMG e machine learning}
-A utilização de Aprendizado de máquinas em conjunto com sEMG para o auxílio na detecção de alguma doença, já é um tópico bem explorado possuindo diversas publicações relacionadas a esta área de estudo, na base de dados Capes a string de busca '(emg AND (Machine learning))' retornou 4.217 resultados, no \textit{ScienceDirect} a mesma \textit{string} retornou 2.396 no \textit{ieeexplore} 169.
+\section{sEMG e aprendizado de máquinas}
+A utilização de Aprendizado de máquinas em conjunto com sEMG para o auxílio na detecção de alguma doença, já é um tópico bem explorado possuindo diversas publicações relacionadas a esta área de estudo, na base de dados Capes a string de busca '(emg AND (machine learning))' retornou 4.217 resultados, no \textit{ScienceDirect} a mesma \textit{string} retornou 2.396 no \textit{ieeexplore} 169.
 
-Como observado na revisão acadêmica de \cite{yousefi2014characterizing}, os estudos relacionados a sEMG e machine learning são separados em  dois tipos de transtornos neuromusculares Miopatia e Neuropatia, onde Miopatia refere-se a um grupo de patologias que atingem diretamente o tecido muscular sem relação com disfunções do sistema nervoso. Já a Neuropatia, onde encontra-se a doença de Parkinson, é caracterizada por qualquer dano nos nervos envolvidos no controle muscular. Ambos os casos possuem diferenças e similaridades, em resumo segundo \cite{yousefi2014characterizing} as diversas técnicas de Aprendizado de máquinas sobre sEMG, pode-se catalogá-las em três etapas, análise, decomposição e classificação, sendo que não é necessáriamente sequencial, podendo ser um processo iterativo.
+Como observado na revisão acadêmica de \cite{yousefi2014characterizing}, os estudos relacionados a sEMG e aprendizado de máquinas são separados em  dois tipos de transtornos neuromusculares Miopatia e Neuropatia, onde Miopatia refere-se a um grupo de patologias que atingem diretamente o tecido muscular sem relação com disfunções do sistema nervoso. Já a Neuropatia, onde encontra-se a doença de Parkinson, é caracterizada por qualquer dano nos nervos envolvidos no controle muscular. Ambos os casos possuem diferenças e similaridades, em resumo segundo \cite{yousefi2014characterizing} as diversas técnicas de Aprendizado de máquinas sobre sEMG, pode-se catalogá-las em três etapas, análise, decomposição e classificação, sendo que não é necessariamente sequencial, podendo ser um processo iterativo.
 
 \subsection{Análise}
-O pré-processamento ou análise dos dados é uma das partes mais importantes do processo de aprendizado, essa etapa consiste na etapa seguinte a coleta possuindo alguns objetivos como organizar os dados em conjuntos, tratar possíveis problemas com ruídos ou valores desconhecidos, também é comum utilizar esta Esta etapa necessita deve ser levada cuidadosamenteetapa simplesmente aprender mais sobre os modelos plotando gráficos, ou ainda realizar tratamento nos dados como transformações lineares para um conjunto de dados mais simples de ser trabalhado. \cite{batista2003pre} A figura ~\ref{tremor_i_parkinson} representa o sinal EMG do tremor de intensão do grupo com a doença de Parkinson e  a figura ~\ref{tremor_intensao} corresponde ao grupo de controle, estes modelos foram coletados na fase de pré-processamento do projeto.
+O pré-processamento ou análise dos dados é uma das partes mais importantes do processo de aprendizado, essa etapa ocorre apos a coleta dos dados, possuindo alguns objetivos como organizar os dados em conjuntos, identificar possíveis problemas como ruídos ou valores desconhecidos, também é comum utilizar esta etapa para simplesmente aprender mais sobre os modelos plotando gráficos e colhendo mais informações, ou ainda realizar tratamento nos dados como transformações lineares para um conjunto de dados mais simples de ser trabalhado. \cite{batista2003pre}. A figura ~\ref{tremor_i_parkinson} representa o sinal EMG do tremor de intensão do grupo com a doença de Parkinson e a figura ~\ref{tremor_intensao} corresponde ao grupo de controle, estes modelos foram coletados na fase de pré-processamento do projeto.
 
 
 \begin{figure}[!htb]
@@ -69,11 +70,11 @@ O pré-processamento ou análise dos dados é uma das partes mais importantes do
 \end{figure}
 
 \subsection{Decomposição}
-A decomposição de um sinal EMG consiste de cinco etapas, aquisição, segmentação, extração de \textit{features}, agrupamento de MUPs e atribuição de MUP \cite{yousefi2014characterizing}.
+Segundo \citeonline{yousefi2014characterizing} a decomposição de um sinal EMG consiste de cinco etapas, aquisição, segmentação, extração de \textit{features}, agrupamento de MUPs e atribuição de MUP.
 
-A seleção das \textit{features} ou características, é a de distinção de um sinal bruto em informações úteis, esta informação tratada consiste uma \textit{feature}, além disto busca-se remover a parte indesejada do sinal e interferências associadas \cite{phinyomark2012feature}.
+A seleção das \textit{features} ou características, é a distinção de um sinal bruto em informações úteis, esta informação tratada consiste uma \textit{feature}, a qual será utilizada para treinar o modelo, além disto busca-se remover a parte indesejada do sinal e interferências associadas \cite{phinyomark2012feature}.
 
-Esta etapa necessita deve ser trabalhada cuidadosamente, uma vez que erros podém prejudicar a classificação dos modelos, na pesquisa realizada por \cite{phinyomark2012feature} verificou-se que através de gráficos de dispersão, analise estatistica e classificação indicou que a maioria das \textit{features} no dominio do tempo são redudantes e desnecessarias, sendo melhor agrupadas em quatro tipos energia e complexidade, frequência, modelo de previsão e depedência do tempo. O estudo recomendou o uso das seguintes \textit{features}:
+Esta etapa deve ser trabalhada cuidadosamente, uma vez que erros podem prejudicar a classificação dos modelos, na pesquisa realizada por \cite{phinyomark2012feature} verificou-se que através de gráficos de dispersão, analise estatística e classificação indicou que a maioria das \textit{features} no domínio do tempo são redundantes e desnecessárias, sendo melhor agrupadas em quatro tipos energia e complexidade, frequência, modelo de previsão e dependência do tempo. O estudo recomendou o uso das seguintes \textit{features}:
 
 \begin{itemize}
     \item MAV: método de informação de energia.
@@ -83,12 +84,12 @@ Esta etapa necessita deve ser trabalhada cuidadosamente, uma vez que erros podé
     \item MAVS: depedência  do tempo.
 \end{itemize}
 
-Outro estudo que cita algumas \textit{features} compiladas de outros trabalhos, é \cite{yousefi2014characterizing}, sendo que as \textit{features} são:
+Outro estudo que cita algumas \textit{features} compiladas de outros trabalhos, De acordo com \citeonline{yousefi2014characterizing} as \textit{features} são:
 \begin{itemize}
     \item Amplitude pico a pico, relaciona os valores nas extremidades minima e máxima de ativação de uma MUP.
     \item Duração entre inicio e termino de ativação de uma MUP.
-    \item Área de uma MUP, é obtida integrando á area resultante da duração do movimento de uma MUP.
+    \item Área de uma MUP, é obtida integrando á área resultante da duração do movimento de uma MUP.
 \end{itemize}
 
-Um bom resultado na decomposição foi realizado por \cite{yousefi2014characterizing} que realizou uma classificação utilizando o algoritimo SVM, o qual obteve uma acuracia de 70.4\% no modelo, utilizando uma tecnica de extração de \textit{feature} \textit{wavelet}, que utiliza uma função capaz de remodelar uma função no dominio do tempo em diferentes escalas de frequência e tempo, após a utilização da tecinica o algoritimo SVM obteve uma acuracia de 99.3\%.
+Um bom resultado na decomposição foi realizado por \cite{yousefi2014characterizing} que realizou uma classificação utilizando o algorítimo SVM, o qual obteve uma acurácia de 70.4\% no modelo, utilizando uma técnica de extração de \textit{feature} \textit{wavelet}, que utiliza uma função capaz de remodelar uma função no domínio do tempo em diferentes escalas de frequência e tempo, após a utilização desta técnica o algorítimo SVM obteve uma acurácia de 99.3\%.
 
