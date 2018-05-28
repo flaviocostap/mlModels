@@ -84,12 +84,23 @@ Esta etapa deve ser trabalhada cuidadosamente, uma vez que erros podem prejudica
     \item MAVS: depedência  do tempo.
 \end{itemize}
 
-Outro estudo que cita algumas \textit{features} compiladas de outros trabalhos, De acordo com \citeonline{yousefi2014characterizing} as \textit{features} são:
+Outro estudo que cita algumas \textit{features} compiladas de outros trabalhos, Como observado na figura \ref{featuresEMG}, de acordo com \citeonline{yousefi2014characterizing} as \textit{features} são as seguintes:
+
 \begin{itemize}
-    \item Amplitude pico a pico, relaciona os valores nas extremidades minima e máxima de ativação de uma MUP.
-    \item Duração entre inicio e termino de ativação de uma MUP.
-    \item Área de uma MUP, é obtida integrando á área resultante da duração do movimento de uma MUP.
+    \item \textbf{Amplitude pico a pico}: relaciona os valores nas extremidades minima e máxima de ativação de uma MUP.
+    \item \textbf{Tempo de ativação}: descreve a duração entre inicio e termino de ativação de uma MUP.
+    \item \textbf{Área de uma MUP}: é obtida integrando á área do sinal gerado, resultante da duração do movimento de uma MUP.
+    \item \textbf{Espessura}: é a razão entre a área e a Amplitude.
+    \textbf{Tamanho}:
 \end{itemize}
 
-Um bom resultado na decomposição foi realizado por \cite{yousefi2014characterizing} que realizou uma classificação utilizando o algorítimo SVM, o qual obteve uma acurácia de 70.4\% no modelo, utilizando uma técnica de extração de \textit{feature} \textit{wavelet}, que utiliza uma função capaz de remodelar uma função no domínio do tempo em diferentes escalas de frequência e tempo, após a utilização desta técnica o algorítimo SVM obteve uma acurácia de 99.3\%.
+\begin{figure}[!htb]
+    \centering
+     \includegraphics[width=1\textwidth]{figuras/featuresEMG.eps}
+     \caption{Representação das features de um sinal EMG, adaptado de \citeonline{yousefi2014characterizing}}
+     \label{featuresEMG}
+ \end{figure}
+ 
+
+No trabalho realizado por \citeonline{yousefi2014characterizing}, um bom resultado foi obtido na decomposição, onde realizou-se uma classificação utilizando o algorítimo SVM, o qual obteve uma acurácia de 70.4\% no modelo, utilizando uma técnica de extração de \textit{feature} \textit{wavelet}, que utiliza uma função capaz de remodelar uma função no domínio do tempo em diferentes escalas de frequência e tempo, após a utilização desta técnica o algorítimo SVM obteve uma acurácia de 99.3\%.
 
