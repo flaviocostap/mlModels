@@ -64,10 +64,29 @@ Existem diversas ferramentas para auxiliar o desenvolvimento em aprendizagem de 
 
 Algumas ferramentas amplamente utilizadas em aprendizagem de máquinas.
 \begin{itemize}
-    \item \textit{scikit-learn}: Possui uma ampla gama de algoritmos, com uma alta facilidade de uso, boa documentação e uma API amplamente consistente \cite{pedregosa2011scikit}. 
+    \item \textit{scikit-learn}: Possui uma ampla gama de algoritmos, com uma alta facilidade de uso, boa documentação e uma API amplamente consistente \cite{scikit-learn}. 
     \item \textit{TensorFlow}: Projetado para operar em larga escala, utiliza ferramentas avançadas sendo utilizado inclusive pelo Google\cite{abadi2016tensorflow}
     \item \textit{Keras}: Api de alto nível com foco em redes neurais.
 \end{itemize}
 
 \section{SVM}
 
+Um máquina de vetores de suporte (SVM, do inglês: \textit{support vector machine}) é um dos modelos mais populares em Aprendizado de Máquinas, composto por um conjunto de métodos de aprendizado supervisionada, onde podem os modelos podem ser utilizados para classificação, regressão ou \textit{outlier detection} \cite{scikit-learn}.
+
+Segundo a documentação oficial do \citeonline{scikit-learn} as principais vantagens em SVMs são:
+
+\begin{itemize}
+    \item Eficaz em grandes espaços dimensionais.
+    \item Continua eficaz quando o numero de dimensões supera o de amostras.
+    \item Eficiente em termo de memória.
+    \item Versátil: possui diferentes tipos de funções de \textit{kernel} (linear, polinomial, sigmoide e base radial (RBF)), além de possibilitar a utilização de um \textit{kernel} customizado \ref{svmkernel}.
+\end{itemize}
+
+A documentação oficial do \citeonline{scikit-learn} lista também as principais desvantagens relacionadas ao SVMs como não fornecem estimativas de probabilidade diretamente.
+
+\begin{figure}[!htb]
+    \centering
+     \includegraphics[width=1\textwidth]{figuras/svmkernel.eps}
+     \caption{Exemplos de SVMs utilizando \textit{kernel} diferentes, adaptado de \citeonline{scikit-learn}}
+     \label{svmkernel}
+ \end{figure}
