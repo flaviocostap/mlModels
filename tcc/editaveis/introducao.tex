@@ -1,35 +1,34 @@
 \chapter[Introdução]{Introdução}
 \section{Preâmbulo}
-Parkinson é uma doença cronica que afeta o sistema nervoso central prejudicando a mobilidade dos doentes, possue três principais sintomas a bradicinesia, tremores corporais em repouso e rigidez corporal, também não possui cura e sua causa ainda é desconhecida deste modo o tratamento é focado na melhora de qualidade de vida dos pacientes\cite{da2016aspectos}.
+A DP (Doença de \textit{Parkinson}) é uma doença cronica que afeta o sistema nervoso central, prejudicando a mobilidade dos doentes. A DP possue três principais sintomas a bradicinesia, tremores corporais em repouso e rigidez corporal, a doença não possui cura e sua causa ainda é desconhecida, deste modo o tratamento é focado na melhora de qualidade de vida dos pacientes\cite{da2016aspectos}.
 
-A eletromiografia de superfície (sEMG) é uma técnica rápida e não invasiva para monitorar a atividade elétrica envolvendo as fibras musculares, através do uso de eletrodos sobre a pele do paciente, gerando uma sinal eletromiográfico que é um somatório das contrações musculares identificadas pelos eletrodos \cite{de2010eletromiografia}.
+A sEMG (sigla do inglês: \textit{surface electromyography}, eletromiografia de superfície) é uma técnica rápida e não invasiva para monitorar a atividade elétrica envolvendo as fibras musculares, através do uso de eletrodos sobre a pele do paciente, gerando uma sinal eletromiográfico. Um sinal é o somatório das contrações musculares identificadas pelos eletrodos \cite{de2010eletromiografia}.
 
-Aprendizado de Máquinas (AM) é a uma área da inteligência artificial e da ciência de dados, onde estuda o desenvolvimento de algorítimos autônomos capazes de aprender com os seus erros e realizar predições sobre novos dados, se executado corretamente obtém um alto nível de acerto, muitas vezes superior ao realizado por humanos \cite{Kohavi}
+A AM (sigla do inglês: \textit{machine learning}, aprendizado de máquinas) é a uma área da inteligência artificial e da ciência de dados, onde estuda-se o desenvolvimento de algorítimos autônomos capazes de aprender com os seus erros e realizar predições sobre novos dados. Se executado corretamente obtém um alto nível de acerto, muitas vezes superior ao realizado por humanos \cite{Kohavi}
 
-Máquina de Vetores de Suporte (SVM, do inglês: \textit{support vector machine}) é um algorítimo de AM, amplamente utilizado devido a eficiência, rapidez e segurança associadas, utilizado para classificação, regressão e detecção de \textit{outliers} (valores atípicos) \cite{scikit-learn}.
+sSVM (sigla do inglês: \textit{support vector machine}, Máquina de Vetores de Suporte) é um algorítimo de AM, amplamente utilizado devido a eficiência, rapidez e facilidade de implementação. SVM é utilizado em AM, para classificação, regressão de dados e também na detecção de \textit{outliers} (valores atípicos) \cite{scikit-learn}.
 
 \section{Justificativa}
-Atualmente o diagnóstico da Doença de Parkinson é basicamente clinico onde o Neurologista identifica alguns sintomas associados a doença como a bradicinesia, tremor em repouso, rigidez muscular e instabilidade postural \cite{gago2014manual}, a sEMG pode auxiliar esse processo, porém a onda gerada não é de fácil interpretação, sendo que através de aprendizado de máquinas tem-se resultado rápido e com alta precisão com algo em torno de 98\% de acerto como demonstrado por \citeonline{camara2015resting}. 
+Atualmente o diagnóstico da Doença de Parkinson é basicamente clinico, onde um neurologista identifica alguns sintomas associados a doença como a bradicinesia, tremor em repouso, rigidez muscular e instabilidade postural \cite{gago2014manual}, a sEMG pode auxiliar esse processo, porém a onda gerada não é de fácil interpretação, sendo que através de AM tem-se resultado rápido e com alta precisão, por exemplo como demonstrado por \citeonline{camara2015resting}, onde obteve-se algo em torno de 98\% de acerto. 
 
-Logo, este trabalho propõem um \textit{software} para facilitar o processo de diagnóstico da doença de Parkinson, utilizando um único exame não invasivo combinando sEMG e técnicas de  Aprendizado de máquinas, auxiliando com rapidez e eficacia este diagnóstico. 
+Logo, este trabalho propõem o desenvolvimento de \textit{software}, para facilitar o processo de diagnóstico da doença de Parkinson, utilizando um único exame não invasivo de sEMG e técnicas de AM para classificar os portadores de DP. Deste modo auxiliando com rapidez e eficacia o diagnóstico da doença.
 
 \section{Objetivos}
 \subsection{Objetivo Geral}
-O Objetivo deste Trabalho é o desenvolvimento de um \textit{Software} utilizando algorítimos de aprendizado de máquinas capazes de auxiliar no diagnóstico da Doença de Parkinson, com dados obtidos por um dispositivo de coleta de sinais sEMG, classificando os indivíduos em portadores da Doença de Parkinson e não portadores.
+O Objetivo deste Trabalho é o desenvolvimento de um \textit{Software} utilizando algorítimos de AM capazes de auxiliar no diagnóstico da DP, classificando os indivíduos em portadores da DP e não portadores.
 
 \subsection{Objetivos Específicos}
 \begin{itemize}
-    \item Analisar pesquisas semelhantes.
-    \item Entender o sinal sEMG relacionado a DP.
-    \item Tratar os dados para otimizar o processo de AM.
-    \item Escolher algorítimos para resolver o problema de AM.
-    \item Definir \textit{features} para análise no \textit{Software}.
-    \item Treinar os algorítimos para a predição.
-    \item Validar a o modelo.
-    \item Definir arquitetura do \textit{Software}.
-    \item Desenvolver um sistema integrando o algorítimo treinado anteriormente com um \textit{software} amigável ao usuário.
-    \item Testar o \textit{software} desenvolvido.
-    \item Testar o sistema em um contexto real.
+    \item Pesquisar trabalhos semelhantes;
+    \item Estudar o sinal sEMG relacionado a DP;
+    \item Tratar os dados para otimizar o processo de AM;
+    \item Escolher algorítimos para resolver o problema de AM;
+    \item Definir \textit{features} para análise no \textit{Software};
+    \item Treinar o modelo para a predição;
+    \item Validar a o modelo;
+    \item Definir arquitetura do \textit{Software};
+    \item Desenvolver um sistema integrando o algorítimo treinado anteriormente, com um \textit{software} amigável ao usuário;
+    \item Testar o sistema com portadores da DP;
 \end{itemize}
 
 \section{Trabalhos correlatos}
