@@ -1,30 +1,30 @@
-\chapter{Aprendizado de Máquinas}
+\chapter{Aprendizado de Máquina}
 \section{Definição}
-O termo Aprendizado de Máquina do inglês \textit{Machine Learning}, é considerado uma disciplina dentro da área da Inteligência Artificial na qual é focada na construção de softwares computacionais dotados da capacidade de aprender autonomamente \cite{Hosch}. Essa disciplina trabalha com o estudo e construção de algoritmos capazes de aprender com seus “erros” e fazerem previsões sobre determinados dados, sendo esses algoritmos de indução considerados um grande passo na descoberta do conhecimento \cite{Kohavi}.
+O termo Aprendizado de Máquina do inglês \textit{Machine Learning}, é considerado uma disciplina dentro da área da Inteligência Artificial, com foco na construção de softwares computacionais, dotados da capacidade de aprender autonomamente \cite{Hosch}. Essa disciplina trabalha com o estudo e a construção de algoritmos, capazes de aprender com seus “erros” no reconhecimento de dados e realizarem previsões sobre novos dados. Esses algoritmos de indução são considerados um grande passo na descoberta do conhecimento \cite{Kohavi}.
 
-Apesar da complexidade que é a área do Aprendizado de Máquina, essa disciplina pode ser contextualizada de maneira mais geral como o campo de estudo que dá ao computador a habilidade de aprender sem ser explicitamente programado \cite{Arthur}, porém uma visão mais orientada para a área da engenharia, que segundo Tom Mitchell, é dito que um programa de computador aprende com a experiência “E” em relação a alguma tarefa “T” e alguma medida de desempenho “P”, se seu desempenho em “T” e medido por “P” melhora com a experiência “E” \cite{Tom}.
+Apesar da complexidade em AM, essa disciplina pode ser contextualizada de maneira mais geral como o campo de estudo, que dá ao computador a habilidade de aprender sem ser explicitamente programado \cite{Arthur}, porém uma visão mais orientada para a área da engenharia, que segundo \citeonline{Tom}, é dito que um programa de computador aprende com a experiência “E” em relação a alguma tarefa “T” e alguma medida de desempenho “P”, se seu desempenho em “T” e medido por “P” melhora com a experiência “E” \cite{Tom}.
 
-\section{Usos do Aprendizado de Máquina}
-O Aprendizado de Máquina serve de auxílio para diversos contextos de naturezas diferentes, sendo assim consegue auxiliar com o uso de dados históricos para escolher a melhor decisão de um negócio, como por exemplo uma possível aplicação de um modelo de Aprendizado de Máquina é predizer qual a probabilidade de um cliente comprar um determinado produto com base no seu histórico de compras passadas \cite{Amazon}. Este trabalho de conclusão de curso tem por objetivo geral trabalhar com a aplicação de um modelo de Aprendizado de Máquina na área da saúde, sendo que já existem estudos semelhantes que já evidenciaram os resultados da utilização desses modelos nessa mesma área.
+\section{Aplicações em Aprendizado de Máquina}
+O AM serve de auxílio para diversos contextos de naturezas diferentes, sendo assim consegue auxiliar com o uso de dados históricos para escolher a melhor decisão de um negócio, como por exemplo uma possível aplicação de um modelo de AM é predizer qual a probabilidade de um cliente comprar um determinado produto com base no seu histórico de compras passadas \cite{Amazon}. Este trabalho de conclusão de curso tem por objetivo geral trabalhar com a aplicação de um modelo de AM na área da saúde, sendo que já existem estudos semelhantes que já evidenciaram os resultados da utilização desses modelos nessa mesma área.
 
-Na saúde é uma tendência crescente na indústria médica, graças ao advento dos dispositivos \textit{wearables} e sensores que podem acessar aos dados de pacientes em tempo real. A tecnologia também pode ajudar médicos a analisar os dados para identificar tendências ou alertas, levando ao aperfeiçoamento de diagnósticos e tratamentos \cite{Sas}.
+Na saúde é uma tendência crescente na indústria médica, graças ao advento de dispositivos eletrônicos como sensores, que podem acessar aos dados de pacientes em tempo real. A tecnologia também pode ajudar médicos a analisar os dados para identificar tendências ou alertas, consequentemente levando ao aperfeiçoamento de diagnósticos e tratamentos \cite{Sas}.
 
-\section{Funcionamento de um algoritmo de Aprendizado de Máquina}
-Cada algoritmo tem suas peculiaridades quanto ao seu funcionamento, entretanto esses algoritmos em seu estado mais básico trabalham com a entrada de dados num sistema que processa os mesmos utilizando um modelo de predição geralmente já postulado no qual derivam um resultado que se refere à dada predição que o modelo fez sobre os dados de entrada, além desse processo de entrada e saída, esses algoritmos possuem outros métodos e técnicas para validar seu funcionamento, como por exemplo declarando uma dada porcentagem para avaliar o grau da acurácia de seu resultado, permitindo assim verificar se a predição gerada pelo algoritmo se aproxima do resultado esperado do contexto dos dados, o que é utilizado como parâmetro para avaliar a situação do algoritmo, que nesse caso se remete ao cenário de treinamento desse sistema, sendo esse e outras situações melhor contextualizado neste capítulo.
+\section{Funcionamento de um algoritmo de AM}
+Cada algoritmo tem suas peculiaridades quanto ao seu funcionamento, entretanto esses algoritmos em seu estado mais básico trabalham com a entrada de dados num sistema, que processa os mesmos utilizando um modelo de predição geralmente já postulado, no qual derivam um resultado que referente a uma predição que o modelo fez sobre os dados de entrada. Esses algoritmos possuem alguns métodos e técnicas para validar seu funcionamento, por exemplo declarando uma dada porcentagem para avaliar o grau da acurácia de seu resultado, permitindo assim verificar se a predição gerada pelo algoritmo se aproxima do resultado esperado no contexto real. Sendo esse e outras situações melhor contextualizado neste capítulo.
 
-Considerando ainda que o Aprendizado de Máquina, com seu foco na predição no desenvolvimento de algoritmos capazes de aprender com seus erros, essa disciplina é muito atrelada a otimização matemática, além de que uma de suas principais características utiliza de métodos estatísticos para validar seu funcionamento, sendo que todos esses aspectos matemáticos estão ligados à complexidade computacional o que em linhas gerais é a representação de um algoritmo de Aprendizado de Máquina.
+Considerando ainda que o AM, com seu foco na predição no desenvolvimento de algoritmos capazes de aprender com seus erros, essa disciplina é muito atrelada a otimização matemática, além de que uma de suas principais características, é a utilização de métodos estatísticos para validar o seu funcionamento, sendo que todos esses aspectos matemáticos estão ligados à complexidade computacional o que em linhas gerais é a representação de um algoritmo de AM.
 
 \section{Tipos de Aprendizado}
-Como é demonstrado no guia para desenvolvedores em aprendizado de máquina esses modelos de são classificados quanto ao seu tipo de aprendizado, são duas amplas categorias que se diferem de acordo com a natureza do “sinal” ou \textit{feedback} de aprendizado disponível para um sistema de aprendizado, sendo \cite{geron2017hands}:
+Os algoritmos são classificados quanto ao seu tipo de aprendizado, existindo três categorias que se distinguem de acordo com a natureza do comportamento no tratamento dos dados, estas categorias são aprendizado supervisionado, não supervisionado e por reforço \cite{geron2017hands}.
  
 \subsection{Aprendizado Supervisionado}
 O objetivo principal do aprendizado supervisionado é ensinar um modelos através de uma base de treino etiquetada na qual nos permite fazer predições de futuros dados. O termos supervisionado se refere a um grupo de dados onde o sinal, ou etiqueta desejada já é conhecida. As tarefas do aprendizado supervisionado podem ser divididas em classificação e regressão, onde a classificação tem as etiquetas esperadas com um valor fixo, como por exemplo uma avaliação binária, e a regressão é referente a um sinal com valor contínuo, como uma regressão polinomial \cite{geron2017hands}, ou segundo \cite{kirk2014thoughtful} é ajustar o conjunto de dados á uma função qualquer.
 
 Exemplos de algoritmos existentes \cite{kirk2014thoughtful}:
 \begin{itemize}
-    \item \textit{\textbf{KNN}, K-Nearest Neighbor}: (K vizinhos mais próximos) Determina o rótulo de classificação de um dado baseando nos valores das amostras vizinhas mais próximos \cite{kirk2014thoughtful}.
-    \item \textit{Decision Trees and Random Forests}: 
-    \item \textit{Support Vector Machines (SVMs)}: 
+    \item \textit{\textbf{KNN}, K-Nearest Neighbor}: (K vizinhos mais próximos) Determina o rótulo de classificação de um dado baseando nos valores das amostras vizinhas mais próximos \cite{kirk2014thoughtful};
+    \item \textit{Decision Trees}: é uma forma de organizar regras referentes a dados com estruturas hierárquicas e sequências, que particionam estes dados recursivamente \cite{murthy1998automatic};
+    \item \textit{Support Vector Machines (SVMs)}: separado em linear e não linear, consiste na separação de dados de um conjunto maior em classes de conjuntos mais restritos \cite{lorena2007introduccao}.
 \end{itemize}
 
 \subsection{Aprendizado não-supervisionado}
@@ -39,21 +39,21 @@ Exemplos de algoritmos existentes \cite{kirk2014thoughtful}:
 \subsection{Aprendizado por reforço} 
 Utiliza um sistema de recompensas para reforçar a continuidade de um comportamento esperado, como por exemplo um jogo onde o personagem é beneficiado com uma recompensa sempre que atinge um golpe no adversário, quanto mais forte for o golpe maior a recompensa, deste modo o modelo memoriza quais os comandos geraram as maiores recompensas \cite{kirk2014thoughtful}.
 
-\section{Feature}
+\section{\textit{Feature}}
 Uma \textit{feature} é uma característica ou variável do problema que pode ser processada pelo modelo e gerar um resultado condicente com a realidade, deve ser mensurável e independente, sendo que uma \textit{feature} é a base para o funcionamento dos algoritmos de classificação, regressão e reconhecimento de padrões, normalmente é um numero, mas pode ser uma palavra, grafo, vetor etc \cite{chandrashekar2014survey}.
 
-A ainda um conceito importante sobre aprendizado de máquinas, a \textbf{Redução de dimensionalidade}, muito utilizada em estatística e aprendizado de máquinas, refere-se ao processo de diminuição do número de variáveis aleatórias, selecionando um subconjunto de com variáveis relevantes, para dentre outras funcionalidades transformar o processo de aprendizado mais eficiente \cite{borges2006reduccao}, isto ocorre devido  modelos com centenas de variáveis, ocasionando em um maior tempo de computação, baixo desempenho da previsão \cite{chandrashekar2014survey}.
+A ainda um conceito importante sobre AMs, a \textbf{Redução de dimensionalidade}, muito utilizada em estatística e AMs, refere-se ao processo de diminuição do número de variáveis aleatórias, selecionando um subconjunto de com variáveis relevantes, para dentre outras funcionalidades transformar o processo de aprendizado mais eficiente \cite{borges2006reduccao}, isto ocorre devido  modelos com centenas de variáveis, ocasionando em um maior tempo de computação, baixo desempenho da previsão \cite{chandrashekar2014survey}.
 
-\section{Desafios do Aprendizado de Máquina}
-Em um projeto de Aprendizado de Máquina, existem diversos aspectos que podem levar a um péssimo resultado ou problemas na execução do mesmo, em resumo, a tarefa principal do Aprendizado de Máquina é a seleção de um algoritmo, ou modelo, e treiná-lo utilizando algum tipo de dado, logo ao analisar os problemas de um provenientes de um péssimo resultado, pode se o encontrar principalmente duas origens para o problema a escolha de um \"algoritmo ruim\" ou  \"dados ruins\".\cite{geron2017hands}.
+\section{Desafios do AM}
+Em um projeto de AM, existem diversos aspectos que podem levar a um péssimo resultado ou problemas na execução do mesmo, em resumo, a tarefa principal do AM é a seleção de um algoritmo, ou modelo, e treiná-lo utilizando algum tipo de dado, logo ao analisar os problemas de um provenientes de um péssimo resultado, pode se o encontrar principalmente duas origens para o problema a escolha de um "algoritmo ruim" ou  "dados ruins".\cite{geron2017hands}.
 
-O conceito de \"dados ruins\", não deve ser considerado ao per da letra, sendo um pouco mais complexo, e envolve principalmente a coleta destes e tratamento associado. Para exemplificar,  pode-se listar alguns exemplos retirados do livro \cite{geron2017hands}:
+O conceito de "dados ruins", não deve ser considerado ao pé da letra, sendo um pouco mais complexo, e envolve principalmente a coleta destes e tratamento associado. Para exemplificar,  pode-se listar alguns exemplos retirados do livro \cite{geron2017hands}:
 
 \begin{itemize}
-    \item \textbf{Quantidade insuficiente de dados de treino}: Para um funcionamento pleno de um sistema de aprendizado de máquinas é necessário uma grande quantidade de dados, pois até mesmo simples problemas é geralmente necessário milhares de exemplos logo para problemas mais complexos, como análise de imagem e reconhecimento de voz a escala necessária está na casa dos milhões de exemplares.
+    \item \textbf{Quantidade insuficiente de dados de treino}: Para um funcionamento pleno de um sistema de AMs é necessário uma grande quantidade de dados, alguns problemas necessitam de uma alta quantidade de dados para funcionar corretamente, como no reconhecimento de imagens.
     \item \textbf{Dados não representativos}: Com o intuito de alcançar a boa generalização é crucial que os dados de treino sejam representativos para os casos nos quais é demandada a generalização.
-    \item \textbf{Dados de baixa qualidade}: É evidente que caso os dados de treinos tenham muitos erros e ruídos, originados de um péssimo processo de coleta, isso irá dificultar o sistema a detectar os padrões necessários ou até mesmo alcançar o mínimo de performance requerido.
-    \item \textbf{\textit{Features}  irrelevantes}: Seguindo a lógica por trás do ditado “Lixo entra e lixo sai” (\textit{garbage-in garbage-out}), o sistema apenas será capaz de gerar resultados caso exista dados contendo o suficiente de \textit{features} relevantes ao invés das não relevantes.
+    \item \textbf{Dados de baixa qualidade}: É evidente que caso os dados de treinos tenham muitos erros e ruído, originados de um péssimo processo de coleta, isso irá dificultar o sistema a detectar os padrões necessários ou até mesmo alcançar o mínimo de performance requerido.
+    \item \textbf{\textit{Features}  irrelevantes}: Seguindo a lógica por trás do ditado \textit{garbage-in garbage-out} (termo em inglês: Lixo entra e lixo sai), o sistema apenas será capaz de gerar resultados caso exista dados contendo o suficiente de \textit{features} relevantes ao invés das não relevantes.
 \end{itemize}
 
 Com relação a "algoritmo ruim", também não deve ser interpretado literalmente, ou seja, um "algoritmo ruim" pode ser proveniente da escolha de um modelo de algoritmo para tratar um problema no qual o algoritmo não foi otimizado para solucionar, exitem dois principais problemas associados ao manejo de um algoritmo, sendo eles:
@@ -64,7 +64,7 @@ Com relação a "algoritmo ruim", também não deve ser interpretado literalment
 \end{itemize}
 
 \section{Ferramentas}
-Existem diversas ferramentas para auxiliar o desenvolvimento em aprendizagem de máquina, sendo que atualmente \textit{Python} é uma das linguagens mais utilizadas nesse seguimento, segundo \citeonline{senders2017machine} devido ao conjunto parrudo de bibliotecas disponíveis, o fato de ser de código aberto e a facilidade de plotar gráficos e demais esquemas de visualização, com uma simplicidade de identificar erros e defeitos no software tornam a linguagem \textit{Python} uma boa indicação para trabalhar com aprendizado de máquinas.
+Existem diversas ferramentas para auxiliar o desenvolvimento em aprendizagem de máquina, sendo que atualmente \textit{Python} é uma das linguagens mais utilizadas nesse seguimento, segundo \citeonline{senders2017machine} devido ao conjunto parrudo de bibliotecas disponíveis, o fato de ser de código aberto e a facilidade de plotar gráficos e demais esquemas de visualização, com uma simplicidade de identificar erros e defeitos no software tornam a linguagem \textit{Python} uma boa indicação para trabalhar com AMs.
 
 Algumas ferramentas amplamente utilizadas em aprendizagem de máquinas.
 \begin{itemize}
@@ -75,7 +75,7 @@ Algumas ferramentas amplamente utilizadas em aprendizagem de máquinas.
 
 \section{SVM}
 
-Um máquina de vetores de suporte (SVM, do inglês: \textit{support vector machine}) é um dos modelos mais populares em Aprendizado de Máquinas, composto por um conjunto de métodos de aprendizado supervisionada, onde podem os modelos podem ser utilizados para classificação, regressão ou \textit{outlier detection} \cite{scikit-learn}.
+Um máquina de vetores de suporte (SVM, do inglês: \textit{support vector machine}) é um dos modelos mais populares em AMs, composto por um conjunto de métodos de aprendizado supervisionada, onde podem os modelos podem ser utilizados para classificação, regressão ou \textit{outlier detection} \cite{scikit-learn}.
 
 Segundo a documentação oficial do \citeonline{scikit-learn} as principais vantagens em SVMs são:
 
