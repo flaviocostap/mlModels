@@ -73,9 +73,15 @@ Algumas ferramentas amplamente utilizadas em aprendizagem de máquinas.
     \item \textit{Keras}: API de alto nível com foco em redes neurais.
 \end{itemize}
 
-\section{SVM}
+\section{\textit{Support Vector Machines} - SVM}
 
-Um máquina de vetores de suporte (SVM, do inglês: \textit{support vector machine}) é um dos modelos mais populares em AMs, composto por um conjunto de métodos de aprendizado supervisionada. Podem ser utilizados para classificação, regressão ou \textit{outlier detection} \cite{scikit-learn}. Os resultados da aplicação dessa técnica são comparáveis e muitas vezes superiores aos obtidos por outros algoritmos de aprendizado, como as Redes Neurais Artificiais (RNAs) \cite{braga2000redes} e \cite{haykin1999neural} Exemplos de aplicações de sucesso podem ser encontrados em diversos domínios, como na categorização de textos como na análise de imagens \cite{pontil1998support} \cite{kim2002support} e em Bioinformática \cite{noble2004support} \cite{scholkopf2003statistical}.
+Um máquina de vetores de suporte (SVM, do inglês: \textit{Support Vector Machines}) é um dos modelos mais populares em AMs, composto por um conjunto de métodos de aprendizado supervisionada. Podem ser utilizados para classificação, regressão ou \textit{outlier detection} \cite{scikit-learn}. Segundo \citeonline{braga2000redes} e \citeonline{haykin1999neural}, os resultados da aplicação de SVM, são comparáveis e muitas vezes superiores aos obtidos por outros algoritmos de aprendizado, como as Redes Neurais Artificiais (RNAs). Exemplos de aplicações de sucesso podem ser encontrados em diversos domínios, como na categorização de textos,  catalogação de imagens \cite{pontil1998support}, e em Bioinformática \cite{noble2004support}.
+
+As SVMs são divididas em dois grupos, categorizadas conforme o estado dados a serem resolvidos, ou seja é um problema linear ou não \cite{lorena2007introduccao}.
+\begin{itemize}
+    \item SVMs Lineares;
+    \item SVMs Não Lineares;
+\end{itemize}
 
 Segundo a documentação oficial do \citeonline{scikit-learn} as principais vantagens em SVMs são:
 
@@ -97,6 +103,11 @@ Segundo a documentação oficial do \citeonline{scikit-learn} as principais vant
 
  As SVMs foram desenvolvidas no âmbito da Teoria Estatística da Aprendizagem, logo para entender o funcionamento do dado modelo é necessário entender o próprio \textit{framework} da Teoria Estatística da Aprendizagem [CITE].
 
-\subsubsection{Teoria Estatística da Aprendizagem}
+ O SVM funciona no principio de separação ótima entre classes. Com base nas amostras de treinamento, cria-se uma distribuição de probabilidade, seguindo de modo iterativo remove-se algumas amostras, e calcula-se novamente a distribuição de probabilidade, continuando este ciclo até estabelecer os vetores de suporte em um hiperplano ou em um conjuntos de hiperplanos \cite{huang2002assessment}. Estes vetores de suporte, são os pontos que definem a maior margem possível entre as classes a Figura \ref{svm_hiperplano} na página \pageref{svm_hiperplano}.
 
-Seja f um classificador e F o conjunto de todos os classificadores que um determinado algoritmo de AM pode gerar. Esse algoritmo, durante o processo de aprendizado, utiliza um conjunto de treinamento T , composto de n pares (x i , y i ), para gerar um classificador particular f E F \cite{lorena2007introduccao}.
+ \begin{figure}[!htb]
+    \centering
+     \includegraphics[width=0.9\textwidth]{figuras/svm_hiperplano.eps}
+     \caption{Esquematização de um SVM, adaptado de \citeonline{scikit-learn}}
+     \label{svm_hiperplano}
+ \end{figure}
