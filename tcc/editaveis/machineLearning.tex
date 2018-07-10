@@ -102,10 +102,5 @@ Segundo a documentação oficial do \citeonline{scikit-learn} as principais vant
  As SVMs foram desenvolvidas no âmbito da Teoria Estatística da Aprendizagem, logo para entender o funcionamento do dado modelo é necessário entender o próprio framework da Teoria Estatística da Aprendizagem [19], porém como o foco é esboçar o funcionamento do modelo, não será abordado de maneira aprofundada o conceito da Teoria Estatística da Aprendizagem neste trabalho cujo o foco é a implementação. 
  
 Uma explicação simplista do funcionamento do SVM é a linear, na qual o hiperplano se encontra no espaço dos dados de entrada x. A noção mais comum sobre o SVM, é que o mesmo encontra um melhor hiperplano como a solução para o problema de aprendizagem [19]. No caso linear o espaço de hipóteses é um subconjunto de todos os hiperplanos da forma [19]:
- 
- f(x) = w⋅x +b
- 
-Em sua formulação mais geral, o SVM encontra um hiperplano em um espaço diferente daquele dos dados de entrada x. É um hiperplano em um espaço de característica induzido por um kernel K. Através do kernel K, o espaço de hipóteses é definido como um conjunto de "hiperplanos" no espaço de feições induzido por K. Isso também pode ser visto como um conjunto de funções em um Espaço Hilbert de Reprodução (RKHS) definido por K [21], [19]. Também não será discutido aqui a RKHS neste trabalho, assim como o mesmo não é discutido no estudo [19]. Então, para resumir, o espaço de hipóteses usado pelo SVM é um subconjunto do conjunto de hiperplanos definido em algum espaço de um RKHS. Este espaço pode ser formalmente escrito como:
- 
 
-
+Em sua formulação mais geral, o SVM encontra um hiperplano em um espaço diferente daquele dos dados de entrada x. É um hiperplano em um espaço de característica induzido por um kernel K. Através do kernel K, o espaço de hipóteses é definido como um conjunto de "hiperplanos" no espaço de feições induzido por K. Isso também pode ser visto como um conjunto de funções em um Espaço Hilbert de Reprodução (RKHS) definido por K [21], [19]. Também não será discutido aqui a RKHS neste trabalho, assim como o mesmo não é discutido no estudo [19]. Então, para resumir, o espaço de hipóteses usado pelo SVM é um subconjunto do conjunto de hiperplanos definido em algum espaço de um RKHS. Este espaço pode ser formalmente escrito como...
