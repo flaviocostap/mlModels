@@ -59,7 +59,7 @@ O conceito de "dados ruins", não deve ser considerado ao pé da letra, sendo um
 Com relação a "algoritmo ruim", também não deve ser interpretado literalmente, ou seja, um "algoritmo ruim" pode ser proveniente da escolha de um modelo de algoritmo para tratar um problema no qual o algoritmo não foi otimizado para solucionar, exitem dois principais problemas associados ao manejo de um algoritmo, sendo eles:
 
 \begin{itemize}
-    \item \textbf{\textit{Overfitting} dos dados de treino}: \textit{Overfitting} acontece quando o modelo apresenta uma boa performance na sua base de treino, mas não generaliza muito bem, ou seja o modelo pode ser considerado "viciado", um erro bem comum ocorrendo no treinamento do modelo, por exemplo uma amostragem com muito ruido pode encontrar algum padrão no próprio ruido e generalizar para o mesmo, não generalizando para novos dados.
+    \item \textbf{\textit{Overfitting} dos dados de treino}: \textit{Overfitting} acontece quando o modelo apresenta uma boa performance na sua base de treino, mas não generaliza muito bem, ou seja o modelo pode ser considerado "viciado", é um erro bem comum ocorrendo no treinamento do modelo, por exemplo uma amostragem com muito ruido pode encontrar algum padrão no próprio ruido e generalizar para o mesmo, não generalizando para novos dados.
     \item \textbf{\textit{Underfitting} dos dados de treino}: Ao contrário do \textit{Overfitting}, \textit{Underfitting} acontece quando o modelo é muito simples para ser utilizado com a estrutura de dados selecionada, resultando em um modelo impreciso para ser utilizado no mundo real, isto devido aos dados reais serem provavelmente mais complexos que os utilizados no treinamento do modelo.
 \end{itemize}
 
@@ -72,6 +72,23 @@ Algumas ferramentas amplamente utilizadas em aprendizagem de máquinas.
     \item \textit{TensorFlow}: Projetado pelo Google para operar em larga escala, utiliza ferramentas avançadas sendo utilizado inclusive pelo próprio Google\cite{abadi2016tensorflow}
     \item \textit{Keras}: API de alto nível com foco em redes neurais.
 \end{itemize}
+
+\section{Validação cruzada}
+A validação cruzada ou \textit{Cross-Validation} é uma técnica para verificar o quão eficiente é a capacidade de generalização do modelo, ou seja, qual a precisão ao prever um novo conjunto de dados. Com a validação cruzada evita-se o \textit{overfitting},  A validação cruzada consiste em \cite{james2013introduction}:
+
+\begin{enumerate}
+    \item Separar aleatoriamente o conjunto de dados em três partes (treino, teste e validação);
+    \item O conjunto de dados de treino é utilizado para treinar o modelo;
+    \item O conjunto de validação é utilizado para ajustar os parâmetros. Isto é, após o treino verifica-se a precisão do modelo e caso esteja baixa realiza-se os ajustes necessários no algoritmo;
+    \item Ao final verifica-se a generalização do algoritmo treinado, utilizando o conjunto de teste.
+\end{enumerate}
+
+A validação cruzada possue ainda algumas variações, sendo elas \cite{james2013introduction}:
+\begin{enumerate}
+    \item \textit{k-Fold Cross-Validation};
+    \item \textit{Leave-one-out cross-validation (LOOCV)};
+    \item \textit{holdout cross-validation};
+\end{enumerate}
 
 \section{SVM}
 
