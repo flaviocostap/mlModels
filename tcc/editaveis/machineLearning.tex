@@ -59,7 +59,7 @@ O conceito de "dados ruins", não deve ser considerado ao pé da letra, sendo um
 Com relação a "algoritmo ruim", também não deve ser interpretado literalmente, ou seja, um "algoritmo ruim" pode ser proveniente da escolha de um modelo de algoritmo para tratar um problema no qual o algoritmo não foi otimizado para solucionar, exitem dois principais problemas associados ao manejo de um algoritmo, sendo eles:
 
 \begin{itemize}
-    \item \textbf{\textit{Overfitting} dos dados de treino}: \textit{Overfitting} acontece quando o modelo apresenta uma boa performance na sua base de treino, mas não generaliza muito bem, ou seja o modelo pode ser considerado "viciado", um erro bem comum ocorrendo no treinamento do modelo, por exemplo uma amostragem com muito ruido pode encontrar algum padrão no próprio ruido e generalizar para o mesmo, não generalizando para novos dados.
+    \item \textbf{\textit{Overfitting} dos dados de treino}: \textit{Overfitting} acontece quando o modelo apresenta uma boa performance na sua base de treino, mas não generaliza muito bem, ou seja o modelo pode ser considerado "viciado", é um erro bem comum ocorrendo no treinamento do modelo, por exemplo uma amostragem com muito ruido pode encontrar algum padrão no próprio ruido e generalizar para o mesmo, não generalizando para novos dados.
     \item \textbf{\textit{Underfitting} dos dados de treino}: Ao contrário do \textit{Overfitting}, \textit{Underfitting} acontece quando o modelo é muito simples para ser utilizado com a estrutura de dados selecionada, resultando em um modelo impreciso para ser utilizado no mundo real, isto devido aos dados reais serem provavelmente mais complexos que os utilizados no treinamento do modelo.
 \end{itemize}
 
@@ -73,6 +73,30 @@ Algumas ferramentas amplamente utilizadas em aprendizagem de máquinas.
     \item \textit{Keras}: API de alto nível com foco em redes neurais.
 \end{itemize}
 
+\section{Validação cruzada}
+A validação cruzada ou \textit{Cross-Validation} é uma técnica para verificar o quão eficiente é a capacidade de generalização do modelo, ou seja, qual o desempenho do modelo ao prever um novo conjunto de dados. Com a validação cruzada evita-se o \textit{overfitting}, além de auxiliar no ajuste dos parâmetros do algoritmo, a validação cruzada consiste em \cite{james2013introduction}:
+
+\begin{enumerate}
+    \item Separar aleatoriamente o conjunto de dados em três partes (treino, teste e validação);
+    \item O conjunto de dados de treino é utilizado para treinar o modelo;
+    \item O conjunto de validação é utilizado para ajustar os parâmetros. Isto é, após o treino verifica-se a precisão do modelo e caso não atinga a expectativa, realiza-se os ajustes necessários no algoritmo, e realiza um novo treinamento com os dados de teste \cite{raschka2015python};
+    \item Ao final verifica-se a generalização do algoritmo treinado, utilizando o conjunto de teste.
+\end{enumerate}
+
+A validação cruzada possue ainda algumas variações, sendo elas: \textit{holdout cross-validation}, \textit{k-Fold Cross-Validation} e \textit{Leave-one-out cross-validation (LOOCV)} \cite{james2013introduction}:
+
+
+\subsection{\textit{holdout cross-validation}}, modelo clássico da validação cruzada, consiste em separar os dados em dois conjuntos mutualmente exclusivos (treino validação), porém essa abordagem acaba não sendo eficiente, por aumentar a probabilidade de \textit{overfitting}, para uma maior eficiência, utiliza-se a variações com os três conjuntos explicados anteriormente\cite{raschka2015python}.
+
+\subsection{\textit{k-Fold Cross-Validation}}, no k-fold dividi-se o conjunto total de dados em \textbf{k} subconjuntos mutualmente exclusivos, com a mesma quantidade de dados, um destes subconjuntos é utilizado para teste e os outros k-1 restantes, são utilizados no treinamento do modelo, com os devidos ajuste de parâmetros necessários, tal processo é repetido \textbf{k} vezes, alternando o conjunto de teste nestas iterações. Após as \textbf{K} iterações, calculas-se a média do erro esperado. a Figura \ref{kfold} na página \pageref{kfold} ilustra este método;
+
+\begin{figure}[!htb]
+    \centering
+     \includegraphics[width=0.9\textwidth]{figuras/kfold.eps}
+     \caption{Ilustração do \textit{k-fold}, adaptado de \citeonline{raschka2015python}}
+     \label{kfold}
+\end{figure}
+
 \section{SVM}
 
 Um máquina de vetores de suporte (SVM, do inglês: \textit{support vector machine}) é um dos modelos mais populares em AMs, composto por um conjunto de métodos de aprendizado supervisionada. Podem ser utilizados para classificação, regressão ou \textit{outlier detection} \cite{scikit-learn}. Os resultados da aplicação dessa técnica são comparáveis e muitas vezes superiores aos obtidos por outros algoritmos de aprendizado, como as Redes Neurais Artificiais (RNAs) \cite{braga2000redes} \cite{haykin1999neural} Exemplos de aplicações de sucesso podem ser encontrados em diversos domínios, como na categorização de textos como na análise de imagens \cite{pontil1998support} \cite{kim2002support} e em Bioinformática \cite{noble2004support} \cite{scholkopf2003statistical}.
@@ -83,7 +107,7 @@ Segundo a documentação oficial do \citeonline{scikit-learn} as principais vant
     \item Eficaz em grandes espaços dimensionais;
     \item Continua eficaz quando o numero de dimensões supera o de amostras;
     \item Eficiente em termo de memória;
-    \item Versátil: possui diferentes tipos de funções de \textit{kernel} (linear, polinomial, sigmoide e base radial (RBF)), possibilita também a utilização de um \textit{kernel} customizado, ou seja uma função matemática personalizada, a Figura \ref{svmkernel} exemplifica algumas funções de \textit{kernel};
+    \item Versátil: possui diferentes tipos de funções de \textit{kernel} (linear, polinomial, sigmoide e base radial (RBF)), possibilita também a utilização de um \textit{kernel} customizado, ou seja uma função matemática personalizada, a Figura \ref{svmkernel} na página \pageref{svmkernel} exemplifica algumas funções de \textit{kernel};
 \end{itemize}
 
 \begin{figure}[!htb]
