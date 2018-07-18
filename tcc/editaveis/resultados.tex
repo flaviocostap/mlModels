@@ -1,9 +1,24 @@
-\chapter[Resultados]{Resultados}
+\chapter{Resultados}
+\label{ch:Resultados}
 \section{Abstrair o problema no contexto}
 O contexto geral do trabalho é projetar e construir um sistema AM para auxiliar no diagnóstico da doença de Parkinson, utilizando sinais obtidos por dispositivos sEMG, e o problema principal gira em torno de como esse sistema será desenvolvido. Por se tratar da construção de um software, isso necessita de um planejamento prévio de como será feita essa construção, levando em consideração um conjunto de variáveis para tomada de decisões. Neste trabalho o sistema a ser desenvolvido se trata de um sistema AM, que requer uma maior atenção sobre algumas variáveis, como quantidade de recursos e tipos de dados obtidos, sendo que essas variáveis servem como indicadores para auxiliar a decisão de qual algoritmo utilizar para se encontrar a melhor solução possível para esse problema.
 
 \section{Coleta de dados}
-Os dados foram coletados 
+Os dados foram coletados utilizando o aparelho para coleta de dados EMG \textit{Miotool}, porduzido pela \textit{Miotec}, sendo que, tais dados já foram coletados por alunos de mestrado da UnB, porém ao decorrer deste trabalho participou-se de duas coletas, entretanto as coletas foram interrompidas e canceladas.
+
+Com relação ao protocolo de coleta, os músculos utilizados foram os seguintes:
+\begin{itemize}
+\item extensor radial do longo do carpo
+\item flexor superficial dos dedos;
+\item bíceps braquial;
+\item flexor radial do carpo;
+\end{itemize}
+
+Os voluntários assinaram um termo de consentimento relacionado, ao procedimento de coleta, e a coleta foi acompanhada por uma profissional da saúde.
+ 
+\section{Selecionar o Modelo}
+Optou-se pela escolha do SVM, devido ao problema ser um problema de classificação, o que restringe nossas escolhas aos algoritmos de classificação, e com base nos estudos coletados no caiputlo \ref{ch:TrabalhosRelacionados} na página \pageref{ch:TrabalhosRelacionados}, optou-se inicialmente pela escolha do SVM, sendo que esta escolha não restringe o trabalho com outros algoritmos, em caso de necessidade.
+
 \section{Analisar os Dados}
 \section{Selecionar o Modelo}
 \section{Treinar o Modelo}
