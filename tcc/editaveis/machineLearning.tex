@@ -87,18 +87,18 @@ A validação cruzada ou \textit{Cross-Validation} é uma técnica para verifica
 A validação cruzada possue ainda algumas variações, sendo elas: \textit{holdout cross-validation}, \textit{k-Fold Cross-Validation} e \textit{Leave-one-out cross-validation (LOOCV)} \cite{james2013introduction}:
 
 
-\subsection{\textit{holdout cross-validation}}
+\subsection{\textit{Holdout Cross-Validation}}
 Modelo clássico da validação cruzada, consiste em separar os dados em dois conjuntos mutualmente exclusivos (treino validação), porém essa abordagem acaba não sendo eficiente, por aumentar a probabilidade de \textit{overfitting}, para uma maior eficiência, utiliza-se a variações com os três conjuntos explicados anteriormente \cite{raschka2015python}.
 
 \subsection{\textit{k-Fold Cross-Validation}}
-No k-fold dividi-se o conjunto total de dados em \textbf{k} subconjuntos mutualmente exclusivos, com a mesma quantidade de dados, um destes subconjuntos é utilizado para teste e os outros k-1 restantes, são utilizados no treinamento do modelo, com os devidos ajuste de parâmetros necessários, tal processo é repetido \textbf{k} vezes, alternando o conjunto de teste nestas iterações. Após as \textbf{K} iterações, calculas-se a média do erro esperado. A Figura \ref{kfold} na página \pageref{kfold} ilustra este método.
+No \textit{k-fold} dividi-se o conjunto total de dados em \textbf{\textit{k}} subconjuntos mutualmente exclusivos, com a mesma quantidade de dados, um destes subconjuntos é utilizado para teste e os outros \textbf{\textit{k-1}} restantes, são utilizados no treinamento do modelo, com os devidos ajuste de parâmetros necessários, tal processo é repetido \textbf{\textit{k}} vezes, alternando o conjunto de teste nestas iterações. Após as \textbf{\textit{k}} iterações, calculas-se a média do erro esperado. A Figura \ref{kfold} na página \pageref{kfold} ilustra este método.
 
-\subsection{\textit{Leave-one-out cross-validation (LOOCV)}} Uma variação do k-fold, com k igual ao total de dados N. Possue um alto custo operacional.
+\subsection{\textit{Leave-One-Out Cross-Validation (LOOCV)}} Uma variação do \textit{k-fold}, com \textbf{\textit{k}} igual ao total de dados de entrada \textbf{\textit{N}}. Possue um alto custo operacional.
 
 \begin{figure}[!htb]
     \centering
      \includegraphics[width=0.9\textwidth]{figuras/kfold.eps}
-     \caption{Ilustração do \textit{k-fold}, adaptado de \citeonline{raschka2015python}}
+     \caption{Ilustração do \textit{k-fold}, adaptado de \citeonline{raschka2015python}.}
      \label{kfold}
 \end{figure}
 
@@ -118,13 +118,13 @@ Segundo a documentação oficial do \citeonline{scikit-learn}, as principais van
     \item Eficaz em grandes espaços dimensionais;
     \item Continua eficaz quando o numero de dimensões supera o de amostras;
     \item Eficiente em termo de memória;
-    \item Versátil: possui diferentes tipos de funções de \textit{kernel} (linear, polinomial, sigmoide e RBF (sigla do inglês: \textit{radial basis function}, função de base radial )), possibilita também a utilização de um \textit{kernel} customizado, ou seja, uma função matemática personalizada. A Figura \ref{svmkernel} na página \pageref{svmkernel} exemplifica algumas funções de \textit{kernel}, onde os dados são classificados em três grupos distintos (azul, azul claro e vermelho).
+    \item Versátil: possui diferentes tipos de funções de \textit{kernel} (linear, polinomial, sigmoide e RBF (sigla do inglês: \textit{radial basis function}, função de base radial)), possibilita também a utilização de um \textit{kernel} customizado, ou seja, uma função matemática personalizada. A Figura \ref{svmkernel} na página \pageref{svmkernel} exemplifica algumas funções de \textit{kernel}, onde os dados são classificados em três grupos distintos (azul, azul claro e vermelho).
 \end{itemize}
 
 \begin{figure}[!htb]
     \centering
      \includegraphics[width=0.9\textwidth]{figuras/svmkernel.eps}
-     \caption{SVMs utilizando \textit{kernel} diferentes, adaptado de \citeonline{scikit-learn}}
+     \caption{SVMs utilizando \textit{kernel} diferentes, adaptado de \citeonline{scikit-learn}.}
      \label{svmkernel}
  \end{figure}
 
@@ -133,7 +133,7 @@ Segundo a documentação oficial do \citeonline{scikit-learn}, as principais van
  \begin{figure}[!htb]
      \centering
      \includegraphics[width=0.9\textwidth]{figuras/svm_hiperplano.eps}
-     \caption{Esquematização de um SVM, adaptado de \citeonline{scikit-learn}}
+     \caption{Esquematização de um SVM, adaptado de \citeonline{scikit-learn}.}
      \label{svm_hiperplano}
  \end{figure}
 
