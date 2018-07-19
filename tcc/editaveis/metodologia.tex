@@ -1,7 +1,7 @@
 \chapter{Metodologia}
 \section{Processo de construção de uma aplicação de Aprendizado de Máquina}
 
-Segundo o guia do desenvolvedor de AM da \cite{Amazon} e no livro \cite{geron2017hands}, o processo de desenvolvimento de uma aplicação de AM é iterativo e envolve uma série sequencial de passos, que de maneira geral vão desde entender o quadro geral até a apresentação da solução de proposta da aplicação. O processo pode ser visualizado pela representação BPNM (Modelo e Notação de Processos de Negócio) - da figura ~\ref{ProcessoAM} na página ~\pageref{ProcessoAM}:
+Segundo o guia do desenvolvedor de AM da \cite{Amazon} e no livro \cite{geron2017hands}, o processo de desenvolvimento de uma aplicação de AM é iterativo e envolve uma série sequencial de passos, que de maneira geral vão desde entender o quadro geral até a apresentação da solução da proposta da aplicação. O processo pode ser visualizado pela representação BPNM (Modelo e Notação de Processos de Negócio) - da figura ~\ref{ProcessoAM} na página ~\pageref{ProcessoAM}:
 
 \begin{figure}[!htb]
 	\centering
@@ -23,7 +23,7 @@ Além disto é necessário definir claramente quais os objetivos deverão ser at
 
 Os dados coletados nessa etapa devem estar ligado diretamente ao que é requerido pelo problema e atender esses requisitos a fim de atender as necessidades do contexto é de suma importância, pois alguns dos já citados desafios encontrados no desenvolvimento de sistema de AM estão relacionados aos dados que serão utilizados \cite{geron2017hands}
 
-A quantidade de dados coletados nessa etapa ainda é incerta, porém é levado em consideração que quanto maior a quantidade de dados coletados, melhor. A quantidade de dados coletados nessa etapa ainda é incerta, porém é levado em consideração que quanto maior a quantidade de dados coletados, melhor. Neste trabalho são utilizados sinais neuromusculares captados por dispositivos sEMG, ou seja os dados são uma onda.
+A quantidade de dados coletados nessa etapa ainda é incerta, porém é levado em consideração que quanto maior a quantidade de dados coletados, melhor. Neste trabalho são utilizados sinais neuromusculares captados por dispositivos sEMG, ou seja os dados são uma onda, mais informações sobre esse sinal são apresentadas na sessão \ref{ch:sEMG}.
 
 \subsection{Analisar os Dados}
 
@@ -68,7 +68,7 @@ Para validar a solução, pode-se utilizar a matriz de confusão \ref{matriz_con
 \end{figure}
 
 \subsection{Apresentar a solução}
-Construir visualizações informativas é uma das mais importantes tarefas dentro da análise de dados \cite{McKinney2012datapython}. Essa etapa consiste na utilização de ferramentas e técnicas para a representação dos dados obtidos tanto pelo modelo quanto pelos dados coletados, para validação dos mesmos. O resultados obtidos pelo algoritmo de AM sobre os dados de coleta serão aferidos quanto ao seu \textit{benchmarking} \cite{Benchmarking} para avaliar o seu desempenho, análise de acurácia e precisão como também para avaliar seu tempo de resposta. A apresentação dos dados da coleta tem por objetivo avaliar tanto a separação do espaço amostral dos dados quanto para se obter um comparativo que melhor represente de maneira visual os dados após a filtragem da etapa do processamento dos dados, de maneira geral serve para ajudar a identificar \textit{outliers} ou transformações de dados necessárias, ou como uma forma de gerar ideias para modelos \cite{McKinney2012datapython}.
+Construir visualizações informativas são umas das mais importantes tarefas dentro da análise de dados \cite{McKinney2012datapython}. Essa etapa consiste na utilização de ferramentas e técnicas para a representação dos dados obtidos tanto pelo modelo quanto pelos dados coletados, para validação dos mesmos. O resultados obtidos pelo algoritmo de AM sobre os dados de coleta serão aferidos quanto ao seu \textit{benchmarking} \cite{Benchmarking} para avaliar o seu desempenho, análise de acurácia e precisão como também para avaliar seu tempo de resposta. A apresentação dos dados da coleta tem por objetivo avaliar tanto a separação do espaço amostral dos dados quanto para se obter um comparativo que melhor represente de maneira visual os dados após a filtragem da etapa do processamento dos dados, de maneira geral serve para ajudar a identificar \textit{outliers} ou transformações de dados necessárias, ou como uma forma de gerar ideias para modelos \cite{McKinney2012datapython}.
 
 A tecnologia utilizada para o desenvolvimento neste trabalho, \textit{python}, possui muitas bibliotecas complementares para fazer visualizações estáticas ou dinâmicas, mas focaremos principalmente no \textit{Matplotlib} e nas bibliotecas criadas com base nele \cite{McKinney2012datapython}, por se tratar de uma ferramenta versátil e ser a que mais foi citada dentro de pesquisas sobre visualização de dados com \textit{Python}.
 
