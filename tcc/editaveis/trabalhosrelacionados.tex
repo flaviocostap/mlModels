@@ -1,7 +1,7 @@
 \chapter{Trabalhos Relacionados}
 \label{ch:TrabalhosRelacionados}
 
-\section{sEMG e AM}
+\section{AM e sEMG}
 Como observado na revisão acadêmica de \cite{yousefi2014characterizing}, os estudos relacionados a sEMG e AM são separados em  dois tipos de transtornos neuromusculares miopatia e neuropatia, onde miopatia refere-se a um grupo de patologias que atingem diretamente o tecido muscular sem relação com disfunções do sistema nervoso. Já a neuropatia, onde encontra-se a doença de Parkinson, é caracterizada por qualquer dano nos nervos envolvidos no controle muscular. Ambos os casos possuem diferenças e similaridades, em resumo segundo \cite{yousefi2014characterizing} as diversas técnicas de AM sobre sEMG, pode-se catalogá-las em três etapas, análise, decomposição e classificação, sendo que não é necessariamente sequencial, podendo ser um processo iterativo.
 
 Outro estudo com bons resultados, porém sem relação direta com a DP, foi desenvolvido por \cite{katsis2006novel}, que propôs um método para detectar automaticamente um PAUM e classifica-lo em normal, neuropático ou miopático. O método possui três etapas, pré-processamento do sinal EMG, detecção e agrupamento do PAUM, e posteriormente a classificação deste utilizando um SVM. Como resultados foi obtido foi possível identificar corretamente para o agrupamento 93, 95 e 92\% respectivamente, e para a classificação do PAUM foi alcançado aproximadamente 86\%. 
@@ -17,11 +17,11 @@ A seleção das \textit{features} ou características, é a distinção de um si
 Segundo \citeonline{phinyomark2012feature}, essa etapa deve ser trabalhada cuidadosamente, uma vez que erros podem prejudicar a classificação dos dados. Em sua pesquisa sobre as \textit{features} em EMG, verificou-se utilizando gráficos de dispersão, analise estatística e classificação, que a maioria das \textit{features} no domínio do tempo são redundantes e desnecessárias, sendo melhor agrupadas em quatro tipos: energia e complexidade, frequência, modelo de previsão e dependência do tempo. O estudo recomendou o uso das seguintes \textit{features}:
 
 \begin{itemize}
-    \item MAV: método de informação de energia;
-    \item WL: informação de complexidade;
-    \item WAMP: informação de frequência;
-    \item AR: método de predição;
-    \item MAVS: depedência  do tempo.
+    \item \textbf{MAV}: método de informação de energia;
+    \item \textbf{WL}: informação de complexidade;
+    \item \textbf{WAMP}: informação de frequência;
+    \item \textbf{AR}: método de predição;
+    \item \textbf{MAVS}: depedência  do tempo.
 \end{itemize}
 
 Outro estudo que cita algumas \textit{features} compiladas de outros trabalhos, Como observado na Figura \ref{featuresEMG} na página \pageref{featuresEMG}, de acordo com \citeonline{yousefi2014characterizing} as \textit{features} são as seguintes:

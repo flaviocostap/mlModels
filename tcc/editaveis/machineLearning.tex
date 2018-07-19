@@ -67,12 +67,29 @@ Com relação a "algoritmo ruim", também não deve ser interpretado literalment
 \label{sec:MAFerramentas}
 Existem diversas ferramentas para auxiliar o desenvolvimento em AM, sendo que atualmente \textit{Python} é uma das linguagens mais utilizadas nesse seguimento. Segundo \citeonline{senders2017machine}, essa utilização é devido ao conjunto bem eficiente de bibliotecas disponíveis, o fato de ser de código aberto, a facilidade de plotar gráficos e demais esquemas de visualização, além da simplicidade de identificar erros no software, tornam a linguagem \textit{Python} uma boa indicação para trabalhar com AM.
 
-Algumas ferramentas amplamente utilizadas em AM, podem ser elucidadas a seguir (\cite{scikitlearn}; \cite{abadi2016tensorflow}):
+Algumas ferramentas amplamente utilizadas em AM, podem ser elucidadas a seguir (\cite{scikitlearn}; \cite{abadi2016tensorflow}; \cite{McKinney2012datapython}):
 \begin{itemize}
     \item \textit{Scikit-learn}: Possui uma ampla gama de algoritmos, com uma alta facilidade de uso, boa documentação e uma API amplamente consistente. API (sigla do Inglês: \textit{Application Programming Interface}, Interface de Programação de Aplicação), é um conjunto de funções que são utilizados para facilitar o desenvolvimento de um software;
     \item \textit{TensorFlow}: Projetado pelo Google para operar em larga escala, utiliza ferramentas avançadas sendo utilizado inclusive pelo próprio Google;
-    \item \textit{Keras}: API de alto nível com foco em RNAs (Redes Neurais Artificiais).
+    \item \textit{Keras}: API de alto nível com foco em RNAs (Redes Neurais Artificiais);
+    \item \textit{Matplotlib}: Ferramenta para a criação de gráficos;
+    \item \textit{Numpy}: Utilizada para manipulações matemáticas complexas, como multiplicação de matrizes, entre outras;
+    \item \textit{Pandas}: Ferramenta para estruturar dados, tornando o trabalho com dados “relacionais” ou “rotulados” mais fácil e intuitivo. Ideal para trabalhar com matrizes.
 \end{itemize}
+
+\section{Visualizar a solução}
+Construir visualizações informativas são umas das mais importantes tarefas dentro da análise de dados \cite{McKinney2012datapython}. Essa etapa consiste na utilização de ferramentas e técnicas para a representação dos dados obtidos tanto pelo modelo quanto pelos dados coletados, para validação dos mesmos. O resultados obtidos pelo algoritmo de AM sobre os dados de coleta serão aferidos quanto ao seu \textit{benchmarking} \cite{Benchmarking} para avaliar o seu desempenho, análise de acurácia e precisão como também para avaliar seu tempo de resposta. A apresentação dos dados da coleta tem por objetivo avaliar tanto a separação do espaço amostral dos dados quanto para se obter um comparativo que melhor represente de maneira visual os dados após a filtragem da etapa do processamento dos dados, de maneira geral serve para ajudar a identificar \textit{outliers} ou transformações de dados necessárias, ou como uma forma de gerar ideias para modelos \cite{McKinney2012datapython}.
+
+\subsection{Matriz de Confusão}
+\label{sc:matrizconsusao}
+Um dos métodos mais utilizadas para apresentar a solução do modelo é a matriz de confusão. Uma matriz de confusão, é um método para visualizar graficamente a eficiência de um modelo de AM. Onde, realiza-se o cruzamento entre os valores esperados com os valores alcançados pelo algoritmo \cite{caelen2017bayesian}. Por exemplo na Figura \ref{matriz_consusao}, existem três tipos de flores e o algoritmo, no caso o SVM, deveria classificar os dados de entradas em um destes três grupos. Como observado, existiam 13 dados do tipo "setosa", e o SVM acertou todos os 13. O mesmo ocorre com os dados do tipo "virginica", onde ocorreu 100\% de acerto. Porém, nos dados do tipo "versicolor" existiam 16 amostras, e o SVM acertou 10 e errou os outros 6 restantes, já que o valor alcançado nestes 6 dados foi de "virginica".
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figuras/matriz_consusao.eps}
+	\caption{Exemplificação da matriz de confusão, adaptado de \citeonline{scikitlearn}.}
+	\label{matriz_consusao}
+\end{figure}
 
 \section{Validação cruzada}
 \label{sc:crossvalidation}
