@@ -67,7 +67,7 @@ Com relação a "algoritmo ruim", também não deve ser interpretado literalment
 \label{sec:MAFerramentas}
 Existem diversas ferramentas para auxiliar o desenvolvimento em AM, sendo que atualmente \textit{Python} é uma das linguagens mais utilizadas nesse seguimento. Segundo \citeonline{senders2017machine}, essa utilização é devido ao conjunto bem eficiente de bibliotecas disponíveis, o fato de ser de código aberto, a facilidade de plotar gráficos e demais esquemas de visualização, além da simplicidade de identificar erros no software, tornam a linguagem \textit{Python} uma boa indicação para trabalhar com AM.
 
-Algumas ferramentas amplamente utilizadas em AM, podem ser elucidadas a seguir (\cite{scikit-learn}; \cite{abadi2016tensorflow}):
+Algumas ferramentas amplamente utilizadas em AM, podem ser elucidadas a seguir (\cite{scikitlearn}; \cite{abadi2016tensorflow}):
 \begin{itemize}
     \item \textit{Scikit-learn}: Possui uma ampla gama de algoritmos, com uma alta facilidade de uso, boa documentação e uma API amplamente consistente. API (sigla do Inglês: \textit{Application Programming Interface}, Interface de Programação de Aplicação), é um conjunto de funções que são utilizados para facilitar o desenvolvimento de um software;
     \item \textit{TensorFlow}: Projetado pelo Google para operar em larga escala, utiliza ferramentas avançadas sendo utilizado inclusive pelo próprio Google;
@@ -75,6 +75,7 @@ Algumas ferramentas amplamente utilizadas em AM, podem ser elucidadas a seguir (
 \end{itemize}
 
 \section{Validação cruzada}
+\label{sc:crossvalidation}
 A validação cruzada ou \textit{Cross-Validation} é uma técnica para verificar o quão eficiente é a capacidade de generalização do modelo. Ou seja, qual o desempenho do modelo ao prever um novo conjunto de dados. Com a validação cruzada evita-se o \textit{overfitting}, além de auxiliar no ajuste dos parâmetros do algoritmo. A validação cruzada consiste em \cite{james2013introduction}:
 
 \begin{enumerate}
@@ -104,7 +105,7 @@ No \textit{k-fold} dividi-se o conjunto total de dados em \textbf{\textit{k}} su
 
 \section{SVM}
 
-A SVM é um dos modelos mais populares em AMs, sendo composto por um conjunto de métodos de aprendizado supervisionada. Podem ser utilizadas para classificação, regressão ou \textit{outlier detection} \cite{scikit-learn}. Segundo \citeonline{braga2000redes} e \citeonline{haykin1999neural}, os resultados da aplicação de SVM, são comparáveis e muitas vezes superiores aos obtidos por outros algoritmos de aprendizado, como as RNAs. Exemplos de aplicações de sucesso podem ser encontrados em diversos domínios, como na categorização de textos,  catalogação de imagens \cite{pontil1998support}, e em Bioinformática \cite{noble2004support}.
+A SVM é um dos modelos mais populares em AMs, sendo composto por um conjunto de métodos de aprendizado supervisionada. Podem ser utilizadas para classificação, regressão ou \textit{outlier detection} \cite{scikitlearn}. Segundo \citeonline{braga2000redes} e \citeonline{haykin1999neural}, os resultados da aplicação de SVM, são comparáveis e muitas vezes superiores aos obtidos por outros algoritmos de aprendizado, como as RNAs. Exemplos de aplicações de sucesso podem ser encontrados em diversos domínios, como na categorização de textos,  catalogação de imagens \cite{pontil1998support}, e em Bioinformática \cite{noble2004support}.
 
 As SVMs são divididas em dois grupos, categorizadas conforme o estado dados a serem resolvidos, ou seja é um problema linear ou não \cite{lorena2007introduccao}.
 \begin{itemize}
@@ -112,7 +113,7 @@ As SVMs são divididas em dois grupos, categorizadas conforme o estado dados a s
     \item SVMs Não Lineares;
 \end{itemize}
 
-Segundo a documentação oficial do \citeonline{scikit-learn}, as principais vantagens em SVMs são:
+Segundo a documentação oficial do \citeonline{scikitlearn}, as principais vantagens em SVMs são:
 
 \begin{itemize}
     \item Eficaz em grandes espaços dimensionais;
@@ -124,7 +125,7 @@ Segundo a documentação oficial do \citeonline{scikit-learn}, as principais van
 \begin{figure}[!htb]
     \centering
      \includegraphics[width=0.9\textwidth]{figuras/svmkernel.eps}
-     \caption{SVMs utilizando \textit{kernel} diferentes, adaptado de \citeonline{scikit-learn}.}
+     \caption{SVMs utilizando \textit{kernel} diferentes, adaptado de \citeonline{scikitlearn}.}
      \label{svmkernel}
  \end{figure}
 
@@ -133,7 +134,7 @@ Segundo a documentação oficial do \citeonline{scikit-learn}, as principais van
  \begin{figure}[!htb]
      \centering
      \includegraphics[width=0.9\textwidth]{figuras/svm_hiperplano.eps}
-     \caption{Esquematização de um SVM, adaptado de \citeonline{scikit-learn}.}
+     \caption{Esquematização de um SVM, adaptado de \citeonline{scikitlearn}.}
      \label{svm_hiperplano}
  \end{figure}
 

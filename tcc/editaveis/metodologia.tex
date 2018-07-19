@@ -1,11 +1,11 @@
 \chapter{Metodologia}
 \section{Processo de construção de uma aplicação de Aprendizado de Máquina}
 
-Segundo o guia do desenvolvedor de AM da \cite{Amazon} e no livro \cite{geron2017hands}, o processo de desenvolvimento de uma aplicação de AM é iterativo e envolve uma série sequencial de passos, que de maneira geral vão desde entender o quadro geral até a apresentação da solução da proposta da aplicação. O processo pode ser visualizado pela representação BPNM (Modelo e Notação de Processos de Negócio) - da figura ~\ref{ProcessoAM} na página ~\pageref{ProcessoAM}:
+Segundo o guia do desenvolvedor de AM da \cite{Amazon} e no livro \cite{geron2017hands}, o processo de desenvolvimento de uma aplicação de AM é iterativo e envolve uma série sequencial de passos, que de maneira geral vão desde entender o quadro geral até a apresentação da solução da proposta da aplicação. O processo pode ser visualizado pela representação BPNM (sigla do inglês: \textit{Business Process Model and Notation}, Modelo e Notação de Processos de Negócio) na Figura \ref{ProcessoAM} na página ~\pageref{ProcessoAM}:
 
-\begin{figure}[!htb]
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{figuras/ProcessoAM.eps}
+	\includegraphics[width=1\textwidth]{figuras/Processoam.eps}
 	\caption{Diagrama do processo, do autor.}
 	\label{ProcessoAM}
 \end{figure}
@@ -17,11 +17,11 @@ Imagine o seguinte cenário, no qual você deseja fabricar produtos, porém sua 
 
 Em termos mais técnicos dentro do AM, o ponto importante do entendimento do contexto e a abstração do problema, é que essa etapa tem um papel fundamental na escolha dos modelos, pois tendo o entendimento da natureza do problema será selecionado o modelo para predizer os resultados para esse dado problema com base no tipo de aprendizado mais adequado a este contexto.
 
-Além disto é necessário definir claramente quais os objetivos deverão ser atingidos, qual a métrica de desempenho utilizar para validar o modelo, quais algoritmos utilizar, qual o desempenho esperado e com estas e outras respostas será possível enquadrar o problema em supervisionado, não supervisionado ou por reforço. E após categoriza-lo em classificação, regressão ou outra coisa\cite{geron2017hands}. Enfim essa etapa de análise serve para orientar o trabalho evitando a criação de modelos que não respondem o problema, além de otimizar o esforço no desenvolvimento \cite{Amazon}.
+Além disto, é necessário definir claramente quais os objetivos deverão ser atingidos, qual a métrica de desempenho utilizar para validar o modelo, quais algoritmos utilizar, qual o desempenho esperado e com estas e outras respostas será possível enquadrar o problema em supervisionado, não supervisionado ou por reforço. E após categoriza-lo em classificação, regressão ou outra coisa \cite{geron2017hands}. Enfim essa etapa de análise serve para orientar o trabalho evitando a criação de modelos que não respondem o problema, além de otimizar o esforço no desenvolvimento \cite{Amazon}.
 
 \subsection{Coleta de dados}
 
-Os dados coletados nessa etapa devem estar ligado diretamente ao que é requerido pelo problema e atender esses requisitos a fim de atender as necessidades do contexto é de suma importância, pois alguns dos já citados desafios encontrados no desenvolvimento de sistema de AM estão relacionados aos dados que serão utilizados \cite{geron2017hands}
+Os dados coletados nessa etapa devem estar ligado diretamente ao que é requerido pelo problema e atender esses requisitos a fim de atender as necessidades do contexto é de suma importância, pois alguns dos já citados desafios encontrados no desenvolvimento de sistema de AM estão relacionados aos dados que serão utilizados \cite{geron2017hands}.
 
 A quantidade de dados coletados nessa etapa ainda é incerta, porém é levado em consideração que quanto maior a quantidade de dados coletados, melhor. Neste trabalho são utilizados sinais neuromusculares captados por dispositivos sEMG, ou seja os dados são uma onda, mais informações sobre esse sinal são apresentadas na sessão \ref{ch:sEMG}.
 
@@ -55,15 +55,15 @@ Após a etapa de análise dos dados, é necessário tornar as variáveis mais si
 Após identificar o problema, explorar os dados, testar e limpar as incoerências e prepara os dados além de separa os dados em treino e teste, agora é possível escolher o modelo adequado para solucionar o problema identificado \cite{geron2017hands}.
 
 \subsection{Treinar o Modelo}
-Agora para treinar o modelo, com os a totalidade do dados separados em por exemplo 80\% dados de treino e 20\% em dados de teste, utilizar os 80\% dos dados para treinar o modelo, passando estes dados pelo algoritmo escolhido, os outros 20\% restantes serão utilizados para testar a eficiência da rede.
+Agora para treinar o modelo, com os a totalidade do dados separados em por exemplo 80\% dados de treino e 20\% em dados de teste, utilizar os 80\% dos dados para treinar o modelo, passando estes dados pelo algoritmo escolhido, os outros 20\% restantes serão utilizados para testar a eficiência do modelo.
 
 \subsection{Validar a solução}
-Para validar a solução, pode-se utilizar a matriz de confusão \ref{matriz_consusao} bastante utilizada em AM para visualizar o comportamento de modelos em classificação supervisionada, basicamente separa-se os dados em uma matriz com valores previstos e valores verdadeiros, cruza-se estes dados em positivos e negativos \cite{caelen2017bayesian}.
+Para validar a solução, utiliza-se a validação cruzada, a qual foi descrita na seção \ref{sc:crossvalidation} na página \pageref{sc:crossvalidation}. Também é comum a utilização da matriz de confusão, onde realiza-se o cruzamento entre os valores esperados com os valores alcançados pelo algoritmo \cite{caelen2017bayesian}. Por exemplo na Figura \ref{matriz_consusao}, existem três tipos de flores e o algoritmo, no caso o SVM, deveria classificar os dados de entradas em um destes três grupos. Como observado, existiam 13 dados do tipo "setosa", e o SVM acertou todos os 13. O mesmo ocorre com os dados do tipo "virginica", onde ocorreu 100\% de acerto. Porém, nos dados do tipo "versicolor" existiam 16 amostras, e o SVM acertou 10 e errou os outros 6 restantes, já que o valor alcançado nestes 6 dados foi de "virginica".
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figuras/matriz_consusao.eps}
-	\caption{Exemplificação da matriz de confusão, adaptado de \citeonline{AndreoniMartin}.}
+	\caption{Exemplificação da matriz de confusão, adaptado de \citeonline{scikitlearn}.}
 	\label{matriz_consusao}
 \end{figure}
 
@@ -72,38 +72,17 @@ Construir visualizações informativas são umas das mais importantes tarefas de
 
 A tecnologia utilizada para o desenvolvimento neste trabalho, \textit{python}, possui muitas bibliotecas complementares para fazer visualizações estáticas ou dinâmicas, mas focaremos principalmente no \textit{Matplotlib} e nas bibliotecas criadas com base nele \cite{McKinney2012datapython}, por se tratar de uma ferramenta versátil e ser a que mais foi citada dentro de pesquisas sobre visualização de dados com \textit{Python}.
 
-O Matplotlib é uma biblioteca de plotagem de gráficos em \textit{Python} \cite{Matplotlib}.
+O \textit{Matplotlib} é uma biblioteca de plotagem de gráficos em \textit{Python} \cite{Matplotlib}.
 
 \subsection{Cronograma da Pesquisa}
 
-O cronograma a seguir trata-se de uma visão preliminar do que será realizado durante a confecção desse trabalho, portanto adaptações neste documento são possíveis, dada a necessidade de melhorias apontadas ao decorrer do processo.
+O cronograma a seguir trata-se de uma visão preliminar do que será realizado durante a confecção desse trabalho. Portanto adaptações neste documento são possíveis, dada a necessidade de melhorias apontadas ao decorrer do processo.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
 \begin{table}[h]
 	\centering
-	\begin{tabular}{@{}lcccccc@{}}
-		\toprule
-		TCC1                                                & \multicolumn{1}{l}{Jan} & \multicolumn{1}{l}{Fev} & \multicolumn{1}{l}{Mar} & \multicolumn{1}{l}{Abr} & \multicolumn{1}{l}{Mai} & \multicolumn{1}{l}{Jun} \\ \midrule
-		Levantamento bibliográfico                          & x                       & x                       & x                       & x                       &                         &                         \\
-		Definição do escopo                                 &                         & x                       &                         &                         &                         &                         \\
-		Planejamento da abordagem                           &                         &                         & x                       & x                       &                         &                         \\
-		Refinamento da proposta                             &                         &                         &                         & x                       &                         &                         \\
-		Construção da metodologia                           &                         &                         &                         & x                       & x                       &                         \\
-		Coleta dos dados                                    &                         &                         &                         &                         & x                       &                         \\
-		Escolha do modelo                                   &                         &                         & x                       & x                       & x                       &                         \\
-		Resultados preliminares                             &                         &                         &                         &                         &                         & x                       \\
-		Apresentação para a banca TCC 1                     &                         &                         &                         &                         &                         & x                       \\
-		Coletar \textbackslash{}texit\{feedbacks\} do TCC 1 &                         &                         &                         &                         &                         & x                       \\ \bottomrule
-	\end{tabular}
-	\caption{Cronograma do TCC 1}
-	\label{table:CronogramaTCC1}
-\end{table}
-
-% Please add the following required packages to your document preamble:
-% \usepackage{booktabs}
-\begin{table}[h]
-	\centering
+	\caption{Cronograma do TCC 2}
 	\begin{tabular}{@{}lccccc@{}}
 	\toprule
 	TCC2                         & \multicolumn{1}{l}{Ago} & \multicolumn{1}{l}{Set} & \multicolumn{1}{l}{Out} & \multicolumn{1}{l}{Nov} & \multicolumn{1}{l}{Dez} \\ \midrule
@@ -116,6 +95,5 @@ O cronograma a seguir trata-se de uma visão preliminar do que será realizado d
 	Refinar escrita              &                         &                         &                         &                         & x                       \\
 	Escrever artigo              &                         &                         & x                       & x                       & x                       \\ \bottomrule
 	\end{tabular}
-	\caption{Cronograma do TCC 2}
 	\label{table:CronogramaTCC2}
 	\end{table}
