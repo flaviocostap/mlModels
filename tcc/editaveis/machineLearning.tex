@@ -65,31 +65,35 @@ Com relação a "algoritmo ruim", também não deve ser interpretado literalment
 
 \section{Ferramentas}
 \label{sec:MAFerramentas}
-Existem diversas ferramentas para auxiliar o desenvolvimento em aprendizagem de máquina, sendo que atualmente \textit{Python} é uma das linguagens mais utilizadas nesse seguimento, segundo \citeonline{senders2017machine} devido ao conjunto bem eficiente de bibliotecas disponíveis, o fato de ser de código aberto e a facilidade de plotar gráficos e demais esquemas de visualização, com uma simplicidade de identificar erros e defeitos no software tornam a linguagem \textit{Python} uma boa indicação para trabalhar com AMs.
+Existem diversas ferramentas para auxiliar o desenvolvimento em AM, sendo que atualmente \textit{Python} é uma das linguagens mais utilizadas nesse seguimento. Segundo \citeonline{senders2017machine}, essa utilização é devido ao conjunto bem eficiente de bibliotecas disponíveis, o fato de ser de código aberto, a facilidade de plotar gráficos e demais esquemas de visualização, além da simplicidade de identificar erros no software, tornam a linguagem \textit{Python} uma boa indicação para trabalhar com AM.
 
-Algumas ferramentas amplamente utilizadas em aprendizagem de máquinas.
+Algumas ferramentas amplamente utilizadas em AM, podem ser elucidadas a seguir (\cite{scikit-learn}; \cite{abadi2016tensorflow}):
 \begin{itemize}
-    \item \textit{scikit-learn}: Possui uma ampla gama de algoritmos, com uma alta facilidade de uso, boa documentação e uma API amplamente consistente \cite{scikit-learn}, API (sigla do Inglês: \textit{Application Programming Interface}, Interface de Programação de Aplicação), é um conjunto de função que são utilizados para facilitar o desenvolvimento de um software. 
-    \item \textit{TensorFlow}: Projetado pelo Google para operar em larga escala, utiliza ferramentas avançadas sendo utilizado inclusive pelo próprio Google\cite{abadi2016tensorflow}
-    \item \textit{Keras}: API de alto nível com foco em redes neurais.
+    \item \textit{Scikit-learn}: Possui uma ampla gama de algoritmos, com uma alta facilidade de uso, boa documentação e uma API amplamente consistente. API (sigla do Inglês: \textit{Application Programming Interface}, Interface de Programação de Aplicação), é um conjunto de funções que são utilizados para facilitar o desenvolvimento de um software;
+    \item \textit{TensorFlow}: Projetado pelo Google para operar em larga escala, utiliza ferramentas avançadas sendo utilizado inclusive pelo próprio Google;
+    \item \textit{Keras}: API de alto nível com foco em RNAs (Redes Neurais Artificiais).
 \end{itemize}
 
 \section{Validação cruzada}
-A validação cruzada ou \textit{Cross-Validation} é uma técnica para verificar o quão eficiente é a capacidade de generalização do modelo, ou seja, qual o desempenho do modelo ao prever um novo conjunto de dados. Com a validação cruzada evita-se o \textit{overfitting}, além de auxiliar no ajuste dos parâmetros do algoritmo, a validação cruzada consiste em \cite{james2013introduction}:
+A validação cruzada ou \textit{Cross-Validation} é uma técnica para verificar o quão eficiente é a capacidade de generalização do modelo. Ou seja, qual o desempenho do modelo ao prever um novo conjunto de dados. Com a validação cruzada evita-se o \textit{overfitting}, além de auxiliar no ajuste dos parâmetros do algoritmo. A validação cruzada consiste em \cite{james2013introduction}:
 
 \begin{enumerate}
     \item Separar aleatoriamente o conjunto de dados em três partes (treino, teste e validação);
     \item O conjunto de dados de treino é utilizado para treinar o modelo;
-    \item O conjunto de validação é utilizado para ajustar os parâmetros. Isto é, após o treino verifica-se a precisão do modelo e caso não atinga a expectativa, realiza-se os ajustes necessários no algoritmo, e realiza um novo treinamento com os dados de teste \cite{raschka2015python};
-    \item Ao final verifica-se a generalização do algoritmo treinado, utilizando o conjunto de teste.
+    \item O conjunto de validação é utilizado para ajustar os parâmetros. Isto é, após o treino verifica-se a precisão do modelo e caso não atinga a expectativa, realiza-se os ajustes necessários no algoritmo. Após, realiza-se um novo treinamento com os dados de teste \cite{raschka2015python};
+    \item Ao final, verifica-se a generalização do algoritmo treinado, utilizando o conjunto de validação. Deste modo, o conjunto de validação é utilizada apenas uma vez no processo de AM.
 \end{enumerate}
 
 A validação cruzada possue ainda algumas variações, sendo elas: \textit{holdout cross-validation}, \textit{k-Fold Cross-Validation} e \textit{Leave-one-out cross-validation (LOOCV)} \cite{james2013introduction}:
 
 
-\subsection{\textit{holdout cross-validation}}, modelo clássico da validação cruzada, consiste em separar os dados em dois conjuntos mutualmente exclusivos (treino validação), porém essa abordagem acaba não sendo eficiente, por aumentar a probabilidade de \textit{overfitting}, para uma maior eficiência, utiliza-se a variações com os três conjuntos explicados anteriormente\cite{raschka2015python}.
+\subsection{\textit{holdout cross-validation}}
+Modelo clássico da validação cruzada, consiste em separar os dados em dois conjuntos mutualmente exclusivos (treino validação), porém essa abordagem acaba não sendo eficiente, por aumentar a probabilidade de \textit{overfitting}, para uma maior eficiência, utiliza-se a variações com os três conjuntos explicados anteriormente \cite{raschka2015python}.
 
-\subsection{\textit{k-Fold Cross-Validation}}, no k-fold dividi-se o conjunto total de dados em \textbf{k} subconjuntos mutualmente exclusivos, com a mesma quantidade de dados, um destes subconjuntos é utilizado para teste e os outros k-1 restantes, são utilizados no treinamento do modelo, com os devidos ajuste de parâmetros necessários, tal processo é repetido \textbf{k} vezes, alternando o conjunto de teste nestas iterações. Após as \textbf{K} iterações, calculas-se a média do erro esperado. a Figura \ref{kfold} na página \pageref{kfold} ilustra este método;
+\subsection{\textit{k-Fold Cross-Validation}}
+No k-fold dividi-se o conjunto total de dados em \textbf{k} subconjuntos mutualmente exclusivos, com a mesma quantidade de dados, um destes subconjuntos é utilizado para teste e os outros k-1 restantes, são utilizados no treinamento do modelo, com os devidos ajuste de parâmetros necessários, tal processo é repetido \textbf{k} vezes, alternando o conjunto de teste nestas iterações. Após as \textbf{K} iterações, calculas-se a média do erro esperado. A Figura \ref{kfold} na página \pageref{kfold} ilustra este método.
+
+\subsection{\textit{Leave-one-out cross-validation (LOOCV)}} Uma variação do k-fold, com k igual ao total de dados N. Possue um alto custo operacional.
 
 \begin{figure}[!htb]
     \centering
@@ -100,7 +104,7 @@ A validação cruzada possue ainda algumas variações, sendo elas: \textit{hold
 
 \section{SVM}
 
-Máquina de vetores de suporte (SVM, do inglês: \textit{Support Vector Machines}) é um dos modelos mais populares em AMs, sendo composto por um conjunto de métodos de aprendizado supervisionada. Podem ser utilizados para classificação, regressão ou \textit{outlier detection} \cite{scikit-learn}. Segundo \citeonline{braga2000redes} e \citeonline{haykin1999neural}, os resultados da aplicação de SVM, são comparáveis e muitas vezes superiores aos obtidos por outros algoritmos de aprendizado, como as Redes Neurais Artificiais (RNAs). Exemplos de aplicações de sucesso podem ser encontrados em diversos domínios, como na categorização de textos,  catalogação de imagens \cite{pontil1998support}, e em Bioinformática \cite{noble2004support}.
+A SVM é um dos modelos mais populares em AMs, sendo composto por um conjunto de métodos de aprendizado supervisionada. Podem ser utilizadas para classificação, regressão ou \textit{outlier detection} \cite{scikit-learn}. Segundo \citeonline{braga2000redes} e \citeonline{haykin1999neural}, os resultados da aplicação de SVM, são comparáveis e muitas vezes superiores aos obtidos por outros algoritmos de aprendizado, como as RNAs. Exemplos de aplicações de sucesso podem ser encontrados em diversos domínios, como na categorização de textos,  catalogação de imagens \cite{pontil1998support}, e em Bioinformática \cite{noble2004support}.
 
 As SVMs são divididas em dois grupos, categorizadas conforme o estado dados a serem resolvidos, ou seja é um problema linear ou não \cite{lorena2007introduccao}.
 \begin{itemize}
@@ -108,13 +112,13 @@ As SVMs são divididas em dois grupos, categorizadas conforme o estado dados a s
     \item SVMs Não Lineares;
 \end{itemize}
 
-Segundo a documentação oficial do \citeonline{scikit-learn} as principais vantagens em SVMs são:
+Segundo a documentação oficial do \citeonline{scikit-learn}, as principais vantagens em SVMs são:
 
 \begin{itemize}
     \item Eficaz em grandes espaços dimensionais;
     \item Continua eficaz quando o numero de dimensões supera o de amostras;
     \item Eficiente em termo de memória;
-    \item Versátil: possui diferentes tipos de funções de \textit{kernel} (linear, polinomial, sigmoide e base radial (RBF)), possibilita também a utilização de um \textit{kernel} customizado, ou seja uma função matemática personalizada, a Figura \ref{svmkernel} na página \pageref{svmkernel} exemplifica algumas funções de \textit{kernel};
+    \item Versátil: possui diferentes tipos de funções de \textit{kernel} (linear, polinomial, sigmoide e RBF (sigla do inglês: \textit{radial basis function}, função de base radial )), possibilita também a utilização de um \textit{kernel} customizado, ou seja, uma função matemática personalizada. A Figura \ref{svmkernel} na página \pageref{svmkernel} exemplifica algumas funções de \textit{kernel}, onde os dados são classificados em três grupos distintos (azul, azul claro e vermelho).
 \end{itemize}
 
 \begin{figure}[!htb]
@@ -124,7 +128,7 @@ Segundo a documentação oficial do \citeonline{scikit-learn} as principais vant
      \label{svmkernel}
  \end{figure}
 
- O SVM funciona no principio de separação ótima entre classes. Com base nas amostras de treinamento, cria-se uma distribuição de probabilidade, seguindo de modo iterativo remove-se algumas amostras, e calcula-se novamente a distribuição de probabilidade, continuando este ciclo até estabelecer os vetores de suporte em um hiperplano ou em um conjuntos de hiperplanos. Estes vetores de suporte, são os pontos que definem a maior margem possível entre as classes a Figura \ref{svm_hiperplano} na página \pageref{svm_hiperplano} \cite{huang2002assessment}.
+ O SVM funciona no principio de separação ótima entre classes. Ou seja, com base nas amostras de treinamento, cria-se uma distribuição de probabilidade, seguindo de modo iterativo remove-se algumas amostras, e calcula-se novamente a distribuição de probabilidade, continuando este ciclo até estabelecer os vetores de suporte em um hiperplano ou em um conjuntos de hiperplanos. Estes vetores de suporte, são os pontos que definem a maior margem possível entre as classes \cite{huang2002assessment}. A Figura \ref{svm_hiperplano} na página \pageref{svm_hiperplano} exemplifica estes conceitos.
 
  \begin{figure}[!htb]
      \centering
@@ -135,19 +139,19 @@ Segundo a documentação oficial do \citeonline{scikit-learn} as principais vant
 
  \subsection{Funcionamento}
 
-As SVMs foram desenvolvidas no âmbito da Teoria Estatística da Aprendizagem, logo para entender o funcionamento do dado modelo é necessário entender o próprio \textit{framework} da Teoria Estatística da Aprendizagem, o qual foi formulado por Vapnik em 1998, porém como o foco neste trabalho é a aplicação do modelo, não será abordado de maneira aprofundada o conceito da Teoria Estatística da Aprendizagem neste trabalho cujo o foco é a implementação, o estudo pode ser encontrado em \cite{vapnik1998statistical}.
-
-Um estudo sobre as teorias e aplicações do modelo foi desenvolvido por \cite{evgeniou1999support}, o qual explica bem a formulação do algoritmo, se baseando no trabalho realizados por Vapnik para a construção do SVM. Este estudo será o guia para a explicação do funcionamento do SVM. Outro estudo realizado por \cite{vayatis99estimate} discute o arcabouço teórico básico no qual máquinas de aprendizagem como SVM foram desenvolvidas, e sugerem possíveis direções de pesquisa que podem levar a melhorias de SVM como, o uso da teoria, pode ser usada para escolher os parâmetros de um SVM, como o seu kernel entre outros.
+As SVMs foram desenvolvidas por Vapnik em 1998, no âmbito da Teoria Estatística da Aprendizagem, logo para entender o funcionamento do dado modelo é necessário entender o próprio \textit{framework} da Teoria Estatística da Aprendizagem \cite{vapnik1998statistical}. Porém como o foco neste trabalho é a aplicação do modelo, não será abordado de maneira aprofundada o conceito da Teoria Estatística da Aprendizagem cujo o foco é a implementação.
  
-Uma explicação simplista do funcionamento do SVM é a linear, na qual o hiperplano se encontra no espaço dos dados de entrada x. A noção mais comum sobre o SVM, é que o mesmo encontra um melhor hiperplano como a solução para o problema de aprendizagem \cite{vapnik1998statistical}. No caso linear o espaço de hipóteses é um subconjunto de todos os hiperplanos da forma \cite{evgeniou1999support}:\[f(x)= w\cdot x +b\]
-Em sua formulação mais geral, o SVM encontra um hiperplano em um espaço diferente daquele dos dados de entrada x. É um hiperplano em um espaço de característica induzido por um kernel K. Através do kernel K, o espaço de hipóteses é definido como um conjunto de "hiperplanos" no espaço de feições induzido por K. Isso também pode ser visto como um conjunto de funções em um Espaço Hilbert de Reprodução (RKHS) definido por K \cite{wahba1990spline}, \cite{vapnik1998statistical}. Também não será discutido aqui a RKHS neste trabalho, assim como o mesmo não é discutido no estudo \cite{evgeniou1999support}. Então, para resumir, o espaço de hipóteses usado pelo SVM é um subconjunto do conjunto de hiperplanos definido em algum espaço de um RKHS. Este espaço pode ser formalmente escrito como.\[\left \{ f:\left \| f \right \|_{2}^{k} < \infty \right \}\]
-Onde K é o kernel que define o RKHS, e $ \left \| f \right \|_{2}^{k} $  é a norma RKHS da função \cite{wahba1990spline}. SVM considera os conjuntos da forma. \[\left \{ f:\left \| f \right \|_{2}^{k} \leq A^{2} \right \}\] para alguma constante A. Na estrutura da Teoria Estatística de Aprendizagem, a constante A é usada para definir uma estrutura de espaços de hipóteses (o quanto maior for, mais complexo é o espaço da hipótese). O objetivo do SVM é encontrar a solução com a norma RKHS "ideal", ou seja, encontrar o A ótimo \cite{evgeniou1999support}.
+Uma explicação simplista do funcionamento do SVM é a linear, na qual o hiperplano se encontra no espaço dos dados de entrada \textbf{\textit{X}}. A noção mais comum sobre o SVM, é que o mesmo encontra um melhor hiperplano como a solução para o problema de aprendizagem \cite{vapnik1998statistical}. No caso linear o espaço de hipóteses é um subconjunto de todos os hiperplanos da forma \cite{evgeniou1999support}:\[f(x)= w\cdot x +b\]
+Em sua formulação mais geral, o SVM encontra um hiperplano em um espaço diferente daquele dos dados de entrada \textbf{\textit{X}}. É um hiperplano, em um espaço de característica induzido por um kernel \textbf{\textit{K}}. Através do kernel \textbf{\textit{K}}, o espaço de hipóteses é definido como um conjunto de "hiperplanos" no espaço de feições induzido por \textbf{\textit{K}}. Isso também pode ser visto como um conjunto de funções em um EHR (Espaço Hilbert de Reprodução) definido por \textbf{\textit{K}} \cite{wahba1990spline}, \cite{vapnik1998statistical}. Também não será discutido neste trabalho a EHR. Para resumir, o espaço de hipóteses usado pelo SVM é um subconjunto do conjunto de hiperplanos definido em algum espaço de um EHR. Este espaço pode ser formalmente escrito como.\[\left \{ f:\left \| f \right \|_{2}^{k} < \infty \right \}\]
+Onde \textbf{\textit{K}} é o kernel que define o EHR, e $ \left \| f \right \|_{2}^{k} $  é a norma EHR da função \cite{wahba1990spline}. 
 
-A segunda opção retratada pelo estudo \cite{evgeniou1999support} é a da função de perda, é uma função que mapeia um evento ou valores de uma ou mais variáveis num número real, intuitivamente representando algum "custo" associado ao evento \cite{wald1950statistical}. O estudo \cite{evgeniou1999support} distingue os SVM em classificação e regressão, porém como este trabalho será focado na classificação, será apenas retratado o primeiro caso dos classificadores SVM.
+SVM considera os conjuntos da forma. \[\left \{ f:\left \| f \right \|_{2}^{k} \leq A^{2} \right \}\] para alguma constante \textbf{\textit{A}}. Na estrutura da Teoria Estatística de Aprendizagem, a constante \textbf{\textit{A}} é usada para definir uma estrutura de espaços de hipóteses (o quanto maior for, mais complexo é o espaço da hipótese). O objetivo do SVM é encontrar a solução com a norma EHR "ideal", ou seja, encontrar o \textbf{\textit{A}} ótimo \cite{evgeniou1999support}.
 
-Para classificação idealmente o erro de erro de classificação precisa ser minimizado, então uma função de perda do sinal de forma $ (-yf(x)) $ deve ser usada (na classificação y toma valores binários $ \pm1 $, e a classificação é feita tomando o sinal de função $ f(x) $). No entanto, devido à escala e às razões computacionais \cite{vapnik1998statistical}, a função de perda real usada para classificação SVM é $ |1-yf(x)|_{+} $ (ou seja, 0 se $ |1-yf(x)|< 0 $ e $ |1-yf(x)| $ caso contrário). Isso também é chamado de função de perda de "margem flexível" por causa de sua interpretação padrão de "margem": os pontos para os quais a função de perda é zero são os que têm "margem" \cite{evgeniou1999support}.\[yf(x)/\left \| f \right \|_{k}^{2}\]
+A segunda opção retratada pelo estudo de \citeonline{evgeniou1999support} é a da função de perda. Uma função de perda, é uma função que mapeia um evento ou valores de uma ou mais variáveis num número real, intuitivamente representando algum "custo" associado ao evento \cite{wald1950statistical}. O estudo \citeonline{evgeniou1999support} distingue os SVM em classificação e regressão, porém como este trabalho será focado na classificação, será apenas retratado o primeiro caso dos classificadores SVM.
+
+Para classificação, idealmente o erro de classificação precisa ser minimizado. Então uma função de perda do sinal na forma $ (-yf(x)) $ deve ser usada (na classificação \textbf{\textit{y}} toma valores binários $ \pm1 $, e a classificação é feita tomando o sinal de função $ f(x) $). No entanto, devido à escala e às razões computacionais \cite{vapnik1998statistical}, a função de perda real usada para classificação SVM é $ |1-yf(x)|_{+} $ (ou seja, 0 se $ |1-yf(x)|< 0 $ e $ |1-yf(x)| $ caso contrário). Isso também é chamado de função de perda de "margem flexível" por causa de sua interpretação padrão de "margem": os pontos para os quais a função de perda é zero são os que têm "margem" \cite{evgeniou1999support}.\[yf(x)/\left \| f \right \|_{k}^{2}\]
 
 Para o caso $ 1/\left \| f \right \|_{k}^{2} $, ou seja, $1-yf(x) \geq  0 \Rightarrow yf(x)/\left \| f \right \|_{k}^{2} \geq 1/\left \| f \right \|_{k}^{2} $. A margem é uma quantidade geométrica importante associada à classificação SVM \cite{evgeniou1999support}
 
-SVM para classificação:
+A função para classificação em um SVM, pode ser generalizada na seguinte formulação:
 \[min\left \| f \right \|_{k}^{2}+C\sum_{i=0}^{l}\left | 1-y_{i}f(x_{i})\right |_{+}\]
