@@ -2,7 +2,7 @@
 \section{Definição}
 A AM é considerado uma disciplina dentro da inteligência artificial, com foco na construção de softwares computacionais, dotados da capacidade de aprender autonomamente \cite{Hosch}. Essa disciplina trabalha com o estudo e a construção de algoritmos, capazes de aprender com seus “erros” no reconhecimento de dados e realizarem previsões sobre novos dados. Esses algoritmos de indução são considerados um grande passo na descoberta do conhecimento \cite{Kohavi}.
 
-Apesar da complexidade em AM, essa disciplina pode ser contextualizada de maneira mais geral como o campo de estudo, que dá ao computador a habilidade de aprender sem ser explicitamente programado \cite{Arthur}, porém uma visão mais orientada para a área da engenharia, que segundo \citeonline{Tom}, é dito que um programa de computador aprende com a experiência \textbf{\textit{E}} em relação a alguma tarefa \textbf{\textit{T}} e alguma medida de desempenho \textbf{\textit{P}}, se seu desempenho em \textbf{\textit{T}} e medido por \textbf{\textit{P}} melhora com a experiência \textbf{\textit{E}} \cite{Tom}.
+Apesar da complexidade em AM, essa disciplina pode ser contextualizada de maneira mais geral como o campo de estudo, que dá ao computador a habilidade de aprender sem ser explicitamente programado \cite{Arthur}, porém uma visão mais orientada para a área da engenharia, que segundo \citeonline{Tom}, é dito que um programa de computador aprende com a experiência \textbf{\textit{E}} em relação a alguma tarefa \textbf{\textit{T}} e alguma medida de desempenho \textbf{\textit{P}}, se seu desempenho em \textbf{\textit{T}} e medido por \textbf{\textit{P}} melhora com a experiência \textbf{\textit{E}}.
 
 \section{Aplicações em Aprendizado de Máquina}
 O AM serve de auxílio para diversos contextos de naturezas diferentes. Sendo assim, a AM consegue auxiliar com o uso dos dados coletados a melhor decisão de um negócio, por exemplo, uma possível aplicação de um modelo de AM é predizer qual a probabilidade de um cliente comprar um determinado produto com base no seu histórico de compras passadas \cite{Amazon}.
@@ -18,14 +18,14 @@ Considerando ainda que o AM, com seu foco na predição no desenvolvimento de al
 Os algoritmos são classificados quanto ao seu tipo de aprendizado. Existem três categorias, as quais se distinguem de acordo com a natureza do comportamento no tratamento dos dados. Estas categorias são aprendizado supervisionado, não supervisionado e por reforço \cite{geron2017hands}.
  
 \subsection{Aprendizado Supervisionado}
-O objetivo principal do aprendizado supervisionado é ensinar um modelo através de uma base de treino etiquetada, que permite fazer predições de dados futuros. O termo supervisionado se refere a um grupo de dados onde a "resposta", sinal ou valor esperado já é conhecido. Este valor é conhecido como etiqueta, e é utilizada para verificar se o algoritmo identificou corretamente os dados durante o treinamento. As tarefas do aprendizado supervisionado podem ser divididas em classificação e regressão, onde a classificação tem as etiquetas esperadas com um valor fixo, por exemplo, uma avaliação binária, e a regressão é referente a um sinal com valor contínuo, como uma regressão polinomial \cite{geron2017hands}, ou segundo \cite{kirk2014thoughtful}, a regressão é ajustar o conjunto de dados á uma função qualquer.
+O objetivo principal do aprendizado supervisionado é ensinar um modelo através de uma base de treino etiquetada, que permite fazer predições de dados futuros. O termo supervisionado se refere a um grupo de dados onde a “resposta”, sinal ou valor esperado já é conhecido. Este valor é conhecido como etiqueta, e é utilizada para verificar se o algoritmo identificou corretamente os dados durante o treinamento. As tarefas do aprendizado supervisionado podem ser divididas em classificação e regressão, onde a classificação tem as etiquetas esperadas com um valor fixo, por exemplo, uma avaliação binária, e a regressão é referente a um sinal com valor contínuo, como uma regressão polinomial \cite{geron2017hands}, ou segundo \cite{kirk2014thoughtful}, a regressão é ajustar o conjunto de dados á uma função qualquer.
 
 Exemplos de algoritmos existentes (\cite{lorena2007introduccao}; \cite{kirk2014thoughtful}; \cite{murthy1998automatic}):
 
 \begin{itemize}
     \item \textbf{KNN},\textit{ K-Nearest Neighbor} (K vizinhos mais próximos): Determina o rótulo de classificação de um dado baseando nos valores das amostras vizinhas mais próximos;
     \item \textit{\textbf{Decision Trees}}: é uma forma de organizar regras referentes a dados com estruturas hierárquicas e sequências, que particionam estes dados recursivamente;
-    \item \textbf{SVM},\textit{ Support Vector Machine}: separado em linear e não linear, consiste na separação de dados de um conjunto maior em classes de conjuntos mais restritos;
+    \item \textbf{SVM},\textit{ Support Vector Machine}: separado em linear e não linear, consiste na separação de dados de um conjunto maior em classes de conjuntos mais restritos.
 \end{itemize}
 
 \subsection{Aprendizado não-supervisionado}
@@ -46,9 +46,9 @@ Uma \textit{feature} é uma característica ou variável do problema, que pode s
 Outro conceito importante sobre AMs, é a \textbf{redução de dimensionalidade}, muito utilizada em estatística e AM, refere-se ao processo de diminuição do número de variáveis aleatórias, selecionando um subconjunto com variáveis relevantes. Serve dentre outras funcionalidades, para transformar o processo de aprendizado mais eficiente \cite{borges2006reduccao}. Isto ocorre devido a modelos com um numero elevado de variáveis ocasionam em um maior tempo de computação e um baixo desempenho da previsão \cite{chandrashekar2014survey}.
 
 \section{Desafios do Aprendizado de Máquinas}
-Em um projeto de AM, existem diversos aspectos que podem levar a um péssimo resultado ou problemas na execução do mesmo. Em resumo, a tarefa principal do AM é a seleção de um algoritmo, ou modelo, e treiná-lo utilizando algum tipo de dado. Logo, ao analisar os problemas provenientes de um resultado ineficiente, pode-se encontrar principalmente duas origens para o problema a escolha de um "algoritmo ruim" ou "dados ruins" \cite{geron2017hands}.
+Em um projeto de AM, existem diversos aspectos que podem levar a um péssimo resultado ou problemas na execução do mesmo. Em resumo, a tarefa principal do AM é a seleção de um algoritmo, ou modelo, e treiná-lo utilizando algum tipo de dado. Logo, ao analisar os problemas provenientes de um resultado ineficiente, pode-se encontrar principalmente duas origens para o problema a escolha de um “algoritmo ruim” ou “dados ruins” \cite{geron2017hands}.
 
-O conceito de "dados ruins", não deve ser considerado ao pé da letra, sendo um pouco mais complexo, envolvendo principalmente a coleta destes e tratamento associado. Para exemplificar,  pode-se listar alguns exemplos retirados do livro \cite{geron2017hands}:
+O conceito de “dados ruins”, não deve ser considerado ao pé da letra, sendo um pouco mais complexo, envolvendo principalmente a coleta destes e tratamento associado. Para exemplificar,  pode-se listar alguns exemplos retirados do livro \cite{geron2017hands}:
 
 \begin{itemize}
     \item \textbf{Quantidade insuficiente de dados de treino}: Para um funcionamento pleno de um sistema de AMs é necessário uma grande quantidade de dados, alguns problemas necessitam de uma alta quantidade de dados para funcionar corretamente, como no reconhecimento de imagens.
@@ -57,10 +57,10 @@ O conceito de "dados ruins", não deve ser considerado ao pé da letra, sendo um
     \item \textbf{\textit{Features}  irrelevantes}: Seguindo a lógica por trás do ditado \textit{garbage-in garbage-out} (termo em inglês: Lixo entra e lixo sai), o sistema apenas será capaz de gerar resultados caso exista dados contendo o suficiente de \textit{features} relevantes ao invés das não relevantes, ou seja, \textit{features} irrelevantes podem conduzir o programa a uma baixa precisão.
 \end{itemize}
 
-Com relação a "algoritmo ruim", também não deve ser interpretado literalmente, ou seja, um "algoritmo ruim" pode ser proveniente da escolha de um modelo de algoritmo para tratar um problema no qual o algoritmo não foi otimizado para solucionar. Exitem dois principais problemas associados ao manejo de um algoritmo, sendo eles:
+Com relação a “algoritmo ruim”, também não deve ser interpretado literalmente, ou seja, um “algoritmo ruim” pode ser proveniente da escolha de um modelo de algoritmo para tratar um problema no qual o algoritmo não foi otimizado para solucionar. Exitem dois principais problemas associados ao manejo de um algoritmo, sendo eles:
 
 \begin{itemize}
-    \item \textbf{\textit{Overfitting} dos dados de treino}: \textit{Overfitting} acontece quando o modelo apresenta uma boa performance na sua base de treino, mas não generaliza muito bem, ou seja, o modelo pode ser considerado "viciado", é um erro bem comum ocorrendo no treinamento do modelo. Por exemplo, uma amostragem com muito ruído pode encontrar algum padrão no próprio ruído e generalizar para o mesmo, não generalizando para novos dados.
+    \item \textbf{\textit{Overfitting} dos dados de treino}: \textit{Overfitting} acontece quando o modelo apresenta uma boa performance na sua base de treino, mas não generaliza muito bem, ou seja, o modelo pode ser considerado “viciado”, é um erro bem comum ocorrendo no treinamento do modelo. Por exemplo, uma amostragem com muito ruído pode encontrar algum padrão no próprio ruído e generalizar para o mesmo, não generalizando para novos dados.
     \item \textbf{\textit{Underfitting} dos dados de treino}: Ao contrário do \textit{Overfitting}, \textit{Underfitting} acontece quando o modelo é muito simples para ser utilizado com a estrutura de dados selecionada, resultando em um modelo impreciso para ser utilizado no mundo real. Isto devido aos dados reais serem provavelmente mais complexos que os utilizados no treinamento do modelo.
 \end{itemize}
 
@@ -70,13 +70,13 @@ Existem diversas ferramentas para auxiliar o desenvolvimento em AM, sendo que at
 
 Algumas ferramentas amplamente utilizadas em AM, podem ser elucidadas a seguir (\cite{scikitlearn}; \cite{abadi2016tensorflow}; \cite{McKinney2012datapython}):
 \begin{itemize}
-    \item \textit{Scikit-learn}: Possui uma ampla gama de algoritmos, com uma alta facilidade de uso, boa documentação e uma API amplamente consistente. API (sigla do Inglês: \textit{Application Programming Interface}, Interface de Programação de Aplicação), é um conjunto de funções que são utilizados para facilitar o desenvolvimento de um software;
-    \item \textit{TensorFlow}: Projetado pelo Google para operar em larga escala, utiliza ferramentas avançadas sendo utilizado inclusive pelo próprio Google;
-    \item \textit{Keras}: API de alto nível com foco em RNAs (Redes Neurais Artificiais);
-    \item \textit{Matplotlib}: Ferramenta para a criação de gráficos;
-    \item \textit{Numpy}: Utilizada para manipulações matemáticas complexas, como multiplicação de matrizes, entre outras;
-    \item \textit{Jupyter Notebook}: aplicativo que permite a criação de códigos em Python de modo interativo;
-    \item \textit{Pandas}: Ferramenta para estruturar dados, tornando o trabalho com dados “relacionais” ou “rotulados” mais fácil e intuitivo. Ideal para trabalhar com matrizes.
+    \item \textbf{\textit{Scikit-learn}}: Possui uma ampla gama de algoritmos, com uma alta facilidade de uso, boa documentação e uma API amplamente consistente. API (sigla do Inglês: \textit{Application Programming Interface}, Interface de Programação de Aplicação), é um conjunto de funções que são utilizados para facilitar o desenvolvimento de um \textit{software};
+    \item \textbf{\textit{TensorFlow}}: Projetado pelo Google para operar em larga escala, utiliza ferramentas avançadas sendo utilizado inclusive pelo próprio Google;
+    \item \textbf{\textit{Keras}}: API de alto nível com foco em RNAs (Redes Neurais Artificiais);
+    \item \textbf{\textit{Matplotlib}}: Ferramenta para a criação de gráficos;
+    \item \textbf{\textit{Numpy}}: Utilizada para manipulações matemáticas complexas, como multiplicação de matrizes, entre outras;
+    \item \textbf{\textit{Jupyter Notebook}}: aplicativo que permite a criação de códigos em Python de modo interativo;
+    \item \textbf{\textit{Pandas}}: Ferramenta para estruturar dados, tornando o trabalho com dados “relacionais” ou “rotulados” mais fácil e intuitivo. Ideal para trabalhar com matrizes.
 \end{itemize}
 
 \section{Visualizar a solução}
@@ -84,7 +84,7 @@ Construir visualizações informativas são umas das mais importantes tarefas de
 
 \subsection{Matriz de Confusão}
 \label{sc:matrizconsusao}
-Um dos métodos mais utilizadas para apresentar a solução do modelo é a matriz de confusão. Uma matriz de confusão, é um método para visualizar graficamente a eficiência de um modelo de AM. Onde, realiza-se o cruzamento entre os valores esperados com os valores alcançados pelo algoritmo \cite{caelen2017bayesian}. Por exemplo na Figura \ref{matriz_consusao}, existem três tipos de flores e o algoritmo, no caso o SVM, deveria classificar os dados de entradas em um destes três grupos. Como observado, existiam 13 dados do tipo "setosa", e o SVM acertou todos os 13. O mesmo ocorre com os dados do tipo "virginica", onde ocorreu 100\% de acerto. Porém, nos dados do tipo "versicolor" existiam 16 amostras, e o SVM acertou 10 e errou os outros 6 restantes, já que o valor alcançado nestes 6 dados foi de "virginica".
+Um dos métodos mais utilizadas para apresentar a solução do modelo é a matriz de confusão. Uma matriz de confusão, é um método para visualizar graficamente a eficiência de um modelo de AM. Onde, realiza-se o cruzamento entre os valores esperados com os valores alcançados pelo algoritmo \cite{caelen2017bayesian}. Por exemplo na Figura \ref{matriz_consusao}, existem três tipos de flores e o algoritmo, no caso o SVM, deveria classificar os dados de entradas em um destes três grupos. Como observado, existiam 13 dados do tipo “setosa”, e o SVM acertou todos os 13. O mesmo ocorre com os dados do tipo “virginica”, onde ocorreu 100\% de acerto. Porém, nos dados do tipo “versicolor” existiam 16 amostras, e o SVM acertou 10 e errou os outros 6 restantes, já que o valor alcançado nestes 6 dados foi de “virginica”.
 
 \begin{figure}[!htb]
 	\centering
@@ -161,17 +161,53 @@ Segundo a documentação oficial do \citeonline{scikitlearn}, as principais vant
 
 As SVMs foram desenvolvidas por Vapnik em 1998, no âmbito da Teoria Estatística da Aprendizagem, logo para entender o funcionamento do dado modelo é necessário entender o próprio \textit{framework} da Teoria Estatística da Aprendizagem \cite{vapnik1998statistical}. Porém como o foco neste trabalho é a aplicação do modelo, não será abordado de maneira aprofundada o conceito da Teoria Estatística da Aprendizagem cujo o foco é a implementação.
  
-Uma explicação simplista do funcionamento do SVM é a linear, na qual o hiperplano se encontra no espaço dos dados de entrada \textbf{\textit{X}}. A noção mais comum sobre o SVM, é que o mesmo encontra um melhor hiperplano como a solução para o problema de aprendizagem \cite{vapnik1998statistical}. No caso linear o espaço de hipóteses é um subconjunto de todos os hiperplanos da forma \cite{evgeniou1999support}:\[f(x)= w\cdot x +b\]
-Em sua formulação mais geral, o SVM encontra um hiperplano em um espaço diferente daquele dos dados de entrada \textbf{\textit{X}}. É um hiperplano, em um espaço de característica induzido por um kernel \textbf{\textit{K}}. Através do kernel \textbf{\textit{K}}, o espaço de hipóteses é definido como um conjunto de "hiperplanos" no espaço de feições induzido por \textbf{\textit{K}}. Isso também pode ser visto como um conjunto de funções em um EHR (Espaço Hilbert de Reprodução) definido por \textbf{\textit{K}} \cite{wahba1990spline}, \cite{vapnik1998statistical}. Também não será discutido neste trabalho a EHR. Para resumir, o espaço de hipóteses usado pelo SVM é um subconjunto do conjunto de hiperplanos definido em algum espaço de um EHR. Este espaço pode ser formalmente escrito como.\[\left \{ f:\left \| f \right \|_{2}^{k} < \infty \right \}\]
+Uma explicação simplista do funcionamento do SVM é a linear, na qual o hiperplano se encontra no espaço dos dados de entrada \textbf{\textit{X}}. A noção mais comum sobre o SVM, é que o mesmo encontra um melhor hiperplano como a solução para o problema de aprendizagem \cite{vapnik1998statistical}. No caso linear o espaço de hipóteses é um subconjunto de todos os hiperplanos. Como observado na Equação \ref{eq:hiperplanofdx} \cite{evgeniou1999support}:
+
+\begin{equation} \label{eq:hiperplanofdx}
+    f(x)= w\cdot x +b
+\end{equation}
+
+Em sua formulação mais geral, o SVM encontra um hiperplano em um espaço diferente daquele dos dados de entrada \textbf{\textit{X}}. É um hiperplano, em um espaço de característica induzido por um kernel \textbf{\textit{K}}. Através do kernel \textbf{\textit{K}}, o espaço de hipóteses é definido como um conjunto de  “hiperplanos” no espaço de feições induzido por \textbf{\textit{K}}. Isso também pode ser visto como um conjunto de funções em um EHR (Espaço Hilbert de Reprodução) definido por \textbf{\textit{K}} \cite{wahba1990spline}, \cite{vapnik1998statistical}. Também não será discutido neste trabalho a EHR. Para resumir, o espaço de hipóteses usado pelo SVM é um subconjunto do conjunto de hiperplanos definido em algum espaço de um EHR. Este espaço pode ser formalmente escrito como na Equação \ref{eq:leftleft}.
+
+\begin{equation} \label{eq:leftleft}
+    \left \{ f:\left \| f \right \|_{2}^{k} < \infty \right \}
+\end{equation}
+
 Onde \textbf{\textit{K}} é o kernel que define o EHR, e $ \left \| f \right \|_{2}^{k} $  é a norma EHR da função \cite{wahba1990spline}. 
 
-SVM considera os conjuntos da forma. \[\left \{ f:\left \| f \right \|_{2}^{k} \leq A^{2} \right \}\] para alguma constante \textbf{\textit{A}}. Na estrutura da Teoria Estatística de Aprendizagem, a constante \textbf{\textit{A}} é usada para definir uma estrutura de espaços de hipóteses (o quanto maior for, mais complexo é o espaço da hipótese). O objetivo do SVM é encontrar a solução com a norma EHR "ideal", ou seja, encontrar o \textbf{\textit{A}} ótimo \cite{evgeniou1999support}.
+SVM considera os conjuntos da forma da Equação \ref{eq:forma}, para alguma constante \textbf{\textit{A}}. Na estrutura da Teoria Estatística de Aprendizagem, a constante \textbf{\textit{A}} é usada para definir uma estrutura de espaços de hipóteses (o quanto maior for, mais complexo é o espaço da hipótese). O objetivo do SVM é encontrar a solução com a norma EHR  “ideal”, ou seja, encontrar o \textbf{\textit{A}} ótimo \cite{evgeniou1999support}.
 
-A segunda opção retratada pelo estudo de \citeonline{evgeniou1999support} é a da função de perda. Uma função de perda, é uma função que mapeia um evento ou valores de uma ou mais variáveis num número real, intuitivamente representando algum "custo" associado ao evento \cite{wald1950statistical}. O estudo \citeonline{evgeniou1999support} distingue os SVM em classificação e regressão, porém como este trabalho será focado na classificação, será apenas retratado o primeiro caso dos classificadores SVM.
+\begin{equation} \label{eq:forma}
+    \left \{ f:\left \| f \right \|_{2}^{k} \leq A^{2} \right \}\
+\end{equation}
 
-Para classificação, idealmente o erro de classificação precisa ser minimizado. Então uma função de perda do sinal na forma $ (-yf(x)) $ deve ser usada (na classificação \textbf{\textit{y}} toma valores binários $ \pm1 $, e a classificação é feita tomando o sinal de função $ f(x) $). No entanto, devido à escala e às razões computacionais \cite{vapnik1998statistical}, a função de perda real usada para classificação SVM é $ |1-yf(x)|_{+} $ (ou seja, 0 se $ |1-yf(x)|< 0 $ e $ |1-yf(x)| $ caso contrário). Isso também é chamado de função de perda de "margem flexível" por causa de sua interpretação padrão de "margem": os pontos para os quais a função de perda é zero são os que têm "margem" \cite{evgeniou1999support}.\[yf(x)/\left \| f \right \|_{k}^{2}\]
+A segunda opção retratada pelo estudo de \citeonline{evgeniou1999support} é a da função de perda. Uma função de perda, é uma função que mapeia um evento ou valores de uma ou mais variáveis num número real, intuitivamente representando algum “custo” associado ao evento \cite{wald1950statistical}. O estudo \citeonline{evgeniou1999support} distingue os SVM em classificação e regressão, porém como este trabalho será focado na classificação, será apenas retratado o primeiro caso dos classificadores SVM.
 
-Para o caso $ 1/\left \| f \right \|_{k}^{2} $, ou seja, $1-yf(x) \geq  0 \Rightarrow yf(x)/\left \| f \right \|_{k}^{2} \geq 1/\left \| f \right \|_{k}^{2} $. A margem é uma quantidade geométrica importante associada à classificação SVM \cite{evgeniou1999support}
+Para classificação, idealmente o erro de classificação precisa ser minimizado. Então uma função de perda do sinal na forma, Equação \ref{eq:formaperda}, deve ser usada (na classificação \textbf{\textit{y}} toma valores binários $ \pm1 $, e a classificação é feita tomando o sinal de função $ f(x) $). No entanto, devido à escala e às razões computacionais \cite{vapnik1998statistical}, a função de perda real usada para classificação SVM é, Equação \ref{eq:formaperdaSVM}. Ou seja, 0 se $ |1-yf(x)|< 0 $ e $ |1-yf(x)| $ caso contrário. Isso também é chamado de função de perda de  “margem flexível” por causa de sua interpretação padrão de “margem”: os pontos para os quais a função de perda é zero são os que têm “margem”, descrito pela Equação \ref{eq:videSVM} \cite{evgeniou1999support}. 
 
-A função para classificação em um SVM, pode ser generalizada na seguinte formulação:
-\[min\left \| f \right \|_{k}^{2}+C\sum_{i=0}^{l}\left | 1-y_{i}f(x_{i})\right |_{+}\]
+\begin{equation} \label{eq:formaperda}
+    -yf(x)
+\end{equation}
+
+\begin{equation} \label{eq:formaperdaSVM}
+    |1-yf(x)|_{+}
+\end{equation}
+
+\begin{equation} \label{eq:videSVM}
+    yf(x)/\left \| f \right \|_{k}^{2}\
+\end{equation}
+
+Para o caso da Equação \ref{eq:casoeq}, ou seja Equação \ref{eq:casoseja}. A margem é uma quantidade geométrica importante associada à classificação SVM \cite{evgeniou1999support}
+
+\begin{equation} \label{eq:casoeq}
+    1/\left \| f \right \|_{k}^{2}
+\end{equation}
+
+\begin{equation} \label{eq:casoseja}
+    1-yf(x) \geq  0 \Rightarrow yf(x)/\left \| f \right \|_{k}^{2} \geq 1/\left \| f \right \|_{k}^{2}
+\end{equation}
+
+A função para classificação em um SVM, pode ser generalizada pela Equação \ref{eq:genSVM}:
+\begin{equation} \label{eq:genSVM}
+    min\left \| f \right \|_{k}^{2}+C\sum_{i=0}^{l}\left | 1-y_{i}f(x_{i})\right |_{+}\
+\end{equation}
