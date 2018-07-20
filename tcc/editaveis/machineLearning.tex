@@ -2,7 +2,7 @@
 \section{Definição}
 A AM é considerado uma disciplina dentro da inteligência artificial, com foco na construção de softwares computacionais, dotados da capacidade de aprender autonomamente \cite{Hosch}. Essa disciplina trabalha com o estudo e a construção de algoritmos, capazes de aprender com seus “erros” no reconhecimento de dados e realizarem previsões sobre novos dados. Esses algoritmos de indução são considerados um grande passo na descoberta do conhecimento \cite{Kohavi}.
 
-Apesar da complexidade em AM, essa disciplina pode ser contextualizada de maneira mais geral como o campo de estudo, que dá ao computador a habilidade de aprender sem ser explicitamente programado \cite{Arthur}, porém uma visão mais orientada para a área da engenharia, que segundo \citeonline{Tom}, é dito que um programa de computador aprende com a experiência “E” em relação a alguma tarefa “T” e alguma medida de desempenho “P”, se seu desempenho em “T” e medido por “P” melhora com a experiência “E” \cite{Tom}.
+Apesar da complexidade em AM, essa disciplina pode ser contextualizada de maneira mais geral como o campo de estudo, que dá ao computador a habilidade de aprender sem ser explicitamente programado \cite{Arthur}, porém uma visão mais orientada para a área da engenharia, que segundo \citeonline{Tom}, é dito que um programa de computador aprende com a experiência \textbf{\textit{E}} em relação a alguma tarefa \textbf{\textit{T}} e alguma medida de desempenho \textbf{\textit{P}}, se seu desempenho em \textbf{\textit{T}} e medido por \textbf{\textit{P}} melhora com a experiência \textbf{\textit{E}} \cite{Tom}.
 
 \section{Aplicações em Aprendizado de Máquina}
 O AM serve de auxílio para diversos contextos de naturezas diferentes. Sendo assim, a AM consegue auxiliar com o uso dos dados coletados a melhor decisão de um negócio, por exemplo, uma possível aplicação de um modelo de AM é predizer qual a probabilidade de um cliente comprar um determinado produto com base no seu histórico de compras passadas \cite{Amazon}.
@@ -18,9 +18,10 @@ Considerando ainda que o AM, com seu foco na predição no desenvolvimento de al
 Os algoritmos são classificados quanto ao seu tipo de aprendizado. Existem três categorias, as quais se distinguem de acordo com a natureza do comportamento no tratamento dos dados. Estas categorias são aprendizado supervisionado, não supervisionado e por reforço \cite{geron2017hands}.
  
 \subsection{Aprendizado Supervisionado}
-O objetivo principal do aprendizado supervisionado é ensinar um modelo através de uma base de treino etiquetada, que permite fazer predições de dados futuros. O termo supervisionado se refere a um grupo de dados onde a "resposta", sinal ou valor esperado já é conhecido. Este valor é conhecido como etiqueta, e é utilizada para verficar se o algoritmo identificou corretamente os dados durante o treinamento. As tarefas do aprendizado supervisionado podem ser divididas em classificação e regressão, onde a classificação tem as etiquetas esperadas com um valor fixo, por exemplo, uma avaliação binária, e a regressão é referente a um sinal com valor contínuo, como uma regressão polinomial \cite{geron2017hands}, ou segundo \cite{kirk2014thoughtful}, a regressão é ajustar o conjunto de dados á uma função qualquer.
+O objetivo principal do aprendizado supervisionado é ensinar um modelo através de uma base de treino etiquetada, que permite fazer predições de dados futuros. O termo supervisionado se refere a um grupo de dados onde a "resposta", sinal ou valor esperado já é conhecido. Este valor é conhecido como etiqueta, e é utilizada para verificar se o algoritmo identificou corretamente os dados durante o treinamento. As tarefas do aprendizado supervisionado podem ser divididas em classificação e regressão, onde a classificação tem as etiquetas esperadas com um valor fixo, por exemplo, uma avaliação binária, e a regressão é referente a um sinal com valor contínuo, como uma regressão polinomial \cite{geron2017hands}, ou segundo \cite{kirk2014thoughtful}, a regressão é ajustar o conjunto de dados á uma função qualquer.
 
-Exemplos de algoritmos existentes (\cite{kirk2014thoughtful}; \cite{murthy1998automatic}; \cite{lorena2007introduccao}):
+Exemplos de algoritmos existentes (\cite{lorena2007introduccao}; \cite{kirk2014thoughtful}; \cite{murthy1998automatic}):
+
 \begin{itemize}
     \item \textbf{KNN},\textit{ K-Nearest Neighbor} (K vizinhos mais próximos): Determina o rótulo de classificação de um dado baseando nos valores das amostras vizinhas mais próximos;
     \item \textit{\textbf{Decision Trees}}: é uma forma de organizar regras referentes a dados com estruturas hierárquicas e sequências, que particionam estes dados recursivamente;
@@ -32,7 +33,7 @@ Ao contrário do aprendizado supervisionado, os dados não estão etiquetados ou
 
 Exemplos de algoritmos existentes \cite{kirk2014thoughtful}:
 \begin{itemize}
-    \item  \textbf{\textit{Clustering}}: É utilizado para agrupar padrões, ou melhor, no treinamento é introduzido um conjunto de dados e o algoritmo procura relações entre eles agrupandos tais dados em grupos por grau de semelhança, na predição, com um novo dado inserido o algoritmo busca padrões existentes nele e cataloga-o no respectivo grupo;   
+    \item  \textbf{\textit{Clustering}}: É utilizado para agrupar padrões, ou melhor, no treinamento é introduzido um conjunto de dados e o algoritmo procura relações entre eles agrupando tais dados em grupos por grau de semelhança, na predição, com um novo dado inserido o algoritmo busca padrões existentes nele e cataloga-o no respectivo grupo;   
     \item  \textbf{\textit{Collaborative Filtering}}: É utilizado no desenvolvimento de sistemas de recomendação, basicamente utiliza informações cruzadas dos usuários para predizer gostos em comum, por exemplo se você compra bastante cerveja em um site de compras, o sistema recomendará cerveja para você, caso um grupo significante de usuários compre cerveja e carvão, o sistema recomendará conjuntamente o carvão.
 \end{itemize}
 
@@ -87,7 +88,7 @@ Um dos métodos mais utilizadas para apresentar a solução do modelo é a matri
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figuras/matriz_consusao.eps}
-	\caption{Exemplificação da matriz de confusão, adaptado de \citeonline{scikitlearn}.}
+	\caption{Ilustração da matriz de confusão, adaptado de \citeonline{scikitlearn}.}
 	\label{matriz_consusao}
 \end{figure}
 
