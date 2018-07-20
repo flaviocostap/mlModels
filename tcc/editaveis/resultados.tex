@@ -1,19 +1,17 @@
 \chapter{Resultados}
 \label{ch:Resultados}
+\section{Resultados parciais}
 \section{Abstrair o problema no contexto}
 O contexto geral do trabalho é projetar e construir um sistema AM para auxiliar no diagnóstico da doença de Parkinson, utilizando sinais obtidos por dispositivos sEMG, e o problema principal gira em torno de como esse sistema será desenvolvido. Por se tratar da construção de um software, isso necessita de um planejamento prévio de como será feita essa construção, levando em consideração um conjunto de variáveis para tomada de decisões. Neste trabalho o sistema a ser desenvolvido se trata de um sistema AM, que requer uma maior atenção sobre algumas variáveis, como quantidade de recursos e tipos de dados obtidos, sendo que essas variáveis servem como indicadores para auxiliar a decisão de qual algoritmo utilizar para se encontrar a melhor solução possível para esse problema.
 
-\section{Coleta de dados}
-Os dados foram coletados utilizando o aparelho para coleta de dados EMG \textit{Miotool}, porduzido pela \textit{Miotec}, sendo que, tais dados já foram coletados por alunos de mestrado da UnB, porém ao decorrer deste trabalho participou-se de duas coletas, entretanto as coletas foram interrompidas e canceladas.
+\section{Prova de conceito}
+Para verificar a viabilidade do projeto, além de buscar entender o funcionamento da biblioteca \textit{scikit-learn}. Realizou-se uma prova de conceito, desenvolvendo um algoritmo utilizando o SVM, para predizer os dados relacionados a uma porta lógica XOR. Foram utilizados também o \textit{numpy} para as manipulações matemáticas e o \textit{matplotlib} para plotar o gráfico.
 
-Com relação ao protocolo de coleta, os músculos utilizados foram os seguintes:
-\begin{itemize}
-\item extensor radial do longo do carpo
-\item flexor superficial dos dedos;
-\item bíceps braquial;
-\item flexor radial do carpo;
-\end{itemize}
+Como observado na Figura \ref{svmxor} na página \pageref{svmxor}, o svm conseguiu separar corretamente a maioria dos dados, sendo que, na imagem as bolas laranjas equivalem ao valor esperado '1', e as bolas azuis equivalem ao valor esperado '0'. Já os contornos equivalem ao valor atingido pelo SVM, ou seja, as bolas dentro da área azul foram preditas como '0' e  a bolas na área laranjada foram preditas como '1'.
 
-Os voluntários assinaram um termo de consentimento relacionado, ao procedimento de coleta, e a coleta foi acompanhada por uma profissional da saúde.
- 
-Optou-se inicialmente pela escolha do SVM, com base nos estudos coletados no capítulo \ref{ch:TrabalhosRelacionados} na página \pageref{ch:TrabalhosRelacionados}, sendo que esta escolha não restringe o trabalho com outros algoritmos, em caso de necessidade, ao analisar os dados pode-se adequar essa solução, ou trabalhar com outros algoritmos.
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figuras/xor.eps}
+	\caption{SVM com a porta XOR.}
+	\label{svmxor}
+\end{figure}
