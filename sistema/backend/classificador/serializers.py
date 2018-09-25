@@ -3,5 +3,5 @@ from .models import Feature
 
 class FeatureSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ('nome', 'idade', 'SEX_CHOICE', 'sexo', )
+        fields = ('nome', 'idade', 'sexo', 'dado', )
         model = Feature

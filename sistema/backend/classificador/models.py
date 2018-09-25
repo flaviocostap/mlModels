@@ -9,6 +9,6 @@ class Feature(models.Model):
         ('F', 'F')
     )
     sexo = models.CharField(choices=SEX_CHOICE, default='M', max_length=2)
-
+    dado = models.FileField(upload_to='edf') 
     def __str__(self):
         return self.nome
