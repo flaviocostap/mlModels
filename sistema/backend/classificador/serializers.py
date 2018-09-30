@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Feature
 
 class FeatureSerializer(serializers.ModelSerializer):
+    id = serializers.ReadOnlyField()
     class Meta:
-        fields = ('nome', 'idade', 'sexo', 'dado', )
+        fields = ('id', 'nome', 'idade', 'sexo', 'dado', )
         model = Feature
