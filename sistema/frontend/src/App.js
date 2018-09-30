@@ -1,34 +1,26 @@
 // App.js
 import React, { Component } from 'react';
+import NavBar from './components/navbar'
+import HomePage from './components/homePage'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { features: [] };
+
+    this.handleFeatures = this.handleFeatures.bind(this)
   }
 
-  async componentDidMount() {
-    try {
-      const res = await fetch('http://127.0.0.1:8000/api/');
-      const features = await res.json();
-      this.setState({ features });
-    } catch (e) {
-      console.log(e);
-    }
-
-
+  handleFeatures(evento) {
+    this.setState({ features : evento });
   }
-
   render() {
     return (
       <div>
-        {this.state.features.map(item => (
-          <div key={item.nome}>
-            <h1>{item.nome}</h1>
-            <span>{item.idade}</span>
-          </div>
-        ))}
-      </div>
+        <NavBar></NavBar>
+        <HomePage features={this.state.features} handleFeatures={this.handleFeatures}></HomePage>
+      </div >
+
     );
   }
 }

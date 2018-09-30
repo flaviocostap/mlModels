@@ -1,5 +1,6 @@
 from django.db import models
 import time
+import pickle
 
 # Create your models here.
 class Feature(models.Model):
@@ -19,4 +20,6 @@ class Feature(models.Model):
     def __str__(self):
         return self.nome
 
-    
+class CLF():
+    svmPK = pickle.dumps('svm')
+    rfcPK = pickle.dumps('rfc')
