@@ -6990,6 +6990,11 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
 
+simple-react-validator@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/simple-react-validator/-/simple-react-validator-0.0.8.tgz#bea35f8f6d266726899d1b5df197683dd31c2b2c"
+  integrity sha512-8TcZ4p6sahFoNZNJ7zf4xua8/HIAgGg3atuGxtl426ss+8GL6wQQIZYy96aoPNEwjz1bK7P5po5JkQfPwtmdqw==
+
 slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"

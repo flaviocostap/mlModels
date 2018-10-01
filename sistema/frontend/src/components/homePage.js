@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 class HomePage extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
     }
 
@@ -17,20 +17,19 @@ class HomePage extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className="container-fluid">
-
-                 {this.props.features.map(item => (
-                    <div key={item.id}>
-                        <h1>{item.nome}</h1>
-                        <span>{item.idade}</span>
-                    </div>
-                ))} 
+                {
+                    this.props.features.map(item => (
+                        <div key={item.id}>
+                            <h1 class="mt-5">{item.nome}</h1>
+                            <p>{item.idade}</p>
+                        </div>
+                    ))
+                }
             </div>
         )
     }
-
 }
 
 export default HomePage
