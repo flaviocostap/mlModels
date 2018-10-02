@@ -20,6 +20,10 @@ class CLS(APIView):
         feature = get_object_or_404(Feature, pk=pk)
         data = FeatureSerializer(feature).data
         caminho = data['dado']
-        result = {'result':1}
-        data.update(result)
+
+        entry = Feature.objects.filter(pk=pk).update(result='10')
+        
+        feature = get_object_or_404(Feature, pk=pk)
+        data = FeatureSerializer(feature).data
+        
         return Response(data)

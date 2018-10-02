@@ -37,7 +37,6 @@ class Feature(models.Model):
         return 'edf/%f.edf' % time.time()
 
     id = models.AutoField(primary_key=True)
-
     nome = models.TextField(blank=False, null=False,)
     idade = models.IntegerField(blank=False, null=False,)
     SEX_CHOICE = (
@@ -46,6 +45,7 @@ class Feature(models.Model):
     )
     sexo = models.CharField(choices=SEX_CHOICE, default='M', max_length=2)
     dado = models.FileField(blank=False, null=False, upload_to=_get_upload_to) 
+    result = models.IntegerField(blank=True, null=True,)
 
     def __str__(self):
         return self.nome
