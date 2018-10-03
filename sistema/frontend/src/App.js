@@ -4,6 +4,7 @@ import NavBar from './components/navbar'
 import HomePage from './components/homePage'
 import Cadastro from './components/cadastro'
 import SimpleReactValidator from 'simple-react-validator'
+import axios from 'axios'
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class App extends Component {
       inputIdade: 0,
       selectSexo: 'M',
       inputDado: [],
-      validator : new SimpleReactValidator(),
+      validator: new SimpleReactValidator(),
 
     };
 
@@ -29,14 +30,20 @@ class App extends Component {
     this.setState({ features: evento });
   }
 
-  handleSubmit(event)  {
-    if( this.state.validator.allValid() ){
-      alert('You submitted the form and stuff!');
-    } else {
-      this.state.validator.showMessages();
-      // rerender to show messages for the first time
-      this.forceUpdate();
-    }
+  handleSubmit(event) {
+    event.preventDefault();
+
+
+    axios.post('http://127.0.0.1:8000/', {
+      nome: this.state.inputNome,
+      idade: this.state.inputIdade,
+      sexo: this.state.selectSexo,
+      dado: this.state.inputDado
+    })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
   }
 
   handleNameChange(event) {
@@ -55,30 +62,30 @@ class App extends Component {
     return (
       <div>
         <NavBar></NavBar>
-        <Cadastro handleSubmit={this.handleSubmit}     
-        handleNameChange={this.handleNameChange}
-        handleIdadeChange={this.handleIdadeChange}
-        handleSexoChange={this.handleSexoChange}
-        inputNome={this.state.inputNome}
-        selectSexo={this.state.selectSexo}
-        inputIdade={this.state.inputIdade}
-        validator={this.state.validator}
+        <Cadastro handleSubmit={this.handleSubmit}
+          handleNameChange={this.handleNameChange}
+          handleIdadeChange={this.handleIdadeChange}
+          handleSexoChange={this.handleSexoChange}
+          inputNome={this.state.inputNome}
+          selectSexo={this.state.selectSexo}
+          inputIdade={this.state.inputIdade}
+          validator={this.state.validator}
         ></Cadastro>
         <HomePage features={this.state.features} handleFeatures={this.handleFeatures}></HomePage>
         <div className="row">
-            <div className="col-10 offset-1 informacoes mt-3">
-              <h4 className="informacoes-titulo"> Informações</h4>
-              <p>
+          <div className="col-10 offset-1 informacoes mt-3">
+            <h4 className="informacoes-titulo"> Informações</h4>
+            <p>
               Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
               </p>
-              <p>
+            <p>
               Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
               </p>
-              <p>
+            <p>
               Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
               </p>
-            </div>
           </div>
+        </div>
       </div >
 
     );
