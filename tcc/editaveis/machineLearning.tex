@@ -211,3 +211,9 @@ A função para classificação em um SVM, pode ser generalizada pela Equação 
 \begin{equation} \label{eq:genSVM}
     min\left \| f \right \|_{k}^{2}+C\sum_{i=0}^{l}\left | 1-y_{i}f(x_{i})\right |_{+}\
 \end{equation}
+
+\section{Floresta aleatória}
+
+Desenvolvido por \cite{breiman2001random}, o método combina a abordagem de amostragem de Breiman, e a seleção aleatória de características, introduzida independentemente por \cite{ho1995random} e \cite{amit1997shape}, a fim de construir uma coleção de árvores de decisão. com variação controlada. Usando ensacamento, cada árvore de decisão no conjunto é construída usando uma amostra com substituição dos dados de treinamento. Estatisticamente, a amostra provavelmente terá cerca de 64 de instâncias aparecendo pelo menos uma vez na amostra. As instâncias na amostra são referidas como instâncias de embalagem e as instâncias restantes (cerca de 36) são referidas como instâncias fora do pacote. Cada árvore no conjunto funciona como um classificador base para determinar o rótulo de classe de uma instância não rotulada. Isso é feito por meio de votação por maioria, em que cada classificador atribui um voto ao rótulo de classe previsto. Em seguida, o rótulo de classe com o maior número de votos é usado para classificar a instância. 
+
+Resumidamente uma floresta aleatória é um meta estimador que se ajusta a vários classificadores de árvore de decisão em várias sub amostras do conjunto de dados e usa a média para melhorar a precisão preditiva e controlar o ajuste excessivo. 
