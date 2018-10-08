@@ -15,8 +15,8 @@ class App extends Component {
       inputIdade: 0,
       selectSexo: 'M',
       inputDado: [],
+      idFeature: null,
       validator: new SimpleReactValidator(),
-
     };
 
     this.handleFeatures = this.handleFeatures.bind(this)
@@ -33,17 +33,20 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-
     axios.post('http://127.0.0.1:8000/', {
       nome: this.state.inputNome,
       idade: this.state.inputIdade,
       sexo: this.state.selectSexo,
-      dado: this.state.inputDado
     })
       .then(res => {
-        console.log(res);
-        console.log(res.data);
+        console.log(res.data)
+        this.setState({ idFeature: res.data.id })
       })
+    // axios.post('http://127.0.0.1:8000/feature/'+this.state.idFeature, this.state.inputDado, {
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data'
+    //   }
+    // })
   }
 
   handleNameChange(event) {
@@ -87,7 +90,6 @@ class App extends Component {
           </div>
         </div>
       </div >
-
     );
   }
 }

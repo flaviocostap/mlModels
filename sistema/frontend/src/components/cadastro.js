@@ -33,13 +33,13 @@ class Cadastro extends Component {
               <option>F</option>
             </select>
           </div>
-          <div className="col-sm-10 form-group">
+          {/* <div className="col-sm-10 form-group">
             <form>
               <label className="col-md-offset-2" for="FormControlFile">Insira o arquivo EMG aqui!</label>
               <input type="file" className="col-sm-4 form-control-file" id="edfFormControlFile"></input>
             </form>
 
-          </div>
+          </div> */}
           <div className="col-sm-10 form-group">
           <button type="submit" class=" btn btn-primary">Enviar</button>
           </div>

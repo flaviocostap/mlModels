@@ -3,8 +3,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 
-from .models import Feature
-from .serializers import FeatureSerializer
+from .models import Patient
+from .models import SemgFile
+
+from .serializers import PatientSerializer
+from .serializers import SemgFileSerializer
 
 from sklearn.externals import joblib
 import pickle
@@ -12,14 +15,6 @@ import pyedflib
 import pandas as pd
 import scipy as sp
 import numpy as np
-
-class ListAllFeatures(generics.ListCreateAPIView):
-    queryset = Feature.objects.all()
-    serializer_class = FeatureSerializer
-
-class DetailFeature(generics.RetrieveDestroyAPIView):
-    queryset = Feature.objects.all()
-    serializer_class = FeatureSerializer
 
 def carregarDataFrame(caminho):
     edf = pyedflib.EdfReader(caminho)
@@ -45,10 +40,22 @@ def frequecia(df, canal):
     sinalFFT = fft(df, canal)[0]
     return sinalFFT
 
+class ListAllPatients(generics.ListCreateAPIView):
+    queryset = Patient.objects.all()
+    serializer_class = PatientSerializer
+
+class DetailPatient(generics.RetrieveDestroyAPIView):
+    queryset = Patient.objects.all()
+    serializer_class = PatientSerializer
+
+class InsertFeature(generics.ListCreateAPIView):
+    queryset = SemgFile.objects.all()
+    serializer_class = SemgFileSerializer
+
 class CLS(APIView):
     def get(self, request, pk):
-        feature = Feature.objects.get(id=pk)
-        caminho = feature.dado.path
+        patient = Patient.objects.get(id=pk)
+        caminho = patient.dado.path
         df = carregarDataFrame(caminho)
         sinal = frequecia(df, 'ch1')
 
@@ -59,8 +66,8 @@ class CLS(APIView):
 
         pred = loaded_model.predict([sinal])
 
-        entry = Feature.objects.filter(pk=pk).update(result=pred)
-        feature = get_object_or_404(Feature, pk=pk)
-        data = FeatureSerializer(feature).data
+        entry = Patient.objects.filter(pk=pk).update(result=pred)
+        patient = get_object_or_404(Patient, pk=pk)
+        data = PatientSerializer(patient).data
         
         return Response(data)
