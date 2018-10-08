@@ -24,6 +24,7 @@ class App extends Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleIdadeChange = this.handleIdadeChange.bind(this);
     this.handleSexoChange = this.handleSexoChange.bind(this);
+    this.handleInputDado = this.handleInputDado.bind(this);
   }
 
   handleFeatures(evento) {
@@ -31,22 +32,34 @@ class App extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
-
-    axios.post('http://127.0.0.1:8000/', {
-      nome: this.state.inputNome,
-      idade: this.state.inputIdade,
-      sexo: this.state.selectSexo,
-    })
-      .then(res => {
-        console.log(res.data)
-        this.setState({ idFeature: res.data.id })
-      })
-    // axios.post('http://127.0.0.1:8000/feature/'+this.state.idFeature, this.state.inputDado, {
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data'
-    //   }
+    event.preventDefault()
+    // axios.post('http://127.0.0.1:8000/', {
+    //   nome: this.state.inputNome,
+    //   idade: this.state.inputIdade,
+    //   sexo: this.state.selectSexo,
     // })
+    //   .then(res => {
+    //     console.log(res.data)
+    //     this.setState({ idFeature: res.data.id })
+    //   })
+
+    let formData = new FormData();
+    formData.append('file', this.state.inputDado);
+
+    axios.post('http://127.0.0.1:8000/semgfile/',
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }
+    ).then(function () {
+      console.log('SUCCESS!!');
+    })
+      .catch(function () {
+        console.log('FAILURE!!');
+        console.log(formData);
+      });
   }
 
   handleNameChange(event) {
@@ -60,7 +73,9 @@ class App extends Component {
   handleSexoChange(event) {
     this.setState({ selectSexo: event.target.value });
   }
-
+  handleInputDado(event) {
+    this.setState({ inputDado: event.target.files[0] })
+  }
   render() {
     return (
       <div>
@@ -69,7 +84,9 @@ class App extends Component {
           handleNameChange={this.handleNameChange}
           handleIdadeChange={this.handleIdadeChange}
           handleSexoChange={this.handleSexoChange}
+          handleInputDado={this.handleInputDado}
           inputNome={this.state.inputNome}
+          inputDado={this.state.inputDado}
           selectSexo={this.state.selectSexo}
           inputIdade={this.state.inputIdade}
           validator={this.state.validator}
