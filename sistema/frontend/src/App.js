@@ -13,8 +13,8 @@ class App extends Component {
       features: [],
       inputNome: null,
       inputIdade: 0,
+      inputDado: null,
       selectSexo: 'M',
-      inputDado: [],
       selectedFile: null,
       idFeature: null,
       validator: new SimpleReactValidator(),
@@ -39,14 +39,17 @@ class App extends Component {
     event.preventDefault()
     const fd = new FormData();
     fd.append('dado', this.state.selectedFile, this.state.selectedFile.name)
-    console.log(fd.get('dado'))
-
+    let idSemgfile
+    
     axios.post('http://127.0.0.1:8000/semgfile/', fd)
       .then(res => {
-        console.log(res);
+        idSemgfile = res.data.id
+        this.setState({inputDado: res.data.id})
       }).catch(error => {
         console.log(error)
       });
+    console.log(this.state.inputDado);
+
   }
 
   handleFeatures(evento) {

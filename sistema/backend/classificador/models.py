@@ -13,11 +13,12 @@ SEX_CHOICE = (
 )
 
 class Patient(models.Model):
-    id = models.AutoField(primary_key=True)
+    def _get_upload_to(self, filename):
+        return 'edf/%f.edf' % time.time()
     nome = models.TextField(blank=False, null=False,)
     idade = models.IntegerField(blank=False, null=False,)
     sexo = models.CharField(choices=SEX_CHOICE, default='M', max_length=2)
-    dado = models.TextField(blank=True, null=True,)
+    dado =  models.FileField(blank=False, null=False, upload_to=_get_upload_to) 
     result = models.IntegerField(blank=True, null=True,)
 
     def __str__(self):
