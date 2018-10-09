@@ -10,7 +10,6 @@ class PatientSerializer(serializers.ModelSerializer):
         model = Patient
 
 class SemgFileSerializer(serializers.ModelSerializer):
-    id = serializers.ReadOnlyField()
     class Meta:
-        fields = ('id', 'id_patient', 'dado')
+        fields = '__all__'
         model = SemgFile

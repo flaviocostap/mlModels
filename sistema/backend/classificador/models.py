@@ -6,6 +6,7 @@ import pyedflib
 import pandas as pd
 import scipy as sp
 import numpy as np
+
 SEX_CHOICE = (
     ('M', 'M'),
     ('F', 'F')
@@ -25,5 +26,4 @@ class Patient(models.Model):
 class SemgFile(models.Model):
     def _get_upload_to(self, filename):
         return 'edf/%f.edf' % time.time()
-    id_patient = models.IntegerField(blank=True, null=True,)
     dado = models.FileField(blank=False, null=False, upload_to=_get_upload_to) 

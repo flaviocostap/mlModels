@@ -15,6 +15,7 @@ class App extends Component {
       inputIdade: 0,
       selectSexo: 'M',
       inputDado: [],
+      selectedFile: null,
       idFeature: null,
       validator: new SimpleReactValidator(),
     };
@@ -25,41 +26,31 @@ class App extends Component {
     this.handleIdadeChange = this.handleIdadeChange.bind(this);
     this.handleSexoChange = this.handleSexoChange.bind(this);
     this.handleInputDado = this.handleInputDado.bind(this);
+    this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
   }
 
-  handleFeatures(evento) {
-    this.setState({ features: evento });
+  fileSelectedHandler(event) {
+    this.setState({
+      selectedFile: event.target.files[0]
+    })
   }
 
   handleSubmit(event) {
     event.preventDefault()
-    // axios.post('http://127.0.0.1:8000/', {
-    //   nome: this.state.inputNome,
-    //   idade: this.state.inputIdade,
-    //   sexo: this.state.selectSexo,
-    // })
-    //   .then(res => {
-    //     console.log(res.data)
-    //     this.setState({ idFeature: res.data.id })
-    //   })
+    const fd = new FormData();
+    fd.append('dado', this.state.selectedFile, this.state.selectedFile.name)
+    console.log(fd.get('dado'))
 
-    let formData = new FormData();
-    formData.append('file', this.state.inputDado);
-
-    axios.post('http://127.0.0.1:8000/semgfile/',
-      formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }
-    ).then(function () {
-      console.log('SUCCESS!!');
-    })
-      .catch(function () {
-        console.log('FAILURE!!');
-        console.log(formData);
+    axios.post('http://127.0.0.1:8000/semgfile/', fd)
+      .then(res => {
+        console.log(res);
+      }).catch(error => {
+        console.log(error)
       });
+  }
+
+  handleFeatures(evento) {
+    this.setState({ features: evento });
   }
 
   handleNameChange(event) {
@@ -85,6 +76,7 @@ class App extends Component {
           handleIdadeChange={this.handleIdadeChange}
           handleSexoChange={this.handleSexoChange}
           handleInputDado={this.handleInputDado}
+          fileSelectedHandler={this.fileSelectedHandler}
           inputNome={this.state.inputNome}
           inputDado={this.state.inputDado}
           selectSexo={this.state.selectSexo}
@@ -112,3 +104,32 @@ class App extends Component {
 }
 
 export default App;
+
+    // event.preventDefault()
+    // // axios.post('http://127.0.0.1:8000/', {
+    // //   nome: this.state.inputNome,
+    // //   idade: this.state.inputIdade,
+    // //   sexo: this.state.selectSexo,
+    // // })
+    // //   .then(res => {
+    // //     console.log(res.data)
+    // //     this.setState({ idFeature: res.data.id })
+    // //   })
+
+    // let formData = new FormData();
+    // formData.append('file', this.state.inputDado);
+
+    // axios.post('http://127.0.0.1:8000/semgfile/',
+    //   formData,
+    //   {
+    //     headers: {
+    //       'Content-Type': 'multipart/form-data'
+    //     }
+    //   }
+    // ).then(function () {
+    //   console.log('SUCCESS!!');
+    // })
+    //   .catch(function () {
+    //     console.log('FAILURE!!');
+    //     console.log(formData);
+    //   });
