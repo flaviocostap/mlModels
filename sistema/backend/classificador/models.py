@@ -18,7 +18,7 @@ class Patient(models.Model):
     nome = models.TextField(blank=False, null=False,)
     idade = models.IntegerField(blank=False, null=False,)
     sexo = models.CharField(choices=SEX_CHOICE, default='M', max_length=2)
-    dado =  models.FileField(blank=False, null=False, upload_to=_get_upload_to) 
+    id_semg = models.IntegerField(blank=False, null=False,)
     result = models.IntegerField(blank=True, null=True,)
 
     def __str__(self):

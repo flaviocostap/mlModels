@@ -40,12 +40,17 @@ class App extends Component {
       nome: this.state.inputNome,
       idade: this.state.inputIdade,
       sexo: this.state.selectSexo,
+      id_semg: this.state.inputDado,
     })
       .then(res => {
         this.setState({ idFeature: res.data.id })
       })
+      .catch(error => {
+        console.log(error)
+      });
   }
   postSsemgfile() {
+    console.log(this.state)
     let url = 'http://127.0.0.1:8000/semgfile/'
     const fd = new FormData();
     fd.append('dado', this.state.selectedFile, this.state.selectedFile.name)
