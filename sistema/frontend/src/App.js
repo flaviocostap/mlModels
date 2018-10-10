@@ -17,9 +17,13 @@ class App extends Component {
       selectSexo: 'M',
       selectedFile: null,
       idFeature: null,
+      fields: {sexo:'Masculino'},
+      errors: {},
       validator: new SimpleReactValidator(),
     };
 
+    this.handleChange = this.handleChange.bind(this);
+    this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
     this.handleFeatures = this.handleFeatures.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -27,6 +31,55 @@ class App extends Component {
     this.handleSexoChange = this.handleSexoChange.bind(this);
     this.handleInputDado = this.handleInputDado.bind(this);
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
+  }
+  handleChange(e) {
+    console.log(e)
+    let fields = this.state.fields;
+    fields[e.target.name] = e.target.value;
+    this.setState({
+      fields
+    });
+
+  }
+
+  submituserRegistrationForm(e) {
+    e.preventDefault();
+    if (this.validateForm()) {
+      let fields = {};
+      fields["nome"] = "";
+      fields["idade"] = "";
+      fields["sexo"] = "";
+      this.setState({ fields: fields });
+      alert("Form submitted");
+    }
+  }
+  validateForm() {
+
+    let fields = this.state.fields;
+    let errors = {};
+    let formIsValid = true;
+
+    if (!fields["nome"]) {
+      formIsValid = false;
+      errors["nome"] = "Insira um nome";
+    }
+
+    if (typeof fields["nome"] !== "undefined") {
+      if (!fields["nome"].match(/^[a-zA-Z ]*$/)) {
+        formIsValid = false;
+        errors["nome"] = "Somente caracteres";
+      }
+    }
+
+    if (!fields["idade"]) {
+      formIsValid = false;
+      errors["idade"] = "Insira a idade.";
+    }
+
+    this.setState({
+      errors: errors
+    });
+    return formIsValid;
   }
 
   fileSelectedHandler(event) {
@@ -65,8 +118,8 @@ class App extends Component {
       });
   }
 
-  handleSubmit(event) {
-    event.preventDefault()
+  async handleSubmit(event) {
+    //event.preventDefault()
     this.postSsemgfile()
   }
 
@@ -93,6 +146,10 @@ class App extends Component {
       <div>
         <NavBar></NavBar>
         <Cadastro handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          submituserRegistrationForm={this.submituserRegistrationForm}
+          fields={this.state.fields}
+          errors={this.state.errors}
           handleNameChange={this.handleNameChange}
           handleIdadeChange={this.handleIdadeChange}
           handleSexoChange={this.handleSexoChange}
