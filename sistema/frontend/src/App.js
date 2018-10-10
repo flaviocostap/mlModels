@@ -50,7 +50,6 @@ class App extends Component {
       });
   }
   postSsemgfile() {
-    console.log(this.state)
     let url = 'http://127.0.0.1:8000/semgfile/'
     const fd = new FormData();
     fd.append('dado', this.state.selectedFile, this.state.selectedFile.name)
@@ -69,7 +68,6 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault()
     this.postSsemgfile()
-    console.log(this.state.inputDado)
   }
 
   handleFeatures(evento) {

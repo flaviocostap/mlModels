@@ -57,13 +57,14 @@ class InsertFeature(generics.ListCreateAPIView):
 class CLS(APIView):
     def get(self, request, pk):
         patient = Patient.objects.get(id=pk)
-        caminho = patient.dado.path
+        semgFile = SemgFile.objects.get(id=patient.id_semg)
+        caminho = semgFile.dado.path
         df = carregarDataFrame(caminho)
         sinal = frequecia(df, 'ch1')
 
         # # Load from file
         joblib_file = "rfc.pkl"
-        path = '/home/jonnatas/git/mlModels/sistema/backend/api/edf/'+joblib_file
+        path = '/home/jonnatas/git/mlModels/sistema/backend/'+joblib_file
         loaded_model = joblib.load(path)
 
         pred = loaded_model.predict([sinal])
