@@ -22,7 +22,243 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+body {
+  background: #f5f6fa;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.barra-topo{
+  background-color: #34495e;
+}
+
+.logo-auditoria{
+  background: url("img/logo-auditoria.png") no-repeat;
+  height: 137px;
+  min-width: 532px;
+}
+
+.nome-auditoria{
+  padding-left: 8px;
+  color: #4385BF;
+}
+
+.barra-busca-input{
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3x 3px 0px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  border-radius: 4px;
+}
+
+.menu-filtros{
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.menu-filtros-botoes{
+  margin-bottom: 1rem;
+}
+
+.label-filtro{
+  margin-top: 1rem;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-bottom: 5px
+}
+
+
+.btn-filtrar{
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: #2A4070;
+  color: white;
+}
+
+.btn-filtrar:hover{
+  -webkit-box-shadow: 0px 3x 5px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.btn-filtrar:active{
+  transform: translateY(3px);
+}
+
+.btn-outline-secondary:hover{
+  border: 1px solid #707070;
+  color: white;
+  background-color: #707070;
+  -webkit-box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-secondary:active{
+  transform: translateY(3px);
+}
+
+.itens-acao{
+  margin-top: 0.8rem;
+}
+
+.itens-acao img{
+  margin-right: 5px;
+}
+
+.itens-acao a{
+  text-decoration: none;
+}
+.badges-filtros{
+  margin-top: 1rem;
+}
+
+.grafico{
+  margin-top: 0.8rem;
+}
+
+.informacoes{
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.informacoes-titulo{
+  font-weight: bold;
+}
+
+.cls-1 {
+  fill: #f6f6f6;
+}
+
+.cls-2, .cls-3 {
+  fill: #2a4070;
+}
+
+.cls-3 {
+  font-size: 26px;
+  font-family: Roboto-Bold, Roboto;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.cls-4 {
+  filter: url(#Rectangle_58);
+}
+
+.zoom{
+  visibility: hidden;
+}
+
+.graficoSVG{
+  margin-top: -100px;
+  margin-bottom: 1.5rem;
+}
+
+.detalheOrgao {
+  font-family: Roboto-Medium, Roboto;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  font-size: 14px;
+}
+
+.valorIndice {
+  font-family: Roboto-Regular, Roboto;
+  font-weight: 400;
+}
+
+rect.quadrante {
+  cursor: pointer
+}
+
+rect.quadrante:hover {
+  fill-opacity: 1;
+}
+
+g.orgao {
+  fill: black;
+}
+
+g.orgao:hover {
+  fill: black;
+  font-weight: bolder;
+  font-size: 16px;
+  text-decoration: underline;
+  transition: 0.2s ease-in-out;
+  transform: translateY(-3px);
+}
+
+g.pequeno {
+  font-size: 12px;
+}
+
+.check_agrupamento {
+  margin-top: 20px;
+}
+
+/* The container_check */
+.container_check {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container_check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container_check:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container_check input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container_check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container_check .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.flex-fill {
+  flex: 1 1 auto!important;
 }

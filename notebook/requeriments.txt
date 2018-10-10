@@ -1,0 +1,7 @@
+pyedflib
+pandas
+numpy
+matplotlib
+scipy
+sklearn
+
