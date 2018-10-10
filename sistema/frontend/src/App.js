@@ -35,21 +35,36 @@ class App extends Component {
     })
   }
 
-  handleSubmit(event) {
-    event.preventDefault()
+  postUser() {
+    axios.post('http://127.0.0.1:8000/', {
+      nome: this.state.inputNome,
+      idade: this.state.inputIdade,
+      sexo: this.state.selectSexo,
+    })
+      .then(res => {
+        this.setState({ idFeature: res.data.id })
+      })
+  }
+  postSsemgfile() {
+    let url = 'http://127.0.0.1:8000/semgfile/'
     const fd = new FormData();
     fd.append('dado', this.state.selectedFile, this.state.selectedFile.name)
-    let idSemgfile
-    
-    axios.post('http://127.0.0.1:8000/semgfile/', fd)
-      .then(res => {
-        idSemgfile = res.data.id
-        this.setState({inputDado: res.data.id})
-      }).catch(error => {
+    axios.post(url, fd)
+      .then(response => {
+        if (response.data.id) {
+          this.setState({ inputDado: response.data.id })
+          this.postUser()
+        }
+      })
+      .catch(error => {
         console.log(error)
       });
-    console.log(this.state.inputDado);
+  }
 
+  handleSubmit(event) {
+    event.preventDefault()
+    this.postSsemgfile()
+    console.log(this.state.inputDado)
   }
 
   handleFeatures(evento) {
