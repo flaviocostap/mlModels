@@ -33,7 +33,6 @@ class App extends Component {
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
   }
   handleChange(e) {
-    console.log(e)
     let fields = this.state.fields;
     fields[e.target.name] = e.target.value;
     this.setState({
@@ -64,6 +63,11 @@ class App extends Component {
       errors["nome"] = "Insira um nome";
     }
 
+    if (!fields["fileSelected"]) {
+      formIsValid = false;
+      errors["fileSelected"] = "Insira um arquivo com o formato 'edf'.";
+    }
+
     if (typeof fields["nome"] !== "undefined") {
       if (!fields["nome"].match(/^[a-zA-Z ]*$/)) {
         formIsValid = false;
@@ -86,6 +90,12 @@ class App extends Component {
     this.setState({
       selectedFile: event.target.files[0]
     })
+
+    let fields = this.state.fields;
+    fields['fileSelected'] = event.target.files[0].name
+    this.setState({
+      fields
+    });
   }
 
   postUser() {
@@ -155,6 +165,7 @@ class App extends Component {
           handleSexoChange={this.handleSexoChange}
           handleInputDado={this.handleInputDado}
           fileSelectedHandler={this.fileSelectedHandler}
+          selectedFile={this.state.selectedFile}
           inputNome={this.state.inputNome}
           inputDado={this.state.inputDado}
           selectSexo={this.state.selectSexo}
