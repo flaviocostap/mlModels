@@ -13,13 +13,12 @@ SEX_CHOICE = (
 )
 
 class Patient(models.Model):
-    def _get_upload_to(self, filename):
-        return 'edf/%f.edf' % time.time()
     nome = models.TextField(blank=False, null=False,)
     idade = models.IntegerField(blank=False, null=False,)
     sexo = models.CharField(choices=SEX_CHOICE, default='M', max_length=2)
     id_semg = models.IntegerField(blank=False, null=False,)
     result = models.IntegerField(blank=True, null=True,)
+    fileSelected = models.TextField(blank=False, null=False,)
 
     def __str__(self):
         return self.nome

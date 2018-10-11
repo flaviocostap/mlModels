@@ -7,18 +7,15 @@ class Cadastro extends Component {
   }
 
   render() {
-    console.log(this.props)
-
     return (
       <div>
 
-        <div className="col-11 offset-1 container-fluid">
+        {/* <div className="col-11 offset-1 container-fluid">
           <form onSubmit={this.props.submituserRegistrationForm} >
             <div className="col-sm-10 form-group">
               <label for="exampleInputNome" className="col-form-label">Nome</label>
               <div >
                 <input type="text" className="form-control" id="inputNome" value={this.props.inputNome} onChange={this.props.handleNameChange} placeholder="Nome completo" ></input>
-                {this.props.validator.message('inputNome', this.props.inputNome, 'required|alpha')}
 
               </div>
             </div>
@@ -46,7 +43,7 @@ class Cadastro extends Component {
             </div>
 
           </form>
-        </div>
+        </div> */}
         <div id="main-registration-container">
           <div id="register">
             <h3>Cadastro de paciente</h3>
@@ -57,13 +54,13 @@ class Cadastro extends Component {
               <div className="errorMsg">{this.props.errors.nome}</div>
 
               <label>Idade</label>
-              <input type="number" className="form-control" value={this.props.fields.idade} onChange={this.props.handleChange} id="inputIdade" name="idade" placeholder="idade"></input>
+              <input type="number" min="1" max="130" className="form-control" value={this.props.fields.idade} onChange={this.props.handleChange} id="inputIdade" name="idade" placeholder="idade"></input>
               <div className="errorMsg">{this.props.errors.idade}</div>
 
               <label>Sexo</label>
               <select className="col-sm-10 form-control" id="fromControlSelect" name="sexo" value={this.props.fields.sexo} onChange={this.props.handleChange}>
-                <option>Masculino</option>
-                <option>Feminino</option>
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
               </select>
               <div className="errorMsg">{this.props.errors.sexo}</div>
               <form>

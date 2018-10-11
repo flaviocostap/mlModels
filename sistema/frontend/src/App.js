@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import NavBar from './components/navbar'
 import HomePage from './components/homePage'
 import Cadastro from './components/cadastro'
-import SimpleReactValidator from 'simple-react-validator'
 import axios from 'axios'
 
 class App extends Component {
@@ -11,26 +10,16 @@ class App extends Component {
     super(props);
     this.state = {
       features: [],
-      inputNome: null,
-      inputIdade: 0,
-      inputDado: null,
-      selectSexo: 'M',
       selectedFile: null,
       idFeature: null,
-      fields: {sexo:'Masculino'},
+      fields: { sexo: 'M' },
       errors: {},
-      validator: new SimpleReactValidator(),
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
     this.handleFeatures = this.handleFeatures.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleIdadeChange = this.handleIdadeChange.bind(this);
-    this.handleSexoChange = this.handleSexoChange.bind(this);
-    this.handleInputDado = this.handleInputDado.bind(this);
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
+    this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
   }
   handleChange(e) {
     let fields = this.state.fields;
@@ -41,16 +30,13 @@ class App extends Component {
 
   }
 
-  submituserRegistrationForm(e) {
-    e.preventDefault();
+  async submituserRegistrationForm(e) {
+    e.preventDefault()
     if (this.validateForm()) {
-      let fields = {};
-      fields["nome"] = "";
-      fields["idade"] = "";
-      fields["sexo"] = "";
-      this.setState({ fields: fields });
-      alert("Form submitted");
+      this.postSsemgfile()
+      alert('Cadastro realizado com sucesso!')
     }
+
   }
   validateForm() {
 
@@ -66,6 +52,13 @@ class App extends Component {
     if (!fields["fileSelected"]) {
       formIsValid = false;
       errors["fileSelected"] = "Insira um arquivo com o formato 'edf'.";
+    }
+
+    if (typeof fields["fileSelected"] !== "undefined") {
+      if (!fields["fileSelected"].match(/.[edf]{3}$/)) {
+        formIsValid = false;
+        errors["fileSelected"] = "Formato invalido";
+      }
     }
 
     if (typeof fields["nome"] !== "undefined") {
@@ -87,24 +80,23 @@ class App extends Component {
   }
 
   fileSelectedHandler(event) {
-    this.setState({
-      selectedFile: event.target.files[0]
-    })
+    let selectedFile = event.target.files[0]
+    if (selectedFile !== undefined) {
+      this.setState({
+        selectedFile: selectedFile
+      })
 
-    let fields = this.state.fields;
-    fields['fileSelected'] = event.target.files[0].name
-    this.setState({
-      fields
-    });
+      let fields = this.state.fields;
+      fields['fileSelected'] = selectedFile.name
+      this.setState({
+        fields
+      });
+    }
   }
 
   postUser() {
-    axios.post('http://127.0.0.1:8000/', {
-      nome: this.state.inputNome,
-      idade: this.state.inputIdade,
-      sexo: this.state.selectSexo,
-      id_semg: this.state.inputDado,
-    })
+    console.log(this.state.fields)
+    axios.post('http://127.0.0.1:8000/', this.state.fields)
       .then(res => {
         this.setState({ idFeature: res.data.id })
       })
@@ -118,8 +110,11 @@ class App extends Component {
     fd.append('dado', this.state.selectedFile, this.state.selectedFile.name)
     axios.post(url, fd)
       .then(response => {
+        console.log(response.data)
         if (response.data.id) {
-          this.setState({ inputDado: response.data.id })
+          let fields = this.state.fields;
+          fields['id_semg'] = response.data.id
+          this.setState({ fields });
           this.postUser()
         }
       })
@@ -137,40 +132,18 @@ class App extends Component {
     this.setState({ features: evento });
   }
 
-  handleNameChange(event) {
-    this.setState({ inputNome: event.target.value });
-  }
-
-  handleIdadeChange(event) {
-    this.setState({ inputIdade: event.target.value });
-  }
-
-  handleSexoChange(event) {
-    this.setState({ selectSexo: event.target.value });
-  }
-  handleInputDado(event) {
-    this.setState({ inputDado: event.target.files[0] })
-  }
   render() {
     return (
       <div>
         <NavBar></NavBar>
-        <Cadastro handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
+        <Cadastro
+          handleSubmit={this.handleSubmit}
           submituserRegistrationForm={this.submituserRegistrationForm}
+          handleChange={this.handleChange}
           fields={this.state.fields}
           errors={this.state.errors}
-          handleNameChange={this.handleNameChange}
-          handleIdadeChange={this.handleIdadeChange}
-          handleSexoChange={this.handleSexoChange}
-          handleInputDado={this.handleInputDado}
           fileSelectedHandler={this.fileSelectedHandler}
           selectedFile={this.state.selectedFile}
-          inputNome={this.state.inputNome}
-          inputDado={this.state.inputDado}
-          selectSexo={this.state.selectSexo}
-          inputIdade={this.state.inputIdade}
-          validator={this.state.validator}
         ></Cadastro>
         <HomePage features={this.state.features} handleFeatures={this.handleFeatures}></HomePage>
         <div className="row">
@@ -193,32 +166,3 @@ class App extends Component {
 }
 
 export default App;
-
-    // event.preventDefault()
-    // // axios.post('http://127.0.0.1:8000/', {
-    // //   nome: this.state.inputNome,
-    // //   idade: this.state.inputIdade,
-    // //   sexo: this.state.selectSexo,
-    // // })
-    // //   .then(res => {
-    // //     console.log(res.data)
-    // //     this.setState({ idFeature: res.data.id })
-    // //   })
-
-    // let formData = new FormData();
-    // formData.append('file', this.state.inputDado);
-
-    // axios.post('http://127.0.0.1:8000/semgfile/',
-    //   formData,
-    //   {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data'
-    //     }
-    //   }
-    // ).then(function () {
-    //   console.log('SUCCESS!!');
-    // })
-    //   .catch(function () {
-    //     console.log('FAILURE!!');
-    //     console.log(formData);
-    //   });
