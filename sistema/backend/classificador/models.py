@@ -26,4 +26,5 @@ class Patient(models.Model):
 class SemgFile(models.Model):
     def _get_upload_to(self, filename):
         return 'edf/%f.edf' % time.time()
+    fileSelected = models.TextField(blank=False, null=False,)
     dado = models.FileField(blank=False, null=False, upload_to=_get_upload_to) 
