@@ -1,11 +1,13 @@
 from django.db import models
-import time
+from django.contrib.auth.models import User
 from sklearn.externals import joblib
+import time
 import pickle
 import pyedflib
 import pandas as pd
 import scipy as sp
 import numpy as np
+
 
 SEX_CHOICE = (
     ('M', 'M'),

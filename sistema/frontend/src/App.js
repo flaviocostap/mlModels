@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import NavBar from './components/navbar'
 import HomePage from './components/homePage'
+import Login from './components/Login'
 import Cadastro from './components/cadastro'
 import axios from 'axios'
 
@@ -13,10 +14,13 @@ class App extends Component {
       selectedFile: null,
       idFeature: null,
       fields: { sexo: 'M' },
+      user: {},
+      errorUser: {},
       errors: {},
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleUserChange = this.handleUserChange.bind(this);
     this.handleFeatures = this.handleFeatures.bind(this)
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
     this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
@@ -27,7 +31,18 @@ class App extends Component {
     this.setState({
       fields
     });
+  }
 
+  handleUserChange(e) {
+    let user = this.state.user;
+    user[e.target.name] = e.target.value;
+    this.setState({
+      user
+    });
+  }
+
+  async submitUserRegistration(e) {
+    
   }
 
   async submituserRegistrationForm(e) {
@@ -35,9 +50,7 @@ class App extends Component {
     if (this.validateForm()) {
       this.postSsemgfile()
       alert('Cadastro realizado com sucesso!!')
-      
     }
-
   }
   validateForm() {
 
@@ -137,13 +150,14 @@ class App extends Component {
     return (
       <div>
         <NavBar></NavBar>
+        {/* <Login user={this.state.user} errorUser={this.state.errorUser} handleUserChange={this.handleUserChange}></Login> */}
         <Cadastro
-          handleSubmit={this.handleSubmit}
           submituserRegistrationForm={this.submituserRegistrationForm}
+          fileSelectedHandler={this.fileSelectedHandler}
           handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
           fields={this.state.fields}
           errors={this.state.errors}
-          fileSelectedHandler={this.fileSelectedHandler}
           selectedFile={this.state.selectedFile}
         ></Cadastro>
         <HomePage features={this.state.features} handleFeatures={this.handleFeatures}></HomePage>

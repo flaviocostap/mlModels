@@ -19,15 +19,22 @@ class HomePage extends Component {
 
     render() {
         return (
-            <div className="container-fluid">
-                {
-                    this.props.features.map(item => (
-                        <div key={item.id}>
-                            <h1 class="mt-5">{item.nome}</h1>
-                            <p>{item.idade}</p>
-                        </div>
-                    ))
-                }
+            <div class="container">
+                <ul className="list-group list-group-flush">
+                    {this.props.features.map(item => (
+                        <li class="list-group-item d-flex justify-content-between align-items-center" key={item.id}>
+                            nome: <h2 class="mt-2">{item.nome}</h2>
+                            idade: <h2>{item.idade}</h2>
+                            sexo: <h2>{item.sexo}</h2>
+                            resultado: <h2>{item.resultado}</h2>
+                            <div class="btn-group">
+                                {/* <button type="button" class="btn btn-outline-info">Detalhes</button> */}
+                                <button type="button" class="btn btn-outline-warning">Editar</button>
+                                <button type="button" class="btn btn-outline-danger">Arquivar</button>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             </div>
         )
     }
