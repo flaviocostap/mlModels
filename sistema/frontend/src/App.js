@@ -34,7 +34,8 @@ class App extends Component {
     e.preventDefault()
     if (this.validateForm()) {
       this.postSsemgfile()
-      alert('Cadastro realizado com sucesso!')
+      alert('Cadastro realizado com sucesso!!')
+      
     }
 
   }
