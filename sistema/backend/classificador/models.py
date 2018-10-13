@@ -21,6 +21,7 @@ class Patient(models.Model):
     id_semg = models.IntegerField(blank=False, null=False,)
     result = models.IntegerField(blank=True, null=True,)
     fileSelected = models.TextField(blank=False, null=False,)
+    arquivar = models.BooleanField(blank=False, default=False, null=False)
 
     def __str__(self):
         return self.nome

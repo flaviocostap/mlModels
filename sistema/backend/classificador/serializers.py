@@ -6,7 +6,7 @@ class PatientSerializer(serializers.ModelSerializer):
     id = serializers.ReadOnlyField()
     result = serializers.ReadOnlyField()
     class Meta:
-        fields = ('id', 'nome', 'idade', 'sexo', 'id_semg', 'fileSelected', 'result')
+        fields = ('id', 'arquivar', 'nome', 'idade', 'sexo', 'id_semg', 'fileSelected', 'result')
         model = Patient
 
 class SemgFileSerializer(serializers.ModelSerializer):

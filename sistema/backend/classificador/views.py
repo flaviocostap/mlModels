@@ -50,6 +50,10 @@ class DetailPatient(generics.RetrieveDestroyAPIView):
     queryset = Patient.objects.all()
     serializer_class = PatientSerializer
 
+class UpdatePatient(generics.UpdateAPIView):
+    queryset = Patient.objects.all()
+    serializer_class = PatientSerializer
+
 class InsertFeature(generics.ListCreateAPIView):
     queryset = SemgFile.objects.all()
     serializer_class = SemgFileSerializer

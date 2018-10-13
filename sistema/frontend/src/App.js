@@ -41,10 +41,6 @@ class App extends Component {
     });
   }
 
-  async submitUserRegistration(e) {
-    
-  }
-
   async submituserRegistrationForm(e) {
     e.preventDefault()
     if (this.validateForm()) {
@@ -118,6 +114,16 @@ class App extends Component {
         console.log(error)
       });
   }
+  puttUser(id) {
+    console.log(this.state.fields)
+    axios.put('http://127.0.0.1:8000/atualizar/' + id + '/', this.state.fields)
+      .then(res => {
+        this.setState({ idFeature: res.data.id })
+      })
+      .catch(error => {
+        console.log(error)
+      });
+  }
   postSsemgfile() {
     let url = 'http://127.0.0.1:8000/semgfile/'
     const fd = new FormData();
@@ -129,7 +135,7 @@ class App extends Component {
           let fields = this.state.fields;
           fields['id_semg'] = response.data.id
           this.setState({ fields });
-          this.postUser()
+          this.puttUser(1)
         }
       })
       .catch(error => {
@@ -143,7 +149,8 @@ class App extends Component {
   }
 
   handleFeatures(evento) {
-    this.setState({ features: evento });
+    if (evento !== undefined)
+      this.setState({ features: evento });
   }
 
   render() {
