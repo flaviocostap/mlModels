@@ -18,6 +18,7 @@ class App extends Component {
       selectedFile: null,
       idFeature: null,
       fields: { sexo: 'M' },
+      pesquisa: {value: 0, label: ''},
       user: {},
       errorUser: {},
       errors: {},
@@ -26,14 +27,40 @@ class App extends Component {
     this.arquivarUser = this.arquivarUser.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleFeatures = this.handleFeatures.bind(this)
+    this.handlePesquisa = this.handlePesquisa.bind(this)
     this.updatePatient = this.updatePatient.bind(this);
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
     this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
     this.submitEditUser = this.submitEditUser.bind(this);
   }
+  async componentDidMount() {
+    try {
+      let features
+      axios.get('http://127.0.0.1:8000/api/').then(res => {
+        features = res.data.map(item => {
+          if (item.arquivar === false) {
+            if (item !== undefined)
+              return item
+          }
+        });
+        features = features.filter(item => {
+          return item !== undefined
+        })
+        this.handleFeatures(features)
+      })
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+
   handleFeatures(evento) {
     if (evento !== undefined)
       this.setState({ features: evento });
+  }
+  handlePesquisa(evento) {
+    console.log(evento)
+    this.setState({pesquisa: evento})
   }
   handleChange(e) {
     let fields = this.state.fields;
@@ -103,7 +130,6 @@ class App extends Component {
     }
   }
   updatePatient(item) {
-    console.log(item)
     let fields = {
       id: item.id,
       nome: item.nome,
@@ -153,9 +179,9 @@ class App extends Component {
           let fields = this.state.fields;
           fields['id_semg'] = response.data.id
           this.setState({ fields });
-          if(tipo === POST)
+          if (tipo === POST)
             this.postUser()
-          else if(tipo === PUT)
+          else if (tipo === PUT)
             this.puttUser(this.state.fields.id)
         }
       })
@@ -167,7 +193,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar></NavBar>
+        <NavBar features={this.state.features} handlePesquisa={this.handlePesquisa}></NavBar>
         <Cadastro
           submituserRegistrationForm={this.submituserRegistrationForm}
           fileSelectedHandler={this.fileSelectedHandler}
@@ -189,7 +215,6 @@ class App extends Component {
         <HomePage
           arquivarUser={this.arquivarUser}
           updatePatient={this.updatePatient}
-          handleFeatures={this.handleFeatures}
           features={this.state.features}>
         </HomePage>
         <Footer></Footer>
@@ -199,12 +224,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-// handleUserChange(e) {
-//   let user = this.state.user;
-//   user[e.target.name] = e.target.value;
-//   this.setState({
-//     user
-//   });
-// }

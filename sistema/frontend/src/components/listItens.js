@@ -1,32 +1,18 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import Select from 'react-select';
 
 class ListItens extends Component {
     constructor(props) {
         super(props)
     }
 
-    async componentDidMount() {
-        try {
-            let features
-            axios.get('http://127.0.0.1:8000/api/').then(res => {
-                features = res.data.map(item => {
-                    if (item.arquivar === false) {
-                        if (item !== undefined)
-                            return item
-                    }
-                });
-                features = features.filter(item => {
-                    return item !== undefined
-                })
-                console.log(features)
-                this.props.handleFeatures(features)
-            })
-        } catch (e) {
-            console.log(e);
-        }
-    }
     render() {
+        const options = this.props.features.map(item => {
+            return {
+                value: item.id,
+                label: item.nome,
+            }
+        })
         return (
             <div class="container">
                 <ul className="list-group list-group-flush">
