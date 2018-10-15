@@ -7,17 +7,21 @@ class ListItens extends Component {
     }
 
     render() {
-        const options = this.props.features.map(item => {
-            return {
-                value: item.id,
-                label: item.nome,
-            }
-        })
+        let features
+        console.log(this.props.pesquisa)
+        if (this.props.pesquisa === null) {
+            features = this.props.features
+        } else {
+            features = this.props.features.filter(ap => {if(ap.id === this.props.pesquisa.value){
+                return ap
+            }})
+
+        }
         return (
             <div class="container">
                 <ul className="list-group list-group-flush">
                     {
-                        this.props.features.map(item => (
+                        features.map(item => (
                             <li class="list-group-item d-flex justify-content-between align-items-center" key={item.id}>
                                 nome: <h2 class="mt-2">{item.nome}</h2>
                                 idade: <h2>{item.idade}</h2>

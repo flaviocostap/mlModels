@@ -18,7 +18,7 @@ class App extends Component {
       selectedFile: null,
       idFeature: null,
       fields: { sexo: 'M' },
-      pesquisa: {value: 0, label: ''},
+      pesquisa: null,
       user: {},
       errorUser: {},
       errors: {},
@@ -215,6 +215,7 @@ class App extends Component {
         <HomePage
           arquivarUser={this.arquivarUser}
           updatePatient={this.updatePatient}
+          pesquisa={this.state.pesquisa}
           features={this.state.features}>
         </HomePage>
         <Footer></Footer>
