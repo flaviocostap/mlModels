@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './cadastro.css'
+import '../css/cadastro.css'
 class Cadastro extends Component {
 
   constructor(props) {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import './navbar.css'
+import '../css/navbar.css'
 
 class NavBar extends Component {
     render() {
