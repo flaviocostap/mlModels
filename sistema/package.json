@@ -2,7 +2,9 @@
   "dependencies": {
     "font-awesome": "4.7.0",
     "ionicons": "3.0.0",
+    "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
-    "react-select": "^2.1.0"
+    "react-select": "^2.1.0",
+    "redux": "^4.0.1"
   }
 }
