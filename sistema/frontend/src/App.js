@@ -194,7 +194,7 @@ class App extends Component {
     return (
       <div>
         <NavBar features={this.state.features} handlePesquisa={this.handlePesquisa}></NavBar>
-        <Cadastro
+        {/* <Cadastro
           submituserRegistrationForm={this.submituserRegistrationForm}
           fileSelectedHandler={this.fileSelectedHandler}
           handleChange={this.handleChange}
@@ -211,7 +211,7 @@ class App extends Component {
           selectedFile={this.state.selectedFile}
           fields={this.state.fields}
           errors={this.state.errors}
-        ></Editar>
+        ></Editar> */}
         <HomePage
           arquivarUser={this.arquivarUser}
           updatePatient={this.updatePatient}
