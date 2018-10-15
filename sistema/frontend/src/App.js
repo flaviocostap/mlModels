@@ -1,10 +1,10 @@
 // App.js
 import React, { Component } from 'react';
-import NavBar from './components/navbar'
-import HomePage from './components/homePage'
-import Footer from './components/footer'
-import Cadastro from './components/cadastro'
-import Editar from './components/editar'
+import NavBar from './components/template/navbar'
+import HomePage from './components/home/homePage'
+import Footer from './components/template/footer'
+import Cadastro from './components/cadastro/cadastro'
+import Editar from './components/home/editar'
 import axios from 'axios'
 
 const POST = 1
