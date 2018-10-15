@@ -2,9 +2,13 @@
 import React, { Component } from 'react';
 import NavBar from './components/navbar'
 import HomePage from './components/homePage'
-import Login from './components/Login'
+import Footer from './components/footer'
 import Cadastro from './components/cadastro'
+import Editar from './components/editar'
 import axios from 'axios'
+
+const POST = 1
+const PUT = 0
 
 class App extends Component {
   constructor(props) {
@@ -14,16 +18,49 @@ class App extends Component {
       selectedFile: null,
       idFeature: null,
       fields: { sexo: 'M' },
+      pesquisa: null,
       user: {},
       errorUser: {},
       errors: {},
     };
 
+    this.arquivarUser = this.arquivarUser.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleUserChange = this.handleUserChange.bind(this);
     this.handleFeatures = this.handleFeatures.bind(this)
+    this.handlePesquisa = this.handlePesquisa.bind(this)
+    this.updatePatient = this.updatePatient.bind(this);
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
     this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
+    this.submitEditUser = this.submitEditUser.bind(this);
+  }
+  async componentDidMount() {
+    try {
+      let features
+      axios.get('http://127.0.0.1:8000/api/').then(res => {
+        features = res.data.map(item => {
+          if (item.arquivar === false) {
+            if (item !== undefined)
+              return item
+          }
+        });
+        features = features.filter(item => {
+          return item !== undefined
+        })
+        this.handleFeatures(features)
+      })
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+
+  handleFeatures(evento) {
+    if (evento !== undefined)
+      this.setState({ features: evento });
+  }
+  handlePesquisa(evento) {
+    console.log(evento)
+    this.setState({pesquisa: evento})
   }
   handleChange(e) {
     let fields = this.state.fields;
@@ -32,70 +69,59 @@ class App extends Component {
       fields
     });
   }
-
-  handleUserChange(e) {
-    let user = this.state.user;
-    user[e.target.name] = e.target.value;
-    this.setState({
-      user
-    });
-  }
-
   async submituserRegistrationForm(e) {
     e.preventDefault()
     if (this.validateForm()) {
-      this.postSsemgfile()
+      this.postSsemgfile(1)
+      alert('Cadastro realizado com sucesso!!')
+    }
+  }
+  async submitEditUser(e) {
+    e.preventDefault()
+    if (this.validateForm()) {
+      this.postSsemgfile(0)
       alert('Cadastro realizado com sucesso!!')
     }
   }
   validateForm() {
-
     let fields = this.state.fields;
     let errors = {};
     let formIsValid = true;
-
     if (!fields["nome"]) {
       formIsValid = false;
       errors["nome"] = "Insira um nome";
     }
-
     if (!fields["fileSelected"]) {
       formIsValid = false;
       errors["fileSelected"] = "Insira um arquivo com o formato 'edf'.";
     }
-
     if (typeof fields["fileSelected"] !== "undefined") {
       if (!fields["fileSelected"].match(/.[edf]{3}$/)) {
         formIsValid = false;
         errors["fileSelected"] = "Formato invalido";
       }
     }
-
     if (typeof fields["nome"] !== "undefined") {
       if (!fields["nome"].match(/^[a-zA-Z ]*$/)) {
         formIsValid = false;
         errors["nome"] = "Somente caracteres";
       }
     }
-
     if (!fields["idade"]) {
       formIsValid = false;
       errors["idade"] = "Insira a idade.";
     }
-
     this.setState({
       errors: errors
     });
     return formIsValid;
   }
-
   fileSelectedHandler(event) {
     let selectedFile = event.target.files[0]
     if (selectedFile !== undefined) {
       this.setState({
         selectedFile: selectedFile
       })
-
       let fields = this.state.fields;
       fields['fileSelected'] = selectedFile.name
       this.setState({
@@ -103,7 +129,26 @@ class App extends Component {
       });
     }
   }
+  updatePatient(item) {
+    let fields = {
+      id: item.id,
+      nome: item.nome,
+      idade: item.idade,
+      sexo: item.sexo
+    }
+    this.setState({ fields })
 
+  }
+  arquivarUser(item) {
+    item.arquivar = true
+    axios.put('http://127.0.0.1:8000/atualizar/' + item.id + '/', item)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(error => {
+        console.log(error)
+      });
+  }
   postUser() {
     console.log(this.state.fields)
     axios.post('http://127.0.0.1:8000/', this.state.fields)
@@ -115,7 +160,6 @@ class App extends Component {
       });
   }
   puttUser(id) {
-    console.log(this.state.fields)
     axios.put('http://127.0.0.1:8000/atualizar/' + id + '/', this.state.fields)
       .then(res => {
         this.setState({ idFeature: res.data.id })
@@ -124,7 +168,7 @@ class App extends Component {
         console.log(error)
       });
   }
-  postSsemgfile() {
+  postSsemgfile(tipo) {
     let url = 'http://127.0.0.1:8000/semgfile/'
     const fd = new FormData();
     fd.append('dado', this.state.selectedFile, this.state.selectedFile.name)
@@ -135,7 +179,10 @@ class App extends Component {
           let fields = this.state.fields;
           fields['id_semg'] = response.data.id
           this.setState({ fields });
-          this.puttUser(1)
+          if (tipo === POST)
+            this.postUser()
+          else if (tipo === PUT)
+            this.puttUser(this.state.fields.id)
         }
       })
       .catch(error => {
@@ -143,45 +190,35 @@ class App extends Component {
       });
   }
 
-  async handleSubmit(event) {
-    //event.preventDefault()
-    this.postSsemgfile()
-  }
-
-  handleFeatures(evento) {
-    if (evento !== undefined)
-      this.setState({ features: evento });
-  }
-
   render() {
     return (
       <div>
-        <NavBar></NavBar>
-        {/* <Login user={this.state.user} errorUser={this.state.errorUser} handleUserChange={this.handleUserChange}></Login> */}
+        <NavBar features={this.state.features} handlePesquisa={this.handlePesquisa}></NavBar>
         <Cadastro
           submituserRegistrationForm={this.submituserRegistrationForm}
           fileSelectedHandler={this.fileSelectedHandler}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          selectedFile={this.state.selectedFile}
           fields={this.state.fields}
           errors={this.state.errors}
-          selectedFile={this.state.selectedFile}
         ></Cadastro>
-        <HomePage features={this.state.features} handleFeatures={this.handleFeatures}></HomePage>
-        <div className="row">
-          <div className="col-10 offset-1 informacoes mt-3">
-            <h4 className="informacoes-titulo"> Informações</h4>
-            <p>
-              Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
-              </p>
-            <p>
-              Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
-              </p>
-            <p>
-              Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
-              </p>
-          </div>
-        </div>
+        <Editar
+          submitEditUser={this.submitEditUser}
+          fileSelectedHandler={this.fileSelectedHandler}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          selectedFile={this.state.selectedFile}
+          fields={this.state.fields}
+          errors={this.state.errors}
+        ></Editar>
+        <HomePage
+          arquivarUser={this.arquivarUser}
+          updatePatient={this.updatePatient}
+          pesquisa={this.state.pesquisa}
+          features={this.state.features}>
+        </HomePage>
+        <Footer></Footer>
       </div >
     );
   }

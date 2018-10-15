@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
+import Select from 'react-select';
+import './navbar.css'
 
 class NavBar extends Component {
     render() {
+        const options = this.props.features.map(item => {
+            return {
+                value: item.id,
+                label: item.nome,
+            }
+        })
         return (
-            <div className="pos-f-t">
-                <div className="collapse" id="navbarToggleExternalContent">
-                    <div className="bg-dark p-4">
-                        <h5 className="text-white h4">Collapsed content</h5>
-                        <span className="text-muted">Toggleable via the navbar brand.</span>
-                    </div>
+            <nav className="navbar navbar-dark bg-dark">
+                <a className="navbar-brand" href="#">Navbar</a>
+                <div id="pesquisa">
+                    <Select
+                        name="colors"
+                        options={options}
+                        className="basic-multi-select"
+                        classNamePrefix="select"
+                        onChange={this.props.handlePesquisa}
+                    />
                 </div>
-                <nav className="navbar navbar-dark bg-dark">
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                </nav>
-            </div>
+            </nav>
         )
     }
 }
