@@ -1,0 +1,1 @@
+export const BUSCAR_FEATURES = 'BUSCAR_FEATURES'

@@ -8,16 +8,16 @@ class HomePage extends Component {
 
     render() {
         let features = this.props.features
+        // console.log(this.props.pesquisa)
         // if (this.props.pesquisa === null) {
         //     features = this.props.features
         // } else {
-        //     features = this.props.features.filter(ap => {
-        //         if (ap.id === this.props.pesquisa.value) {
-        //             return ap
-        //         }
-        //     })
-        // }
+        //     features = this.props.features.filter(ap => {if(ap.id === this.props.pesquisa.value){
+        //         return ap
+        //     }})
 
+        // }
+        console.log(features.features)
         return (
             <div class="container">
                 <ul className="list-group list-group-flush">
@@ -29,10 +29,10 @@ class HomePage extends Component {
                                 sexo: <h2>{item.sexo}</h2>
                                 resultado: <h2>{item.resultado}</h2>
                                 id: <h2>{item.id}</h2>
-                                {/* <div class="btn-group">
+                                <div class="btn-group">
                                     <button type="button" class="btn btn-outline-warning" onClick={() => this.props.updatePatient(item)}>Editar</button>
                                     <button type="button" class="btn btn-outline-danger" onClick={() => this.props.arquivarUser(item)}>Arquivar</button>
-                                </div> */}
+                                </div>
 
                             </li>
                         )

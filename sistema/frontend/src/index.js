@@ -7,17 +7,15 @@ import { Provider } from 'react-redux'
 import App from './App';
 import ReactDOM from 'react-dom';
 
-import registerServiceWorker from './registerServiceWorker';
-import './css/index.css';
+import featureReducer from './reducers/featureReducer'
 
 const reducers = combineReducers({
-    features: () => ([{ nome:'zé', id: 1, idade:2, sexo:'M', resultado:1 }])
+    features: featureReducer
 })
 
 ReactDOM.render(
     <Provider store={createStore(reducers)}>
-        {/* <BrowserRouter> */}
+        <BrowserRouter>
             <App />
-        {/* </ BrowserRouter> */}
+        </ BrowserRouter>
     </Provider>, document.getElementById('root'));
-registerServiceWorker();
