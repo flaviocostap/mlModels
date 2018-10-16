@@ -1,66 +1,24 @@
 // App.js
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import axios from 'axios'
+
 import NavBar from './components/template/navbar'
 import HomePage from './components/home/homePage'
 import Footer from './components/template/footer'
 import Cadastro from './components/cadastro/cadastro'
 import Editar from './components/home/editar'
-import axios from 'axios'
+
+
 
 const POST = 1
 const PUT = 0
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      features: [],
-      selectedFile: null,
-      idFeature: null,
-      fields: { sexo: 'M' },
-      pesquisa: null,
-      user: {},
-      errorUser: {},
-      errors: {},
-    };
 
-    this.arquivarUser = this.arquivarUser.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleFeatures = this.handleFeatures.bind(this)
-    this.handlePesquisa = this.handlePesquisa.bind(this)
-    this.updatePatient = this.updatePatient.bind(this);
-    this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
-    this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
-    this.submitEditUser = this.submitEditUser.bind(this);
-  }
-  async componentDidMount() {
-    try {
-      let features
-      axios.get('http://127.0.0.1:8000/api/').then(res => {
-        features = res.data.map(item => {
-          if (item.arquivar === false) {
-            if (item !== undefined)
-              return item
-          }
-        });
-        features = features.filter(item => {
-          return item !== undefined
-        })
-        this.handleFeatures(features)
-      })
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-
-  handleFeatures(evento) {
-    if (evento !== undefined)
-      this.setState({ features: evento });
-  }
   handlePesquisa(evento) {
     console.log(evento)
-    this.setState({pesquisa: evento})
+    this.setState({ pesquisa: evento })
   }
   handleChange(e) {
     let fields = this.state.fields;
@@ -193,8 +151,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar features={this.state.features} handlePesquisa={this.handlePesquisa}></NavBar>
-        {/* <Cadastro
+        {/* <NavBar features={this.state.features} handlePesquisa={this.handlePesquisa}></NavBar> */}
+        {/*<Cadastro
           submituserRegistrationForm={this.submituserRegistrationForm}
           fileSelectedHandler={this.fileSelectedHandler}
           handleChange={this.handleChange}
@@ -203,7 +161,7 @@ class App extends Component {
           fields={this.state.fields}
           errors={this.state.errors}
         ></Cadastro>
-        <Editar
+         <Editar
           submitEditUser={this.submitEditUser}
           fileSelectedHandler={this.fileSelectedHandler}
           handleChange={this.handleChange}
@@ -213,10 +171,11 @@ class App extends Component {
           errors={this.state.errors}
         ></Editar> */}
         <HomePage
-          arquivarUser={this.arquivarUser}
-          updatePatient={this.updatePatient}
-          pesquisa={this.state.pesquisa}
-          features={this.state.features}>
+          // arquivarUser={this.arquivarUser}
+          // updatePatient={this.updatePatient}
+          // pesquisa={this.state.pesquisa}
+          features={this.props.features}
+          >
         </HomePage>
         <Footer></Footer>
       </div >
@@ -224,4 +183,11 @@ class App extends Component {
   }
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+  return {
+    features: state.features
+  }
+}
+
+export default connect(mapStateToProps)(App);
