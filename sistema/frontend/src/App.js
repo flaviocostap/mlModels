@@ -8,8 +8,6 @@ import axios from 'axios'
 import NavBar from './components/template/navbar'
 import HomePage from './components/home/homePage'
 import Footer from './components/template/footer'
-import Cadastro from './components/cadastro/cadastro'
-import Editar from './components/home/editar'
 
 class App extends Component {
 
@@ -36,7 +34,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <HomePage features={this.props.features}>
+        <NavBar></NavBar>
+        <HomePage>
         </HomePage>
         <Footer></Footer>
       </div >
@@ -50,7 +49,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    features: state.features
+    features: state.features,
+    pesquisa: state.pesquisa,
   }
 }
 

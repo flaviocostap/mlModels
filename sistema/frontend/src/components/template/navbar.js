@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { changePesquisa } from '../../actions/pesquisaActions'
 import Select from 'react-select';
 import '../../css/navbar.css'
 import { Link } from 'react-router-dom'
 
 class NavBar extends Component {
     render() {
+        console.log(this.props)
         const options = this.props.features.map(item => {
             return {
                 value: item.id,
@@ -32,7 +36,7 @@ class NavBar extends Component {
                         placeholder="Pesquisa por nome"
                         className="basic-multi-select"
                         classNamePrefix="select"
-                        onChange={this.props.handlePesquisa}
+                        onChange={this.props.changePesquisa}
                     />
                 </div>
             </nav>
@@ -41,4 +45,15 @@ class NavBar extends Component {
     }
 }
 
-export default NavBar
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ changePesquisa }, dispatch)
+  }
+  
+  const mapStateToProps = (state) => {
+    return {
+      features: state.features,
+      pesquisa: state.pesquisa,
+    }
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

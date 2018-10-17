@@ -1,21 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import { combineRedux, createStore, combineReducers } from 'redux'
+import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-import App from './App';
+import AppRoutes from './/routes/AppRoutes';
 import ReactDOM from 'react-dom';
 
-import featureReducer from './reducers/featureReducer'
-
-const reducers = combineReducers({
-    features: featureReducer
-})
+import reducers from './reducers/reducers'
 
 ReactDOM.render(
     <Provider store={createStore(reducers)}>
         <BrowserRouter>
-            <App />
+            <AppRoutes />
         </ BrowserRouter>
     </Provider>, document.getElementById('root'));

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import ListItens from './listItens'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { changePesquisa } from '../../actions/pesquisaActions'
 
 class HomePage extends Component {
     constructor(props) {
@@ -8,16 +10,16 @@ class HomePage extends Component {
 
     render() {
         let features = this.props.features
-        // console.log(this.props.pesquisa)
-        // if (this.props.pesquisa === null) {
-        //     features = this.props.features
-        // } else {
-        //     features = this.props.features.filter(ap => {if(ap.id === this.props.pesquisa.value){
-        //         return ap
-        //     }})
+        console.log(this.props.pesquisa)
+        if (this.props.pesquisa === null) {
+            features = this.props.features
+        } else {
+            features = this.props.features.filter(ap => {if(ap.id === this.props.pesquisa.value){
+                return ap
+            }})
 
-        // }
-        console.log(features.features)
+        }
+        console.log(this.props)
         return (
             <div class="container">
                 <ul className="list-group list-group-flush">
@@ -44,4 +46,15 @@ class HomePage extends Component {
     }
 }
 
-export default HomePage
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ changePesquisa }, dispatch)
+  }
+  
+  const mapStateToProps = (state) => {
+    return {
+      features: state.features,
+      pesquisa: state.pesquisa,
+    }
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
