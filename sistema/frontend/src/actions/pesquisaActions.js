@@ -1,8 +1,8 @@
 import { PESQUISAR_PACIENTES } from '../actions/types';
 
-export function changePesquisa(features) {
+export function changePesquisa(pesquisa) {
     return {
         type: PESQUISAR_PACIENTES,
-        payload: features
+        payload: pesquisa
     }
 }

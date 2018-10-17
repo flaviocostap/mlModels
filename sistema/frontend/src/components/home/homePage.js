@@ -10,16 +10,16 @@ class HomePage extends Component {
 
     render() {
         let features = this.props.features
-        console.log(this.props.pesquisa)
         if (this.props.pesquisa === null) {
             features = this.props.features
         } else {
-            features = this.props.features.filter(ap => {if(ap.id === this.props.pesquisa.value){
-                return ap
-            }})
+            features = this.props.features.filter(ap => {
+                if (ap.id === this.props.pesquisa.value) {
+                    return ap
+                }
+            })
 
         }
-        console.log(this.props)
         return (
             <div class="container">
                 <ul className="list-group list-group-flush">
@@ -48,13 +48,13 @@ class HomePage extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ changePesquisa }, dispatch)
-  }
-  
-  const mapStateToProps = (state) => {
+}
+
+const mapStateToProps = (state) => {
     return {
-      features: state.features,
-      pesquisa: state.pesquisa,
+        features: state.features,
+        pesquisa: state.pesquisa,
     }
-  }
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
