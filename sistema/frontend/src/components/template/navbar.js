@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 
 class NavBar extends Component {
     render() {
+        console.log(this.props)
         const options = this.props.features.map(item => {
             return {
                 value: item.id,

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import { bindActionCreators } from 'redux'
 import { changePesquisa } from '../../actions/pesquisaActions'
+import { updatePatient } from '../../actions/fieldActions'
 import { Link } from 'react-router-dom'
 
 class HomePage extends Component {
@@ -59,12 +60,13 @@ class HomePage extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ changePesquisa }, dispatch)
+    return bindActionCreators({ updatePatient, changePesquisa }, dispatch)
 }
 
 const mapStateToProps = (state) => {
     return {
         features: state.features,
+        fields: state.fields,
         pesquisa: state.pesquisa,
     }
 }

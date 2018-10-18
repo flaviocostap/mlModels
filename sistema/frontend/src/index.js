@@ -8,9 +8,10 @@ import AppRoutes from './/routes/AppRoutes';
 import ReactDOM from 'react-dom';
 
 import reducers from './reducers/reducers'
+const store = createStore(reducers)
 
 ReactDOM.render(
-    <Provider store={createStore(reducers)}>
+    <Provider store={store}>
         <BrowserRouter>
             <AppRoutes />
         </ BrowserRouter>

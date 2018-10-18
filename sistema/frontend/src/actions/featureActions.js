@@ -1,6 +1,6 @@
-import { BUSCAR_FEATURES } from '../actions/types';
+import { BUSCAR_FEATURES, } from '../actions/types';
 
-export function changeFeatures(features) {
+export const changeFeatures = (features) => {
     return {
         type: BUSCAR_FEATURES,
         payload: features

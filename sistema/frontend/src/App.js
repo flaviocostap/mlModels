@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { changeFeatures } from './actions/featureActions'
+import { handleChange } from './actions/fieldActions'
 import axios from 'axios'
 
 import NavBar from './components/template/navbar'
 import HomePage from './components/home/homePage'
+import Editar from './components/cadastro/editar'
 import Footer from './components/template/footer'
 
 class App extends Component {
@@ -35,6 +37,7 @@ class App extends Component {
     return (
       <div>
         <NavBar></NavBar>
+        <Editar></Editar>
         <HomePage>
         </HomePage>
         <Footer></Footer>
@@ -44,7 +47,7 @@ class App extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ changeFeatures }, dispatch)
+  return bindActionCreators({ changeFeatures}, dispatch)
 }
 
 const mapStateToProps = (state) => {

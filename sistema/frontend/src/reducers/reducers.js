@@ -1,9 +1,12 @@
 import { combineReducers } from 'redux'
-import featureReducer from './featureReducer'
+import { reducerFeatures } from './featureReducer'
+import { reducerErrorPaciente, reducerFieldPaciente } from './pacienteReducer'
 import pesquisaReducer from './pesquisaReducer'
 
 const rootReducer = combineReducers({
-    features: featureReducer,
+    features: reducerFeatures,
+    fields: reducerFieldPaciente,
+    erros: reducerErrorPaciente,
     pesquisa: pesquisaReducer,
 })
 
