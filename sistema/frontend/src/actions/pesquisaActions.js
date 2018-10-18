@@ -1,6 +1,6 @@
-import { PESQUISAR_PACIENTES } from '../actions/types';
+import { PESQUISAR_PACIENTES, ARQUIVAR_PACIENTE } from '../actions/types';
 
-export function changePesquisa(pesquisa) {
+export const changePesquisa = (pesquisa) => {
     return {
         type: PESQUISAR_PACIENTES,
         payload: pesquisa

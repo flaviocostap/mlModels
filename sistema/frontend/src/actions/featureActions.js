@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { BUSCAR_FEATURES } from '../actions/types';
 
 export function changeFeatures(features) {

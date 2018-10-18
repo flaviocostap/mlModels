@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import axios from 'axios'
 import { bindActionCreators } from 'redux'
 import { changePesquisa } from '../../actions/pesquisaActions'
+import { Link } from 'react-router-dom'
 
 class HomePage extends Component {
     constructor(props) {
         super(props)
+    }
+    arquivarUser(item) {
+        item.arquivar = true
+        axios.put('http://127.0.0.1:8000/atualizar/' + item.id + '/', item)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(error => {
+                console.log(error)
+            });
     }
 
     render() {
@@ -33,7 +45,7 @@ class HomePage extends Component {
                                 id: <h2>{item.id}</h2>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-outline-warning" onClick={() => this.props.updatePatient(item)}>Editar</button>
-                                    <button type="button" class="btn btn-outline-danger" onClick={() => this.props.arquivarUser(item)}>Arquivar</button>
+                                    <button type="button" class="btn btn-outline-danger" onClick={() => this.arquivarUser(item)}><Link to="/" /> Arquivar</button>
                                 </div>
 
                             </li>
