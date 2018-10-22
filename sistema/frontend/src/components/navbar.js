@@ -11,34 +11,69 @@ class NavBar extends Component {
                 label: item.nome,
             }
         })
-        console.log(options)
+        console.log(this.props.exibirArquivados)
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark" >
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <button onClick={this.props.handleBotaoHome} type="button" class="btn btn-outline-primary">
-                        Home
-                        </button>
-                    <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#cadastroModal" >
-                            Cadastro de paciente
-                        </button>
-                        <button onClick={this.props.handleBotaoArquivados} type="button" class="btn btn-outline-primary">
-                            Arquivados
-                        </button>
+                <div className="collapse navbar-collapse" id="navbarText">
+                    <ul className="navbar-nav mr-auto">
+                        <li className={`nav-item ${this.props.exibirArquivados?'':'active'}`}>
+                            <a onClick={this.props.handleBotaoHome} className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                        </li>
+                        <li className={`nav-item ${this.props.exibirArquivados?'active':''}`}>
+                            <a onClick={this.props.handleBotaoArquivados} className="nav-link" href="#">Arquivados </a>
+                        </li>
                     </ul>
-                    <Select id="pesquisa"
-                        name="colors"
-                        options={options}
-                        placeholder="Pesquisa por nome"
-                        className="basic-multi-select"
-                        classNamePrefix="select"
-                        onChange={this.props.handlePesquisa}
-                    />
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <Select id="pesquisa"
+                                name="colors"
+                                options={options}
+                                placeholder="Pesquisa por nome"
+                                className="basic-multi-select"
+                                classNamePrefix="select"
+                                onChange={this.props.handlePesquisa}
+                            />
+                        </li>
+                        <li className="nav-item">
+                            <a data-toggle="modal" data-target="#cadastroModal" onClick={this.props.handleBotaoHome} className="nav-link" href="#">Cadastro de paciente</a>
+                        </li><li className="nav-item">
+                            <a className="nav-link" href="#">Sign Up </a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
+            // <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            //     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            //         <span className="navbar-toggler-icon"></span>
+            //     </button>
+            //     <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            //         <ul className="navbar-nav">
+            //             <a onClick={this.props.handleBotaoHome} className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+            //             <a onClick={this.props.handleBotaoArquivados} className="nav-link" href="#">Arquivados </a>
+            //             <Select id="pesquisa"
+            //                 name="colors"
+            //                 options={options}
+            //                 placeholder="Pesquisa por nome"
+            //                 className="basic-multi-select"
+            //                 classNamePrefix="select"
+            //                 onChange={this.props.handlePesquisa}
+            //             />
+
+            //             <li className="nav-item dropdown">
+            //                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            //                     Menu
+            //              </a>
+            //                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            //                     <a data-toggle="modal" data-target="#cadastroModal" onClick={this.props.handleBotaoHome} className="dropdown-item" href="#">Cadastro de paciente</a>
+            //                     <a className="dropdown-item" href="#">Logout</a>
+            //                 </div>
+            //             </li>
+            //         </ul>
+            //     </div>
+            // </nav>
 
         )
     }
