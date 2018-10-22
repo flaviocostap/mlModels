@@ -55,30 +55,6 @@ class App extends Component {
     }
   }
 
-  // componentDidUpdate(prevProps) {
-  //   // Typical usage (don't forget to compare props):
-  //   if (this.state.exibirArquivados !== prevProps.exibirArquivados) {
-  //     try {
-  //       let features
-  //       axios.get('http://127.0.0.1:8000/api/').then(res => {
-  //         features = res.data.map(item => {
-  //           if (item.arquivar === this.state.exibirArquivados) {
-  //             if (item !== undefined)
-  //               return item
-  //           }
-  //         });
-  //         features = features.filter(item => {
-  //           return item !== undefined
-  //         })
-  //         features = features.reverse()
-  //         this.handleFeatures(features)
-  //       })
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   }
-  // }
-
   handleFeatures(evento) {
     if (evento !== undefined)
       this.setState({ features: evento });
