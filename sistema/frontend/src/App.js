@@ -46,6 +46,7 @@ class App extends Component {
         features = features.filter(item => {
           return item !== undefined
         })
+        features = features.reverse()
         this.handleFeatures(features)
       })
     } catch (e) {

@@ -11,11 +11,12 @@ class ListItens extends Component {
         if (this.props.pesquisa === null) {
             features = this.props.features
         } else {
-            features = this.props.features.filter(ap => {if(ap.id === this.props.pesquisa.value){
-                return ap
-            }})
+            features = this.props.features.filter(ap => {
+                if (ap.id === this.props.pesquisa.value) {
+                    return ap
+                }
+            })
         }
-        features = features.reverse()
         return (
             <div class="container">
                 <ul className="list-group list-group-flush">
@@ -28,7 +29,7 @@ class ListItens extends Component {
                                 resultado: <h2>{item.resultado}</h2>
                                 id: <h2>{item.id}</h2>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-warning" onClick={() => this.props.updatePatient(item)}>Editar</button>
+                                    <button type="button" class="btn btn-outline-warning" onClick={() => this.props.updatePatient(item)} data-toggle="modal" data-target="#exampleModal">Editar</button>
                                     <button type="button" class="btn btn-outline-danger" onClick={() => this.props.arquivarUser(item)}>Arquivar</button>
                                 </div>
 
