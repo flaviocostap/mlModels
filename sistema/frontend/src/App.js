@@ -48,17 +48,19 @@ class App extends Component {
         features = features.filter(item => {
           return item !== undefined
         })
+        features = features.reverse()
         this.handleFeatures(features)
       })
     } catch (e) {
       console.log(e);
     }
   }
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.quadranteUnico !== this.props.quadranteUnico) {
-  //     this.calcularPontos()
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    if (prevProps.features !== this.props.features) {
+      let features = this.props.features.reverse()
+      this.handleFeatures(features)
+    }
+  }
   handleFeatures(evento) {
     if (evento !== undefined)
       this.setState({ features: evento });
