@@ -41,7 +41,7 @@ class Cadastro extends Component {
                     <div className="errorMsg">{this.props.errors.fileSelected}</div>
                   </form>
                   <div class="modal-footer">
-                  <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                  <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
                   <button type="submit" className="btn btn-outline-primary" value="Register" >Salvar</button>
                   </div>
                 </form>
