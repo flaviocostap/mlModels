@@ -59,8 +59,10 @@ class App extends Component {
       this.setState({ features: evento });
   }
   handlePesquisa(evento) {
-    console.log(evento)
-    this.setState({pesquisa: evento})
+    if (evento.length === 0) {
+      this.setState({ pesquisa: null })
+    } else
+      this.setState({ pesquisa: evento })
   }
   handleChange(e) {
     let fields = this.state.fields;
@@ -150,10 +152,12 @@ class App extends Component {
       });
   }
   postUser() {
-    console.log(this.state.fields)
     axios.post('http://127.0.0.1:8000/', this.state.fields)
       .then(res => {
         this.setState({ idFeature: res.data.id })
+        if (res.status === 201) {
+          window.location.reload()
+        }
       })
       .catch(error => {
         console.log(error)
@@ -163,6 +167,9 @@ class App extends Component {
     axios.put('http://127.0.0.1:8000/atualizar/' + id + '/', this.state.fields)
       .then(res => {
         this.setState({ idFeature: res.data.id })
+        if (res.status === 200) {
+          window.location.reload()
+        }
       })
       .catch(error => {
         console.log(error)
@@ -174,7 +181,6 @@ class App extends Component {
     fd.append('dado', this.state.selectedFile, this.state.selectedFile.name)
     axios.post(url, fd)
       .then(response => {
-        console.log(response.data)
         if (response.data.id) {
           let fields = this.state.fields;
           fields['id_semg'] = response.data.id

@@ -11,6 +11,7 @@ class NavBar extends Component {
                 label: item.nome,
             }
         })
+        console.log(options)
         return (
             //  <nav className="navbar navbar-dark bg-dark">
             //     <Link to="/" className="navbar-brand">Início</Link>

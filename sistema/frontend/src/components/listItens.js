@@ -8,15 +8,14 @@ class ListItens extends Component {
 
     render() {
         let features
-        console.log(this.props.pesquisa)
         if (this.props.pesquisa === null) {
             features = this.props.features
         } else {
             features = this.props.features.filter(ap => {if(ap.id === this.props.pesquisa.value){
                 return ap
             }})
-
         }
+        features = features.reverse()
         return (
             <div class="container">
                 <ul className="list-group list-group-flush">
