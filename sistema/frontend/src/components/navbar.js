@@ -13,37 +13,21 @@ class NavBar extends Component {
         })
         console.log(options)
         return (
-            //  <nav className="navbar navbar-dark bg-dark">
-            //     <Link to="/" className="navbar-brand">Início</Link>
-            //     <Link to="/cadastrar" className="navbar-brand">Cadastrar</Link>
-            //     <Link to="/arquivados" className="navbar-brand">Arquivados</Link>
-            //     <Link to="/sobre" className="navbar-brand">Sobre</Link>
-            //     <div className="form-inline">
-            //         <Select  id="pesquisa"
-            //             name="colors"
-            //             options={options}
-            //             className="basic-multi-select"
-            //             classNamePrefix="select"
-            //             onChange={this.props.handlePesquisa}
-            //         />
-            //     </div>
-            // </nav>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <Link to="/" className="navbar-brand">Home</Link>
+                        <button onClick={this.props.handleBotaoHome} type="button" class="btn btn-outline-primary">
+                        Home
+                        </button>
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li className="nav-item active">
-                            <Link to="/cadastrar" className="nav-link">Cadastrar <span className="sr-only">(current)</span></Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/arquivados" className="nav-link">Arquivados</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/sobre" className="nav-link">Sobre</Link>
-                        </li>
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#cadastroModal" >
+                            Cadastro de paciente
+                        </button>
+                        <button onClick={this.props.handleBotaoArquivados} type="button" class="btn btn-outline-primary">
+                            Arquivados
+                        </button>
                     </ul>
                     <Select id="pesquisa"
                         name="colors"

@@ -15,6 +15,7 @@ class App extends Component {
     super(props);
     this.state = {
       features: [],
+      exibirArquivados: false,
       selectedFile: null,
       idFeature: null,
       fields: { sexo: 'M' },
@@ -24,6 +25,8 @@ class App extends Component {
       errors: {},
     };
 
+    this.handleBotaoArquivados = this.handleBotaoArquivados.bind(this);
+    this.handleBotaoHome = this.handleBotaoHome.bind(this);
     this.arquivarUser = this.arquivarUser.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleFeatures = this.handleFeatures.bind(this)
@@ -38,10 +41,8 @@ class App extends Component {
       let features
       axios.get('http://127.0.0.1:8000/api/').then(res => {
         features = res.data.map(item => {
-          if (item.arquivar === false) {
-            if (item !== undefined)
-              return item
-          }
+          if (item !== undefined)
+            return item
         });
         features = features.filter(item => {
           return item !== undefined
@@ -54,6 +55,29 @@ class App extends Component {
     }
   }
 
+  // componentDidUpdate(prevProps) {
+  //   // Typical usage (don't forget to compare props):
+  //   if (this.state.exibirArquivados !== prevProps.exibirArquivados) {
+  //     try {
+  //       let features
+  //       axios.get('http://127.0.0.1:8000/api/').then(res => {
+  //         features = res.data.map(item => {
+  //           if (item.arquivar === this.state.exibirArquivados) {
+  //             if (item !== undefined)
+  //               return item
+  //           }
+  //         });
+  //         features = features.filter(item => {
+  //           return item !== undefined
+  //         })
+  //         features = features.reverse()
+  //         this.handleFeatures(features)
+  //       })
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   }
+  // }
 
   handleFeatures(evento) {
     if (evento !== undefined)
@@ -140,13 +164,20 @@ class App extends Component {
       sexo: item.sexo
     }
     this.setState({ fields })
-
+  }
+  handleBotaoArquivados() {
+    this.setState({ exibirArquivados: true })
+  }
+  handleBotaoHome() {
+    this.setState({ exibirArquivados: false })
   }
   arquivarUser(item) {
     item.arquivar = true
     axios.put('http://127.0.0.1:8000/atualizar/' + item.id + '/', item)
       .then(res => {
-        console.log(res)
+        if (res.status === 200) {
+          window.location.reload()
+        }
       })
       .catch(error => {
         console.log(error)
@@ -200,7 +231,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar features={this.state.features} handlePesquisa={this.handlePesquisa}></NavBar>
+        <NavBar handleBotaoHome={this.handleBotaoHome} handleBotaoArquivados={this.handleBotaoArquivados} features={this.state.features} handlePesquisa={this.handlePesquisa}></NavBar>
         <Cadastro
           submituserRegistrationForm={this.submituserRegistrationForm}
           fileSelectedHandler={this.fileSelectedHandler}
@@ -220,6 +251,7 @@ class App extends Component {
           errors={this.state.errors}
         ></Editar>
         <HomePage
+          exibirArquivados={this.state.exibirArquivados}
           arquivarUser={this.arquivarUser}
           updatePatient={this.updatePatient}
           pesquisa={this.state.pesquisa}
