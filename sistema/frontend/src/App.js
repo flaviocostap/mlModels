@@ -32,6 +32,7 @@ class App extends Component {
     this.handleFeatures = this.handleFeatures.bind(this)
     this.handlePesquisa = this.handlePesquisa.bind(this)
     this.updatePatient = this.updatePatient.bind(this);
+    this.avaliarPatient = this.avaliarPatient.bind(this);
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
     this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
     this.submitEditUser = this.submitEditUser.bind(this);
@@ -47,14 +48,17 @@ class App extends Component {
         features = features.filter(item => {
           return item !== undefined
         })
-        features = features.reverse()
         this.handleFeatures(features)
       })
     } catch (e) {
       console.log(e);
     }
   }
-
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.quadranteUnico !== this.props.quadranteUnico) {
+  //     this.calcularPontos()
+  //   }
+  // }
   handleFeatures(evento) {
     if (evento !== undefined)
       this.setState({ features: evento });
@@ -147,6 +151,16 @@ class App extends Component {
   handleBotaoHome() {
     this.setState({ exibirArquivados: false })
   }
+  avaliarPatient(item) {
+    axios.get('http://127.0.0.1:8000/cls/' + item.id)
+      .then(res => {
+        console.log(res.data)
+        this.setState({ features: res.data })
+      })
+      .catch(error => {
+        console.log(error)
+      });
+  }
   arquivarUser(item) {
     item.arquivar = true
     axios.put('http://127.0.0.1:8000/atualizar/' + item.id + '/', item)
@@ -230,6 +244,7 @@ class App extends Component {
           exibirArquivados={this.state.exibirArquivados}
           arquivarUser={this.arquivarUser}
           updatePatient={this.updatePatient}
+          avaliarPatient={this.avaliarPatient}
           pesquisa={this.state.pesquisa}
           features={this.state.features}>
         </HomePage>

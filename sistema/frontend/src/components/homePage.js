@@ -8,7 +8,7 @@ class HomePage extends Component {
 
     render() {
         return (
-            <ListItens exibirArquivados={this.props.exibirArquivados} pesquisa={this.props.pesquisa} features={this.props.features} updatePatient={this.props.updatePatient} arquivarUser={this.props.arquivarUser}>
+            <ListItens  avaliarPatient={this.props.avaliarPatient} exibirArquivados={this.props.exibirArquivados} pesquisa={this.props.pesquisa} features={this.props.features} updatePatient={this.props.updatePatient} arquivarUser={this.props.arquivarUser}>
             </ListItens>
         )
     }
