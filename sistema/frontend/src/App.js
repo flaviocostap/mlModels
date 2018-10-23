@@ -15,6 +15,7 @@ class App extends Component {
     super(props);
     this.state = {
       features: [],
+      exibirArquivados: false,
       selectedFile: null,
       idFeature: null,
       fields: { sexo: 'M' },
@@ -24,11 +25,14 @@ class App extends Component {
       errors: {},
     };
 
+    this.handleBotaoArquivados = this.handleBotaoArquivados.bind(this);
+    this.handleBotaoHome = this.handleBotaoHome.bind(this);
     this.arquivarUser = this.arquivarUser.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleFeatures = this.handleFeatures.bind(this)
     this.handlePesquisa = this.handlePesquisa.bind(this)
     this.updatePatient = this.updatePatient.bind(this);
+    this.avaliarPatient = this.avaliarPatient.bind(this);
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
     this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
     this.submitEditUser = this.submitEditUser.bind(this);
@@ -38,10 +42,8 @@ class App extends Component {
       let features
       axios.get('http://127.0.0.1:8000/api/').then(res => {
         features = res.data.map(item => {
-          if (item.arquivar === false) {
-            if (item !== undefined)
-              return item
-          }
+          if (item !== undefined)
+            return item
         });
         features = features.filter(item => {
           return item !== undefined
@@ -53,14 +55,15 @@ class App extends Component {
     }
   }
 
-
   handleFeatures(evento) {
     if (evento !== undefined)
       this.setState({ features: evento });
   }
   handlePesquisa(evento) {
-    console.log(evento)
-    this.setState({pesquisa: evento})
+    if (evento.length === 0) {
+      this.setState({ pesquisa: null })
+    } else
+      this.setState({ pesquisa: evento })
   }
   handleChange(e) {
     let fields = this.state.fields;
@@ -73,14 +76,12 @@ class App extends Component {
     e.preventDefault()
     if (this.validateForm()) {
       this.postSsemgfile(1)
-      alert('Cadastro realizado com sucesso!!')
     }
   }
   async submitEditUser(e) {
     e.preventDefault()
     if (this.validateForm()) {
       this.postSsemgfile(0)
-      alert('Cadastro realizado com sucesso!!')
     }
   }
   validateForm() {
@@ -102,7 +103,7 @@ class App extends Component {
       }
     }
     if (typeof fields["nome"] !== "undefined") {
-      if (!fields["nome"].match(/^[a-zA-Z ]*$/)) {
+      if (!fields["nome"].match(/^[a-zA-Zçãõẽáéíóú ]*$/)) {
         formIsValid = false;
         errors["nome"] = "Somente caracteres";
       }
@@ -137,23 +138,40 @@ class App extends Component {
       sexo: item.sexo
     }
     this.setState({ fields })
-
   }
-  arquivarUser(item) {
-    item.arquivar = true
-    axios.put('http://127.0.0.1:8000/atualizar/' + item.id + '/', item)
+  handleBotaoArquivados() {
+    this.setState({ exibirArquivados: true })
+  }
+  handleBotaoHome() {
+    this.setState({ exibirArquivados: false })
+  }
+  avaliarPatient(item) {
+    axios.get('http://127.0.0.1:8000/cls/' + item.id)
       .then(res => {
-        console.log(res)
+        this.setState({ features: res.data })
       })
       .catch(error => {
         console.log(error)
       });
   }
+  arquivarUser(item) {
+    item.arquivar = true
+    const r = window.confirm("Deseja realmente arquivar esse usuário?"); if (r == true) {
+      axios.put('http://127.0.0.1:8000/atualizar/' + item.id + '/', item)
+        .then(res => {
+          this.setState({ idFeature: res.data.id })
+        })
+        .catch(error => {
+          console.log(error)
+        });
+    }
+  }
   postUser() {
-    console.log(this.state.fields)
     axios.post('http://127.0.0.1:8000/', this.state.fields)
       .then(res => {
         this.setState({ idFeature: res.data.id })
+        let closeCadastroModal = document.getElementById('closeCadastroModal')
+        closeCadastroModal.click();
       })
       .catch(error => {
         console.log(error)
@@ -163,6 +181,8 @@ class App extends Component {
     axios.put('http://127.0.0.1:8000/atualizar/' + id + '/', this.state.fields)
       .then(res => {
         this.setState({ idFeature: res.data.id })
+        let closeEditModal = document.getElementById('closeEditModal')
+        closeEditModal.click();
       })
       .catch(error => {
         console.log(error)
@@ -174,7 +194,6 @@ class App extends Component {
     fd.append('dado', this.state.selectedFile, this.state.selectedFile.name)
     axios.post(url, fd)
       .then(response => {
-        console.log(response.data)
         if (response.data.id) {
           let fields = this.state.fields;
           fields['id_semg'] = response.data.id
@@ -193,7 +212,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar features={this.state.features} handlePesquisa={this.handlePesquisa}></NavBar>
+        <NavBar exibirArquivados={this.state.exibirArquivados} handleBotaoHome={this.handleBotaoHome} handleBotaoArquivados={this.handleBotaoArquivados} features={this.state.features} handlePesquisa={this.handlePesquisa}></NavBar>
         <Cadastro
           submituserRegistrationForm={this.submituserRegistrationForm}
           fileSelectedHandler={this.fileSelectedHandler}
@@ -213,10 +232,14 @@ class App extends Component {
           errors={this.state.errors}
         ></Editar>
         <HomePage
+          idFeature={this.state.idFeature}
+          exibirArquivados={this.state.exibirArquivados}
+          pesquisa={this.state.pesquisa}
+          features={this.state.features}
           arquivarUser={this.arquivarUser}
           updatePatient={this.updatePatient}
-          pesquisa={this.state.pesquisa}
-          features={this.state.features}>
+          avaliarPatient={this.avaliarPatient}
+          handleFeatures={this.handleFeatures}>
         </HomePage>
         <Footer></Footer>
       </div >

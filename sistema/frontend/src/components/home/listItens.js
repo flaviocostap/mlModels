@@ -1,43 +1,85 @@
 import React, { Component } from 'react';
-import Select from 'react-select';
+import axios from 'axios'
 
 class ListItens extends Component {
     constructor(props) {
         super(props)
     }
-
+    componentDidUpdate(prevProps) {
+        if (prevProps.idFeature !== this.props.idFeature) {
+            try {
+                let features
+                axios.get('http://127.0.0.1:8000/api/').then(res => {
+                    features = res.data.map(item => {
+                        if (item !== undefined)
+                            return item
+                    });
+                    features = features.filter(item => {
+                        return item !== undefined
+                    })
+                    this.props.handleFeatures(features)
+                })
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    }
+    result(item) {
+        return item === 0 ? 'Pouca probabilidade' : <div class="alert alert-danger" role="alert">
+            Alta probabilidade
+      </div>;
+    }
     render() {
         let features
-        console.log(this.props.pesquisa)
         if (this.props.pesquisa === null) {
             features = this.props.features
         } else {
-            features = this.props.features.filter(ap => {if(ap.id === this.props.pesquisa.value){
-                return ap
-            }})
-
+            features = this.props.features.filter(ap => {
+                if (ap.id === this.props.pesquisa.value) {
+                    return ap
+                }
+            })
         }
         return (
             <div class="container">
-                <ul className="list-group list-group-flush">
-                    {
-                        features.map(item => (
-                            <li class="list-group-item d-flex justify-content-between align-items-center" key={item.id}>
-                                nome: <h2 class="mt-2">{item.nome}</h2>
-                                idade: <h2>{item.idade}</h2>
-                                sexo: <h2>{item.sexo}</h2>
-                                resultado: <h2>{item.resultado}</h2>
-                                id: <h2>{item.id}</h2>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-warning" onClick={() => this.props.updatePatient(item)}>Editar</button>
-                                    <button type="button" class="btn btn-outline-danger" onClick={() => this.props.arquivarUser(item)}>Arquivar</button>
-                                </div>
-
-                            </li>
-                        )
-                        )
-                    }
-                </ul>
+                <div class="table-responsive">
+                    <table class="table">
+                        <caption>Usuários</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Nº</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Idade</th>
+                                <th scope="col">Sexo</th>
+                                <th scope="col">Resultado sobre a DP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                features.map(
+                                    item => {
+                                        if (item.arquivar === this.props.exibirArquivados) {
+                                            return (
+                                                <tr>
+                                                    <th scope="row">{item.id}</th>
+                                                    <td>{item.nome}</td>
+                                                    <td>{item.idade}</td>
+                                                    <td>{item.sexo}</td>
+                                                    <td>{item.result === null ? <button type="button" class="btn btn-outline-info" onClick={() => this.props.avaliarPatient(item)}>Avaliar</button> : this.result(item.result)}</td> 
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-outline-warning" onClick={() => this.props.updatePatient(item)} data-toggle="modal" data-target="#editModal">Editar</button>
+                                                            <button type="button" class="btn btn-outline-danger" hidden={this.props.exibirArquivados} onClick={() => this.props.arquivarUser(item)}>Arquivar</button>
+                                                            <button type="button" class="btn btn-outline-info" onClick={() => this.props.avaliarPatient(item)}>Avaliar</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            )
+                                        }
+                                    })}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }
