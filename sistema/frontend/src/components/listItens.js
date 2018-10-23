@@ -17,7 +17,7 @@ class ListItens extends Component {
                     features = features.filter(item => {
                         return item !== undefined
                     })
-                    features = features.reverse()
+                    // features = features.reverse()
                     this.props.handleFeatures(features)
                 })
             } catch (e) {

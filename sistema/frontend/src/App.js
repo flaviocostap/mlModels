@@ -48,14 +48,13 @@ class App extends Component {
         features = features.filter(item => {
           return item !== undefined
         })
-        // features = features.reverse()
         this.handleFeatures(features)
       })
     } catch (e) {
       console.log(e);
     }
   }
- 
+
   handleFeatures(evento) {
     if (evento !== undefined)
       this.setState({ features: evento });
@@ -157,15 +156,15 @@ class App extends Component {
   }
   arquivarUser(item) {
     item.arquivar = true
-    axios.put('http://127.0.0.1:8000/atualizar/' + item.id + '/', item)
-      .then(res => {
-        if (res.status === 200) {
-          window.location.reload()
-        }
-      })
-      .catch(error => {
-        console.log(error)
-      });
+    const r = window.confirm("Deseja realmente arquivar esse usuário?"); if (r == true) {
+      axios.put('http://127.0.0.1:8000/atualizar/' + item.id + '/', item)
+        .then(res => {
+          this.setState({ idFeature: res.data.id })
+        })
+        .catch(error => {
+          console.log(error)
+        });
+    }
   }
   postUser() {
     axios.post('http://127.0.0.1:8000/', this.state.fields)
