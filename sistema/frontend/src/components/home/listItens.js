@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import Button from '@material-ui/core/Button';
 import MUIDataTable from "mui-datatables";
-
+import Grid from '@material-ui/core/Grid';
+import Icon from '@material-ui/core/Icon';
+import edit_icon from '../../img/edit.svg'
 
 const columns = [
     {
@@ -16,21 +18,21 @@ const columns = [
         name: "Nome",
         options: {
             filter: true,
-            sort: false,
+            sort: true,
         }
     },
     {
         name: "Idade",
         options: {
             filter: true,
-            sort: false,
+            sort: true,
         }
     },
     {
         name: "Sexo",
         options: {
             filter: true,
-            sort: false,
+            sort: true,
         }
     },
     {
@@ -57,18 +59,9 @@ const columns = [
     },
 ];
 
-const data = [
-    ["Joe James", "Test Corp", "Yonkers", "Yonkers", "NY", <Button color="secondary">teste</Button>, "NY"],
-    ["John Walsh", "Test Corp", "Hartford", "CT", "Yonkers", <Button color="secondary">teste</Button>, "NY"],
-    ["Bob Herm", "Test Corp", "Tampa", "FL", "NY", <Button color="secondary">teste</Button>, "Yonkers",],
-    ["James Houston", "Test Corp", "Dallas", "TX", "NY", <Button color="secondary">teste</Button>, "NY"],
-];
-
 const options = {
     filterType: 'checkbox',
 };
-
-
 
 class ListItens extends Component {
     constructor(props) {
@@ -103,9 +96,26 @@ class ListItens extends Component {
 
         let dataFeature = this.props.features.map((currElement, index) => {
             if (currElement.arquivar === this.props.exibirArquivados)
-                return [index + 1, currElement.nome, currElement.idade, currElement.sexo, currElement.result, currElement.id]
+                return [
+                    index + 1,
+                    currElement.nome,
+                    currElement.idade,
+                    currElement.sexo === 'M' ? 'Masculino' : 'Feminino',
+                    currElement.result ? 'Pouca probabilidade' : 'Alta probabilidade',
+                    <Grid
+                        container
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                    >
+                        <Button mini='true' color="secondary"><img src={edit_icon}></img></Button>
+                        <Button mini='true' color="secondary">B</Button>
+                        <Button mini='true' color="secondary">C</Button>
+                    </Grid>,
+                    currElement.id
+                ]
         })
-        dataFeature = dataFeature.filter(a=>{return a})
+        dataFeature = dataFeature.filter(a => { return a })
         let features
         if (this.props.pesquisa === null) {
             features = this.props.features
@@ -120,7 +130,7 @@ class ListItens extends Component {
             <div class="container">
 
                 <MUIDataTable
-                    title={"Employee List"}
+                    title={"Lista de pacientes"}
                     data={dataFeature}
                     columns={columns}
                     options={options}
