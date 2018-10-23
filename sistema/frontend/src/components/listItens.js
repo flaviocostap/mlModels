@@ -17,13 +17,17 @@ class ListItens extends Component {
                     features = features.filter(item => {
                         return item !== undefined
                     })
-                    // features = features.reverse()
                     this.props.handleFeatures(features)
                 })
             } catch (e) {
                 console.log(e);
             }
         }
+    }
+    result(item) {
+        return item === 0 ? 'Pouca probabilidade' : <div class="alert alert-danger" role="alert">
+            Alta probabilidade
+      </div>;
     }
     render() {
         let features
@@ -47,8 +51,7 @@ class ListItens extends Component {
                                 <th scope="col">Nome</th>
                                 <th scope="col">Idade</th>
                                 <th scope="col">Sexo</th>
-                                <th scope="col">Resultado</th>
-                                <th scope="col"></th>
+                                <th scope="col">Resultado sobre a DP</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,11 +65,12 @@ class ListItens extends Component {
                                                     <td>{item.nome}</td>
                                                     <td>{item.idade}</td>
                                                     <td>{item.sexo}</td>
-                                                    <td>{item.result === null ? <button type="button" class="btn btn-outline-info" onClick={() => this.props.avaliarPatient(item)}>Avaliar</button> : item.result}</td>
+                                                    <td>{item.result === null ? <button type="button" class="btn btn-outline-info" onClick={() => this.props.avaliarPatient(item)}>Avaliar</button> : this.result(item.result)}</td> 
                                                     <td>
                                                         <div class="btn-group">
                                                             <button type="button" class="btn btn-outline-warning" onClick={() => this.props.updatePatient(item)} data-toggle="modal" data-target="#editModal">Editar</button>
                                                             <button type="button" class="btn btn-outline-danger" hidden={this.props.exibirArquivados} onClick={() => this.props.arquivarUser(item)}>Arquivar</button>
+                                                            <button type="button" class="btn btn-outline-info" onClick={() => this.props.avaliarPatient(item)}>Avaliar</button>
                                                         </div>
                                                     </td>
                                                 </tr>
