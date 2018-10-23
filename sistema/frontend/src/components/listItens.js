@@ -1,10 +1,30 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 
 class ListItens extends Component {
     constructor(props) {
         super(props)
     }
-
+    componentDidUpdate(prevProps) {
+        if (prevProps.idFeature !== this.props.idFeature) {
+            try {
+                let features
+                axios.get('http://127.0.0.1:8000/api/').then(res => {
+                    features = res.data.map(item => {
+                        if (item !== undefined)
+                            return item
+                    });
+                    features = features.filter(item => {
+                        return item !== undefined
+                    })
+                    features = features.reverse()
+                    this.props.handleFeatures(features)
+                })
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    }
     render() {
         let features
         if (this.props.pesquisa === null) {

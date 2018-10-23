@@ -48,19 +48,14 @@ class App extends Component {
         features = features.filter(item => {
           return item !== undefined
         })
-        features = features.reverse()
+        // features = features.reverse()
         this.handleFeatures(features)
       })
     } catch (e) {
       console.log(e);
     }
   }
-  componentDidUpdate(prevProps) {
-    if (prevProps.features !== this.props.features) {
-      let features = this.props.features.reverse()
-      this.handleFeatures(features)
-    }
-  }
+ 
   handleFeatures(evento) {
     if (evento !== undefined)
       this.setState({ features: evento });
@@ -82,14 +77,12 @@ class App extends Component {
     e.preventDefault()
     if (this.validateForm()) {
       this.postSsemgfile(1)
-      alert('Cadastro realizado com sucesso!!')
     }
   }
   async submitEditUser(e) {
     e.preventDefault()
     if (this.validateForm()) {
       this.postSsemgfile(0)
-      alert('Cadastro realizado com sucesso!!')
     }
   }
   validateForm() {
@@ -111,7 +104,7 @@ class App extends Component {
       }
     }
     if (typeof fields["nome"] !== "undefined") {
-      if (!fields["nome"].match(/^[a-zA-Z ]*$/)) {
+      if (!fields["nome"].match(/^[a-zA-Zçãõẽáéíóú ]*$/)) {
         formIsValid = false;
         errors["nome"] = "Somente caracteres";
       }
@@ -156,7 +149,6 @@ class App extends Component {
   avaliarPatient(item) {
     axios.get('http://127.0.0.1:8000/cls/' + item.id)
       .then(res => {
-        console.log(res.data)
         this.setState({ features: res.data })
       })
       .catch(error => {
@@ -179,9 +171,8 @@ class App extends Component {
     axios.post('http://127.0.0.1:8000/', this.state.fields)
       .then(res => {
         this.setState({ idFeature: res.data.id })
-        if (res.status === 201) {
-          window.location.reload()
-        }
+        let closeCadastroModal = document.getElementById('closeCadastroModal')
+        closeCadastroModal.click();
       })
       .catch(error => {
         console.log(error)
@@ -191,9 +182,8 @@ class App extends Component {
     axios.put('http://127.0.0.1:8000/atualizar/' + id + '/', this.state.fields)
       .then(res => {
         this.setState({ idFeature: res.data.id })
-        if (res.status === 200) {
-          window.location.reload()
-        }
+        let closeEditModal = document.getElementById('closeEditModal')
+        closeEditModal.click();
       })
       .catch(error => {
         console.log(error)
@@ -243,12 +233,14 @@ class App extends Component {
           errors={this.state.errors}
         ></Editar>
         <HomePage
+          idFeature={this.state.idFeature}
           exibirArquivados={this.state.exibirArquivados}
+          pesquisa={this.state.pesquisa}
+          features={this.state.features}
           arquivarUser={this.arquivarUser}
           updatePatient={this.updatePatient}
           avaliarPatient={this.avaliarPatient}
-          pesquisa={this.state.pesquisa}
-          features={this.state.features}>
+          handleFeatures={this.handleFeatures}>
         </HomePage>
         <Footer></Footer>
       </div >

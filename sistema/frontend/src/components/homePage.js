@@ -8,7 +8,15 @@ class HomePage extends Component {
 
     render() {
         return (
-            <ListItens  avaliarPatient={this.props.avaliarPatient} exibirArquivados={this.props.exibirArquivados} pesquisa={this.props.pesquisa} features={this.props.features} updatePatient={this.props.updatePatient} arquivarUser={this.props.arquivarUser}>
+            <ListItens
+                handleFeatures={this.props.handleFeatures}
+                idFeature={this.props.idFeature}
+                avaliarPatient={this.props.avaliarPatient}
+                exibirArquivados={this.props.exibirArquivados}
+                pesquisa={this.props.pesquisa}
+                features={this.props.features}
+                updatePatient={this.props.updatePatient}
+                arquivarUser={this.props.arquivarUser}>
             </ListItens>
         )
     }

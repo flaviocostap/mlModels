@@ -65,7 +65,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = (
-    'localhost:3001/'
+    'localhost:3000/'
 )
 
 ROOT_URLCONF = 'api.urls'

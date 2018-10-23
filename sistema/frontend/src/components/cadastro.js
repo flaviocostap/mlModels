@@ -14,7 +14,7 @@ class Cadastro extends Component {
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="cadastroModalLabel">Cadastro de paciente</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button id="closeCadastroModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
