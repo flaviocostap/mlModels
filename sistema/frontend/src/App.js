@@ -6,7 +6,6 @@ import Footer from './components/template/footer'
 import Cadastro from './components/cadastro/cadastro'
 import Editar from './components/home/editar'
 import axios from 'axios'
-import MUIDataTable from "mui-datatables";
 
 const POST = 1
 const PUT = 0
