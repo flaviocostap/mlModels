@@ -3,7 +3,6 @@ import axios from 'axios'
 import Button from '@material-ui/core/Button';
 import MUIDataTable from "mui-datatables";
 import Grid from '@material-ui/core/Grid';
-import Icon from '@material-ui/core/Icon';
 import edit_icon from '../../img/edit.svg'
 import delete_icon from '../../img/delete.svg'
 import '../../css/tabela.css'
@@ -14,6 +13,7 @@ const columns = [
         options: {
             filter: true,
             sort: true,
+            sortDirection: 'desc',
         }
     },
     {
@@ -51,12 +51,8 @@ const columns = [
             filter: false,
             sort: false,
         }
-    }, 
+    },
 ];
-
-const options = {
-    filterType: 'checkbox',
-};
 
 class ListItens extends Component {
     constructor(props) {
@@ -94,7 +90,7 @@ class ListItens extends Component {
                     currElement.nome,
                     currElement.idade,
                     currElement.sexo === 'M' ? 'Masculino' : 'Feminino',
-                    currElement.result === null ? 'Não avaliado': this.result(currElement.result),
+                    currElement.result === null ? 'Não avaliado' : this.result(currElement.result),
                     <Grid
                         container
                         direction="row"
@@ -108,23 +104,12 @@ class ListItens extends Component {
                 ]
         })
         dataFeature = dataFeature.filter(a => { return a })
-        let features
-        if (this.props.pesquisa === null) {
-            features = this.props.features
-        } else {
-            features = this.props.features.filter(ap => {
-                if (ap.id === this.props.pesquisa.value) {
-                    return ap
-                }
-            })
-        }
         return (
             <div class="container">
                 <MUIDataTable
                     title={this.props.exibirArquivados ? "Pacientes arquivados" : "Lista de pacientes"}
                     data={dataFeature}
                     columns={columns}
-                    options={options}
                 />
             </div>
         )
