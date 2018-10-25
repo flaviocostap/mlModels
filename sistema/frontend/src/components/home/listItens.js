@@ -13,7 +13,7 @@ const columns = [
         options: {
             filter: true,
             sort: true,
-            sortDirection: 'desc',
+            sortDirection: "desc",
         }
     },
     {
@@ -53,6 +53,41 @@ const columns = [
         }
     },
 ];
+const options = {
+    textLabels: {
+      body: {
+        noMatch: "Desculpe, sem registros!",
+        toolTip: "Ordenar",
+      },
+      pagination: {
+        next: "Próxima página",
+        previous: "Pagina anterior",
+        rowsPerPage: "Linhas por página:",
+        displayRows: "of",
+      },
+      toolbar: {
+        search: "Pesquisar",
+        downloadCsv: "Download CSV",
+        print: "Imprimir",
+        viewColumns: "Colunas",
+        filterTable: "Filtrar",
+      },
+      filter: {
+        all: "Todos",
+        title: "FILTERS",
+        reset: "RESET",
+      },
+      viewColumns: {
+        title: "Mostar somente as colunas",
+        titleAria: "Mostrar/Ocultar colunas",
+      },
+      selectedRows: {
+        text: "linhas(s) selecionadas",
+        delete: "Deletar",
+        deleteAria: "Deletar linhas selecionadas",
+      },
+    }
+  }
 
 class ListItens extends Component {
     constructor(props) {
@@ -110,6 +145,7 @@ class ListItens extends Component {
                     title={this.props.exibirArquivados ? "Pacientes arquivados" : "Lista de pacientes"}
                     data={dataFeature}
                     columns={columns}
+                    options={options}
                 />
             </div>
         )

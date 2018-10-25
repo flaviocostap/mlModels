@@ -18,9 +18,9 @@ class Patient(models.Model):
     nome = models.TextField(blank=False, null=False,)
     idade = models.IntegerField(blank=False, null=False,)
     sexo = models.CharField(choices=SEX_CHOICE, default='M', max_length=2)
-    id_semg = models.IntegerField(blank=False, null=False,)
+    id_semg = models.IntegerField(blank=True, null=True,)
+    fileSelected = models.TextField(blank=True, null=True,)
     result = models.IntegerField(blank=True, null=True,)
-    fileSelected = models.TextField(blank=False, null=False,)
     arquivar = models.BooleanField(blank=False, default=False, null=False)
 
     def __str__(self):

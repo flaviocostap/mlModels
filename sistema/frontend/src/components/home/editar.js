@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../../css/cadastro.css'
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 class Editar extends Component {
 
@@ -37,7 +39,19 @@ class Editar extends Component {
                     <option value="F">Feminino</option>
                   </select>
                   <div className="errorMsg">{this.props.errors.sexo}</div>
-                  <form>
+
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.props.checkedAnexarArquivo}
+                        onChange={this.props.handlecheckedAnexarArquivo('checkedAnexarArquivo')}
+                        value="checkedAnexarArquivo"
+                        color="primary"
+                      />
+                    }
+                    label="Alterar o arquivo"
+                  />
+                  <form hidden={!this.props.checkedAnexarArquivo}>
                     <label className="col-md-offset-2" for="FormControlFile">Insira o arquivo EMG aqui!</label>
                     <input name="dado" type="file" onChange={this.props.fileSelectedHandler} className="form-control-file" id="edfFormControlFile"></input>
                     <div className="errorMsg">{this.props.errors.fileSelected}</div>

@@ -15,6 +15,7 @@ class App extends Component {
     super(props);
     this.state = {
       features: [],
+      checkedAnexarArquivo: false,
       exibirArquivados: false,
       selectedFile: null,
       idFeature: null,
@@ -54,6 +55,9 @@ class App extends Component {
       console.log(e);
     }
   }
+  handlecheckedAnexarArquivo = name => event => {
+    this.setState({ [name]: event.target.checked });
+  };
 
   handleFeatures(evento) {
     if (evento !== undefined)
@@ -80,8 +84,15 @@ class App extends Component {
   }
   async submitEditUser(e) {
     e.preventDefault()
-    if (this.validateForm()) {
-      this.postSsemgfile(0)
+    console.log(this.state.checkedAnexarArquivo)
+    if (this.state.checkedAnexarArquivo) {
+      if (this.validateForm()) {
+        this.postSsemgfile(0)
+      }
+    } else {
+      if (this.validateForm()) {
+        this.puttUser(this.state.fields.id)
+      }
     }
   }
   validateForm() {
@@ -92,7 +103,7 @@ class App extends Component {
       formIsValid = false;
       errors["nome"] = "Insira um nome";
     }
-    if (!fields["fileSelected"]) {
+    if (!fields["fileSelected"] && this.state.checkedAnexarArquivo) {
       formIsValid = false;
       errors["fileSelected"] = "Insira um arquivo com o formato 'edf'.";
     }
@@ -223,6 +234,8 @@ class App extends Component {
           errors={this.state.errors}
         ></Cadastro>
         <Editar
+          handlecheckedAnexarArquivo={this.handlecheckedAnexarArquivo}
+          checkedAnexarArquivo={this.state.checkedAnexarArquivo}
           submitEditUser={this.submitEditUser}
           fileSelectedHandler={this.fileSelectedHandler}
           handleChange={this.handleChange}
