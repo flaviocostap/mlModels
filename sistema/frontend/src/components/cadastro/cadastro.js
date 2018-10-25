@@ -8,6 +8,7 @@ class Cadastro extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <div class="modal fade" id="cadastroModal" tabindex="-1" role="dialog" aria-labelledby="cadastroModalLabel" aria-hidden="true">

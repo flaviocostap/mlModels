@@ -103,7 +103,7 @@ class App extends Component {
       formIsValid = false;
       errors["nome"] = "Insira um nome";
     }
-    if (!fields["fileSelected"] && this.state.checkedAnexarArquivo) {
+    if (!fields["fileSelected"]) {
       formIsValid = false;
       errors["fileSelected"] = "Insira um arquivo com o formato 'edf'.";
     }
@@ -183,6 +183,14 @@ class App extends Component {
         this.setState({ idFeature: res.data.id })
         let closeCadastroModal = document.getElementById('closeCadastroModal')
         closeCadastroModal.click();
+        if (res.data.id) {
+          this.setState({
+            selectedFile: null,
+            fields: { sexo: 'M' },
+            errors: {},
+            checkedAnexarArquivo: false,
+          })
+        }
       })
       .catch(error => {
         console.log(error)
@@ -194,6 +202,7 @@ class App extends Component {
         this.setState({ idFeature: res.data.id })
         let closeEditModal = document.getElementById('closeEditModal')
         closeEditModal.click();
+
       })
       .catch(error => {
         console.log(error)
