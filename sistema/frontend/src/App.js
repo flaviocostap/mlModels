@@ -51,6 +51,7 @@ class App extends Component {
           return item !== undefined
         })
         this.handleFeatures(features)
+        console.log(features)
       })
     } catch (e) {
       console.log(e);
@@ -85,7 +86,6 @@ class App extends Component {
   }
   async submitEditUser(e) {
     e.preventDefault()
-    console.log(this.state.checkedAnexarArquivo)
     if (this.state.checkedAnexarArquivo) {
       if (this.validateForm()) {
         this.postSsemgfile(0)

@@ -8,14 +8,13 @@ import delete_icon from '../../img/delete.svg'
 import '../../css/tabela.css'
 
 const columns = [
-    {
-        name: "Nº",
-        options: {
-            filter: false,
-            sort: true,
-            sortDirection: "desc",
-        }
-    },
+    // {
+    //     name: "Nº",
+    //     options: {
+    //         filter: false,
+    //         sort: true,
+    //     }
+    // },
     {
         name: "Nome",
         options: {
@@ -123,7 +122,7 @@ class ListItens extends Component {
         let dataFeature = this.props.features.map((currElement, index) => {
             if (currElement.arquivar === this.props.exibirArquivados)
                 return [
-                    index + 1,
+                    // index + 1,
                     currElement.nome,
                     currElement.idade,
                     currElement.sexo === 'M' ? 'Masculino' : 'Feminino',
