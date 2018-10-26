@@ -62,10 +62,9 @@ class ListItens extends Component {
                         justify="center"
                         alignItems="center"
                     >
-                        <Button onClick={() => this.props.updatePatient(currElement)} mini='true' color="primary" data-toggle="modal" data-target="#editModal" hidden={this.props.exibirArquivados}><img src={edit_icon}></img></Button>
-                        <Button onClick={() => this.props.arquivarUser(currElement)} mini='true' color="secondary" hidden={this.props.exibirArquivados}><img src={delete_icon}></img></Button>
+                        <Button onClick={() => this.props.updatePatient(currElement)} mini='true' color="primary" data-toggle="modal" data-target="#editModal" hidden={this.props.exibirArquivados}><img src={edit_icon}></img>Editar</Button>
                         <Button onClick={() => this.props.desarquivarUser(currElement)} mini='true' color="secondary" hidden={!this.props.exibirArquivados}>Desarquivar</Button>
-                        <Button onClick={() => this.props.avaliarPatient(currElement)} mini='true' color="primary" hidden={this.props.exibirArquivados}>avaliar</Button>
+                        <Button onClick={() => this.props.avaliarPatient(currElement)} mini='true' color="secondary" hidden={this.props.exibirArquivados}>avaliar</Button>
 
                     </Grid>,
                 ]
@@ -152,6 +151,7 @@ class ListItens extends Component {
             onRowsDelete: (rowsDeleted) => {
                 this.onRowsDelete(rowsDeleted, dataFeature)
             },
+            selectableRows: !this.props.exibirArquivados,
             filterType: "multiselect",
             rowsPerPageOptions: [10, 20, 100],
             responsive: "scroll",
