@@ -15,6 +15,7 @@ class App extends Component {
     super(props);
     this.state = {
       features: [],
+      checkedAnexarArquivo: false,
       exibirArquivados: false,
       selectedFile: null,
       idFeature: null,
@@ -28,6 +29,7 @@ class App extends Component {
     this.handleBotaoArquivados = this.handleBotaoArquivados.bind(this);
     this.handleBotaoHome = this.handleBotaoHome.bind(this);
     this.arquivarUser = this.arquivarUser.bind(this);
+    this.desarquivarUser = this.desarquivarUser.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleFeatures = this.handleFeatures.bind(this)
     this.handlePesquisa = this.handlePesquisa.bind(this)
@@ -49,11 +51,15 @@ class App extends Component {
           return item !== undefined
         })
         this.handleFeatures(features)
+        console.log(features)
       })
     } catch (e) {
       console.log(e);
     }
   }
+  handlecheckedAnexarArquivo = name => event => {
+    this.setState({ [name]: event.target.checked });
+  };
 
   handleFeatures(evento) {
     if (evento !== undefined)
@@ -80,8 +86,14 @@ class App extends Component {
   }
   async submitEditUser(e) {
     e.preventDefault()
-    if (this.validateForm()) {
-      this.postSsemgfile(0)
+    if (this.state.checkedAnexarArquivo) {
+      if (this.validateForm()) {
+        this.postSsemgfile(0)
+      }
+    } else {
+      if (this.validateForm()) {
+        this.puttUser(this.state.fields.id)
+      }
     }
   }
   validateForm() {
@@ -154,6 +166,16 @@ class App extends Component {
         console.log(error)
       });
   }
+  desarquivarUser(item) {
+    item.arquivar = false
+      axios.put('http://127.0.0.1:8000/atualizar/' + item.id + '/', item)
+        .then(res => {
+          this.setState({ idFeature: res.data.id })
+        })
+        .catch(error => {
+          console.log(error)
+        });
+  }
   arquivarUser(item) {
     item.arquivar = true
     const r = window.confirm("Deseja realmente arquivar esse usuário?"); if (r == true) {
@@ -172,6 +194,14 @@ class App extends Component {
         this.setState({ idFeature: res.data.id })
         let closeCadastroModal = document.getElementById('closeCadastroModal')
         closeCadastroModal.click();
+        if (res.data.id) {
+          this.setState({
+            selectedFile: null,
+            fields: { sexo: 'M' },
+            errors: {},
+            checkedAnexarArquivo: false,
+          })
+        }
       })
       .catch(error => {
         console.log(error)
@@ -183,6 +213,7 @@ class App extends Component {
         this.setState({ idFeature: res.data.id })
         let closeEditModal = document.getElementById('closeEditModal')
         closeEditModal.click();
+
       })
       .catch(error => {
         console.log(error)
@@ -223,6 +254,8 @@ class App extends Component {
           errors={this.state.errors}
         ></Cadastro>
         <Editar
+          handlecheckedAnexarArquivo={this.handlecheckedAnexarArquivo}
+          checkedAnexarArquivo={this.state.checkedAnexarArquivo}
           submitEditUser={this.submitEditUser}
           fileSelectedHandler={this.fileSelectedHandler}
           handleChange={this.handleChange}
@@ -237,6 +270,7 @@ class App extends Component {
           pesquisa={this.state.pesquisa}
           features={this.state.features}
           arquivarUser={this.arquivarUser}
+          desarquivarUser={this.desarquivarUser}
           updatePatient={this.updatePatient}
           avaliarPatient={this.avaliarPatient}
           handleFeatures={this.handleFeatures}>

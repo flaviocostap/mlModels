@@ -9,6 +9,7 @@ class HomePage extends Component {
     render() {
         return (
             <ListItens
+                desarquivarUser={this.props.desarquivarUser}
                 handleFeatures={this.props.handleFeatures}
                 idFeature={this.props.idFeature}
                 avaliarPatient={this.props.avaliarPatient}

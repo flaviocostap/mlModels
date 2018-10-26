@@ -43,7 +43,7 @@ def frequecia(df, canal):
     return sinalFFT
 
 class ListAllPatients(generics.ListCreateAPIView):
-    queryset = Patient.objects.all()
+    queryset = Patient.objects.all().order_by('-id')
     serializer_class = PatientSerializer
 
 class DetailPatient(generics.RetrieveDestroyAPIView):

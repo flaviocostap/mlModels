@@ -8,18 +8,17 @@ import delete_icon from '../../img/delete.svg'
 import '../../css/tabela.css'
 
 const columns = [
-    {
-        name: "Nº",
-        options: {
-            filter: true,
-            sort: true,
-            sortDirection: 'desc',
-        }
-    },
+    // {
+    //     name: "Nº",
+    //     options: {
+    //         filter: false,
+    //         sort: true,
+    //     }
+    // },
     {
         name: "Nome",
         options: {
-            filter: true,
+            filter: false,
             sort: true,
         }
     },
@@ -53,6 +52,43 @@ const columns = [
         }
     },
 ];
+const options = {
+    textLabels: {
+      body: {
+        noMatch: "Desculpe, sem registros!",
+        toolTip: "Ordenar",
+      },
+      pagination: {
+        next: "Próxima página",
+        previous: "Pagina anterior",
+        rowsPerPage: "Linhas por página:",
+        displayRows: "of",
+      },
+      toolbar: {
+        search: "Pesquisar",
+        downloadCsv: "Download CSV",
+        print: "Imprimir",
+        viewColumns: "Colunas",
+        filterTable: "Filtrar",
+      },
+      filterType: 'checkbox',
+      filter: {
+        all: "Todos",
+        title: "FILTERS",
+        reset: "RESET",
+      },
+      viewColumns: {
+        title: "Mostar somente as colunas",
+        titleAria: "Mostrar/Ocultar colunas",
+      },
+      selectedRows: {
+        text: "linhas(s) selecionadas",
+        delete: "Deletar",
+        deleteAria: "Deletar linhas selecionadas",
+      },
+      responsive: 'scroll',
+    }
+  }
 
 class ListItens extends Component {
     constructor(props) {
@@ -86,7 +122,7 @@ class ListItens extends Component {
         let dataFeature = this.props.features.map((currElement, index) => {
             if (currElement.arquivar === this.props.exibirArquivados)
                 return [
-                    index + 1,
+                    // index + 1,
                     currElement.nome,
                     currElement.idade,
                     currElement.sexo === 'M' ? 'Masculino' : 'Feminino',
@@ -97,9 +133,10 @@ class ListItens extends Component {
                         justify="center"
                         alignItems="center"
                     >
-                        <Button onClick={() => this.props.updatePatient(currElement)} mini='true' color="secondary" data-toggle="modal" data-target="#editModal"><img src={edit_icon}></img></Button>
+                        <Button  onClick={() => this.props.updatePatient(currElement)} mini='true' color="secondary" data-toggle="modal" data-target="#editModal" hidden={this.props.exibirArquivados}><img src={edit_icon}></img></Button>
                         <Button onClick={() => this.props.arquivarUser(currElement)} mini='true' color="secondary" hidden={this.props.exibirArquivados}><img src={delete_icon}></img></Button>
-                        <Button onClick={() => this.props.avaliarPatient(currElement)} mini='true' variant="outlined" color="primary">avaliar</Button>
+                        <Button onClick={() => this.props.desarquivarUser(currElement)} mini='true' color="secondary" hidden={!this.props.exibirArquivados}>Desarquivar</Button>
+                        <Button onClick={() => this.props.avaliarPatient(currElement)} mini='true' color="primary" hidden={this.props.exibirArquivados}>avaliar</Button>
                     </Grid>,
                 ]
         })
@@ -110,6 +147,7 @@ class ListItens extends Component {
                     title={this.props.exibirArquivados ? "Pacientes arquivados" : "Lista de pacientes"}
                     data={dataFeature}
                     columns={columns}
+                    options={options}
                 />
             </div>
         )
