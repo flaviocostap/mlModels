@@ -56,6 +56,7 @@ class ListItens extends Component {
                     currElement.idade,
                     currElement.sexo === 'M' ? 'Masculino' : 'Feminino',
                     currElement.result === null ? 'Não avaliado' : this.result(currElement.result),
+                    currElement.result === null ? <Button onClick={() => this.props.avaliarPatient(currElement)} mini='true' color="secondary">avaliar</Button> : this.result(currElement.result),
                     <Grid
                         container
                         direction="row"
@@ -64,8 +65,6 @@ class ListItens extends Component {
                     >
                         <Button onClick={() => this.props.updatePatient(currElement)} mini='true' color="primary" data-toggle="modal" data-target="#editModal" hidden={this.props.exibirArquivados}><img src={edit_icon}></img>Editar</Button>
                         <Button onClick={() => this.props.desarquivarUser(currElement)} mini='true' color="secondary" hidden={!this.props.exibirArquivados}>Desarquivar</Button>
-                        <Button onClick={() => this.props.avaliarPatient(currElement)} mini='true' color="secondary" hidden={this.props.exibirArquivados}>avaliar</Button>
-
                     </Grid>,
                 ]
         })
@@ -100,10 +99,18 @@ class ListItens extends Component {
                 }
             },
             {
-                name: "Resultado sobre a DP",
+                name: "Resultado",
                 options: {
                     filter: true,
-                    sort: true,
+                    sort: false,
+                    display: false,
+                }
+            },
+            {
+                name: "Resultado sobre a DP",
+                options: {
+                    filter: false,
+                    sort: false,
                 }
             },
             {
