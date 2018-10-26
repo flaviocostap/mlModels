@@ -168,25 +168,28 @@ class App extends Component {
   }
   desarquivarUser(item) {
     item.arquivar = false
-      axios.put('http://127.0.0.1:8000/atualizar/' + item.id + '/', item)
-        .then(res => {
-          this.setState({ idFeature: res.data.id })
-        })
-        .catch(error => {
-          console.log(error)
-        });
+    axios.put('http://127.0.0.1:8000/atualizar/' + item.id + '/', item)
+      .then(res => {
+        this.setState({ idFeature: res.data.id })
+      })
+      .catch(error => {
+        console.log(error)
+      });
   }
   arquivarUser(item) {
-    item.arquivar = true
-    const r = window.confirm("Deseja realmente arquivar esse usuário?"); if (r == true) {
-      axios.put('http://127.0.0.1:8000/atualizar/' + item.id + '/', item)
-        .then(res => {
-          this.setState({ idFeature: res.data.id })
-        })
-        .catch(error => {
-          console.log(error)
-        });
-    }
+    console.log(item)
+    // itens.map(item => {
+      // const r = window.confirm("Deseja realmente arquivar esse usuário?"); if (r == true) {
+        axios.put('http://127.0.0.1:8000/atualizar/' + item[0] + '/', { "arquivar": true, "nome": item[1], "idade": item[2] })
+          .then(res => {
+            console.log('res.data', res.data)
+            this.setState({ idFeature: res.data.id })
+          })
+          .catch(error => {
+            console.log(error)
+          });
+      // }
+    // })
   }
   postUser() {
     axios.post('http://127.0.0.1:8000/', this.state.fields)
@@ -255,12 +258,12 @@ class App extends Component {
         ></Cadastro>
         <Editar
           handlecheckedAnexarArquivo={this.handlecheckedAnexarArquivo}
-          checkedAnexarArquivo={this.state.checkedAnexarArquivo}
           submitEditUser={this.submitEditUser}
           fileSelectedHandler={this.fileSelectedHandler}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           selectedFile={this.state.selectedFile}
+          checkedAnexarArquivo={this.state.checkedAnexarArquivo}
           fields={this.state.fields}
           errors={this.state.errors}
         ></Editar>
