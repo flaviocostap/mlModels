@@ -77,6 +77,6 @@ class CLS(APIView):
         patient = get_object_or_404(Patient, pk=pk)
         data = PatientSerializer(patient).data
         
-        queryset = Patient.objects.all()
+        queryset = Patient.objects.all().order_by('-id')
         serializer = PatientSerializer(queryset, many=True)
         return Response(serializer.data)
