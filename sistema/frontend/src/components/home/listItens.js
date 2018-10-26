@@ -134,10 +134,10 @@ class ListItens extends Component {
                         justify="center"
                         alignItems="center"
                     >
-                        <Button onClick={() => this.props.updatePatient(currElement)} mini='true' color="secondary" data-toggle="modal" data-target="#editModal"><img src={edit_icon}></img></Button>
+                        <Button  onClick={() => this.props.updatePatient(currElement)} mini='true' color="secondary" data-toggle="modal" data-target="#editModal" hidden={this.props.exibirArquivados}><img src={edit_icon}></img></Button>
                         <Button onClick={() => this.props.arquivarUser(currElement)} mini='true' color="secondary" hidden={this.props.exibirArquivados}><img src={delete_icon}></img></Button>
-                        <Button onClick={() => this.props.deSarquivarUser(currElement)} mini='true' color="secondary" hidden={!this.props.exibirArquivados}>Desarquivar</Button>
-                        <Button onClick={() => this.props.avaliarPatient(currElement)} mini='true' color="primary">avaliar</Button>
+                        <Button onClick={() => this.props.desarquivarUser(currElement)} mini='true' color="secondary" hidden={!this.props.exibirArquivados}>Desarquivar</Button>
+                        <Button onClick={() => this.props.avaliarPatient(currElement)} mini='true' color="primary" hidden={this.props.exibirArquivados}>avaliar</Button>
                     </Grid>,
                 ]
         })

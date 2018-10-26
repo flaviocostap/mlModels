@@ -29,6 +29,7 @@ class App extends Component {
     this.handleBotaoArquivados = this.handleBotaoArquivados.bind(this);
     this.handleBotaoHome = this.handleBotaoHome.bind(this);
     this.arquivarUser = this.arquivarUser.bind(this);
+    this.desarquivarUser = this.desarquivarUser.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleFeatures = this.handleFeatures.bind(this)
     this.handlePesquisa = this.handlePesquisa.bind(this)
@@ -165,6 +166,16 @@ class App extends Component {
         console.log(error)
       });
   }
+  desarquivarUser(item) {
+    item.arquivar = false
+      axios.put('http://127.0.0.1:8000/atualizar/' + item.id + '/', item)
+        .then(res => {
+          this.setState({ idFeature: res.data.id })
+        })
+        .catch(error => {
+          console.log(error)
+        });
+  }
   arquivarUser(item) {
     item.arquivar = true
     const r = window.confirm("Deseja realmente arquivar esse usuário?"); if (r == true) {
@@ -259,6 +270,7 @@ class App extends Component {
           pesquisa={this.state.pesquisa}
           features={this.state.features}
           arquivarUser={this.arquivarUser}
+          desarquivarUser={this.desarquivarUser}
           updatePatient={this.updatePatient}
           avaliarPatient={this.avaliarPatient}
           handleFeatures={this.handleFeatures}>
