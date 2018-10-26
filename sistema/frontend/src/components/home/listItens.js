@@ -11,7 +11,7 @@ const columns = [
     {
         name: "Nº",
         options: {
-            filter: true,
+            filter: false,
             sort: true,
             sortDirection: "desc",
         }
@@ -19,7 +19,7 @@ const columns = [
     {
         name: "Nome",
         options: {
-            filter: true,
+            filter: false,
             sort: true,
         }
     },
@@ -72,6 +72,7 @@ const options = {
         viewColumns: "Colunas",
         filterTable: "Filtrar",
       },
+      filterType: 'checkbox',
       filter: {
         all: "Todos",
         title: "FILTERS",
@@ -86,6 +87,7 @@ const options = {
         delete: "Deletar",
         deleteAria: "Deletar linhas selecionadas",
       },
+      responsive: 'scroll',
     }
   }
 
@@ -134,7 +136,8 @@ class ListItens extends Component {
                     >
                         <Button onClick={() => this.props.updatePatient(currElement)} mini='true' color="secondary" data-toggle="modal" data-target="#editModal"><img src={edit_icon}></img></Button>
                         <Button onClick={() => this.props.arquivarUser(currElement)} mini='true' color="secondary" hidden={this.props.exibirArquivados}><img src={delete_icon}></img></Button>
-                        <Button onClick={() => this.props.avaliarPatient(currElement)} mini='true' variant="outlined" color="primary">avaliar</Button>
+                        <Button onClick={() => this.props.deSarquivarUser(currElement)} mini='true' color="secondary" hidden={!this.props.exibirArquivados}>Desarquivar</Button>
+                        <Button onClick={() => this.props.avaliarPatient(currElement)} mini='true' color="primary">avaliar</Button>
                     </Grid>,
                 ]
         })
