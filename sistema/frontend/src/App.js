@@ -51,7 +51,6 @@ class App extends Component {
           return item !== undefined
         })
         this.handleFeatures(features)
-        console.log(features)
       })
     } catch (e) {
       console.log(e);
@@ -182,7 +181,6 @@ class App extends Component {
       // const r = window.confirm("Deseja realmente arquivar esse usuário?"); if (r == true) {
         axios.put('http://127.0.0.1:8000/atualizar/' + item[0] + '/', { "arquivar": true, "nome": item[1], "idade": item[2] })
           .then(res => {
-            console.log('res.data', res.data)
             this.setState({ idFeature: res.data.id })
           })
           .catch(error => {
