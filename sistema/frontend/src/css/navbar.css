@@ -1,3 +1,15 @@
 #pesquisa {
     width: 500px;
 }
+#navbr {
+    background-color: #2196f3;
+}
+
+
+#navbutton {
+    color: white;
+  }
+a {
+    color: white;
+    font-weight: bold;
+}

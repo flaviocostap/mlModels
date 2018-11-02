@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import '../../css/navbar.css'
 import { Link } from 'react-router-dom'
+import menu from '../../img/menu.png'
 
 class NavBar extends Component {
     render() {
@@ -13,16 +14,16 @@ class NavBar extends Component {
         })
         console.log('options', options)
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark" >
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+            <nav className="navbar navbar-expand-lg navbar-ligth bg-ligth" id="navbr">
+                <button id="navbutton" className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <img src={menu}></img>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav mr-auto">
-                        <li className={`nav-item ${this.props.exibirArquivados?'':'active'}`}>
+                        <li className={`nav-item ${this.props.exibirArquivados ? '' : 'active'}`}>
                             <a onClick={this.props.handleBotaoHome} className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
                         </li>
-                        <li className={`nav-item ${this.props.exibirArquivados?'active':''}`}>
+                        <li className={`nav-item ${this.props.exibirArquivados ? 'active' : ''}`}>
                             <a onClick={this.props.handleBotaoArquivados} className="nav-link" href="#">Arquivados </a>
                         </li>
                     </ul>

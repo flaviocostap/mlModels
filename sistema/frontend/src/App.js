@@ -6,6 +6,7 @@ import Footer from './components/template/footer'
 import Cadastro from './components/cadastro/cadastro'
 import Editar from './components/home/editar'
 import axios from 'axios'
+import './App.css'
 
 const POST = 1
 const PUT = 0
@@ -178,15 +179,15 @@ class App extends Component {
   arquivarUser(item) {
     console.log(item)
     // itens.map(item => {
-      // const r = window.confirm("Deseja realmente arquivar esse usuário?"); if (r == true) {
-        axios.put('http://127.0.0.1:8000/atualizar/' + item[0] + '/', { "arquivar": true, "nome": item[1], "idade": item[2] })
-          .then(res => {
-            this.setState({ idFeature: res.data.id })
-          })
-          .catch(error => {
-            console.log(error)
-          });
-      // }
+    // const r = window.confirm("Deseja realmente arquivar esse usuário?"); if (r == true) {
+    axios.put('http://127.0.0.1:8000/atualizar/' + item[0] + '/', { "arquivar": true, "nome": item[1], "idade": item[2] })
+      .then(res => {
+        this.setState({ idFeature: res.data.id })
+      })
+      .catch(error => {
+        console.log(error)
+      });
+    // }
     // })
   }
   postUser() {
@@ -245,39 +246,41 @@ class App extends Component {
     return (
       <div>
         <NavBar exibirArquivados={this.state.exibirArquivados} handleBotaoHome={this.handleBotaoHome} handleBotaoArquivados={this.handleBotaoArquivados} features={this.state.features} handlePesquisa={this.handlePesquisa}></NavBar>
-        <Cadastro
-          submituserRegistrationForm={this.submituserRegistrationForm}
-          fileSelectedHandler={this.fileSelectedHandler}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          selectedFile={this.state.selectedFile}
-          fields={this.state.fields}
-          errors={this.state.errors}
-        ></Cadastro>
-        <Editar
-          handlecheckedAnexarArquivo={this.handlecheckedAnexarArquivo}
-          submitEditUser={this.submitEditUser}
-          fileSelectedHandler={this.fileSelectedHandler}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          selectedFile={this.state.selectedFile}
-          checkedAnexarArquivo={this.state.checkedAnexarArquivo}
-          fields={this.state.fields}
-          errors={this.state.errors}
-        ></Editar>
-        <HomePage
-          idFeature={this.state.idFeature}
-          exibirArquivados={this.state.exibirArquivados}
-          pesquisa={this.state.pesquisa}
-          features={this.state.features}
-          arquivarUser={this.arquivarUser}
-          desarquivarUser={this.desarquivarUser}
-          updatePatient={this.updatePatient}
-          avaliarPatient={this.avaliarPatient}
-          handleFeatures={this.handleFeatures}>
-        </HomePage>
-        <Footer></Footer>
-      </div >
+        <div className="container-fluid" id="containerapp">
+          <Cadastro
+            submituserRegistrationForm={this.submituserRegistrationForm}
+            fileSelectedHandler={this.fileSelectedHandler}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            selectedFile={this.state.selectedFile}
+            fields={this.state.fields}
+            errors={this.state.errors}
+          ></Cadastro>
+          <Editar
+            handlecheckedAnexarArquivo={this.handlecheckedAnexarArquivo}
+            submitEditUser={this.submitEditUser}
+            fileSelectedHandler={this.fileSelectedHandler}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            selectedFile={this.state.selectedFile}
+            checkedAnexarArquivo={this.state.checkedAnexarArquivo}
+            fields={this.state.fields}
+            errors={this.state.errors}
+          ></Editar>
+          <HomePage
+            idFeature={this.state.idFeature}
+            exibirArquivados={this.state.exibirArquivados}
+            pesquisa={this.state.pesquisa}
+            features={this.state.features}
+            arquivarUser={this.arquivarUser}
+            desarquivarUser={this.desarquivarUser}
+            updatePatient={this.updatePatient}
+            avaliarPatient={this.avaliarPatient}
+            handleFeatures={this.handleFeatures}>
+          </HomePage>
+          <Footer></Footer>
+        </div >
+      </div>
     );
   }
 }
