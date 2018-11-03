@@ -1,5 +1,6 @@
 // App.js
 import React, { Component } from 'react';
+import Paper from '@material-ui/core/Paper';
 import NavBar from './components/template/navbar'
 import HomePage from './components/home/homePage'
 import Footer from './components/template/footer'
@@ -278,8 +279,13 @@ class App extends Component {
             avaliarPatient={this.avaliarPatient}
             handleFeatures={this.handleFeatures}>
           </HomePage>
-          <Footer></Footer>
         </div >
+        <div className="container-fluid">
+          <Paper>
+            <Footer></Footer>
+
+          </Paper>
+        </div>
       </div>
     );
   }

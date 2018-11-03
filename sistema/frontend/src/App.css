@@ -2,8 +2,17 @@
 .App {
   text-align: center;
 }
+#activeitem {
+  font-weight: bold;
+}
+
 #containerapp {
+  padding: 1%;
+}
+#containerfooter {
   padding: 2%;
+  background-color: rgb(255, 255, 255);
+  bottom: 0%;
 }
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -28,4 +37,9 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+body {
+  background-image: url("./img/Random_geometric_graph.svg.png");
+  background-color: #EEEEEE;
+  background-repeat: repeat;
 }

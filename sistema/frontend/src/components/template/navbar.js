@@ -12,7 +12,6 @@ class NavBar extends Component {
                 label: item.nome,
             }
         })
-        console.log('options', options)
         return (
             <nav className="navbar navbar-expand-lg navbar-ligth bg-ligth" id="navbr">
                 <button id="navbutton" className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,11 +19,11 @@ class NavBar extends Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav mr-auto">
-                        <li className={`nav-item ${this.props.exibirArquivados ? '' : 'active'}`}>
-                            <a onClick={this.props.handleBotaoHome} className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                        <li id={`${this.props.exibirArquivados ? '' : 'activeitem'}`}>
+                            <a onClick={this.props.handleBotaoHome} className="nav-link" href="#">HOME <span className="sr-only">(current)</span></a>
                         </li>
-                        <li className={`nav-item ${this.props.exibirArquivados ? 'active' : ''}`}>
-                            <a onClick={this.props.handleBotaoArquivados} className="nav-link" href="#">Arquivados </a>
+                        <li id={`${this.props.exibirArquivados ? 'activeitem' : ''}`}>
+                            <a onClick={this.props.handleBotaoArquivados} className="nav-link" href="#">ARQUIVADOS </a>
                         </li>
                     </ul>
                     <ul className="navbar-nav">

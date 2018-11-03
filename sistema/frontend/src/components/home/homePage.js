@@ -4,7 +4,6 @@ import Button from '@material-ui/core/Button';
 import MUIDataTable from "mui-datatables";
 import Grid from '@material-ui/core/Grid';
 import edit_icon from '../../img/edit.svg'
-import '../../css/homepage.css'
 
 class HomePage extends Component {
     constructor(props) {
@@ -175,7 +174,7 @@ class HomePage extends Component {
         }
 
         return (
-            <div className="container-fluid" id="tableui">
+            <div className="container-fluid">
                 <MUIDataTable
                     title={this.props.exibirArquivados ? "Pacientes arquivados" : "Lista de pacientes"}
                     data={dataFeature}
