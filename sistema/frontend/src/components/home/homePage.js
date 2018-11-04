@@ -72,6 +72,7 @@ class HomePage extends Component {
                         alignItems="center"
                     >
                         <Button onClick={() => this.props.updatePatient(currElement)} mini='true' color="primary" data-toggle="modal" data-target="#editModal" hidden={this.props.exibirArquivados}><img src={edit_icon}></img>Editar</Button>
+                        <Button hidden={this.props.exibirArquivados} onClick={() => this.props.avaliarPatient(currElement)} mini='true' color="secondary">Reavaliar</Button>
                         <Button onClick={() => this.props.desarquivarUser(currElement)} mini='true' color="secondary" hidden={!this.props.exibirArquivados}>Desarquivar</Button>
                     </Grid>,
                 ]
