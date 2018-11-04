@@ -23,8 +23,6 @@ class App extends Component {
       idFeature: null,
       fields: { sexo: 'M' },
       pesquisa: null,
-      user: {},
-      errorUser: {},
       errors: {},
     };
 
@@ -179,8 +177,6 @@ class App extends Component {
   }
   arquivarUser(item) {
     console.log(item)
-    // itens.map(item => {
-    // const r = window.confirm("Deseja realmente arquivar esse usuário?"); if (r == true) {
     axios.put('http://127.0.0.1:8000/atualizar/' + item[0] + '/', { "arquivar": true, "nome": item[1], "idade": item[2] })
       .then(res => {
         this.setState({ idFeature: res.data.id })
@@ -188,8 +184,6 @@ class App extends Component {
       .catch(error => {
         console.log(error)
       });
-    // }
-    // })
   }
   postUser() {
     axios.post('http://127.0.0.1:8000/', this.state.fields)
@@ -197,14 +191,6 @@ class App extends Component {
         this.setState({ idFeature: res.data.id })
         let closeCadastroModal = document.getElementById('closeCadastroModal')
         closeCadastroModal.click();
-        if (res.data.id) {
-          this.setState({
-            selectedFile: null,
-            fields: { sexo: 'M' },
-            errors: {},
-            checkedAnexarArquivo: false,
-          })
-        }
       })
       .catch(error => {
         console.log(error)
