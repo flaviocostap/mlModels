@@ -79,38 +79,39 @@ class App extends Component {
   }
   async submituserRegistrationForm(e) {
     e.preventDefault()
-    if (this.validateForm()) {
+    if (this.validateForm(POST, this.state.fields)) {
       this.postSsemgfile(1)
     }
   }
   async submitEditUser(e) {
     e.preventDefault()
     if (this.state.checkedAnexarArquivo) {
-      if (this.validateForm()) {
+      if (this.validateForm(POST, this.state.fields)) {
         this.postSsemgfile(0)
       }
     } else {
-      if (this.validateForm()) {
+      if (this.validateForm(PUT, this.state.fields)) {
         this.puttUser(this.state.fields.id)
       }
     }
   }
-  validateForm() {
-    let fields = this.state.fields;
+  validateForm(tipo, fields) {
     let errors = {};
     let formIsValid = true;
     if (!fields["nome"]) {
       formIsValid = false;
       errors["nome"] = "Insira um nome";
     }
-    if (!fields["fileSelected"]) {
-      formIsValid = false;
-      errors["fileSelected"] = "Insira um arquivo com o formato 'edf'.";
-    }
-    if (typeof fields["fileSelected"] !== "undefined") {
-      if (!fields["fileSelected"].match(/.[edf]{3}$/)) {
+    if (tipo === POST) {
+      if (!fields["fileSelected"]) {
         formIsValid = false;
-        errors["fileSelected"] = "Formato invalido";
+        errors["fileSelected"] = "Insira um arquivo com o formato 'edf'.";
+      }
+      if (typeof fields["fileSelected"] !== "undefined") {
+        if (!fields["fileSelected"].match(/.[edf]{3}$/)) {
+          formIsValid = false;
+          errors["fileSelected"] = "Formato invalido";
+        }
       }
     }
     if (typeof fields["nome"] !== "undefined") {
