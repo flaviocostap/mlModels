@@ -1,0 +1,222 @@
+% 2017
+% Jorge Luiz Ferreira da Silva Junior, Dr.  -- jorgeluizjk@ieee.org ou jorgeluizjk@gmail.com
+\documentclass[a4paper,12pt]{report}
+\usepackage[portuges]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{fancyvrb}
+\usepackage{amssymb}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm]{geometry}
+\usepackage{wallpaper}
+
+%\usepackage[dvips,colorlinks,bookmarksopen,bookmarksnumbered,citecolor=blue,urlcolor=blue]{hyperref}
+
+\usepackage[driverfallback=dvipdfm]{hyperref}
+
+\usepackage{graphicx,color}
+\usepackage{subfigure}
+\usepackage{morefloats}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bigfoot}
+\usepackage{hyperref}
+\usepackage{pdfpages}
+\usepackage{type1cm}
+\usepackage{hyperref}  
+
+\usepackage{color,soul}
+
+\begin{document}
+
+\include{capa}
+%\chapter*{Exercícios}
+\section*{Introdução}
+A doença de Parkinson é uma doença neurodegenerativa de etiologia idiopática tendo a idade como o principal fator de risco, porém não o único. Caracteriza-se bioquimicamente pela alfa sinucleína positiva, presença de corpos de Lewis e perda da dopamina na substancia negra compacta. Os sintomas da doença são a Bradicinesia, instabilidade postural, tremor ao repouso. 
+
+\section*{Objetivo do Estudo} 
+%A doença de Parkinson embora muito bem elucidada na literatura não há muitos estudos sobre os problemas viscerais, respiratórios, cardíacos e alterações na marcha. Por isso se faz necessário estudos que foquem nesses sistemas.
+
+A doença de Parkinson embora muito bem elucidada na literatura ainda não possui uma metodologia de alta precisão para o estadiamento da Doença de Parkinson. Assim, esta pesquisa busca através de sinais eletromiográficos e técnicas de aprendizado de máquina caracterizar e classificar os diferentes níveis da Doença de Parkinson, para então agir como uma metodologia automatizada e precisa que irá auxiliar o profissional a realizar o estadiamento da doença. Esta pesquisa foi aprovada pelo Comité de Ética e Pesquisa da Faculdade da Saúde da Universidade de Brasília CAAE (38386714.8.0000.0030)
+
+
+\section*{Orientações Básicas}
+%O estudo será um estudo piloto onde o objetivo é um n de 10 para grupo controle e de 10 para grupo experimental. O grupo controle será composto por idosos acima de 60 anos, lúcidos e orientados no espaço e tempo, sem problemas circulatórios complexos, sem doenças cardíacas, sem histórico de AVC ou infarto, com sistema osteomioarticular intacto. O grupo experimental deverá abranger indivíduos portadores da doença de Parkinson, sem problemas cardiorrespiratórios, sem outra doença neurodegenerativa, praticantes ou não de atividades físicas. Cada paciente deverá comparecer ao local duas vezes, ou seja, dois encontros. 
+
+O estudo será um estudo piloto onde o objetivo é um n de 20 para grupo controle e de 20 para grupo experimental. O grupo controle será composto por idosos acima de 60 anos, lúcidos e orientados no espaço e tempo, sem problemas circulatórios complexos, sem histórico de AVC com sistema osteomioarticular intacto. O grupo experimental deverá abranger indivíduos portadores da doença de Parkinson, sem outra doença neurodegenerativa, praticantes ou não de atividades físicas. Cada paciente deverá comparecer ao local uma vez, ou seja, um encontro.
+
+\section*{Encontro}
+O paciente será recepcionado com uma cadeira de rodas para não fazer nenhum esforço durante sua caminhada até o laboratório. Será conduzido ao laboratório será apresentado ao termo de livre esclarecido e responder a alguns questionários definidos pelo grupo. A ordem será a seguinte:
+
+\begin{itemize}
+\item[1.] Termo Livre esclarecido
+\item[2.] Ficha de dados criada pelo grupo
+\item[3.] Estadiamento da doença nas escalas H-Y
+\item[4.] Coleta de Sinais eletromiográficos.
+\end{itemize}
+
+
+\subsection*{Eletromiografia de Superfície}
+A eletromiografia de superfície é uma técnica não invasiva que permite o registro dos sinais elétricos gerados pelas células musculares, possibilitando a análise da atividade muscular durante o movimento. (Ocarino, Juliana de Melo, et al.,2005). No nosso estudo, os músculos dos quais serão coletados os sinais eletromiográficos são: extensor radial do longo do carpo, flexor superficial dos dedos, bíceps braquial e flexor radial do carpo. A partir destes grupos musculares pretende-se coletar sinais de diferentes tipos de tremores, como: tremor de repouso, tremor isométrico, tremor de ação e tremor de intenção.
+
+O aparelho de sEMG utilizado foi o Miotool da empresa Miotec junto ao software MiotecSuite 1.0 para a análise dos sinais coletados. Figura \ref{fig1} podemos observar o aparelho.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.4]{Miotool.png}
+\caption{Aparelho Miotool utilizado na pesquisa (Miotec, 2016)}\label{fig1}
+\end{figure}
+
+Para o posicionamento dos eletrodos foi protocolado que o paciente deve estar em posição de sedestação ao invés de decúbito, pois essa posição mantém o tronco ereto, tendo em vista que o paciente passará a maior parte do encontro posterior nessa posição. Os eletrodos serão posicionados acima do ponto motor.
+
+\subsubsection*{Dados do equipamento}
+
+\begin{itemize}
+\item    Modelo do equipamento: Miotool;
+\item    Resolução: 14 bits;
+\item    Máxima taxa de amostragem: 2.000 amostras por segundo;
+\item    Ruído < 2 LSB;
+\item    Modo de rejeição comum de 126 db;
+\item    Isolamento de segurança 3000 V(rms);
+\item    Tamanho aproximado de 135 mm X 140 mm X 50 mm;
+\item    Peso aproximado de 470g;
+\item    Tensão de alimentação do sistema de aquisição: 1 bateria NiMH 7,2 Vcc 1700 mAh;
+\item    Corrente em repouso: 200 microA;
+\item    Corrente máxima: 120 mA;
+\item    Potência máxima: 0,3 W;
+\item    Temperatura: de 10 ºC a 40 ºC;
+\item    Tensão de alimentação dos canais analógicos: 3,3 V;
+\item    Número de canais: 2 ou 4;
+\item    Tensão máxima de entrada: 2.048 mV.
+\end{itemize}
+
+\begin{itemize}
+\item     Modelo do sensor: sDS 500;
+\item     Tensão de alimentação: 5,0 V;
+\item     Tensão máxima de entrada: entre 1 mV para ganho 2.000 e 8 mV para ganho 250;
+\item     Impedância de entrada: 10 10 Ohm // 2 pF;
+\item     Ganho automático;
+\item     Comunicação: LIN a 9.600 bauds;
+\item     Temperatura: de 10 ºC a 40 ºC;
+\item     Filtro ativo passa-baixa de dois polos com frequência de corte em 1 kHz elimina a frequências altas indesejadas;
+\item     Comprimento do Cabo: 2 metros;
+\item     Conexão com os Eletrodos por pressão: Cabo MiniPinch 15 cm de comprimento Blindado.
+\end{itemize}
+
+\subsubsection*{Preparação da coleta}
+
+\noindent{Preparação do voluntário:}
+
+\begin{itemize}
+\item Solicitar que o voluntário se posicione em sedestação;
+\item Realizar a tricotomia utilizando aparelho de barbear descartável, algodão e álcool 70\%;
+\end{itemize}
+
+\noindent{Posicionamento dos eletrodos:}
+
+\begin{itemize}
+\item Eletrodo Referência: Posicionado na Crista Iléaca direita (será utilizado 1 eletrodo por voluntário);
+\item Eletrodos de superfície: Deveráo ser posicionados a dois dedos abaixo do ponto motor (serão utilizados 8 eletrodos por voluntário);
+\item Distância Intereletrodo: SENIAM: 20 mm (Serão utilizados eletrodos duplos com distância fixa);
+\end{itemize}
+
+
+\subsubsection*{Coleta 1 - Tremor de Repouso}
+
+Será solicitado que o voluntário permanece em sedestação com as mãos sobre o colo de forma relaxada. Serão realizadas três coletas com duração de 5 segundos cada de forma bilateral e com a utilização de 4 canais. Os grupos musculares utilizados nesta atividade são: 
+
+\begin{itemize}
+\item Extensor radial do longo do carpo direito;
+\item Flexor superficial dos dedos direito;
+\item Extensor radial do longo do carpo esquerdo;
+\item Flexor superficial dos dedos esquerdo;
+\end{itemize}
+
+Na Figura \ref{fig2} podemos observar a disposição dos eletrodos nas marcações em verde.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.3]{tr_tis_ap.png}
+\caption{Posicionamento de eletrodos para captação de tremores de repouso (Miotec, 2016)}\label{fig2}
+\end{figure}
+
+
+
+\subsubsection*{Coleta 2 - Tremor Isométrico}
+
+Será solicitado que o voluntário permanece em sedestação com as mãos cerradas sobre o colo. Serão realizadas três coletas com duração de 5 segundos cada de forma bilateral e com a utilização de 4 canais. Os grupos musculares utilizados nesta atividade são: 
+
+\begin{itemize}
+\item Extensor radial do longo do carpo direito;
+\item Flexor superficial dos dedos direito;
+\item Extensor radial do longo do carpo esquerdo;
+\item Flexor superficial dos dedos esquerdo;
+\end{itemize}
+
+Na Figura \ref{fig3} podemos observar a disposição dos eletrodos nas marcações em verde.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.3]{tr_tis_ap.png}
+\caption{Posicionamento de eletrodos para captação de tremores isométricos (Miotec, 2016)}\label{fig3}
+\end{figure}
+
+
+\subsubsection*{Coleta 3 - Tremor de Ação}
+
+Será solicitado que o voluntário permanece em sedestação com as mãos sobre o colo. Uma garrafa vazia sera entregue ao voluntário e então o voluntário devera realizar o movimento de levar a garrafa até a boca e retornar ao colo 3 vezes. Este processo deverá ser repedido 3 vezes com cada um dos lados (de forma unilateral) e com a utilização de 3 canais. Os grupos musculares utilizados nesta atividade são: 
+
+\begin{itemize}
+\item Extensor radial do longo do carpo direito;
+\item Flexor superficial dos dedos direito;
+\item Bíceps braquial direito;
+\item Extensor radial do longo do carpo esquerdo;
+\item Flexor superficial dos dedos esquerdo;
+\item Bíceps braquial esquerdo;
+\end{itemize}
+
+Na Figura \ref{fig4} podemos observar a disposição dos eletrodos nas marcações em verde.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.3]{ta_ap.png}
+\caption{Posicionamento de eletrodos para captação de tremores de ação (Miotec, 2016)}\label{fig4}
+\end{figure}
+
+
+
+\subsubsection*{Coleta 4 - Tremor de Intenção}
+
+Será solicitado que o voluntário permanece em sedestação com o ombro em abdução de 90 graus e dedo indicador estendido . Então será instruído ao voluntário que ele alcance o seu nariz com o seu dedo indicador e em seguida retorne sua mão para a posição inicial 3 vezes. Este processo deverá ser repedido 3 vezes com cada um dos lados (de forma unilateral) e com a utilização de 4 canais. Os grupos musculares utilizados nesta atividade são: 
+
+\begin{itemize}
+\item Extensor radial do longo do carpo direito;
+\item Flexor superficial dos dedos direito;
+\item Bíceps braquial direito;
+\item Flexor radial do carpo direito;
+\item Extensor radial do longo do carpo esquerdo;
+\item Flexor superficial dos dedos esquerdo;
+\item Bíceps braquial esquerdo;
+\item Flexor radial do carpo esquerdo
+\end{itemize}
+
+Na Figura \ref{fig5} podemos observar a disposição dos eletrodos nas marcações em verde.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.3]{tin_ap.png}
+\caption{Posicionamento de eletrodos para captação de tremores de intenção (Miotec, 2016)}\label{fig5}
+\end{figure}
+
+\subsubsection*{Término do encontro}
+
+Então o encontro chega ao fim, sendo oferecido um tempo de repouso e lanche para o voluntário participante da pesquisa.
+
+
+%\includepdf{fl_m.pdf}
+
+
+
+
+
+
+\end{document}
