@@ -40,6 +40,7 @@ class App extends Component {
     this.submitEditUser = this.submitEditUser.bind(this);
   }
   async componentDidMount() {
+    this.setState({exibirArquivados:this.props.location.pathname === '/arquivados'})
     try {
       let features
       axios.get('http://127.0.0.1:8000/api/').then(res => {
@@ -231,9 +232,10 @@ class App extends Component {
   }
 
   render() {
+    
     return (
       <div>
-        <NavBar exibirArquivados={this.state.exibirArquivados} handleBotaoHome={this.handleBotaoHome} handleBotaoArquivados={this.handleBotaoArquivados} features={this.state.features} handlePesquisa={this.handlePesquisa}></NavBar>
+        <NavBar exibirArquivados={this.state.exibirArquivados } handleBotaoHome={this.handleBotaoHome} handleBotaoArquivados={this.handleBotaoArquivados} features={this.state.features} handlePesquisa={this.handlePesquisa}></NavBar>
         <div className="container-fluid" id="containerapp">
           <Cadastro
             submituserRegistrationForm={this.submituserRegistrationForm}

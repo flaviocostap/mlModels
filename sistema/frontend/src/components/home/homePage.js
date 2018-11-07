@@ -36,7 +36,7 @@ class HomePage extends Component {
         }
     }
     result(item) {
-        return item === 0 ? 'Pouca probabilidade' : 'Alta probabilidade';
+        return item === 0 ? 'Baixa probabilidade' : 'Alta probabilidade';
     }
     onRowsDelete(rowsDeleted, dataFeature) {
         dataFeature.map((element, index) => {

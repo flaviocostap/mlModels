@@ -5,6 +5,12 @@ import { Link } from 'react-router-dom'
 import menu from '../../img/menu.png'
 
 class NavBar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            teste: null,
+        };
+    }
     render() {
         const options = this.props.features.map(item => {
             return {
@@ -12,6 +18,7 @@ class NavBar extends Component {
                 label: item.nome,
             }
         })
+        const exibirArquivados = this.props.exibirArquivados
         return (
             <nav className="navbar navbar-expand-lg navbar-ligth bg-ligth" id="navbr">
                 <button id="navbutton" className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,11 +26,14 @@ class NavBar extends Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav mr-auto">
-                        <li id={`${this.props.exibirArquivados ? '' : 'activeitem'}`}>
-                            <a onClick={this.props.handleBotaoHome} className="nav-link" href="#">HOME <span className="sr-only">(current)</span></a>
+                        <li id={`${exibirArquivados ? '' : 'activeitem'}`}>
+                            <Link onClick={this.props.handleBotaoHome} className="nav-link" to="/">HOME</Link>
                         </li>
-                        <li id={`${this.props.exibirArquivados ? 'activeitem' : ''}`}>
-                            <a onClick={this.props.handleBotaoArquivados} className="nav-link" href="#">ARQUIVADOS </a>
+                        <li id={`${exibirArquivados ? 'activeitem' : ''}`}>
+                            <Link onClick={this.props.handleBotaoArquivados} className="nav-link" to="/arquivados">ARQUIVADOS</Link>
+                        </li>
+                        <li>
+                            <Link className="nav-link" to="/sobre">SOBRE</Link>
                         </li>
                     </ul>
                     <ul className="navbar-nav">
