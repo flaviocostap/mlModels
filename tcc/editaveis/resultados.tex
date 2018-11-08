@@ -1,13 +1,35 @@
 \chapter{Resultados}
 \label{ch:Resultados}
 \section{Processo de AM}
+Esta seção descreve a realização do processo de AM, deste a coleta até a apresentação dos dados.
 \subsection{Coleta}
+A coleta dos dados foi realizada pelos pesquisadores Jorge Luiz (Engenheiro Eletricista) e Bruna da Silva (Fisioterapeuta), utilizanda o protocolo descrito no Apendice \ref{apendicetae}, o qual descreve detalhadamente todo o processo de coleta dos dados.
+
+Os dados utilizados para a classificação, se refem a \textbf{Coleta 1 - Tremor de Repouso}, uma vez que esta apresentou os melhores resultados na classificação, já que as outras três coletas apresentavam um alto ruído que acabaram comprometendo os dados. A seguir um pequeno resumo sobre esta coleta.
+
+Foram realizadas três coletas por colaborador, com duração de cinco segundos cada, a disposição dos eletrodos encontra-se no Apendice \ref{apendicetae}. Os dados do sinal foram aramazenadas através da utilização de 4 canais, sendo eles:
+\begin{enumerate}
+    \item Extensor radial do longo do carpo direito;
+    \item Flexor superficial dos dedos direito;
+    \item Extensor radial do longo do carpo esquerdo;
+    \item Flexor superficial dos dedos esquerdo.
+\end{enumerate}
+
+Estes dados coletados em sEMG em cada canal, foram cedidos no formato \textit{edf}.
+
 \subsection{Pré-processamento dos dados}
-Inicialmente utilizou-se como tecnica para a filtragem dos dados a Transformada rápida de Fourier (FFT). Sendo que foram realizados testes nos quatro canais disponiveis, os quais são descritos detalhadamente no Anexo1, realizando um comparativo da acuracia com e sem a FFT. 
+Com os dados brutos iniciou-se a etapa de pré-processamento dos dados. Inicialmente utilizou-se como tecnica para a filtragem dos dados a Transformada rápida de Fourier (FFT), onde realizou-se testes nos quatro canais disponiveis, realizando um comparativo da acuracia com e sem a FFT, além de um comparativo sobre a acuracia entre os canais. 
 
 Verificou-se que a FFT aumentrou significamente a acuracia, porém como observado na figura {https://github.com/SkiNgK/mlModels/blob/master/notebook/04-outros-canais.ipynb}, somente o canal 1 apresentou um resultado satisfatorio. Com 89\% de acuracia, e subsequente os canal 2 com 50\%, canal 3 com 53\% e canal 4 com 53\%.
 
-Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta.  Porém estes filtros diminuiram a acuracia obtida, como observado na figura {https://github.com/SkiNgK/mlModels/blob/master/notebook/06-SVM-todos-os-canais.ipynb}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acuracia caiu.
+Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta.  Porém estes filtros diminuiram a acuracia obtida, como observado na figura \ref{comesemfiltro}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acuracia caiu.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=1.1\textwidth]{figuras/comesemfiltro.eps}
+	\caption{Matriz de confusão com e sem filtro do canal 1.}
+	\label{comesemfiltro}
+\end{figure}
 
 Também realizou-se a classificação utilizando todos os canais ao mesmo tempo, porém o resultado foi insatisfatorio.
 
