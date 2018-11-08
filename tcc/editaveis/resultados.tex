@@ -21,11 +21,11 @@ Estes dados coletados em sEMG em cada canal, foram cedidos no formato \textit{ed
 Com os dados brutos iniciou-se a etapa de pré-processamento dos dados. Inicialmente utilizou-se como tecnica para a filtragem dos dados a Transformada rápida de Fourier (FFT), onde realizou-se testes nos quatro canais disponiveis, realizando um comparativo da acuracia com e sem a FFT, além de um comparativo sobre a acuracia entre os canais. 
 
 Com relação aos dados obtidos em cada canal, como pode ser obsrvado na figura \ref{fcomparativo}, utilizando a fft obteve-se um bom resultado nos canais \textbf{CH1} e
-Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta.  Porém estes filtros diminuiram a acuracia obtida, como observado na figura \ref{comesemfiltro}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acuracia caiu.
+Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta. Porém estes filtros diminuiram a acuracia obtida, como observado na figura \ref{comesemfiltro}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acuracia caiu.
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=1.1\textwidth]{figuras/comesemfiltro.eps}
+	\includegraphics[width=1.1\textwidth]{figuras/fcomparativo.eps}
 	\caption{Matriz de confusão com e sem filtro do canal 1.}
 	\label{fcomparativo}
 \end{figure}
