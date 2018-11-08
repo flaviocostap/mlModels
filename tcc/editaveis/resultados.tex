@@ -34,13 +34,20 @@ Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=1.1\textwidth]{figuras/comesemfiltro.eps}
-	\caption{Matriz de confusão com e sem filtro do canal 1.}
+	\caption{Matriz de confusão com e sem filtro do \textbf{Ch1}.}
 	\label{comesemfiltro}
 \end{figure}
 
 Também realizou-se a classificação utilizando todos os canais ao mesmo tempo, porém o resultado foi insatisfatorio.
 
-Outra técnica de selecão de feature utilizada foi a PCA ou Análise de componentes principais, com a utilização desta tecnica obteve-se uma leve melhora na acuracia.
+Outra técnica de selecão de feature utilizada foi a PCA ou Análise de componentes principais, com a utilização desta tecnica obteve-se uma melhora na acuracia, como pode ser observado na figura \ref{pcavalidator}, a qual utilizou-se o \textit{k-fold cross-validator} para verificar se os .
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=1.1\textwidth]{figuras/pcavalidator.eps}
+	\caption{Matriz de confusão com e sem filtro do canal 1.}
+	\label{pcavalidator}
+\end{figure}
 
 Finalizando a etapa de pré-processamento dos dados, concluiu-se que somente o canal 1 era classificavel. Além disto, a utilização da FFT com o PCA mostrou-se a melhor combinação para obtermos os melhores resultados.
 
