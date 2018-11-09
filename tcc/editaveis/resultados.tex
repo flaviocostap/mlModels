@@ -61,8 +61,8 @@ Como pode ser observado na figura \ref{pcavalidator}, com o auxilio do k-fold, p
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=1.1\textwidth]{figuras/modeloComp.eps}
-	\caption{Matriz de confusão com e sem filtro do canal 1.}
+	\includegraphics[width=0.7\textwidth]{figuras/modeloComp.eps}
+	\caption{Matriz de confusão com e sem filtro do \textbf{Ch1}}
 	\label{pcavalidator}
 \end{figure}
 
@@ -80,47 +80,66 @@ O documento de Visão encontra-se no anexo \ref{adocvisao} na página \pageref{a
 \subsection{Produto}
 Os detalhes referentes a construção do produto encontram-se descritos no documento de Visão \ref{adocvisao} e no documento de Arquitetura \ref{adoarquitetura}, a seguir as telas do sistema.
 
-Pagina inicial
+
+\subsubsection{Pagina inicial}
+A figura ~\ref{fighome} na página ~\pageref{fighome} exemplifica a página inicial da aplicação, sendo que esta aplicação  conterá somente três páginas. Além da página inicial tem-se a página de pacientes arquivados e a página sobre com as informações relacionadas ao métodologia e resultados sobre o processo de Aprendizado de Máquinas utilizado no desenvolvimento da aplicação.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.9\textwidth]{figuras/produto/home.eps}
-    \caption{Diagrama de pacotes}
+    \caption{Pagina inicial}
     \label{fighome}
 \end{figure}
 
+\subsubsection{Cadastro de pacientes}
+A figura ~\ref{figcadastro} na página ~\pageref{figcadastro} refere-se ao cadastro de pacientes. Nesta tela insere-se os seguintes itens, todos obrigatorios:
+\begin{itemize}
+	\item Nome completo;
+	\item Idade;
+	\item Sexo;
+	\item Arquivo sEMG em formato \textit{edf}.
+\end{itemize}
+
 \begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figuras/produto/cadastro.eps}
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/produto/cadastro.eps}
     \caption{Cadastro das pacientes}
     \label{figcadastro}
 \end{figure}
 
-% \begin{figure}[!htb]
-%     \centering
-%     \includegraphics[width=1\textwidth]{figuras/produto/editar.eps}
-%     \caption{Editar dados dos pacientes}
-%     \label{figeditar}
-% \end{figure}
+\subsubsection{Edição de pacientes}
+Para realizar a edição dos dados de um paciente, como demmonstado na figura ~\ref{figcadastro} na página ~\pageref{figcadastro}, ao presionar o botão \textbf{EDITAR} na aba de opções é aberto um \textit{modal} contendo as informações do paciente para a alteração. Para alterar o arquivo sEMG é necessário clicar em alterar arquivo, o qual após adicionado subistitui o antigo.
 
-% \begin{figure}[!htb]
-%     \centering
-%     \includegraphics[width=1\textwidth]{figuras/produto/avaliar.eps}
-%     \caption{Avaliar pacientes}
-%     \label{figavaliar}
-% \end{figure}
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/editar.eps}
+    \caption{Editar dados dos pacientes}
+    \label{figeditar}
+\end{figure}
 
-% \begin{figure}[!htb]
-%     \centering
-%     \includegraphics[width=1\textwidth]{figuras/produto/pesquisar.eps}
-%     \caption{Pesquisar itens pelas colunas}
-%     \label{figpesquisar}
-% \end{figure}
+\subsubsection{Avaliar pacientes}
+Para avaliar um paciente recem inserido, é necessário clicar no botão \textbf{AVALIAR}, como na figura ~\ref{figavaliar} na página ~\pageref{figavaliar}.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/avaliar.eps}
+    \caption{Avaliar pacientes}
+    \label{figavaliar}
+\end{figure}
 
+\subsubsection{Pesquisar pacientes}
+Para pesquisar por qualquer um dos itens das colunas, basta clicar no iconde de pesquina como na figura ~\ref{figpesquisar} na página ~\pageref{figpesquisar} e inserir o termo da pesquina.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/pesquisar.eps}
+    \caption{Pesquisar itens pelas colunas}
+    \label{figpesquisar}
+\end{figure}
 
-% \begin{figure}[!htb]
-%     \centering
-%     \includegraphics[width=1\textwidth]{figuras/produto/outrasop.eps}
-%     \caption{Downloand da tabela, impressão e exibir colunas}
-%     \label{figoutrasop}
-% \end{figure}
+\subsubsection{Pesquisar pacientes}
+Também é possivel execultar outras opções como downloand da tabela, impressão e exibir colunas. Como pode ser observado na figura ~\ref{figpesquisar} na página ~\pageref{figpesquisar}.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/outrasop.eps}
+    \caption{Downloand da tabela, impressão e exibir colunas}
+    \label{figoutrasop}
+\end{figure}
