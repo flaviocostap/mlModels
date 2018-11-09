@@ -71,52 +71,56 @@ Finalizando a etapa de pré-processamento dos dados, concluiu-se que a utilizaç
 \subsection{Apresentar dos dados}
 
 \section{Solução de software}
-Como descrito no documento de Visão {citar anexo visão} e no documento de Arquitetura { citar documento de Arquitetura}.
 \subsection{Arquitetura}
+O documento de Arquitetura encontra-se no anexo \ref{adoarquitetura} na página \pageref{adoarquitetura}.
 
 \subsection{Visão}
 O documento de Visão encontra-se no anexo \ref{adocvisao} na página \pageref{adocvisao}.
 
 \subsection{Produto}
-O documento de Arquitetura
+Os detalhes referentes a construção do produto encontram-se descritos no documento de Visão \ref{adocvisao} e no documento de Arquitetura \ref{adoarquitetura}, a seguir as telas do sistema.
 
-% \section{Resultados parciais}
-% \section{Abstrair o problema no contexto}
-% O contexto geral do trabalho é projetar e construir um sistema AM para auxiliar no diagnóstico da doença de Parkinson, utilizando sinais obtidos por dispositivos sEMG, e o problema principal gira em torno de como esse sistema será desenvolvido. Por se tratar da construção de um software, isso necessita de um planejamento prévio de como será feita essa construção, levando em consideração um conjunto de variáveis para tomada de decisões. Neste trabalho o sistema a ser desenvolvido se trata de um sistema AM, que requer uma maior atenção sobre algumas variáveis, como quantidade de recursos e tipos de dados obtidos, sendo que essas variáveis servem como indicadores para auxiliar a decisão de qual algoritmo utilizar para se encontrar a melhor solução possível para esse problema.
+Pagina inicial
 
-% \section{Prova de conceito}
-% Para verificar a viabilidade do projeto, além de buscar entender o fu ncionamento da biblioteca \textit{scikit-learn}. Realizou-se uma prova de conceito, desenvolvendo um algoritmo utilizando o SVM, para predizer os dados relacionados a uma porta lógica XOR. Foram utilizados também o \textit{numpy} para as manipulações matemáticas e o \textit{matplotlib} para plotar o gráfico. Para o teste utilizou-se 500 amostras. Sendo que estas foram separadas em 75\% em dados de treino e os 25\% restantes em dados de teste. Ou seja, 125 dados de treino e 375 dados de teste, não utilizou-se dados de validação.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figuras/produto/home.eps}
+    \caption{Diagrama de pacotes}
+    \label{fighome}
+\end{figure}
 
-% Como observado na Figura \ref{svmxor} na página \pageref{svmxor}, o svm conseguiu separar corretamente a maioria dos dados, sendo que, na imagem as bolas laranjas equivalem ao valor esperado “1”, e as bolas azuis equivalem ao valor esperado “0”. Já os contornos equivalem ao valor atingido pelo SVM, ou seja, as bolas dentro da área roxa foram preditas como “0” e  a bolas na área laranjada foram preditas como “1”. Também é possível observar nessa imagem os hiperplanos de separação.
-
-% Utilizou-se também para verificar a precisão do modelo, a matriz de confusão, como pode ser observado na Figura \ref{mcxor} na página \pageref{mcxor}, e na Figura \ref{mcxornormalizada} na página \pageref{mcxornormalizada}, a qual mostra a matriz de confusão normalizada com a porcentagem de dados.
-
-% Outra ferramenta utilizada foi a \textit{Classification report} Figura \ref{class_report} na página \pageref{class_report}, que descreve separadamente a taxa de precisão, além de outros conceitos da estatística.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figuras/produto/cadastro.eps}
+    \caption{Cadastro das pacientes}
+    \label{figcadastro}
+\end{figure}
 
 % \begin{figure}[!htb]
-% 	\centering
-% 	\includegraphics[width=0.8\textwidth]{figuras/xor.eps}
-% 	\caption{Hiperplano de separação do SVM na porta XOR.}
-% 	\label{svmxor}
+%     \centering
+%     \includegraphics[width=1\textwidth]{figuras/produto/editar.eps}
+%     \caption{Editar dados dos pacientes}
+%     \label{figeditar}
 % \end{figure}
 
 % \begin{figure}[!htb]
-% 	\centering
-% 	\includegraphics[width=0.8\textwidth]{figuras/class_report.eps}
-% 	\caption{\textit{Classification report} da porta XOR.}
-% 	\label{class_report}
+%     \centering
+%     \includegraphics[width=1\textwidth]{figuras/produto/avaliar.eps}
+%     \caption{Avaliar pacientes}
+%     \label{figavaliar}
 % \end{figure}
 
 % \begin{figure}[!htb]
-% 	\centering
-% 	\includegraphics[width=0.8\textwidth]{figuras/mcxor.eps}
-% 	\caption{Matriz de confusão da porta XOR.}
-% 	\label{mcxor}
+%     \centering
+%     \includegraphics[width=1\textwidth]{figuras/produto/pesquisar.eps}
+%     \caption{Pesquisar itens pelas colunas}
+%     \label{figpesquisar}
 % \end{figure}
 
+
 % \begin{figure}[!htb]
-% 	\centering
-% 	\includegraphics[width=0.8\textwidth]{figuras/mcxornormalizada.eps}
-% 	\caption{Matriz de confusão normalizada da porta XOR.}
-% 	\label{mcxornormalizada}
+%     \centering
+%     \includegraphics[width=1\textwidth]{figuras/produto/outrasop.eps}
+%     \caption{Downloand da tabela, impressão e exibir colunas}
+%     \label{figoutrasop}
 % \end{figure}
