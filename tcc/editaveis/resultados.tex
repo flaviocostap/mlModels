@@ -17,19 +17,19 @@ Foram realizadas três coletas por colaborador, com duração de cinco segundos 
 
 Estes dados coletados em sEMG em cada canal, foram cedidos no formato \textit{edf}.
 
-\subsection{Pré-processamento dos dados}
+\subsection{Processamento dos dados}
 Com os dados brutos iniciou-se a etapa de pré-processamento dos dados. Inicialmente utilizou-se como tecnica para a filtragem dos dados a Transformada rápida de Fourier (FFT), onde realizou-se testes nos quatro canais disponiveis, realizando um comparativo da acuracia com e sem a FFT, além de um comparativo sobre a acuracia entre os canais. 
 
 Com relação aos dados obtidos em cada canal, como pode ser obsrvado na figura \ref{fcomparativo}, utilizando a fft obteve-se um bom resultado nos canais \textbf{CH1} com uma precisão de 78 e um resultado razoavel no \textbf{CH3} com precisão em 69.
 
 Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta. Porém estes filtros diminuiram a acuracia obtida, como observado na figura \ref{comesemfiltro}, que exemplifica a matriz de confusão referente ao \textbf{CH1}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acuracia caiu.
 
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=1.1\textwidth]{figuras/fcomparativo.eps}
-	\caption{Comparativo entre os canais, com a fft.}
-	\label{fcomparativo}
-\end{figure}
+% \begin{figure}[!htb]
+% 	\centering
+% 	\includegraphics[width=1.1\textwidth]{figuras/fcomparativo.eps}
+% 	\caption{Comparativo entre os canais, com a fft.}
+% 	\label{fcomparativo}
+% \end{figure}
 
 \begin{figure}[!htb]
 	\centering
@@ -40,7 +40,9 @@ Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-
 
 Também realizou-se a classificação utilizando todos os canais ao mesmo tempo, porém o resultado foi insatisfatorio.
 
-Outra técnica de selecão de feature utilizada foi a PCA ou Análise de componentes principais, com a utilização desta tecnica obteve-se uma melhora na acuracia, como pode ser observado na figura \ref{pcavalidator}, a qual utilizou-se o \textit{k-fold cross-validator} para verificar se os .
+Outra técnica de selecão de feature utilizada foi a PCA ou Análise de componentes principais, com a utilização desta tecnica obteve-se uma leve melhora na acuracia, como pode ser observado na figura \ref{pcavalidator}, a qual utilizou-se o \textit{k-fold cross-validator} para verificar a precisão real do modelo.
+
+Como pode ser observado na figura \ref{pcavalidator}, com o auxilio do k-fold, pode-se inferir que o Random Forest possui uma precisão superior ao SVM, além de que o PCA aumenta a acuracia consideravelmente do modelo.
 
 \begin{figure}[!htb]
 	\centering
@@ -49,12 +51,7 @@ Outra técnica de selecão de feature utilizada foi a PCA ou Análise de compone
 	\label{pcavalidator}
 \end{figure}
 
-Finalizando a etapa de pré-processamento dos dados, concluiu-se que somente o canal 1 era classificavel. Além disto, a utilização da FFT com o PCA mostrou-se a melhor combinação para obtermos os melhores resultados.
-
-\subsection{Processamento dos dados}
-A etapa da secção anterior foi realizada utilizando o SVM combinado ao GridSearch, o qual seleciona os melhores parametros e para a validação dos dados utilizou-se o cross-validation. Deste modo, realizou-se o classificação em outros algoritmos, sendo eles o \textit{Randon Forest} e o \textit{k-Nearest Neighbors}.
-
-Utilizando o mesmo procedimento de pre-processamento, obteve-se uma melhor acuracia no \textit{Randon Forest} com relação ao SVM, como ilustrado na matriz de confusão da figura {https://github.com/SkiNgK/mlModels/blob/master/notebook/14-Redu%C3%A7%C3%A3o%20de%20dimensionalidade.ipynb}.  
+Finalizando a etapa de pré-processamento dos dados, concluiu-se que a utilização da FFT com o PCA mostrou-se a melhor combinação para obtermos os melhores resultados, com o \textit{Random Forest} levemente superior ao SVM e o KNN, com as respectivas precisões.
 
 \subsection{Apresentar dos dados}
 
@@ -63,9 +60,10 @@ Como descrito no documento de Visão {citar anexo visão} e no documento de Arqu
 \subsection{Arquitetura}
 
 \subsection{Visão}
+O documento de Visão encontra-se no anexo \ref{adocvisao} na página \pageref{adocvisao}.
 
 \subsection{Produto}
-
+O documento de Arquitetura
 
 % \section{Resultados parciais}
 % \section{Abstrair o problema no contexto}
