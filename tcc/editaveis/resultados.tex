@@ -3,7 +3,7 @@
 \section{Processo de AM}
 Esta seção descreve a realização do processo de AM, deste a coleta até a apresentação dos dados.
 \subsection{Coleta}
-A coleta dos dados foi realizada pelos pesquisadores Jorge Luiz (Engenheiro Eletricista) e Bruna da Silva (Fisioterapeuta), utilizanda o protocolo descrito no Apendice \ref{apendicetae}, o qual descreve detalhadamente todo o processo de coleta dos dados.
+A coleta dos dados foi realizada pelos pesquisadores Jorge Luiz (Engenheiro Eletricista) e Bruna da Silva (Fisioterapeuta), utilizanda o protocolo descrito no Apendice \ref{apendicprotocolo}, o qual descreve detalhadamente todo o processo de coleta dos dados, bem como o Termo de Consentimento Livre e Esclarecido – TCLE encontra-se no  Apendice \ref{apendicetae}.
 
 Os dados utilizados para a classificação, se refem a \textbf{Coleta 1 - Tremor de Repouso}, uma vez que esta apresentou os melhores resultados na classificação, já que as outras três coletas apresentavam um alto ruído que acabaram comprometendo os dados. A seguir um pequeno resumo sobre esta coleta.
 
@@ -61,8 +61,8 @@ Como pode ser observado na figura \ref{pcavalidator}, com o auxilio do k-fold, p
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=1.1\textwidth]{figuras/modeloComp.eps}
-	\caption{Matriz de confusão com e sem filtro do canal 1.}
+	\includegraphics[width=0.7\textwidth]{figuras/modeloComp.eps}
+	\caption{Matriz de confusão com e sem filtro do \textbf{Ch1}}
 	\label{pcavalidator}
 \end{figure}
 
@@ -71,52 +71,93 @@ Finalizando a etapa de pré-processamento dos dados, concluiu-se que a utilizaç
 \subsection{Apresentar dos dados}
 
 \section{Solução de software}
-Como descrito no documento de Visão {citar anexo visão} e no documento de Arquitetura { citar documento de Arquitetura}.
 \subsection{Arquitetura}
+O documento de Arquitetura encontra-se no anexo \ref{adoarquitetura} na página \pageref{adoarquitetura}.
 
 \subsection{Visão}
 O documento de Visão encontra-se no anexo \ref{adocvisao} na página \pageref{adocvisao}.
 
 \subsection{Produto}
-O documento de Arquitetura
+Os detalhes referentes a construção do produto encontram-se descritos no documento de Visão \ref{adocvisao} e no documento de Arquitetura \ref{adoarquitetura}, a seguir as telas do sistema.
 
-% \section{Resultados parciais}
-% \section{Abstrair o problema no contexto}
-% O contexto geral do trabalho é projetar e construir um sistema AM para auxiliar no diagnóstico da doença de Parkinson, utilizando sinais obtidos por dispositivos sEMG, e o problema principal gira em torno de como esse sistema será desenvolvido. Por se tratar da construção de um software, isso necessita de um planejamento prévio de como será feita essa construção, levando em consideração um conjunto de variáveis para tomada de decisões. Neste trabalho o sistema a ser desenvolvido se trata de um sistema AM, que requer uma maior atenção sobre algumas variáveis, como quantidade de recursos e tipos de dados obtidos, sendo que essas variáveis servem como indicadores para auxiliar a decisão de qual algoritmo utilizar para se encontrar a melhor solução possível para esse problema.
 
-% \section{Prova de conceito}
-% Para verificar a viabilidade do projeto, além de buscar entender o fu ncionamento da biblioteca \textit{scikit-learn}. Realizou-se uma prova de conceito, desenvolvendo um algoritmo utilizando o SVM, para predizer os dados relacionados a uma porta lógica XOR. Foram utilizados também o \textit{numpy} para as manipulações matemáticas e o \textit{matplotlib} para plotar o gráfico. Para o teste utilizou-se 500 amostras. Sendo que estas foram separadas em 75\% em dados de treino e os 25\% restantes em dados de teste. Ou seja, 125 dados de treino e 375 dados de teste, não utilizou-se dados de validação.
+\subsubsection{Pagina inicial}
+A figura ~\ref{fighome} na página ~\pageref{fighome} exemplifica a página inicial da aplicação, sendo que esta aplicação  conterá somente três páginas. Além da página inicial tem-se a página de pacientes arquivados e a página sobre com as informações relacionadas ao métodologia e resultados sobre o processo de Aprendizado de Máquinas utilizado no desenvolvimento da aplicação.
 
-% Como observado na Figura \ref{svmxor} na página \pageref{svmxor}, o svm conseguiu separar corretamente a maioria dos dados, sendo que, na imagem as bolas laranjas equivalem ao valor esperado “1”, e as bolas azuis equivalem ao valor esperado “0”. Já os contornos equivalem ao valor atingido pelo SVM, ou seja, as bolas dentro da área roxa foram preditas como “0” e  a bolas na área laranjada foram preditas como “1”. Também é possível observar nessa imagem os hiperplanos de separação.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figuras/produto/home.eps}
+    \caption{Pagina inicial}
+    \label{fighome}
+\end{figure}
 
-% Utilizou-se também para verificar a precisão do modelo, a matriz de confusão, como pode ser observado na Figura \ref{mcxor} na página \pageref{mcxor}, e na Figura \ref{mcxornormalizada} na página \pageref{mcxornormalizada}, a qual mostra a matriz de confusão normalizada com a porcentagem de dados.
+\subsubsection{Cadastro de pacientes}
+A figura ~\ref{figcadastro} na página ~\pageref{figcadastro} refere-se ao cadastro de pacientes. Nesta tela insere-se os seguintes itens, todos obrigatorios:
+\begin{itemize}
+	\item Nome completo;
+	\item Idade;
+	\item Sexo;
+	\item Arquivo sEMG em formato \textit{edf}.
+\end{itemize}
 
-% Outra ferramenta utilizada foi a \textit{Classification report} Figura \ref{class_report} na página \pageref{class_report}, que descreve separadamente a taxa de precisão, além de outros conceitos da estatística.
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/produto/cadastro.eps}
+    \caption{Cadastro das pacientes}
+    \label{figcadastro}
+\end{figure}
 
-% \begin{figure}[!htb]
-% 	\centering
-% 	\includegraphics[width=0.8\textwidth]{figuras/xor.eps}
-% 	\caption{Hiperplano de separação do SVM na porta XOR.}
-% 	\label{svmxor}
-% \end{figure}
+\subsubsection{Edição de pacientes}
+Para realizar a edição dos dados de um paciente, como demmonstado na figura ~\ref{figcadastro} na página ~\pageref{figcadastro}, ao presionar o botão \textbf{EDITAR} na aba de opções é aberto um \textit{modal} contendo as informações do paciente para a alteração. Para alterar o arquivo sEMG é necessário clicar em alterar arquivo, o qual após adicionado subistitui o antigo.
 
-% \begin{figure}[!htb]
-% 	\centering
-% 	\includegraphics[width=0.8\textwidth]{figuras/class_report.eps}
-% 	\caption{\textit{Classification report} da porta XOR.}
-% 	\label{class_report}
-% \end{figure}
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/editar.eps}
+    \caption{Editar dados dos pacientes}
+    \label{figeditar}
+\end{figure}
 
-% \begin{figure}[!htb]
-% 	\centering
-% 	\includegraphics[width=0.8\textwidth]{figuras/mcxor.eps}
-% 	\caption{Matriz de confusão da porta XOR.}
-% 	\label{mcxor}
-% \end{figure}
+\subsubsection{Avaliar pacientes}
+Para avaliar um paciente recem inserido, é necessário clicar no botão \textbf{AVALIAR}, como na figura ~\ref{figavaliar} na página ~\pageref{figavaliar}.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/avaliar.eps}
+    \caption{Avaliar pacientes}
+    \label{figavaliar}
+\end{figure}
 
-% \begin{figure}[!htb]
-% 	\centering
-% 	\includegraphics[width=0.8\textwidth]{figuras/mcxornormalizada.eps}
-% 	\caption{Matriz de confusão normalizada da porta XOR.}
-% 	\label{mcxornormalizada}
-% \end{figure}
+\subsubsection{Pesquisar pacientes}
+Para pesquisar por qualquer um dos itens das colunas, basta clicar no iconde de pesquina como na figura ~\ref{figpesquisar} na página ~\pageref{figpesquisar} e inserir o termo da pesquina.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/pesquisar.eps}
+    \caption{Pesquisar itens pelas colunas}
+    \label{figpesquisar}
+\end{figure}
+
+\subsubsection{Pesquisar pacientes}
+Também é possivel execultar outras opções como downloand da tabela, impressão e exibir colunas. Como pode ser observado na figura ~\ref{figpesquisar} na página ~\pageref{figpesquisar}.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/outrasop.eps}
+    \caption{Downloand da tabela, impressão e exibir colunas}
+    \label{figoutrasop}
+\end{figure}
+
+\subsubsection{Pagina arquivados}
+Para exibir os itens arquivados, clica-se na aba \textbf{ARQUIVADOS}, como na figura ~\ref{farquivados} na página ~\pageref{farquivados}.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/arquivados.eps}
+    \caption{Downloand da tabela, impressão e exibir colunas}
+    \label{farquivados}
+\end{figure}
+
+\subsubsection{Pagina sobre}
+A página sobre exibe os detalhes referentes a classificação, figura ~\ref{farquivados} na página ~\pageref{farquivados}.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/arquivados.eps}
+    \caption{Downloand da tabela, impressão e exibir colunas}
+    \label{farquivados}
+\end{figure}
