@@ -10,3 +10,4 @@ clean:
 	rm -f *~ *.dvi *.ps *.backup *.aux *.log
 	rm -f *.lof *.lot *.bbl *.blg *.brf *.toc *.idx
 	rm -f ./figuras/produto/*.pdf
+	rm -f ./figuras/*.pdf
