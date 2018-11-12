@@ -3,67 +3,67 @@
 \section{Processo de AM}
 Esta seção descreve a realização do processo de AM, deste a coleta até a apresentação dos dados.
 \subsection{Coleta}
-A coleta dos dados foi realizada pelos pesquisadores Jorge Luiz (Engenheiro Eletricista) e Bruna da Silva (Fisioterapeuta), utilizanda o protocolo descrito no Apendice \ref{apendicprotocolo}, o qual descreve detalhadamente todo o processo de coleta dos dados, bem como o Termo de Consentimento Livre e Esclarecido – TCLE encontra-se no  Apendice \ref{apendicetae}.
+A coleta dos dados foi realizada pelos pesquisadores Jorge Luiz (Engenheiro Eletricista) e Bruna da Silva (Fisioterapeuta), utiliza o protocolo descrito no Apêndice \ref{apendicprotocolo}, o qual descreve detalhadamente todo o processo de coleta dos dados, bem como o Termo de Consentimento Livre e Esclarecido – TCLE encontra-se no  Apêndice \ref{apendicetae}.
 
-Os dados utilizados para a classificação, se refem a \textbf{Coleta 1 - Tremor de Repouso}, uma vez que esta apresentou os melhores resultados na classificação, já que as outras três coletas apresentavam um alto ruído que acabaram comprometendo os dados. A seguir um pequeno resumo sobre esta coleta.
+Os dados utilizados para a classificação, são referentes a \textbf{Coleta 1 - Tremor de Repouso}, uma vez que esta apresentou os melhores resultados na classificação, já que as outras três coletas apresentaram um alto ruído que acabaram comprometendo os dados. A seguir um pequeno resumo sobre esta coleta.
 
-Foram realizadas três coletas por colaborador, com duração de cinco segundos cada, a disposição dos eletrodos encontra-se no Apendice \ref{apendicetae}. Os dados do sinal foram aramazenadas através da utilização de 4 canais, sendo eles:
+Foram realizadas três coletas por colaborador, com duração de cinco segundos cada, a disposição dos eletrodos encontra-se no Apêndice \ref{apendicetae}. Os dados do sinal foram armazenadas através da utilização de 4 canais, sendo eles:
 \begin{enumerate}
-	\item \textbf{CH1}: Extensor radial do longo do carpo direito;
-	\item \textbf{CH2}: Flexor superficial dos dedos direito;
-	\item \textbf{CH3}: Extensor radial do longo do carpo esquerdo;
-	\item \textbf{CH4}: Flexor superficial dos dedos esquerdo.
+    \item \textbf{CH1}: Extensor radial do longo do carpo direito;
+    \item \textbf{CH2}: Flexor superficial dos dedos direito;
+    \item \textbf{CH3}: Extensor radial do longo do carpo esquerdo;
+    \item \textbf{CH4}: Flexor superficial dos dedos esquerdo.
 \end{enumerate}
 
 Estes dados coletados em sEMG em cada canal, foram cedidos no formato \textit{edf}. Sendo que, os grupos consistiam em 14 pessoas no grupo de controle, cada um com três amostras e 14 pessoas no grupo de pessoas com a DP, também com três amostras cada.
 
 \subsection{Processamento dos dados}
-Com os dados brutos iniciou-se a etapa de pré-processamento dos dados. Inicialmente utilizou-se como tecnica para a filtragem dos dados a Transformada rápida de Fourier (FFT), onde realizou-se testes nos quatro canais disponiveis, realizando um comparativo da acuracia com e sem a FFT, além de um comparativo sobre a acuracia entre os canais.
+Com os dados brutos iniciou-se a etapa de pré-processamento dos dados. Inicialmente utilizou-se como técnica para a filtragem dos dados a Transformada rápida de Fourier (FFT), onde realizou-se testes nos quatro canais disponíveis, realizando um comparativo da acurácia com e sem a FFT, além de um comparativo sobre a acurácia entre os canais.
 
-Com relação aos dados obtidos em cada canal, como pode ser obsrvado na figura \ref{fcomparativo}, utilizando a fft obteve-se um bom resultado nos canais \textbf{CH1} com uma precisão de 78 e um resultado razoavel no \textbf{CH3} com precisão em 69.
+Com relação aos dados obtidos em cada canal, como pode ser obsrvado na figura \ref{fcomparativo}, utilizando a fft obteve-se um bom resultado nos canais \textbf{CH1} com uma precisão de 78 e um resultado razoável no \textbf{CH3} com precisão em 69.
 
-Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta. Porém estes filtros diminuiram a acuracia obtida, como observado na figura \ref{comesemfiltro}, que exemplifica a matriz de confusão referente ao \textbf{CH1}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acuracia caiu.
+Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta. Porém estes filtros diminuem a acurácia obtida, como observado na figura \ref{comesemfiltro}, que exemplifica a matriz de confusão referente ao \textbf{CH1}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acurácia caiu.
 
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=0.8\textwidth]{figuras/fcomparativo.eps}
-	\caption{Comparativo da precisão entre os canais, com a fft.}
-	\label{fcomparativo}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/fcomparativo.eps}
+    \caption{Comparativo da precisão entre os canais, com a fft.}
+    \label{fcomparativo}
 \end{figure}
 
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=1.1\textwidth]{figuras/CH12Comp.eps}
-	\caption{Comparativo entre os canais 1 e 2, com a fft.}
-	\label{fcomparativo}
+    \centering
+    \includegraphics[width=1.1\textwidth]{figuras/CH12Comp.eps}
+    \caption{Comparativo entre os canais 1 e 2, com a fft.}
+    \label{fcomparativo}
 \end{figure}
 
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=1.1\textwidth]{figuras/CH34Comp.eps}
-	\caption{Comparativo entre os canais 3 e 4, com a fft.}
-	\label{fcomparativo}
+    \centering
+    \includegraphics[width=1.1\textwidth]{figuras/CH34Comp.eps}
+    \caption{Comparativo entre os canais 3 e 4, com a fft.}
+    \label{fcomparativo}
 \end{figure}
 
 
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=1.1\textwidth]{figuras/filtroComp.eps}
-	\caption{Matriz de confusão com e sem filtro do \textbf{Ch1}.}
-	\label{comesemfiltro}
+    \centering
+    \includegraphics[width=1.1\textwidth]{figuras/filtroComp.eps}
+    \caption{Matriz de confusão com e sem filtro do \textbf{Ch1}.}
+    \label{comesemfiltro}
 \end{figure}
 
-Também realizou-se a classificação utilizando todos os canais ao mesmo tempo, porém o resultado foi insatisfatorio.
+Também realizou-se a classificação utilizando todos os canais ao mesmo tempo, porém o resultado foi insatisfatório.
 
-Outra técnica de selecão de feature utilizada foi a PCA ou Análise de componentes principais, com a utilização desta tecnica obteve-se uma leve melhora na acuracia, como pode ser observado na figura \ref{pcavalidator}, a qual utilizou-se o \textit{k-fold cross-validator} para verificar a precisão real do modelo.
+Outra técnica de seleção de feature utilizada foi a PCA ou Análise de componentes principais, com a utilização desta técnica obteve-se uma leve melhora na acurácia, como pode ser observado na figura \ref{pcavalidator}, a qual utilizou-se o \textit{k-fold cross-validator} para verificar a precisão real do modelo.
 
-Como pode ser observado na figura \ref{pcavalidator}, com o auxilio do k-fold, pode-se inferir que o Random Forest possui uma precisão superior ao SVM, além de que o PCA aumenta a acuracia consideravelmente do modelo.
+Como pode ser observado na figura \ref{pcavalidator}, com o auxílio do k-fold, pode-se inferir que o Random Forest possui uma precisão superior ao SVM, além de que o PCA aumenta a acurácia consideravelmente do modelo.
 
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=0.7\textwidth]{figuras/modeloComp.eps}
-	\caption{Matriz de confusão com e sem filtro do \textbf{Ch1}}
-	\label{pcavalidator}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figuras/modeloComp.eps}
+    \caption{Matriz de confusão com e sem filtro do \textbf{Ch1}}
+    \label{pcavalidator}
 \end{figure}
 
 Finalizando a etapa de pré-processamento dos dados, concluiu-se que a utilização da FFT com o PCA mostrou-se a melhor combinação para obtermos os melhores resultados, com o \textit{Random Forest} levemente superior ao SVM e o KNN, com as respectivas precisões.
@@ -82,87 +82,87 @@ Os detalhes referentes a construção do produto encontram-se descritos no docum
 
 
 \subsubsection{Pagina inicial}
-A figura ~\ref{fighome} na página ~\pageref{fighome} exemplifica a página inicial da aplicação, sendo que esta aplicação  conterá somente três páginas. Além da página inicial tem-se a página de pacientes arquivados e a página sobre com as informações relacionadas ao métodologia e resultados sobre o processo de Aprendizado de Máquinas utilizado no desenvolvimento da aplicação.
+A figura ~\ref{fighome} na página ~\pageref{fighome} exemplifica a página inicial da aplicação, sendo que esta aplicação  conterá somente três páginas. Além da página inicial tem-se a página de pacientes arquivados e a página sobre com as informações relacionadas ao metodologia e resultados sobre o processo de Aprendizado de Máquinas utilizado no desenvolvimento da aplicação.
 
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=0.9\textwidth]{figuras/produto/home.eps}
-	\caption{Pagina inicial}
-	\label{fighome}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figuras/produto/home.eps}
+    \caption{Pagina inicial}
+    \label{fighome}
 \end{figure}
 
 \subsubsection{Cadastro de pacientes}
-A figura ~\ref{figcadastro} na página ~\pageref{figcadastro} refere-se ao cadastro de pacientes. Nesta tela insere-se os seguintes itens, todos obrigatorios:
+A figura ~\ref{figcadastro} na página ~\pageref{figcadastro} refere-se ao cadastro de pacientes. Nesta tela insere-se os seguintes itens, todos obrigatórios:
 \begin{itemize}
-	\item Nome completo;
-	\item Idade;
-	\item Sexo;
-	\item Arquivo sEMG em formato \textit{edf}.
+    \item Nome completo;
+    \item Idade;
+    \item Sexo;
+    \item Arquivo sEMG em formato \textit{edf}.
 \end{itemize}
 
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=1\textwidth]{figuras/produto/cadastro.eps}
-	\caption{Cadastro das pacientes}
-	\label{figcadastro}
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/cadastro.eps}
+    \caption{Cadastro das pacientes}
+    \label{figcadastro}
 \end{figure}
 
 \subsubsection{Edição de pacientes}
-Para realizar a edição dos dados de um paciente, como demmonstado na figura ~\ref{figcadastro} na página ~\pageref{figcadastro}, ao presionar o botão \textbf{EDITAR} na aba de opções é aberto um \textit{modal} contendo as informações do paciente para a alteração. Para alterar o arquivo sEMG é necessário clicar em alterar arquivo, o qual após adicionado subistitui o antigo.
+Para realizar a edição dos dados de um paciente, como demonstrado na figura ~\ref{figcadastro} na página ~\pageref{figcadastro}, ao pressionar o botão \textbf{EDITAR} na aba de opções é aberto um \textit{modal} contendo as informações do paciente para a alteração. Para alterar o arquivo sEMG é necessário clicar em alterar arquivo, o qual após adicionado substitui o antigo.
 
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=1\textwidth]{figuras/produto/editar.eps}
-	\caption{Editar dados dos pacientes}
-	\label{figeditar}
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/editar.eps}
+    \caption{Editar dados dos pacientes}
+    \label{figeditar}
 \end{figure}
 
 \subsubsection{Avaliar pacientes}
-Para avaliar um paciente recem inserido, é necessário clicar no botão \textbf{AVALIAR}, como na figura ~\ref{figavaliar} na página ~\pageref{figavaliar}.
+Para avaliar um paciente recém inserido, é necessário clicar no botão \textbf{AVALIAR}, como na figura ~\ref{figavaliar} na página ~\pageref{figavaliar}.
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=1\textwidth]{figuras/produto/avaliar.eps}
-	\caption{Avaliar pacientes}
-	\label{figavaliar}
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/avaliar.eps}
+    \caption{Avaliar pacientes}
+    \label{figavaliar}
 \end{figure}
 
 \subsubsection{Pesquisar pacientes}
-Para pesquisar por qualquer um dos itens das colunas, basta clicar no iconde de pesquina como na figura ~\ref{figpesquisar} na página ~\pageref{figpesquisar} e inserir o termo da pesquina.
+Para pesquisar por qualquer um dos itens das colunas, basta clicar no ícone de pesquisa como na figura ~\ref{figpesquisar} na página ~\pageref{figpesquisar} e inserir o termo da pesquisa.
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=1\textwidth]{figuras/produto/pesquisar.eps}
-	\caption{Pesquisar itens pelas colunas}
-	\label{figpesquisar}
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/pesquisar.eps}
+    \caption{Pesquisar itens pelas colunas}
+    \label{figpesquisar}
 \end{figure}
 
 \subsubsection{Pesquisar pacientes}
-Também é possivel execultar outras opções como downloand da tabela, impressão e exibir colunas. Como pode ser observado na figura ~\ref{figpesquisar} na página ~\pageref{figpesquisar}.
+Também é possível executar outras opções como download da tabela, impressão e exibir colunas. Como pode ser observado na figura ~\ref{figpesquisar} na página ~\pageref{figpesquisar}.
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=1\textwidth]{figuras/produto/outrasop.eps}
-	\caption{Downloand da tabela, impressão e exibir colunas}
-	\label{figoutrasop}
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/outrasop.eps}
+    \caption{Download da tabela, impressão e exibir colunas}
+    \label{figoutrasop}
 \end{figure}
 
 \subsubsection{Pagina arquivados}
 Para exibir os itens arquivados, clica-se na aba \textbf{ARQUIVADOS}, como na figura ~\ref{farquivados} na página ~\pageref{farquivados}.
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=1\textwidth]{figuras/produto/arquivados.eps}
-	\caption{Downloand da tabela, impressão e exibir colunas}
-	\label{farquivados}
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/arquivados.eps}
+    \caption{Download da tabela, impressão e exibir colunas}
+    \label{farquivados}
 \end{figure}
 
-\subsubsection{Pagina sobre}
+\subsubsection{Página sobre}
 A página sobre exibe os detalhes referentes a classificação, figura ~\ref{farquivados} na página ~\pageref{farquivados}.
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=1\textwidth]{figuras/produto/arquivados.eps}
-	\caption{Downloand da tabela, impressão e exibir colunas}
-	\label{farquivados}
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/produto/arquivados.eps}
+    \caption{Download da tabela, impressão e exibir colunas}
+    \label{farquivados}
 \end{figure}
 
 \section{Passos futuros e considerações finais}
-    Conseguiu-se atingir os objetivos propostos. Provando que é possível classificar com uma boa acuracia a doença de Parkinson utilizado Aprendizado de Máquinas. Com aproximadamente 80\% de precisão,isto considerando o baixo nivel de amostras, 36 no total. Além disto, foi desenvolvida uma software totalmente operacional, onde um leigo consegue classificar facilmente uma pessoa em alta ou baixa probabilidade de possuir a DP.
+   Conseguiu-se atingir os objetivos propostos. Provando que é possível classificar com uma boa acurácia a doença de Parkinson utilizado Aprendizado de Máquinas. Com aproximadamente 80\% de precisão,isto considerando o baixo nível de amostras, 36 no total. Além disto, foi desenvolvida uma software totalmente operacional, onde um leigo consegue classificar facilmente uma pessoa em alta ou baixa probabilidade de possuir a DP.
 
-    Como passos futuros, é desejável a realização de mais coletas, com a finalidade de aumentar as amostras de treinamento e consequnetemente aumentar a acurácia na classificação da Doença. Também é desejável a realização de uma anamnese mais detalhada.
+   Como passos futuros, é desejável a realização de mais coletas, com a finalidade de aumentar as amostras de treinamento e consequentemente aumentar a acurácia na classificação da Doença. Também é desejável a realização de uma anamnese mais detalhada.
