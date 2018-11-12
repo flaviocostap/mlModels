@@ -4,23 +4,23 @@
 	\chapter{Documento de Arquiteruta}
 	\label{adoarquitetura}
 	\section{introdução}
-	Esta documento descreve a arquitetura e tecnologias da aplicação, utilizadas no desenvolvido do sistema de auxilio na detecção da doença de Parkinson utilizando Tremor em repouso. Desenvolvido pelos alunos de Trabalho de Conclusão de Curso 2 da Universidade de Brasília.
+	Este documento descreve a arquitetura e tecnologias da solução de software, utilizadas no desenvolvido do sistema de auxílio na detecção da doença de Parkinson avaliando o Tremor em Repouso. Desenvolvido pelos alunos de Trabalho de Conclusão de Curso 2 da Universidade de Brasília.
 
-	Será desenvolvida uma aplicação web, podendo facilmente ser migrada para uma aplicação mobile em projetos futuros.
+	Essa solução de software trata-se de uma aplicação web, na qual pode-se facilmente ser migrada para uma aplicação mobile em projetos futuros.
 
 	\section{Tecnologias}
 	\subsection{Single Page Aplication - SPA}
-	SPA (Single Page Application ou Aplicativo de página única), consiste em uma aplicação web em uma unica página, fornecendo uma experiência de uauário semelhante a um aplicativo Desktop, sem recarregamentos da página.
+	SPA (Single Page Application ou Aplicativo de página única), consiste em uma aplicação web em uma unica página, fornecendo uma experiência de usuário semelhante a um aplicativo Desktop, sem recarregamentos da página.
 
     Foi adotado devido a sua vantagem de performance no consumo de dados e na experiência do usuário.
 
 	\subsection{REST}
-	Baseado no baseado no protocolo de comunicação de rede HTTP, sendo simples, rápida e com uma fácil comunicação entre clientes e servidores. Funciona com objetos em formato JSON, e os métodos definidos no protocolo HTTP ( POST, GET, PUT e DELETE) possibilitando assim uma eficiente e rápida troca de informação.
+	Baseado no protocolo de comunicação de rede HTTP, sendo simples, rápida e com uma fácil comunicação entre clientes e servidores. Funciona com objetos em formato JSON, e os métodos definidos no protocolo HTTP ( POST, GET, PUT e DELETE) possibilitando assim uma eficiente e rápida troca de informação.
 
     Foi adotado devido a seu leve consumo de dados, além de possuir uma facil implementação. 
 
 	\section{Representação da Arquitetura}
-	A arquitetura se baseia em dois modelos arquiteturais, REST e SPA, interligados com um modelo de aprendizado de máquinas. No caso o Randon Forest ou o SVM, como observado na figura A Figura \ref{diagramadepacotes} na página \pageref{diagramadepacotes}. Deste modo a aplicação posseu três pacotes, os quais serão detalhados na secção:
+	A arquitetura se baseia em dois modelos arquiteturais, REST e SPA, interligados com um modelo de aprendizado de máquinas. No caso a Floresta Aleatória ou o SVM, como observado na figura A Figura \ref{diagramadepacotes} na página \pageref{diagramadepacotes}. Deste modo a aplicação possue três pacotes, os quais serão detalhados na secção:
 
 	\begin{itemize}
 		\item Machine Learning models;
@@ -38,7 +38,7 @@
 		\label{diagramadepacotes}
 	\end{figure}
 	\subsubsection{Machine Learning models}
-	Consiste no modelo já treinado e vallidado do algoritimo Randon Forest, sendo que este é armazenado no banco de dados \textit{PickleDB}. Deste modo, a comunicação é somente de leitura, com o modelo sendo enviado por completo para a API.
+	Consiste no modelo já treinado e validado do algoritimo Floresta Aleatória, sendo que este é armazenado no banco de dados \textit{PickleDB}. Deste modo, a comunicação é somente de leitura, com o modelo sendo enviado por completo para a API.
 	\subsubsection{API}
 	A API execulta todas as manipulações envolvendo os dados, como o pré-processamento do arquivo enviado pelo usuário, e classificando estes com o modelo salvo. Além de salvar os dados no banco de dados e envia-los quando requisitados, foi desenvolvida utilizadando os padrões de projeto definidos pelo Django-Rest-Framework, possuindo o mair esforço na \textit{View}.
 
