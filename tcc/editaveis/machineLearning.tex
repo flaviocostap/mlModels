@@ -230,3 +230,26 @@ Apesar de sua simplicidade, os vizinhos mais próximos tiveram sucesso em um gra
 
 \subsection{Funcionamento}
 
+Foi utilizado como referência o estudo \cite{peterson2009k} no qual é apresentanda a característica da distância geométrica entre amostras desse algoritimo com uma representação gráfica, a fim de detalhar o funcionamento do mesmo.
+
+O classificador de $ k $ mais próximo do vizinho é comumente baseado na distância euclidiana entre uma amostra de teste e as amostras de treinamento especificadas. Utilizando $ x_{eu} $ como uma amostra de entrada com $ p $ características $ (x_{eu1},x_{eu2},\cdots ,x_{eup}) $ $ n $ ser o número total de amostras de entrada $ (i=1,2,\cdots,n) $ e p o número total de recursos $ (j=1,2,\cdots,p) $ . A distância euclidiana entre a amostra $ x_{i} $ e $ x_{j} $ $ (l=1,2,\cdots,n) $  é definido como:
+
+\begin{equation} \label{eq:diseuclidiana}
+    d(x_{i},x_{l})=\sqrt{(x_{i1}-x_{l1})^{2}+(x_{i2}-x_{l2})^{2}+\cdots+(x_{ip}-x_{lp})^{2}}
+\end{equation}
+
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/Knn_voronoi.eps}
+    \caption{Tesselação de Voronoi mostrando células de Voronoi de 19 amostras marcadas com um "+". A tesselação de Voronoi reflete duas características do sistema de coordenadas bidimensional do exemplo: i) todos os pontos possíveis dentro da célula de Voronoi de uma amostra são os pontos vizinhos mais próximos para essa amostra, e ii) para qualquer amostra, a amostra mais próxima é determinada pelo Voronoi mais próximo. borda da célula.}
+    \label{voronoiEx}
+\end{figure}
+
+Uma representação gráfica do conceito de vizinho mais próximo é ilustrada na tesselação de Voronoi \cite{voronoi1907g} mostrada na Figura. \ref{voronoiEx}. O mosaico mostra 19 amostras marcadas com um "+", e a célula de Voronoi, $ R $ ,em torno de cada amostra. Uma célula de Voronoi encapsula todos os pontos vizinhos que estão mais próximos de cada amostra e é definida como
+
+\begin{equation} \label{eq:celVoroniEncap}
+    R_{i}= \left \{ x \epsilon R^{p}: d(x,x_{i})\leq d(x,x_{m}),\forall i\neq m\right \}
+\end{equation}
+
+Onde $ R_{i} $ é a célula de Voronoi para amostra $ x_{eu} $ , e $ x $ representa todos os pontos possíveis dentro da célula de Voronoi $ R_{i} $. Os mosaicos de Voronoi refletem principalmente duas características de um sistema de coordenadas: i) todos os pontos possíveis dentro da célula de Voronoi da amostra são os pontos vizinhos mais próximos para essa amostra e ii) para qualquer amostra, a amostra mais próxima é determinada pela borda da célula de Voronoi mais próxima. Usando a última característica, a regra de classificação de k-vizinho mais próximo é atribuir a uma amostra de teste o rótulo da categoria majoritária de suas k amostras de treinamento mais próximas. Na prática, $ k $ é geralmente escolhido para ser ímpar, de modo a evitar empates. A regra $ k = 1 $ é geralmente chamada de regra de classificação de vizinho mais próximo \cite{peterson2009k}.
