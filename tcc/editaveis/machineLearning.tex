@@ -96,16 +96,16 @@ Um dos métodos mais utilizadas para apresentar a solução do modelo é a matri
 
 \section{Validação cruzada}
 \label{sc:crossvalidation}
-A validação cruzada ou \textit{Cross-Validation} é uma técnica para verificar o quão eficiente é a capacidade de generalização do modelo. Ou seja, qual o desempenho do modelo ao prever um novo conjunto de dados. Com a validação cruzada evita-se o \textit{overfitting}, além de auxiliar no ajuste dos parâmetros do algoritmo \cite{james2013introduction}. A validação cruzada consiste em \cite{james2013introduction}:
+A validação cruzada ou \textit{Cross-Validation} é uma técnica para verificar o quão eficiente é a capacidade de generalização do modelo. Ou seja, qual o desempenho do modelo ao prever um novo conjunto de dados. Com a validação cruzada evita-se o \textit{overfitting}, além de auxiliar no ajuste dos parâmetros do algoritmo \cite{james2013introduction}. A validação cruzada consiste em \cite{james2013introduction} e \cite{raschka2015python}:
 
 \begin{enumerate}
     \item Separar aleatoriamente o conjunto de dados em três partes (treino, teste e validação);
     \item O conjunto de dados de treino é utilizado para treinar o modelo;
-    \item O conjunto de validação é utilizado para ajustar os parâmetros. Isto é, após o treino verifica-se a precisão do modelo e caso não atinga a expectativa, realiza-se os ajustes necessários no algoritmo. Após, realiza-se um novo treinamento com os dados de teste \cite{raschka2015python};
+    \item O conjunto de validação é utilizado para ajustar os parâmetros. Isto é, após o treino verifica-se a precisão do modelo e caso não atinga a expectativa, realiza-se os ajustes necessários no algoritmo. Após, realiza-se um novo treinamento com os dados de teste;
     \item Ao final, verifica-se a generalização do algoritmo treinado, utilizando o conjunto de validação. Deste modo, o conjunto de validação é utilizada apenas uma vez no processo de AM.
 \end{enumerate}
 
-A validação cruzada possue ainda algumas variações, sendo elas: \textit{holdout cross-validation}, \textit{k-Fold Cross-Validation} e \textit{Leave-one-out cross-validation (LOOCV)} \cite{james2013introduction}.
+A validação cruzada possue ainda algumas variações, sendo elas: \textit{holdout cross-validation}, \textit{k-Fold Cross-Validation} e \textit{Leave-one-out cross-validation (LOOCV)}.
 
 
 \subsection{\textit{Holdout Cross-Validation}}
@@ -123,6 +123,13 @@ No \textit{k-fold} dividi-se o conjunto total de dados em \textbf{\textit{k}} su
      \label{kfold}
 \end{figure}
 
+As seções seguintes descrevem os principais algoritmos de AM utilizados em classificação, segundo \citeonline{scikitlearn}, sendo eles:
+\begin{itemize}
+    \item SVM;
+    \item Floresta aleatória;
+    \item K Vizinhos Mais Próximos.
+\end{itemize}
+
 \section{SVM}
 
 A SVM é um dos modelos mais populares em AMs, sendo composto por um conjunto de métodos de aprendizado supervisionada. Pode ser utilizada para classificação, regressão ou \textit{outlier detection} \cite{scikitlearn}. Segundo \citeonline{braga2000redes} e \citeonline{haykin1999neural}, os resultados da aplicação de SVM são comparáveis e muitas vezes superiores aos obtidos por outros algoritmos de aprendizado, como as RNAs. Exemplos de aplicações de sucesso podem ser encontrados em diversos domínios, como na categorização de textos,  catalogação de imagens \cite{pontil1998support}, e em Bioinformática \cite{noble2004support}.
@@ -132,10 +139,9 @@ As SVMs são divididas em dois grupos, categorizadas conforme o estado dados a s
 Segundo \citeonline{scikitlearn}, as principais vantagens em SVMs são:
 
 \begin{itemize}
-    \item Eficaz em grandes espaços dimensionais;
-    \item Continua eficaz quando o numero de dimensões supera o de amostras;
-    \item Eficiente em termo de memória;
-    \item Versátil: possui diferentes tipos de funções de \textit{kernel} (linear, polinomial, sigmoide e RBF (sigla do inglês: \textit{radial basis function}, função de base radial)), possibilita também a utilização de um \textit{kernel} customizado, ou seja, uma função matemática personalizada. A Figura \ref{svmkernel} na página \pageref{svmkernel} exemplifica algumas funções de \textit{kernel}, onde os dados são classificados em três grupos distintos (azul, azul claro e vermelho).
+    \item sua eficácia em grandes espaços dimensionais ou quando o numero de dimensões supera o de amostras;
+    \item a eficiência em termo de memória;
+    \item a versátilidade: possui diferentes tipos de funções de \textit{kernel} (linear, polinomial, sigmoide e RBF (sigla do inglês: \textit{radial basis function}, função de base radial), possibilita também a utilização de um \textit{kernel} customizado, ou seja, uma função matemática classificação personalizada. A Figura \ref{svmkernel} exemplifica algumas funções de \textit{kernel}, onde os dados são classificados em três grupos distintos.
 \end{itemize}
 
 \begin{figure}[!htb]
