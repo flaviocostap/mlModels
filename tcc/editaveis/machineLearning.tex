@@ -188,13 +188,13 @@ A segunda opção retratada pelo estudo de \citeonline{evgeniou1999support} é a
 
 Para classificação, o erro de classificação precisa ser minimizado. Então uma função de perda do sinal na forma apresentada pela Equação \ref{eq:formaperda}, deve ser usada (na classificação \textbf{\textit{y}} toma valores binários $ \pm1 $ e a classificação é feita tomando o sinal de função $ f(x) $). No entanto, devido à escala e às razões computacionais \cite{vapnik1998statistical}, a função de perda real usada para classificação SVM é, Equação \ref{eq:formaperdaSVM}. Ou seja, caso a função de perda seja 0, temos:
 
-\begin{equation} \label{eq:formaperda}
+\begin{equation} \label{eq:perda0}
     |1-yf(x)|< 0  
 \end{equation}
 
 caso contrário temos:
 
-\begin{equation} \label{eq:formaperda}
+\begin{equation} \label{eq:perda1}
     |1-yf(x)|> 0   
 \end{equation}
 
