@@ -1,8 +1,8 @@
 \chapter{Aprendizado de Máquina}
 \section{Definição}
-A AM é considerado uma disciplina dentro da inteligência artificial, com foco na construção de softwares computacionais, dotados da capacidade de aprender autonomamente \cite{Hosch}. Essa disciplina trabalha com o estudo e a construção de algoritmos, capazes de aprender com seus “erros” no reconhecimento de dados e realizarem previsões sobre novos dados. Esses algoritmos de indução são considerados um grande passo na descoberta do conhecimento \cite{Kohavi}.
+A AM é considerado uma disciplina dentro da inteligência artificial, com foco na construção de softwares computacionais dotados da capacidade de aprender autonomamente \cite{Hosch}. Essa disciplina trabalha com o estudo e a construção de algoritmos, capazes de aprender com seus “erros” no reconhecimento de dados e realizarem previsões sobre novos dados. Esses algoritmos de indução são considerados um grande passo na descoberta do conhecimento \cite{Kohavi}.
 
-Apesar da complexidade em AM, essa disciplina pode ser contextualizada de maneira mais geral como o campo de estudo, que dá ao computador a habilidade de aprender sem ser explicitamente programado \cite{Arthur}, porém uma visão mais orientada para a área da engenharia, que segundo \citeonline{Tom}, é dito que um programa de computador aprende com a experiência \textbf{\textit{E}} em relação a alguma tarefa \textbf{\textit{T}} e alguma medida de desempenho \textbf{\textit{P}}, se seu desempenho em \textbf{\textit{T}} e medido por \textbf{\textit{P}} melhora com a experiência \textbf{\textit{E}}.
+Apesar da complexidade em AM, essa disciplina pode ser contextualizada de maneira mais geral como o campo de estudo que dá ao computador a habilidade de aprender sem ser explicitamente programado \cite{Arthur}, porém uma visão mais orientada para a área da engenharia, que segundo \citeonline{Tom}, é dito que um programa de computador aprende com a experiência \textbf{\textit{E}} em relação a alguma tarefa \textbf{\textit{T}} e alguma medida de desempenho \textbf{\textit{P}}, se seu desempenho em \textbf{\textit{T}} e medido por \textbf{\textit{P}} melhora com a experiência \textbf{\textit{E}}.
 
 \section{Aplicações em Aprendizado de Máquina}
 O AM serve de auxílio para diversos contextos de naturezas diferentes. Sendo assim, a AM consegue auxiliar com o uso dos dados coletados a melhor decisão de um negócio, por exemplo, uma possível aplicação de um modelo de AM é predizer qual a probabilidade de um cliente comprar um determinado produto com base no seu histórico de compras passadas \cite{Amazon}.
@@ -20,12 +20,13 @@ Os algoritmos são classificados quanto ao seu tipo de aprendizado. Existem trê
 \subsection{Aprendizado Supervisionado}
 O objetivo principal do aprendizado supervisionado é ensinar um modelo através de uma base de treino etiquetada, que permite fazer predições de dados futuros. O termo supervisionado se refere a um grupo de dados onde a “resposta”, sinal ou valor esperado já é conhecido. Este valor é conhecido como etiqueta, e é utilizada para verificar se o algoritmo identificou corretamente os dados durante o treinamento. As tarefas do aprendizado supervisionado podem ser divididas em classificação e regressão, onde a classificação tem as etiquetas esperadas com um valor fixo, por exemplo, uma avaliação binária, e a regressão é referente a um sinal com valor contínuo, como uma regressão polinomial \cite{geron2017hands}, ou segundo \cite{kirk2014thoughtful}, a regressão é ajustar o conjunto de dados á uma função qualquer.
 
-Exemplos de algoritmos existentes (\cite{lorena2007introduccao}; \cite{kirk2014thoughtful}; \cite{murthy1998automatic}):
+Exemplos de algoritmos existentes \cite{lorena2007introduccao}; \cite{kirk2014thoughtful}; \cite{murthy1998automatic} \cite{ho1995random}:
 
 \begin{itemize}
-    \item \textbf{KNN},\textit{ K-Nearest Neighbor} (K vizinhos mais próximos): Determina o rótulo de classificação de um dado baseando nos valores das amostras vizinhas mais próximos;
-    \item \textit{\textbf{Decision Trees}}: é uma forma de organizar regras referentes a dados com estruturas hierárquicas e sequências, que particionam estes dados recursivamente;
-    \item \textbf{SVM},\textit{ Support Vector Machine}: separado em linear e não linear, consiste na separação de dados de um conjunto maior em classes de conjuntos mais restritos.
+    \item \textbf{KNN}: Determina o rótulo de classificação de um dado baseando nos valores das amostras vizinhas mais próximos;
+    \item \textit{Decision Trees}: é uma forma de organizar regras referentes a dados com estruturas hierárquicas e sequências, que particionam estes dados recursivamente;
+    \item \textbf{SVM}: separado em linear e não linear, consiste na separação de dados de um conjunto maior em classes de conjuntos mais restritos.
+    \item \textbf{RF}: são um método de aprendizado conjunto para classificação, regressão e outras tarefas, que operam construindo uma multiplicidade de árvores de decisão no momento do treinamento e gerando a classe que é o modo das classes ou previsão média das árvores individuais.
 \end{itemize}
 
 \subsection{Aprendizado não-supervisionado}
@@ -41,23 +42,23 @@ Exemplos de algoritmos existentes \cite{kirk2014thoughtful}:
 Utiliza um sistema de recompensas para reforçar a continuidade de um comportamento esperado, por exemplo, um jogo onde o personagem é beneficiado com uma recompensa sempre que atinge um golpe no adversário, quanto mais forte for o golpe maior a recompensa. Deste modo, o modelo memoriza quais os comandos geraram as maiores recompensas \cite{kirk2014thoughtful}.
 
 \section{\textit{Feature}} 
-Uma \textit{feature} é uma característica ou variável do problema, que pode ser processada pelo modelo e gerar um resultado condizente com a realidade, deve ser mensurável e independente, sendo que uma \textit{feature} é a base para o funcionamento dos algoritmos de classificação, regressão e reconhecimento de padrões. Normalmente, é um número mas pode ser uma palavra, grafo, vetor etc \cite{chandrashekar2014survey}.
+Uma \textit{feature} é uma característica ou variável do problema, que pode ser processada pelo modelo e gerar um resultado condizente com a realidade. Deve ser mensurável e independente, sendo que uma \textit{feature} é a base para o funcionamento dos algoritmos de classificação, regressão e reconhecimento de padrões. Normalmente, é um número mas pode ser uma palavra, grafo, vetor, dentre outros. \cite{chandrashekar2014survey}.
 
-Outro conceito importante sobre AMs, é a \textbf{redução de dimensionalidade}, muito utilizada em estatística e AM, refere-se ao processo de diminuição do número de variáveis aleatórias, selecionando um subconjunto com variáveis relevantes. Serve dentre outras funcionalidades, para transformar o processo de aprendizado mais eficiente \cite{borges2006reduccao}. Isto ocorre devido a modelos com um numero elevado de variáveis ocasionam em um maior tempo de computação e um baixo desempenho da previsão \cite{chandrashekar2014survey}.
+Outro conceito importante sobre AMs, é a \textbf{redução de dimensionalidade}, muito utilizada em estatística, refere-se ao processo de diminuição do número de variáveis aleatórias, selecionando um subconjunto com variáveis relevantes. Serve, dentre outras funcionalidades, para transformar o processo de aprendizado mais eficiente \cite{borges2006reduccao}. Isto ocorre devido a modelos com um número elevado de variáveis ocasionam em um maior tempo de computação e um baixo desempenho da previsão \cite{chandrashekar2014survey}.
 
 \section{Desafios do Aprendizado de Máquinas}
 Em um projeto de AM, existem diversos aspectos que podem levar a um péssimo resultado ou problemas na execução do mesmo. Em resumo, a tarefa principal do AM é a seleção de um algoritmo, ou modelo, e treiná-lo utilizando algum tipo de dado. Logo, ao analisar os problemas provenientes de um resultado ineficiente, pode-se encontrar principalmente duas origens para o problema a escolha de um “algoritmo ruim” ou “dados ruins” \cite{geron2017hands}.
 
-O conceito de “dados ruins”, não deve ser considerado ao pé da letra, sendo um pouco mais complexo, envolvendo principalmente a coleta destes e tratamento associado. Para exemplificar,  pode-se listar alguns exemplos retirados do livro \cite{geron2017hands}:
+O conceito de “dados ruins”, não deve ser considerado ao pé da letra, sendo um pouco mais complexo, envolvendo principalmente a coleta destes e tratamento associado. Para exemplificar,  pode-se listar alguns exemplos retirados de \cite{geron2017hands}:
 
 \begin{itemize}
-    \item \textbf{Quantidade insuficiente de dados de treino}: Para um funcionamento pleno de um sistema de AMs é necessário uma grande quantidade de dados, alguns problemas necessitam de uma alta quantidade de dados para funcionar corretamente, como no reconhecimento de imagens.
-    \item \textbf{Dados não representativos}: Com o intuito de alcançar a boa generalização, é crucial que os dados de treino sejam representativos.
-    \item \textbf{Dados de baixa qualidade}: É evidente que caso os dados de treinos tenham muitos erros e ruídos, originados de um péssimo processo de coleta, isso irá dificultar o sistema a detectar os padrões necessários ou até mesmo alcançar o mínimo de performance requerido.
-    \item \textbf{\textit{Features}  irrelevantes}: Seguindo a lógica por trás do ditado \textit{garbage-in garbage-out} (termo em inglês: Lixo entra e lixo sai), o sistema apenas será capaz de gerar resultados caso exista dados contendo o suficiente de \textit{features} relevantes ao invés das não relevantes, ou seja, \textit{features} irrelevantes podem conduzir o programa a uma baixa precisão.
+    \item \textbf{Quantidade insuficiente de dados de treino}: Para um funcionamento pleno de um sistema de AMs é necessária uma grande quantidade de dados, alguns problemas necessitam de uma alta quantidade de dados para funcionar corretamente, como no reconhecimento de imagens.
+    \item \textbf{Dados não representativos}: Com o intuito de alcançar a boa generalização, é crucial que os dados de treino sejam representativos em relação ao escopo dos dados.
+    \item \textbf{Dados de baixa qualidade}: É evidente que caso os dados de treinos tenham muitos erros e ruídos, originados de um péssimo processo de coleta, isso irá dificultar o sistema na detectação de padrões necessários ou até mesmo alcançar o mínimo de performance requerido.
+    \item \textbf{\textit{Features}  irrelevantes}: Seguindo a lógica por trás da expressão \textit{garbage-in garbage-out} (termo em inglês: Lixo entra e lixo sai), o sistema apenas será capaz de gerar bons resultados caso exista dados contendo o suficiente de \textit{features} relevantes ao invés das não relevantes, ou seja, \textit{features} irrelevantes podem conduzir o programa a uma baixa precisão.
 \end{itemize}
 
-Com relação a “algoritmo ruim”, também não deve ser interpretado literalmente, ou seja, um “algoritmo ruim” pode ser proveniente da escolha de um modelo de algoritmo para tratar um problema no qual o algoritmo não foi otimizado para solucionar. Exitem dois principais problemas associados ao manejo de um algoritmo, sendo eles:
+Com relação a “algoritmo ruim”, também não deve ser interpretado literalmente, ou seja, um “algoritmo ruim” pode ser proveniente da escolha de um modelo de algoritmo para tratar um problema no qual o algoritmo não foi otimizado para solucionar. Exitem dois principais problemas associados ao manejo de um algoritmo, sendo eles \cite{geron2017hands}:
 
 \begin{itemize}
     \item \textbf{\textit{Overfitting} dos dados de treino}: \textit{Overfitting} acontece quando o modelo apresenta uma boa performance na sua base de treino, mas não generaliza muito bem, ou seja, o modelo pode ser considerado “viciado”, é um erro bem comum ocorrendo no treinamento do modelo. Por exemplo, uma amostragem com muito ruído pode encontrar algum padrão no próprio ruído e generalizar para o mesmo, não generalizando para novos dados.
@@ -66,21 +67,21 @@ Com relação a “algoritmo ruim”, também não deve ser interpretado literal
 
 \section{Ferramentas}
 \label{sec:MAFerramentas}
-Existem diversas ferramentas para auxiliar o desenvolvimento em AM, sendo que atualmente \textit{Python} é uma das linguagens mais utilizadas nesse seguimento. Segundo \citeonline{senders2017machine}, essa utilização é devido ao conjunto bem eficiente de bibliotecas disponíveis, o fato de ser de código aberto, a facilidade de plotar gráficos e demais esquemas de visualização, além da simplicidade de identificar erros no software, tornam a linguagem \textit{Python} uma boa indicação para trabalhar com AM.
+Existem diversas ferramentas para auxiliar o desenvolvimento em AM, sendo que atualmente \textit{Python} é uma das linguagens mais utilizadas nesse seguimento. Segundo \citeonline{senders2017machine}, essa utilização é devido ao conjunto bem eficiente de bibliotecas disponíveis, o fato de ser de código aberto, a facilidade de plotar gráficos e demais esquemas de visualização, além da simplicidade de identificar erros no \textit{software}, tornam a linguagem \textit{Python} uma boa indicação para trabalhar com AM.
 
-Algumas ferramentas amplamente utilizadas em AM, podem ser elucidadas a seguir (\cite{scikitlearn}; \cite{abadi2016tensorflow}; \cite{McKinney2012datapython}):
+Algumas ferramentas amplamente utilizadas em AM, podem ser elucidadas a seguir \cite{scikitlearn}; \cite{abadi2016tensorflow}; \cite{McKinney2012datapython}:
 \begin{itemize}
     \item \textbf{\textit{Scikit-learn}}: Possui uma ampla gama de algoritmos, com uma alta facilidade de uso, boa documentação e uma API amplamente consistente. API (sigla do Inglês: \textit{Application Programming Interface}, Interface de Programação de Aplicação), é um conjunto de funções que são utilizados para facilitar o desenvolvimento de um \textit{software};
     \item \textbf{\textit{TensorFlow}}: Projetado pelo Google para operar em larga escala, utiliza ferramentas avançadas sendo utilizado inclusive pelo próprio Google;
     \item \textbf{\textit{Keras}}: API de alto nível com foco em RNAs (Redes Neurais Artificiais);
     \item \textbf{\textit{Matplotlib}}: Ferramenta para a criação de gráficos;
     \item \textbf{\textit{Numpy}}: Utilizada para manipulações matemáticas complexas, como multiplicação de matrizes, entre outras;
-    \item \textbf{\textit{Jupyter Notebook}}: aplicativo que permite a criação de códigos em Python de modo interativo;
+    \item \textbf{\textit{Jupyter Notebook}}: aplicativo que permite a criação de códigos em \textit{Python} de modo interativo;
     \item \textbf{\textit{Pandas}}: Ferramenta para estruturar dados, tornando o trabalho com dados “relacionais” ou “rotulados” mais fácil e intuitivo. Ideal para trabalhar com matrizes.
 \end{itemize}
 
 \section{Visualizar a solução}
-Construir visualizações informativas são umas das mais importantes tarefas dentro da análise de dados \cite{McKinney2012datapython}. Essa etapa consiste na utilização de ferramentas e técnicas para a representação dos dados obtidos tanto pelo modelo quanto pelos dados coletados, para validação dos mesmos. O resultados obtidos pelo algoritmo de AM sobre os dados de coleta serão aferidos quanto ao seu \textit{benchmarking} \cite{Benchmarking} para avaliar o seu desempenho, análise de acurácia e precisão como também para avaliar seu tempo de resposta. A apresentação dos dados da coleta tem por objetivo avaliar tanto a separação do espaço amostral dos dados quanto para se obter um comparativo que melhor represente de maneira visual os dados após a filtragem da etapa do processamento dos dados, de maneira geral serve para ajudar a identificar \textit{outliers} ou transformações de dados necessárias, ou como uma forma de gerar ideias para modelos \cite{McKinney2012datapython}.
+Construir visualizações informativas são umas das mais importantes tarefas dentro da análise de dados \cite{McKinney2012datapython}. Essa etapa consiste na utilização de ferramentas e técnicas para a representação dos dados obtidos tanto pelo modelo quanto pelos dados coletados para validação dos mesmos. O resultados obtidos pelo algoritmo de AM sobre os dados de coleta seram aferidos quanto ao seu \textit{benchmarking} \cite{Benchmarking} para avaliar o seu desempenho, análise de acurácia e precisão como também para avaliar seu tempo de resposta. A apresentação dos dados da coleta tem por objetivo avaliar tanto a separação do espaço amostral dos dados quanto para se obter um comparativo que melhor represente de maneira visual os dados após a filtragem da etapa do processamento dos dados, de maneira geral serve para ajudar a identificar \textit{outliers} ou transformações de dados necessárias ou como uma forma de gerar ideias para modelos \cite{McKinney2012datapython}.
 
 \subsection{Matriz de Confusão}
 \label{sc:matrizconsusao}
@@ -95,7 +96,7 @@ Um dos métodos mais utilizadas para apresentar a solução do modelo é a matri
 
 \section{Validação cruzada}
 \label{sc:crossvalidation}
-A validação cruzada ou \textit{Cross-Validation} é uma técnica para verificar o quão eficiente é a capacidade de generalização do modelo. Ou seja, qual o desempenho do modelo ao prever um novo conjunto de dados. Com a validação cruzada evita-se o \textit{overfitting}, além de auxiliar no ajuste dos parâmetros do algoritmo. A validação cruzada consiste em \cite{james2013introduction}:
+A validação cruzada ou \textit{Cross-Validation} é uma técnica para verificar o quão eficiente é a capacidade de generalização do modelo. Ou seja, qual o desempenho do modelo ao prever um novo conjunto de dados. Com a validação cruzada evita-se o \textit{overfitting}, além de auxiliar no ajuste dos parâmetros do algoritmo \cite{james2013introduction}. A validação cruzada consiste em \cite{james2013introduction}:
 
 \begin{enumerate}
     \item Separar aleatoriamente o conjunto de dados em três partes (treino, teste e validação);
@@ -108,10 +109,10 @@ A validação cruzada possue ainda algumas variações, sendo elas: \textit{hold
 
 
 \subsection{\textit{Holdout Cross-Validation}}
-Modelo clássico da validação cruzada, consiste em separar os dados em dois conjuntos mutualmente exclusivos (treino validação), porém essa abordagem acaba não sendo eficiente, por aumentar a probabilidade de \textit{overfitting}, para uma maior eficiência, utiliza-se a variações com os três conjuntos explicados anteriormente \cite{raschka2015python}.
+Modelo clássico da validação cruzada, consiste em separar os dados em dois conjuntos mutualmente exclusivos (treino e validação), porém essa abordagem acaba não sendo eficiente, por aumentar a probabilidade de \textit{overfitting}, para uma maior eficiência, utiliza-se a variações com os três conjuntos explicados anteriormente \cite{raschka2015python}.
 
 \subsection{\textit{k-Fold Cross-Validation}}
-No \textit{k-fold} dividi-se o conjunto total de dados em \textbf{\textit{k}} subconjuntos mutualmente exclusivos, com a mesma quantidade de dados, um destes subconjuntos é utilizado para teste e os outros \textbf{\textit{k-1}} restantes, são utilizados no treinamento do modelo, com os devidos ajuste de parâmetros necessários, tal processo é repetido \textbf{\textit{k}} vezes, alternando o conjunto de teste nestas iterações. Após as \textbf{\textit{k}} iterações, calculas-se a média do erro esperado. A Figura \ref{kfold} na página \pageref{kfold} ilustra este método.
+No \textit{k-fold} dividi-se o conjunto total de dados em \textbf{\textit{k}} subconjuntos mutualmente exclusivos, com a mesma quantidade de dados, um destes subconjuntos é utilizado para teste e os outros \textbf{\textit{k-1}} restantes são utilizados no treinamento do modelo com os devidos ajuste de parâmetros necessários, tal processo é repetido \textbf{\textit{k}} vezes, alternando o conjunto de teste nestas iterações. Após as \textbf{\textit{k}} iterações, se calcula a média do erro esperado. A Figura \ref{kfold} na página \pageref{kfold} ilustra este método.
 
 \subsection{\textit{Leave-One-Out Cross-Validation (LOOCV)}} Uma variação do \textit{k-fold}, com \textbf{\textit{k}} igual ao total de dados de entrada \textbf{\textit{N}}. Possue um alto custo operacional.
 
@@ -124,15 +125,11 @@ No \textit{k-fold} dividi-se o conjunto total de dados em \textbf{\textit{k}} su
 
 \section{SVM}
 
-A SVM é um dos modelos mais populares em AMs, sendo composto por um conjunto de métodos de aprendizado supervisionada. Podem ser utilizadas para classificação, regressão ou \textit{outlier detection} \cite{scikitlearn}. Segundo \citeonline{braga2000redes} e \citeonline{haykin1999neural}, os resultados da aplicação de SVM, são comparáveis e muitas vezes superiores aos obtidos por outros algoritmos de aprendizado, como as RNAs. Exemplos de aplicações de sucesso podem ser encontrados em diversos domínios, como na categorização de textos,  catalogação de imagens \cite{pontil1998support}, e em Bioinformática \cite{noble2004support}.
+A SVM é um dos modelos mais populares em AMs, sendo composto por um conjunto de métodos de aprendizado supervisionada. Pode ser utilizada para classificação, regressão ou \textit{outlier detection} \cite{scikitlearn}. Segundo \citeonline{braga2000redes} e \citeonline{haykin1999neural}, os resultados da aplicação de SVM são comparáveis e muitas vezes superiores aos obtidos por outros algoritmos de aprendizado, como as RNAs. Exemplos de aplicações de sucesso podem ser encontrados em diversos domínios, como na categorização de textos,  catalogação de imagens \cite{pontil1998support}, e em Bioinformática \cite{noble2004support}.
 
 As SVMs são divididas em dois grupos, categorizadas conforme o estado dados a serem resolvidos, ou seja é um problema linear ou não \cite{lorena2007introduccao}.
-\begin{itemize}
-    \item SVMs Lineares.
-    \item SVMs Não Lineares.
-\end{itemize}
 
-Segundo a documentação oficial do \citeonline{scikitlearn}, as principais vantagens em SVMs são:
+Segundo \citeonline{scikitlearn}, as principais vantagens em SVMs são:
 
 \begin{itemize}
     \item Eficaz em grandes espaços dimensionais;
@@ -159,15 +156,15 @@ Segundo a documentação oficial do \citeonline{scikitlearn}, as principais vant
 
  \subsection{Funcionamento}
 
-As SVMs foram desenvolvidas por Vapnik em 1998, no âmbito da Teoria Estatística da Aprendizagem, logo para entender o funcionamento do dado modelo é necessário entender o próprio \textit{framework} da Teoria Estatística da Aprendizagem \cite{vapnik1998statistical}. Porém como o foco neste trabalho é a aplicação do modelo, não será abordado de maneira aprofundada o conceito da Teoria Estatística da Aprendizagem cujo o foco é a implementação.
+As SVMs foram desenvolvidas por Vapnik em 1998, no âmbito da Teoria Estatística da Aprendizagem, logo para entender o funcionamento do dado modelo é necessário entender o próprio \textit{framework} da Teoria Estatística da Aprendizagem \cite{vapnik1998statistical}. Porém como o foco neste trabalho é a aplicação do modelo, não será abordado de maneira aprofundada o conceito da Teoria Estatística da Aprendizagem, cujo o foco é a implementação.
  
-Uma explicação simplista do funcionamento do SVM é a linear, na qual o hiperplano se encontra no espaço dos dados de entrada \textbf{\textit{X}}. A noção mais comum sobre o SVM, é que o mesmo encontra um melhor hiperplano como a solução para o problema de aprendizagem \cite{vapnik1998statistical}. No caso linear o espaço de hipóteses é um subconjunto de todos os hiperplanos. Como observado na Equação \ref{eq:hiperplanofdx} \cite{evgeniou1999support}:
+Uma explicação mais simplista do funcionamento do SVM linear, nesse grupo o hiperplano se encontra no espaço dos dados de entrada \textbf{\textit{X}}. A noção mais comum sobre o SVM, é que o mesmo encontra um melhor hiperplano como a solução para o problema de aprendizagem \cite{vapnik1998statistical}. No caso linear o espaço de hipóteses é um subconjunto de todos os hiperplanos. Como observado na Equação \ref{eq:hiperplanofdx} \cite{evgeniou1999support}:
 
 \begin{equation} \label{eq:hiperplanofdx}
     f(x)= w\cdot x +b
 \end{equation}
 
-Em sua formulação mais geral, o SVM encontra um hiperplano em um espaço diferente daquele dos dados de entrada \textbf{\textit{X}}. É um hiperplano, em um espaço de característica induzido por um kernel \textbf{\textit{K}}. Através do kernel \textbf{\textit{K}}, o espaço de hipóteses é definido como um conjunto de  “hiperplanos” no espaço de feições induzido por \textbf{\textit{K}}. Isso também pode ser visto como um conjunto de funções em um EHR (Espaço Hilbert de Reprodução) definido por \textbf{\textit{K}} \cite{wahba1990spline}, \cite{vapnik1998statistical}. Também não será discutido neste trabalho a EHR. Para resumir, o espaço de hipóteses usado pelo SVM é um subconjunto do conjunto de hiperplanos definido em algum espaço de um EHR. Este espaço pode ser formalmente escrito como na Equação \ref{eq:leftleft}.
+Em sua formulação mais geral, a SVM encontra um hiperplano em um espaço diferente daquele dos dados de entrada \textbf{\textit{X}}. É um hiperplano, em um espaço de característica induzido por um  \textit{kernel} \textbf{\textit{K}}. Através do  \textit{kernel} \textbf{\textit{K}}, o espaço de hipóteses é definido como um conjunto de  “hiperplanos” no espaço de feições induzido por \textbf{\textit{K}}. Isso também pode ser visto como um conjunto de funções em um EHR (Espaço Hilbert de Reprodução) definido por \textbf{\textit{K}} \cite{wahba1990spline} \cite{vapnik1998statistical}. Para resumir, o espaço de hipóteses usado pelo SVM é um subconjunto do conjunto de hiperplanos definido em algum espaço de um EHR. Este espaço pode ser formalmente escrito como na Equação \ref{eq:leftleft}.
 
 \begin{equation} \label{eq:leftleft}
     \left \{ f:\left \| f \right \|_{2}^{k} < \infty \right \}
@@ -175,15 +172,27 @@ Em sua formulação mais geral, o SVM encontra um hiperplano em um espaço difer
 
 Onde \textbf{\textit{K}} é o kernel que define o EHR, e $ \left \| f \right \|_{2}^{k} $  é a norma EHR da função \cite{wahba1990spline}. 
 
-SVM considera os conjuntos da forma da Equação \ref{eq:forma}, para alguma constante \textbf{\textit{A}}. Na estrutura da Teoria Estatística de Aprendizagem, a constante \textbf{\textit{A}} é usada para definir uma estrutura de espaços de hipóteses (o quanto maior for, mais complexo é o espaço da hipótese). O objetivo do SVM é encontrar a solução com a norma EHR  “ideal”, ou seja, encontrar o \textbf{\textit{A}} ótimo \cite{evgeniou1999support}.
+A SVM considera os conjuntos da forma da Equação \ref{eq:forma} para alguma constante \textbf{\textit{A}}. Na estrutura da Teoria Estatística de Aprendizagem, a constante \textbf{\textit{A}} é usada para definir uma estrutura de espaços de hipóteses (o quanto maior for, mais complexo é o espaço da hipótese). O objetivo do SVM é encontrar a solução com a norma EHR  “ideal”, ou seja, encontrar o \textbf{\textit{A}} ótimo \cite{evgeniou1999support}.
 
 \begin{equation} \label{eq:forma}
     \left \{ f:\left \| f \right \|_{2}^{k} \leq A^{2} \right \}\
 \end{equation}
 
-A segunda opção retratada pelo estudo de \citeonline{evgeniou1999support} é a da função de perda. Uma função de perda, é uma função que mapeia um evento ou valores de uma ou mais variáveis num número real, intuitivamente representando algum “custo” associado ao evento \cite{wald1950statistical}. O estudo \citeonline{evgeniou1999support} distingue os SVM em classificação e regressão, porém como este trabalho será focado na classificação, será apenas retratado o primeiro caso dos classificadores SVM.
+A segunda opção retratada pelo estudo de \citeonline{evgeniou1999support} é a da função de perda. Uma função de perda é uma função que mapeia um evento ou valores de uma ou mais variáveis num número real, intuitivamente representando algum “custo” associado ao evento \cite{wald1950statistical}. O estudo \citeonline{evgeniou1999support} distingue os SVM em classificação e regressão, porém como este trabalho será focado na classificação, será apenas retratado o primeiro caso, dos classificadores SVM.
 
-Para classificação, idealmente o erro de classificação precisa ser minimizado. Então uma função de perda do sinal na forma, Equação \ref{eq:formaperda}, deve ser usada (na classificação \textbf{\textit{y}} toma valores binários $ \pm1 $, e a classificação é feita tomando o sinal de função $ f(x) $). No entanto, devido à escala e às razões computacionais \cite{vapnik1998statistical}, a função de perda real usada para classificação SVM é, Equação \ref{eq:formaperdaSVM}. Ou seja, 0 se $ |1-yf(x)|< 0 $ e $ |1-yf(x)| $ caso contrário. Isso também é chamado de função de perda de  “margem flexível” por causa de sua interpretação padrão de “margem”: os pontos para os quais a função de perda é zero são os que têm “margem”, descrito pela Equação \ref{eq:videSVM} \cite{evgeniou1999support}. 
+Para classificação, o erro de classificação precisa ser minimizado. Então uma função de perda do sinal na forma apresentada pela Equação \ref{eq:formaperda}, deve ser usada (na classificação \textbf{\textit{y}} toma valores binários $ \pm1 $ e a classificação é feita tomando o sinal de função $ f(x) $). No entanto, devido à escala e às razões computacionais \cite{vapnik1998statistical}, a função de perda real usada para classificação SVM é, Equação \ref{eq:formaperdaSVM}. Ou seja, caso a função de perda seja 0, temos:
+
+\begin{equation} \label{eq:formaperda}
+    |1-yf(x)|< 0  
+\end{equation}
+
+caso contrário temos:
+
+\begin{equation} \label{eq:formaperda}
+    |1-yf(x)|> 0   
+\end{equation}
+
+Isso também é chamado de função de perda de  “margem flexível” por causa de sua interpretação padrão de “margem”: os pontos para os quais a função de perda é zero são os que têm “margem”, descrito pela Equação \ref{eq:videSVM} \cite{evgeniou1999support}. 
 
 \begin{equation} \label{eq:formaperda}
     -yf(x)
@@ -197,7 +206,7 @@ Para classificação, idealmente o erro de classificação precisa ser minimizad
     yf(x)/\left \| f \right \|_{k}^{2}\
 \end{equation}
 
-Para o caso da Equação \ref{eq:casoeq}, ou seja Equação \ref{eq:casoseja}. A margem é uma quantidade geométrica importante associada à classificação SVM \cite{evgeniou1999support}
+Para o caso da Equação \ref{eq:casoeq} e Equação \ref{eq:casoseja}. A margem é uma quantidade geométrica importante associada à classificação SVM \cite{evgeniou1999support}
 
 \begin{equation} \label{eq:casoeq}
     1/\left \| f \right \|_{k}^{2}
@@ -214,23 +223,25 @@ A função para classificação em um SVM, pode ser generalizada pela Equação 
 
 \section{Floresta aleatória}
 
-Desenvolvido por \cite{breiman2001random}, o método combina a abordagem de amostragem de Breiman, e a seleção aleatória de características, introduzida independentemente por \cite{ho1995random} e \cite{amit1997shape}, a fim de construir uma coleção de árvores de decisão. com variação controlada. Usando ensacamento, cada árvore de decisão no conjunto é construída usando uma amostra com substituição dos dados de treinamento. Estatisticamente, a amostra provavelmente terá cerca de 64\% de instâncias aparecendo pelo menos uma vez na amostra. As instâncias na amostra são referidas como instâncias de embalagem e as instâncias restantes (cerca de 36\%) são referidas como instâncias fora do pacote. Cada árvore no conjunto funciona como um classificador base para determinar o rótulo de classe de uma instância não rotulada. Isso é feito por meio de votação por maioria, em que cada classificador atribui um voto ao rótulo de classe previsto. Em seguida, o rótulo de classe com o maior número de votos é usado para classificar a instância \cite{fawagreh2014random}.
+Desenvolvido por \cite{breiman2001random}, o método combina a abordagem de amostragem de Breiman, e a seleção aleatória de características, introduzida independentemente por \cite{ho1995random} \cite{amit1997shape}, a fim de construir uma coleção de árvores de decisão, com variação controlada, Usando ensacamento, cada árvore de decisão no conjunto é construída usando uma amostra com substituição dos dados de treinamento. Estatisticamente, a amostra provavelmente terá cerca de 64\% de instâncias aparecendo pelo menos uma vez na amostra. As instâncias na amostra são referidas como instâncias de embalagem e as instâncias restantes (cerca de 36\%) são referidas como instâncias fora do pacote. Cada árvore no conjunto funciona como um classificador base para determinar o rótulo de classe de uma instância não rotulada. Isso é feito por meio de votação por maioria, em que cada classificador atribui um voto ao rótulo de classe previsto. Em seguida, o rótulo de classe com o maior número de votos é usado para classificar a instância \cite{fawagreh2014random}.
 
-A biblioteca \cite{scikitlearn} define floresta aleatória (FA) como um meta estimador que se ajusta a vários classificadores de árvore de decisão em várias subamostras do conjunto de dados e usa a média para melhorar a precisão preditiva e controlar o ajuste excessivo. O tamanho da subamostra é sempre o mesmo que o tamanho da amostra de entrada original.
+O Autor \cite{scikitlearn} define \textit{Random Forest} como um meta estimador que se ajusta a vários classificadores de árvore de decisão em várias subamostras do conjunto de dados e usa a média para melhorar a precisão preditiva e controlar o ajuste excessivo. O tamanho da subamostra é sempre o mesmo que o tamanho da amostra de entrada original.
 
 \subsection{Funcionamento}
 
-Segundo o estudo \cite{bastos2013proposta}, as Florestas Aleatórias são obtidas através de \textit{bootstrapping aggregating} (ou simplesmente \textit{bagging}), um método utilizado para gerar múltiplas versões de um preditor \cite{breiman1996bagging}. Tais versões são construídas a partir de amostras do conjunto original, obtidas via sorteio simples com reposição. Apresentamos a seguir a notação sugerida por \cite{breiman2001random}. Um conjunto de treinamento e denotado por $ L = {(xn, yn), n = 1, 2,...,N} $, onde $ N $  é a quantidade de exemplos, $ xn $ e o vetor de atributos e $ yn \gamma {1, 2,...,C} $ e a classe verdadeira do 50 n-ésimo exemplo. Os atributos são indexados por $ m = 1, 2,...,M $, e assim o vetor de atributos do n-ésimo exemplo é denotado por  $ xn = (xn,1, xn,2,...,xn,M) $. Denote por $ \psi (x,L) $ um preditor para a classe de $ x $ construído a partir do conjunto de treinamento L. Suponha que exista uma sequência finita de conjuntos de treinamento $ {L(k) }, k = 1, 2,...,K $, cada um consistindo de $ N $ observações independentes provenientes da mesma distribuição subjacente ao conjunto L. A ideia central é usar $ {L(k) } $ para obter um preditor melhor do que o preditor simples $ \psi (x,L) $, tendo como restrição utilizar apenas a sequência de preditores $ \psi (x,L(k)) $. Indexando-se as classes por $ c = 1, 2,...,C $, um método de agregar os preditores $ \psi (x,L(k)) $ e através de votação, escolhendo para x a classe mais votada entre os preditores. Formalmente, denotando por $ Nc = |{k e\psi lon {1 ...K} : \psi (x,L(k) ) = c}| $ o número de “votos” na classe $ c $, o classificador agregado pode ser definido por $ \psi A(x) = arg max(c) N(c) $. O subscrito $ A $ em $ \psi A $ denota agregação. A obtenção de $ {L(k) }, k = 1, 2,...,K $ é feita tomando-se amostras \textit{bootstrap} de $ L $, via sorteio com repetição, cada qual de tamanho N. Em cada amostra de treinamento bootstrap, aproximadamente 37\% das instâncias do conjunto original  não são utilizadas para o treinamento \cite{breiman1996bagging}. Essas instâncias são usadas como um conjunto de teste, para estimar o erro de cada classificador e, a partir deste, o erro do classificador agregado. O erro out-of-bag de cada classificador $ \psi (x,L(k)) $ é definido como o percentual do conjunto de teste (constituído por $ L\L(k) $) classificado erroneamente. Na formulação das FAs propostas por \cite{breiman2001random}, o algoritmo básico de construção das árvores e o CART – \textit{Classification and Regression Trees} \cite{breiman2017classification}. As árvores são expandidas ao máximo, sem poda. Para a divisão de cada nó, um subconjunto de tamanho fixo dos atributos de entrada é selecionado aleatoriamente, escolhendo-se a divisão ótima dentro desse subconjunto.
+Segundo \cite{bastos2013proposta}, as \textit{Random Forest} são obtidas através de \textit{bootstrapping aggregating} (ou simplesmente \textit{bagging}), um método utilizado para gerar múltiplas versões de um preditor \cite{breiman1996bagging}. Tais versões são construídas a partir de amostras do conjunto original, obtidas via sorteio simples com reposição. Apresentamos a seguir a notação sugerida por \cite{breiman2001random}. 
+
+Um conjunto de treinamento e denotado por $ L = {(xn, yn), n = 1, 2,...,N} $, onde $ N $  é a quantidade de exemplos, $ xn $ e o vetor de atributos e $ yn \gamma {1, 2,...,C} $ e a classe verdadeira do 50 n-ésimo exemplo. Os atributos são indexados por $ m = 1, 2,...,M $, e assim o vetor de atributos do n-ésimo exemplo é denotado por  $ xn = (xn,1, xn,2,...,xn,M) $. Denote por $ \psi (x,L) $ um preditor para a classe de $ x $ construído a partir do conjunto de treinamento L. Suponha que exista uma sequência finita de conjuntos de treinamento $ {L(k) }, k = 1, 2,...,K $, cada um consistindo de $ N $ observações independentes provenientes da mesma distribuição subjacente ao conjunto L. A ideia central é usar $ {L(k) } $ para obter um preditor melhor do que o preditor simples $ \psi (x,L) $, tendo como restrição utilizar apenas a sequência de preditores $ \psi (x,L(k)) $. Indexando-se as classes por $ c = 1, 2,...,C $, um método de agregar os preditores $ \psi (x,L(k)) $ e através de votação, escolhendo para x a classe mais votada entre os preditores. Formalmente, denotando por $ Nc = |{k e\psi lon {1 ...K} : \psi (x,L(k) ) = c}| $ o número de “votos” na classe $ c $, o classificador agregado pode ser definido por $ \psi A(x) = arg max(c) N(c) $. O subscrito $ A $ em $ \psi A $ denota agregação. A obtenção de $ {L(k) }, k = 1, 2,...,K $ é feita tomando-se amostras \textit{bootstrap} de $ L $, via sorteio com repetição, cada qual de tamanho N. Em cada amostra de treinamento bootstrap, aproximadamente 37\% das instâncias do conjunto original  não são utilizadas para o treinamento \cite{breiman1996bagging}. Essas instâncias são usadas como um conjunto de teste, para estimar o erro de cada classificador e, a partir deste, o erro do classificador agregado. O erro \textit{out-of-bag} de cada classificador $ \psi (x,L(k)) $ é definido como o percentual do conjunto de teste (constituído por $ L\L(k) $) classificado erroneamente. Na formulação das FAs propostas por \cite{breiman2001random}, o algoritmo básico de construção das árvores e o CART(sigla do inglês: \textit{Classification and Regression Trees}, Classificação e Árvores de regressão)\cite{breiman2017classification}. As árvores são expandidas ao máximo, sem poda. Para a divisão de cada nó, um subconjunto de tamanho fixo dos atributos de entrada é selecionado aleatoriamente, escolhendo-se a divisão ótima dentro desse subconjunto.
 
 \section{K Vizinhos Mais Próximos}
 
-Segundo a documentação da biblioteca \cite{scikitlearn}, o princípio por trás dos métodos de vizinho mais próximo é encontrar um número pré-definido de amostras de treinamento mais próximas da distância do novo ponto e prever o rótulo a partir delas. O número de amostras pode ser uma constante definida pelo usuário (\textit{k-neighbor neighbor learning}) ou variar com base na densidade local de pontos (aprendizado de vizinho baseado em raio). A distância pode, em geral, ser qualquer medida métrica: a distância euclidiana padrão é a escolha mais comum. Os métodos baseados em vizinhos são conhecidos como métodos de aprendizado de máquina não generalizantes, já que eles simplesmente “lembram” todos os seus dados de treinamento (possivelmente transformados em uma estrutura de indexação rápida, como \textit{Ball Tree} ou \textit{KD Tree}).
+Segundo \cite{scikitlearn}, o princípio por trás dos métodos de KNN é encontrar um número pré-definido de amostras de treinamento mais próximas da distância do novo ponto e prever o rótulo a partir delas. O número de amostras pode ser uma constante definida pelo usuário (\textit{k-neighbor neighbor learning}) ou variar com base na densidade local de pontos (aprendizado de vizinho baseado em raio). A distância pode, em geral, ser qualquer medida métrica, a distância euclidiana padrão é a escolha mais comum. Os métodos baseados em vizinhos são conhecidos como métodos de aprendizado de máquina não generalizantes, já que eles simplesmente “lembram” todos os seus dados de treinamento (possivelmente transformados em uma estrutura de indexação rápida, como \textit{Ball Tree} ou \textit{KD Tree}).
 
-Apesar de sua simplicidade, os vizinhos mais próximos tiveram sucesso em um grande número de problemas de classificação e regressão, incluindo dígitos manuscritos e cenas de imagens de satélite. Sendo um método não paramétrico, muitas vezes é bem-sucedido em situações de classificação em que o limite de decisão é muito irregular.
+Apesar de sua simplicidade, os algorítimos KNN tiveram sucesso em um grande número de problemas de classificação e regressão, incluindo dígitos manuscritos e cenas de imagens de satélite. Sendo um método não paramétrico, muitas vezes é bem-sucedido em situações de classificação em que o limite de decisão é muito irregular \cite{scikitlearn}.
 
 \subsection{Funcionamento}
 
-Foi utilizado como referência o estudo \cite{peterson2009k} no qual é apresentanda a característica da distância geométrica entre amostras desse algoritimo com uma representação gráfica, a fim de detalhar o funcionamento do mesmo.
+Foi utilizado como referência \cite{peterson2009k} no qual é apresentanda a característica da distância geométrica entre amostras desse algoritimo com uma representação gráfica, a fim de detalhar o funcionamento do mesmo.
 
 O classificador de $ k $ mais próximo do vizinho é comumente baseado na distância euclidiana entre uma amostra de teste e as amostras de treinamento especificadas. Utilizando $ x_{eu} $ como uma amostra de entrada com $ p $ características $ (x_{eu1},x_{eu2},\cdots ,x_{eup}) $ $ n $ ser o número total de amostras de entrada $ (i=1,2,\cdots,n) $ e p o número total de recursos $ (j=1,2,\cdots,p) $ . A distância euclidiana entre a amostra $ x_{i} $ e $ x_{j} $ $ (l=1,2,\cdots,n) $  é definido como:
 
