@@ -132,9 +132,9 @@ As seções seguintes descrevem os principais algoritmos de AM utilizados em cla
 
 \section{SVM}
 
-A SVM é um dos modelos mais populares em AMs, sendo composto por um conjunto de métodos de aprendizado supervisionada. Pode ser utilizada para classificação, regressão ou \textit{outlier detection} \cite{scikitlearn}. Segundo \citeonline{braga2000redes} e \citeonline{haykin1999neural}, os resultados da aplicação de SVM são comparáveis e muitas vezes superiores aos obtidos por outros algoritmos de aprendizado, como as RNAs. Exemplos de aplicações de sucesso podem ser encontrados em diversos domínios, como na categorização de textos,  catalogação de imagens \cite{pontil1998support}, e em Bioinformática \cite{noble2004support}.
+O SVM é um dos modelos mais populares em AMs, sendo composto por um conjunto de métodos de aprendizado supervisionada. Pode ser utilizada para classificação, regressão ou \textit{outlier detection} \cite{scikitlearn}. Segundo \citeonline{braga2000redes} e \citeonline{haykin1999neural}, os resultados da aplicação de SVM são comparáveis e muitas vezes superiores aos obtidos por outros algoritmos de aprendizado, como as RNAs. Exemplos de aplicações de sucesso podem ser encontrados em diversos domínios, como na categorização de textos,  catalogação de imagens \cite{pontil1998support}, e em Bioinformática \cite{noble2004support}.
 
-As SVMs são divididas em dois grupos, categorizadas conforme o estado dados a serem resolvidos, ou seja é um problema linear ou não \cite{lorena2007introduccao}.
+Os SVMs são divididas em dois grupos, categorizadas conforme o estado dados a serem resolvidos, ou seja é um problema linear ou não \cite{lorena2007introduccao}.
 
 Segundo \citeonline{scikitlearn}, as principais vantagens em SVMs são:
 
@@ -151,7 +151,7 @@ Segundo \citeonline{scikitlearn}, as principais vantagens em SVMs são:
      \label{svmkernel}
  \end{figure}
 
- O SVM funciona no principio de separação ótima entre classes. Ou seja, com base nas amostras de treinamento, cria-se uma distribuição de probabilidade, seguindo de modo iterativo remove-se algumas amostras, e calcula-se novamente a distribuição de probabilidade, continuando este ciclo até estabelecer os vetores de suporte em um hiperplano ou em um conjuntos de hiperplanos. Estes vetores de suporte, são os pontos que definem a maior margem possível entre as classes \cite{huang2002assessment}. A Figura \ref{svm_hiperplano} na página \pageref{svm_hiperplano} exemplifica estes conceitos.
+ O SVM funciona no princípio de separação ótima entre classes. Ou seja, com base nas amostras de treinamento, cria-se uma distribuição de probabilidade, remove-se algumas amostras de modo iterativo e calcula-se novamente a distribuição de probabilidade, continuando este ciclo até estabelecer os vetores de suporte em um hiperplano ou em um conjuntos de hiperplanos. Estes vetores de suporte, são os pontos que definem a maior margem possível entre as classes \cite{huang2002assessment}. A Figura \ref{svm_hiperplano} exemplifica estes conceitos.
 
  \begin{figure}[!htb]
      \centering
@@ -162,29 +162,30 @@ Segundo \citeonline{scikitlearn}, as principais vantagens em SVMs são:
 
  \subsection{Funcionamento}
 
-As SVMs foram desenvolvidas por Vapnik em 1998, no âmbito da Teoria Estatística da Aprendizagem, logo para entender o funcionamento do dado modelo é necessário entender o próprio \textit{framework} da Teoria Estatística da Aprendizagem \cite{vapnik1998statistical}. Porém como o foco neste trabalho é a aplicação do modelo, não será abordado de maneira aprofundada o conceito da Teoria Estatística da Aprendizagem, cujo o foco é a implementação.
+Os SVMs foram desenvolvidas por \citeonline{vapnik1998statistical}, no âmbito da Teoria Estatística da Aprendizagem, logo para entender o funcionamento do dado modelo é necessário entender o próprio \textit{framework} da Teoria Estatística da Aprendizagem \cite{vapnik1998statistical}. Porém como o foco neste trabalho é a aplicação do modelo, não será abordado de maneira aprofundada o conceito da Teoria Estatística da Aprendizagem, cujo o foco é a implementação.
  
-Uma explicação mais simplista do funcionamento do SVM linear, nesse grupo o hiperplano se encontra no espaço dos dados de entrada \textbf{\textit{X}}. A noção mais comum sobre o SVM, é que o mesmo encontra um melhor hiperplano como a solução para o problema de aprendizagem \cite{vapnik1998statistical}. No caso linear o espaço de hipóteses é um subconjunto de todos os hiperplanos. Como observado na Equação \ref{eq:hiperplanofdx} \cite{evgeniou1999support}:
 
-\begin{equation} \label{eq:hiperplanofdx}
-    f(x)= w\cdot x +b
-\end{equation}
+Em sua formulação mais geral, o SVM encontra um hiperplano em um espaço diferente daquele dos dados de entrada \textbf{\textit{X}}. É um hiperplano, em um espaço de característica induzido por um  \textit{kernel} \textbf{\textit{K}}. Através do  \textit{kernel} \textbf{\textit{K}}, o espaço de hipóteses é definido como um conjunto de  “hiperplanos” no espaço de feições induzido por \textbf{\textit{K}}. Isso também pode ser visto como um conjunto de funções em um EHR (Espaço Hilbert de Reprodução) definido por \textbf{\textit{K}} \cite{wahba1990spline} \cite{vapnik1998statistical}. Para resumir, o espaço de hipóteses usado pelo SVM é um subconjunto do conjunto de hiperplanos definido em algum espaço de um EHR. Este espaço pode ser formalmente escrito como na Equação \ref{eq:leftleft}.
 
-Em sua formulação mais geral, a SVM encontra um hiperplano em um espaço diferente daquele dos dados de entrada \textbf{\textit{X}}. É um hiperplano, em um espaço de característica induzido por um  \textit{kernel} \textbf{\textit{K}}. Através do  \textit{kernel} \textbf{\textit{K}}, o espaço de hipóteses é definido como um conjunto de  “hiperplanos” no espaço de feições induzido por \textbf{\textit{K}}. Isso também pode ser visto como um conjunto de funções em um EHR (Espaço Hilbert de Reprodução) definido por \textbf{\textit{K}} \cite{wahba1990spline} \cite{vapnik1998statistical}. Para resumir, o espaço de hipóteses usado pelo SVM é um subconjunto do conjunto de hiperplanos definido em algum espaço de um EHR. Este espaço pode ser formalmente escrito como na Equação \ref{eq:leftleft}.
 
 \begin{equation} \label{eq:leftleft}
     \left \{ f:\left \| f \right \|_{2}^{k} < \infty \right \}
 \end{equation}
 
+
+
 Onde \textbf{\textit{K}} é o kernel que define o EHR, e $ \left \| f \right \|_{2}^{k} $  é a norma EHR da função \cite{wahba1990spline}. 
 
-A SVM considera os conjuntos da forma da Equação \ref{eq:forma} para alguma constante \textbf{\textit{A}}. Na estrutura da Teoria Estatística de Aprendizagem, a constante \textbf{\textit{A}} é usada para definir uma estrutura de espaços de hipóteses (o quanto maior for, mais complexo é o espaço da hipótese). O objetivo do SVM é encontrar a solução com a norma EHR  “ideal”, ou seja, encontrar o \textbf{\textit{A}} ótimo \cite{evgeniou1999support}.
+
+O SVM considera os conjuntos da forma da Equação \ref{eq:forma} para alguma constante \textbf{\textit{A}}. Na estrutura da Teoria Estatística de Aprendizagem, a constante \textbf{\textit{A}} é usada para definir uma estrutura de espaços de hipóteses (o quanto maior for, mais complexo é o espaço da hipótese). O objetivo do SVM é encontrar a solução com a norma EHR  “ideal”, ou seja, encontrar o \textbf{\textit{A}} ótimo \cite{evgeniou1999support}.
 
 \begin{equation} \label{eq:forma}
     \left \{ f:\left \| f \right \|_{2}^{k} \leq A^{2} \right \}\
 \end{equation}
 
+
 A segunda opção retratada pelo estudo de \citeonline{evgeniou1999support} é a da função de perda. Uma função de perda é uma função que mapeia um evento ou valores de uma ou mais variáveis num número real, intuitivamente representando algum “custo” associado ao evento \cite{wald1950statistical}. O estudo \citeonline{evgeniou1999support} distingue os SVM em classificação e regressão, porém como este trabalho será focado na classificação, será apenas retratado o primeiro caso, dos classificadores SVM.
+
 
 Para classificação, o erro de classificação precisa ser minimizado. Então uma função de perda do sinal na forma apresentada pela Equação \ref{eq:formaperda}, deve ser usada (na classificação \textbf{\textit{y}} toma valores binários $ \pm1 $ e a classificação é feita tomando o sinal de função $ f(x) $). No entanto, devido à escala e às razões computacionais \cite{vapnik1998statistical}, a função de perda real usada para classificação SVM é, Equação \ref{eq:formaperdaSVM}. Ou seja, caso a função de perda seja 0, temos:
 
