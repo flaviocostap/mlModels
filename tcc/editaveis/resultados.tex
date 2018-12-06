@@ -38,7 +38,7 @@ Uma Visão mais detalhada sobre este resultado pode ser observada nas matrizes d
     \label{fcomparativo2}
 \end{figure}
 
-Outro canal que teve um resultado ruim foi o canal \textbf{CH4}, mesmo com 71\% de acerto no grupo com a DP, obteve 75\% de falsos positivos no grupo de controle. Já o \textbf{CH3} obteve um resultado razoável com precisão em 69\%.
+Outro canal que teve um resultado ruim foi o canal \textbf{CH4}, mesmo com 71\% de acerto no grupo com a DP, obteve 75\% de falsos positivos no grupo de controle. Já o \textbf{CH3} obteve um resultado razoável com precisão de 71\% no grupo com DP e e 67\% no grupo de controle.
 
 \begin{figure}[!t]
     \centering
@@ -48,25 +48,28 @@ Outro canal que teve um resultado ruim foi o canal \textbf{CH4}, mesmo com 71\% 
 \end{figure}
 
 
-Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta. Porém estes filtros diminuíram a acurácia obtida, como observado na figura \ref{comesemfiltro}, que exemplifica a matriz de confusão referente ao \textbf{CH1}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acurácia caiu.
+Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta. Porém estes filtros diminuíram a acurácia obtida, como observado na figura \ref{comesemfiltro}, que exemplifica a matriz de confusão referente ao \textbf{CH1}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acurácia caiu. 
 
-\begin{figure}[!htb]
+Na Figura \ref{comesemfiltro} tem-se que, com a utilização do filtro passa-banda com um total de 11 amostras de pessoas com DP, o sistema conseguiu classificar corretamente 7 amostras ou 64\%, e no grupo de controle classificou-se corretamente 5 amostras de um total de 6 ou 83\%. Com relação aos testes sem a utilização do filtro, obteve-se uma previsão de 90\% no grupo de DP e 71\% no grupo de controle, portanto superior ao testes utilizando o filtro.
+
+
+\begin{figure}[t]
     \centering
-    \includegraphics[width=1.1\textwidth]{figuras/filtroComp.eps}
-    \caption{Matriz de confusão com e sem filtro do \textbf{Ch1}.}
+    \includegraphics[width=1\textwidth]{figuras/filtroComp.eps}
+    \caption{Matriz de confusão com o filtro passa-banda e sem o filtro no \textbf{Ch1}.}
     \label{comesemfiltro}
 \end{figure}
 
 Também realizou-se a classificação utilizando todos os canais ao mesmo tempo, porém o resultado foi insatisfatório.
 
-Outra técnica de seleção de feature utilizada foi a PCA, com a utilização desta técnica obteve-se uma leve melhora na acurácia, como pode ser observado na figura \ref{pcavalidator}, a qual utilizou-se o \textit{k-fold cross-validator} para verificar a precisão real do modelo.
+Outra técnica de seleção de feature utilizada foi a PCA, com a utilização desta técnica obteve-se uma leve melhora na acurácia, como pode ser observado na figura \ref{pcavalidator}, a qual utilizou-se o \textit{cross-validator} para verificar a precisão real do modelo.
 
-Como pode ser observado na figura \ref{pcavalidator}, com o auxílio do k-fold, pode-se inferir que o Random Forest possui uma precisão superior ao SVM, além de que o PCA aumenta a acurácia consideravelmente do modelo.
+Como pode ser observado na figura \ref{pcavalidator}, com o auxílio do k-fold, pode-se inferir que o \textit{Random Forest} possui uma precisão superior ao SVM, além de que o PCA aumenta a acurácia consideravelmente do modelo.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.7\textwidth]{figuras/modeloComp.eps}
-    \caption{Matriz de confusão com e sem filtro do \textbf{Ch1}}
+    \caption{Comparativo entre os algoritmos com PCA do \textbf{Ch1}.}
     \label{pcavalidator}
 \end{figure}
 
