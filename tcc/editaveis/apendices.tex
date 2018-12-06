@@ -4,15 +4,15 @@
     \chapter{Documento de Arquitetura}
     \label{adoarquitetura}
     \section{introdução}
-    Este documento descreve a arquitetura e tecnologias da solução de software, utilizadas no desenvolvido do sistema de auxílio na detecção da doença de Parkinson avaliando o Tremor em Repouso. Desenvolvido pelos alunos de Trabalho de Conclusão de Curso 2 da Universidade de Brasília.
+    Este documento descreve a arquitetura e tecnologias da solução de \textit{software}, utilizadas no desenvolvido do sistema de auxílio na detecção da doença de Parkinson avaliando o Tremor em Repouso. Desenvolvido pelos alunos de Trabalho de Conclusão de Curso 2 da Universidade de Brasília.
 
-    Essa solução de software trata-se de uma aplicação web, na qual pode-se facilmente ser migrada para uma aplicação mobile em projetos futuros.
+    Essa solução de \textit{software} trata-se de uma aplicação \textit{web}, na qual pode-se facilmente ser migrada para uma aplicação \textit{mobile} em projetos futuros.
 
     \section{Tecnologias}
-    \subsection{Single Page Aplication - SPA}
-    SPA (Single Page Application ou Aplicativo de página única), consiste em uma aplicação web em uma única página, fornecendo uma experiência de usuário semelhante a um aplicativo Desktop, sem recarregamentos da página.
+    \subsection{SPA}
+    SPA (sigla do inglês: \textit{Single Page Application}, Aplicativo de página única), consiste em uma aplicação \textit{web} em uma única página, fornecendo uma experiência de usuário semelhante a um aplicativo Desktop, sem recarregamentos da página.
 
-   Foi adotado devido a sua vantagem de performance no consumo de dados e na experiência do usuário.
+   O SPA foi adotado devido a sua vantagem de performance no consumo de dados e na experiência do usuário.
 
     \subsection{REST}
     Baseado no protocolo de comunicação de rede HTTP, sendo simples, rápida e com uma fácil comunicação entre clientes e servidores. Funciona com objetos em formato JSON, e os métodos definidos no protocolo HTTP ( POST, GET, PUT e DELETE) possibilitando assim uma eficiente e rápida troca de informação.
@@ -20,12 +20,12 @@
    Foi adotado devido a seu leve consumo de dados, além de possuir uma fácil implementação.
 
     \section{Representação da Arquitetura}
-    A arquitetura se baseia em dois modelos arquiteturais, REST e SPA, interligados com um modelo de aprendizado de máquinas. No caso a Floresta Aleatória ou o SVM, como observado na figura A Figura \ref{diagramadepacotes} na página \pageref{diagramadepacotes}. Deste modo a aplicação possui três pacotes, os quais serão detalhados na secção:
+    A arquitetura se baseia em dois modelos arquiteturais, REST e SPA, interligados com um modelo de aprendizado de máquinas. No caso a Floresta Aleatória ou o SVM, como observado na figura A Figura \ref{diagramadepacotes}. Deste modo a aplicação possui três pacotes:
 
     \begin{itemize}
-        \item Machine Learning models;
+        \item \textit{Machine Learning models};
         \item API;
-        \item Web.
+        \item \textit{web}.
     \end{itemize}
 
 
@@ -37,7 +37,7 @@
         \caption{Diagrama de pacotes}
         \label{diagramadepacotes}
     \end{figure}
-    \subsubsection{Machine Learning models}
+    \subsubsection{\textit{Machine Learning models}}
     Consiste no modelo já treinado e validado do algoritmo Floresta Aleatória, sendo que este é armazenado no banco de dados \textit{PickleDB}. Deste modo, a comunicação é somente de leitura, com o modelo sendo enviado por completo para a API.
     \subsubsection{API}
     A API execulta todas as manipulações envolvendo os dados, como o pré-processamento do arquivo enviado pelo usuário, e classificando estes com o modelo salvo. Além de salvar os dados no banco de dados e enviá-los quando requisitados, foi desenvolvida utilizando os padrões de projeto definidos pelo Django-Rest-Framework, possuindo o maior esforço na \textit{View}.
@@ -48,14 +48,14 @@
         \item ListAllPatients: lista todos os pacientes, retornando-os em um objeto JSON.
         \item DetailPatient: retorna os detalhes relativos a um único paciente.
         \item UpdatePatient: possibilita a edição de um paciente já cadastrado.
-        \item CLS: possui apenas um método GET, que recebe um id de um paciente. Com auxílio de outros métodos carrega o arquivo sEMG associado a este paciente, realiza o pré-processamento aplicando a FFT, carrega o modelo e por fim retorna o resultado da classificação.
+        \item CLS: possui apenas um método GET, que recebe um \textit{id} de um paciente. Com auxílio de outros métodos carrega o arquivo sEMG associado a este paciente, realiza o pré-processamento aplicando a FFT, carrega o modelo e por fim retorna o resultado da classificação.
     \end{enumerate}
 
-    \subsubsection{Web}
+    \subsubsection{\textit{web}}
     Responsável pela exibição dos dados, desenvolvido em react. Possui somente três componentes, cadastrado, editar e home.
 
    \subsection{Diagrama de Classes}
-   A seguir na figura \ref{diagramadeclasses} na página \pageref{diagramadeclasses}, encontra-se o diagrama de classes do projeto.
+   A seguir na figura \ref{diagramadeclasses}, encontra-se o diagrama de classes do projeto.
    \begin{figure}[!htb]
         \centering
         \includegraphics[width=0.9\textwidth]{figuras/diagramadeclasses.eps}
@@ -75,7 +75,7 @@
 
     \section{Introdução}
 
-    Este documento tem como propósito descrever todos os requisitos de um sistema capaz de realizar um diagnóstico preliminar da doença de Parkinson em pacientes com suspeita de serem portadores da mesma, denominado Detector preliminar da Doença de Parkinson(DPDP). Serão explicitados os aspectos inerentes ao sistema, visando uma melhor definição do projeto de forma simplificada. O documento está organizado em 8 tópicos que visam uma melhor compreensão do leitor, sendo eles: introdução, posicionamento, descrição da parte interessada e do usuário, visão geral do produto, recursos do produto, restrições. Em todos os tópicos são abordados pontos cruciais para o desenvolvimento do projeto.
+    Este documento tem como propósito descrever todos os requisitos de um sistema capaz de realizar um diagnóstico preliminar da doença de Parkinson em pacientes com suspeita de serem portadores da mesma, denominado Detector preliminar da Doença de Parkinson (DPDP). Serão explicitados os aspectos inerentes ao sistema, visando uma melhor definição do projeto de forma simplificada. O documento está organizado em 8 tópicos que visam uma melhor compreensão do leitor, sendo eles: introdução, posicionamento, descrição da parte interessada e do usuário, visão geral do produto, recursos do produto, restrições. Em todos os tópicos são abordados pontos cruciais para o desenvolvimento do projeto.
 
     \subsection{Problema}
 
@@ -93,7 +93,7 @@
 
     \subsection{Instrução do Problema}
 
-    A \ref{table:Instrucao do Problema} descreve brevemente a oportunidade de negócios que é tratada por este projeto segundo o problema no qual o mesmo se dedica a solucionar em uma instrução geral resumida no nível mais alto.
+    A tabela \ref{table:Instrucao do Problema} descreve brevemente a oportunidade de negócios que é tratada por este projeto segundo o problema no qual o mesmo se dedica a solucionar em uma instrução geral resumida no nível mais alto.
 
     \begin{table}[ht]
         \caption{Instrução do Problema}
@@ -114,7 +114,7 @@
 
     \subsection{Resumo da Parte Interessada}
 
-    A \ref{table:Resumo da Parte Interessada} possui um breve resumo dos interessados no projeto, descrevendo-os e apresentando suas respectivas responsabilidades dentro do mesmo.
+    A tabela \ref{table:Resumo da Parte Interessada} possui um breve resumo dos interessados no projeto, descrevendo-os e apresentando suas respectivas responsabilidades dentro do mesmo.
 
     \begin{table}[ht]
         \centering
@@ -123,16 +123,16 @@
             \hline
             \textbf{Nome} & \textbf{Descrição} & \textbf{Responsabilidade} \\ \hline
             \textbf{Orientandos} & \begin{tabular}{l}Estudantes matriculados \\ na disciplina de TCC 2
-            \end{tabular} & \begin{tabular}{l}Desenvolvimento da solução \\ de software e pesquisa.
+            \end{tabular} & \begin{tabular}{l}Desenvolvimento da solução \\ de \textit{software} e pesquisa.
             \end{tabular} \\ \hline
-            \textbf{Orientadores} & \begin{tabular}{l}Professor orientador e\\ pesquisadores \end{tabular} & \begin{tabular}{l}Orientadores e avaliadores \\ que darão suporte a respeito \\ das  pesquisas e escrita do TCC \\ assim como no desenvolvimento \\ do sistema. \end{tabular} \\ \hline
+            \textbf{Orientadores} & \begin{tabular}{l}Professor(a) orientador(a) e\\ pesquisadores \end{tabular} & \begin{tabular}{l}Orientadores e avaliadores \\ que darão suporte a respeito \\ das  pesquisas e escrita do TCC \\ assim como no desenvolvimento \\ do sistema. \end{tabular} \\ \hline
         \end{tabular}
         \label{table:Resumo da Parte Interessada}
     \end{table}
 
     \subsection{Resumo do Usuário}
 
-    A \ref{table:Resumo do Usuário} apresenta um breve resumo do usuário do sistema com sua descrição e seu papel desempenhado na operação do mesmo.
+    A tabela \ref{table:Resumo do Usuário} apresenta um breve resumo do usuário do sistema com sua descrição e seu papel desempenhado na operação do mesmo.
 
     \begin{table}[ht]
         \centering
@@ -151,7 +151,7 @@
 
     \subsubsection{Orientandos}
 
-    A \ref{table:Perfil dos Orientandos} detalha o perfil dos orientados do projeto.
+    A tabela \ref{table:Perfil dos Orientandos} detalha o perfil dos orientados do projeto.
 
     \begin{table}[ht!]
         \centering
@@ -161,8 +161,8 @@
             \textbf{Representantes}       & \begin{tabular}{l}Flávio da Costa Paixão, Jônnatas Lennon Lima Costa \end{tabular} \\ \hline
             \textbf{Descrição}            & \begin{tabular}{l}Desenvolvedores do sistema e gerenciamento do projeto \end{tabular} \\ \hline
             \textbf{Tipo}                 & \begin{tabular}{l}Estudantes matriculados na disciplina de TCC 2 \end{tabular} \\ \hline
-            \textbf{Responsabilidades}    & \begin{tabular}{l}Desenvolvimento da solução de software e pesquisa \end{tabular} \\ \hline
-            \textbf{Critérios de Sucesso} & \begin{tabular}{l}Manter os prazos estabelecidos sem atraso, e gerenciar \\ a qualidade do software em desenvolvimento \end{tabular} \\ \hline
+            \textbf{Responsabilidades}    & \begin{tabular}{l}Desenvolvimento da solução de \textit{software} e pesquisa \end{tabular} \\ \hline
+            \textbf{Critérios de Sucesso} & \begin{tabular}{l}Manter os prazos estabelecidos sem atraso, e gerenciar \\ a qualidade do \textit{software} em desenvolvimento \end{tabular} \\ \hline
             \textbf{Envolvimento}         & \begin{tabular}{l}Alto \end{tabular} \\ \hline
         \end{tabular}
         \label{table:Perfil dos Orientandos}
@@ -170,14 +170,14 @@
 
     \subsubsection{Orientadores}
     
-    A \ref{table:Perfil dos Orientadores} detalha o perfil dos orientadores do projeto.
+    A tabela \ref{table:Perfil dos Orientadores} detalha o perfil dos orientadores do projeto.
 
     \begin{table}[ht!]
         \centering
         \caption{Perfil dos Orientadores}
         \begin{tabular}{@{}|l|l|@{}}
             \hline
-            \textbf{Representantes}       & \begin{tabular}{l}Dra. Lourdes Mattos Brasil, MSc. Roberto Aguiar Lima \end{tabular} \\ \hline
+            \textbf{Representantes}       & \begin{tabular}{l}Dra. Lourdes Mattos Brasil, Bel. Ithallo Junior Alves Guimarães \end{tabular} \\ \hline
             \textbf{Descrição}            & \begin{tabular}{l}Product Owner \end{tabular} \\ \hline
             \textbf{Tipo}                 & \begin{tabular}{l}Orientadores e avaliadores que darão suporte a respeito das \\ pesquisas e escrita do TCC assim como no desenvolvimento \\ do sistema. \end{tabular} \\ \hline
             \textbf{Responsabilidades}    & \begin{tabular}{l}Orientar e avaliar \end{tabular} \\ \hline
@@ -189,11 +189,11 @@
 
     \subsection{Perfis do Usuário}
 
-    Essa seção descreve o usuário do sistema e assim como os perfis das partes interessadas apresentadas nas tabelas \ref{table:Perfil dos Orientandos} e \ref{table:Perfil dos Orientadores} também descreve de maneira mais detalhada demonstrando seu grau de envolvimento no projeto, critérios para sucesso do mesmo e suas responsabilidades dentro do projeto.
+    Essa seção descreve o usuário do sistema e assim como os perfis das partes interessadas apresentadas na tabela \ref{table:Perfil dos Orientandos} e tabela \ref{table:Perfil dos Orientadores} também descreve de maneira mais detalhada demonstrando seu grau de envolvimento no projeto, critérios para sucesso do mesmo e suas responsabilidades dentro do projeto.
 
     \subsubsection{Médicos}
 
-    A \ref{table:Perfil dos Médicos} descreve o perfil do médico, usuário principal do sistema.
+    A tabela \ref{table:Perfil dos Médicos} descreve o perfil do médico, usuário principal do sistema.
 
     \begin{table}[ht!]
         \centering
@@ -218,7 +218,7 @@
 
     \subsection{Resumo dos recursos}
 
-    A \ref{table:Resumo dos recursos} Apresenta os principais recursos do sistema.
+    A tabela \ref{table:Resumo dos recursos} Apresenta os principais recursos do sistema.
 
     \begin{table}[ht!]
         \centering
@@ -252,7 +252,7 @@
 
     \subsection{Requisitos Funcionais}
 
-    A \ref{table:Requisitos Funcionais} apresenta todos os requisitos que um o sistema atende.
+    A tabela \ref{table:Requisitos Funcionais} apresenta todos os requisitos que um o sistema atende.
 
     \begin{table}[ht!]
         \centering
