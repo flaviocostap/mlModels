@@ -1,13 +1,13 @@
 \chapter{Resultados}
 \label{ch:Resultados}
+
 \section{Processo de AM}
 Esta seção descreve a realização do processo de AM, deste a coleta até a apresentação dos dados.
 \subsection{Coleta}
-A coleta dos dados foi realizada pelos pesquisadores Jorge Luiz (Engenheiro Eletricista) e Bruna da Silva (Fisioterapeuta), utiliza o protocolo descrito no Apêndice \ref{apendicprotocolo}, o qual descreve detalhadamente todo o processo de coleta dos dados, bem como o Termo de Consentimento Livre e Esclarecido – TCLE encontra-se no  Apêndice \ref{apendicetae}.
-
 Os dados utilizados para a classificação, são referentes a \textbf{Coleta 1 - Tremor de Repouso}, uma vez que esta apresentou os melhores resultados na classificação, já que as outras três coletas apresentaram um alto ruído que acabaram comprometendo os dados. A seguir um pequeno resumo sobre esta coleta.
 
 Foram realizadas três coletas por colaborador, com duração de cinco segundos cada, a disposição dos eletrodos encontra-se no Apêndice \ref{apendicetae}. Os dados do sinal foram armazenadas através da utilização de 4 canais, sendo eles:
+
 \begin{enumerate}
     \item \textbf{CH1}: Extensor radial do longo do carpo direito;
     \item \textbf{CH2}: Flexor superficial dos dedos direito;
@@ -18,33 +18,37 @@ Foram realizadas três coletas por colaborador, com duração de cinco segundos 
 Estes dados coletados em sEMG em cada canal, foram cedidos no formato \textit{edf}. Sendo que, os grupos consistiam em 14 pessoas no grupo de controle, cada um com três amostras e 14 pessoas no grupo de pessoas com a DP, também com três amostras cada.
 
 \subsection{Processamento dos dados}
-Com os dados brutos iniciou-se a etapa de pré-processamento dos dados. Inicialmente utilizou-se como técnica para a filtragem dos dados a Transformada rápida de Fourier (FFT), onde realizou-se testes nos quatro canais disponíveis, realizando um comparativo da acurácia com e sem a FFT, além de um comparativo sobre a acurácia entre os canais.
+Com os dados brutos foi iniciada a etapa de pré-processamento dos dados. Inicialmente utilizou-se como técnica para a filtragem dos dados a FFT, onde se realizou testes nos quatro canais disponíveis, realizando um comparativo da acurácia com e sem a FFT, além de um comparativo sobre a acurácia entre os canais.
 
-Com relação aos dados obtidos em cada canal, como pode ser obsrvado na figura \ref{fcomparativo}, utilizando a fft obteve-se um bom resultado nos canais \textbf{CH1} com uma precisão de 78 e um resultado razoável no \textbf{CH3} com precisão em 69.
+Com relação aos dados obtidos em cada canal, como pode ser observado na Figura \ref{fcomparativo1}. Utilizando a FFT obteve-se um bom resultado nos canais \textbf{CH1} com uma precisão média de 78\% e um resultado razoável no \textbf{CH3} com precisão média de 69\%. Já o \textbf{CH4} obteve uma precisão insatisfatória de  59\% de acerto, resultado semelhante ao \textbf{CH2} que teve a precisão de 58\%.
 
-Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta. Porém estes filtros diminuem a acurácia obtida, como observado na figura \ref{comesemfiltro}, que exemplifica a matriz de confusão referente ao \textbf{CH1}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acurácia caiu.
-
-\begin{figure}[!htb]
+\begin{figure}[t]
     \centering
     \includegraphics[width=0.8\textwidth]{figuras/fcomparativo.eps}
     \caption{Comparativo da precisão entre os canais, com a fft.}
-    \label{fcomparativo}
+    \label{fcomparativo1}
 \end{figure}
 
-\begin{figure}[!htb]
+Uma Visão mais detalhada sobre este resultado pode ser observada nas matrizes de confusão na Figura \ref{fcomparativo2} e na Figura \ref{fcomparativo3}. Com relação ao \textbf{CH1} obteve-se uma precisão de 86\% com 14\% de falsos positivos no grupo de DP e uma precisão de 67\% de acerto e 33\% de falsos positivos no grupo de controle. Já o canal \textbf{CH2} obteve um péssimo resultado no grupo de controle com somente 50\% de acerto. 
+
+\begin{figure}[!t]
     \centering
     \includegraphics[width=1.1\textwidth]{figuras/CH12Comp.eps}
     \caption{Comparativo entre os canais 1 e 2, com a fft.}
-    \label{fcomparativo}
+    \label{fcomparativo2}
 \end{figure}
 
-\begin{figure}[!htb]
+Outro canal que teve um resultado ruim foi o canal \textbf{CH4}, mesmo com 71\% de acerto no grupo com a DP, obteve 75\% de falsos positivos no grupo de controle. Já o \textbf{CH3} obteve um resultado razoável com precisão em 69\%.
+
+\begin{figure}[!t]
     \centering
     \includegraphics[width=1.1\textwidth]{figuras/CH34Comp.eps}
     \caption{Comparativo entre os canais 3 e 4, com a fft.}
-    \label{fcomparativo}
+    \label{fcomparativo3}
 \end{figure}
 
+
+Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta. Porém estes filtros diminuíram a acurácia obtida, como observado na figura \ref{comesemfiltro}, que exemplifica a matriz de confusão referente ao \textbf{CH1}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acurácia caiu.
 
 \begin{figure}[!htb]
     \centering
@@ -55,7 +59,7 @@ Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-
 
 Também realizou-se a classificação utilizando todos os canais ao mesmo tempo, porém o resultado foi insatisfatório.
 
-Outra técnica de seleção de feature utilizada foi a PCA ou Análise de componentes principais, com a utilização desta técnica obteve-se uma leve melhora na acurácia, como pode ser observado na figura \ref{pcavalidator}, a qual utilizou-se o \textit{k-fold cross-validator} para verificar a precisão real do modelo.
+Outra técnica de seleção de feature utilizada foi a PCA, com a utilização desta técnica obteve-se uma leve melhora na acurácia, como pode ser observado na figura \ref{pcavalidator}, a qual utilizou-se o \textit{k-fold cross-validator} para verificar a precisão real do modelo.
 
 Como pode ser observado na figura \ref{pcavalidator}, com o auxílio do k-fold, pode-se inferir que o Random Forest possui uma precisão superior ao SVM, além de que o PCA aumenta a acurácia consideravelmente do modelo.
 
