@@ -73,9 +73,9 @@ Como pode ser observado na figura \ref{pcavalidator}, com o auxílio do k-fold, 
     \label{pcavalidator}
 \end{figure}
 
-Finalizando a etapa de pré-processamento dos dados, concluiu-se que a utilização da FFT com o PCA mostrou-se a melhor combinação para obtermos os melhores resultados, com o \textit{Random Forest} levemente superior ao SVM e o KNN, com as respectivas precisões.
 
-\subsection{Apresentar dos dados}
+Finalizando a etapa de pré-processamento dos dados, optou-se pela utilização da FFT com o PCA, uma vez que, esta combinação obteve os melhores resultados. Utilizou-se então o \textit{Random Forest} devido a sua acurácia ser levemente superior ao SVM e o consideravelmente superior ao KNN.
+
 
 \section{Solução de software}
 O software pode ser acessado livremente no GitHub, através do seguinte repositório \textbf{https://github.com/SkiNgK/mlModels}, na pasta \textbf{sistema}, divididos em \textit{backend} e \textit{frontend}. Os detalhes referentes a implementação estão descritos nas seções seguintes.
@@ -91,17 +91,17 @@ Os detalhes referentes a construção do produto encontram-se descritos no docum
 
 
 \subsubsection{Pagina inicial}
-A figura ~\ref{fighome} na página ~\pageref{fighome} exemplifica a página inicial da aplicação, sendo que esta aplicação  conterá somente três páginas. Além da página inicial tem-se a página de pacientes arquivados e a página sobre com as informações relacionadas ao metodologia e resultados sobre o processo de Aprendizado de Máquinas utilizado no desenvolvimento da aplicação.
+A figura ~\ref{fighome} exemplifica a página inicial da aplicação, sendo que esta aplicação  conterá somente três páginas. Além da página inicial tem-se a página de pacientes arquivados e a página sobre com as informações relacionadas a metodologia e resultados sobre o processo de Aprendizado de Máquinas utilizado no desenvolvimento da aplicação.
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.9\textwidth]{figuras/produto/home.eps}
-    \caption{Pagina inicial}
+    \includegraphics[width=1\textwidth]{figuras/produto/home.eps}
+    \caption{Pagina inicial.}
     \label{fighome}
 \end{figure}
 
 \subsubsection{Cadastro de pacientes}
-A figura ~\ref{figcadastro} na página ~\pageref{figcadastro} refere-se ao cadastro de pacientes. Nesta tela insere-se os seguintes itens, todos obrigatórios:
+A figura ~\ref{figcadastro} refere-se ao cadastro de pacientes. Nesta tela inserem-se os seguintes itens, todos obrigatórios:
 \begin{itemize}
     \item Nome completo;
     \item Idade;
@@ -163,12 +163,12 @@ Para exibir os itens arquivados, clica-se na aba \textbf{ARQUIVADOS}, como na fi
 \end{figure}
 
 \subsubsection{Página sobre}
-A página sobre exibe os detalhes referentes a classificação, figura ~\ref{farquivados} na página ~\pageref{farquivados}.
+A página sobre exibe as informações referentes ao trabalho, figura ~\ref{fsobre}.
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=1\textwidth]{figuras/produto/arquivados.eps}
-    \caption{Download da tabela, impressão e exibir colunas}
-    \label{farquivados}
+    \includegraphics[width=1\textwidth]{figuras/paginasobre.eps}
+    \caption{informações sobre o projeto, na página Sobre.}
+    \label{fsobre}
 \end{figure}
 
 \section{Passos futuros e considerações finais}

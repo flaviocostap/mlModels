@@ -2,6 +2,18 @@
 .App {
   text-align: center;
 }
+#cardimage {
+  width: 49%;
+}
+#mainsobre {
+  padding-top: 2%; 
+}
+#sobrepagina {
+  background-color: rgb(255, 255, 255);
+}
+#linkgit {
+  color: blue;
+}
 #activeitem {
   font-weight: bold;
 }
