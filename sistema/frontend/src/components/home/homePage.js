@@ -120,7 +120,7 @@ class HomePage extends Component {
                 name: "Resultado sobre a DP",
                 options: {
                     filter: false,
-                    sort: false,
+                    sort: true,
                 }
             },
             {
