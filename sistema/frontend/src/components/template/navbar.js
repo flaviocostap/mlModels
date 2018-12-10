@@ -49,9 +49,10 @@ class NavBar extends Component {
                         </li>
                         <li className="nav-item">
                             <a data-toggle="modal" data-target="#cadastroModal" onClick={this.props.handleBotaoHome} className="nav-link" href="#">Cadastro de paciente</a>
-                        </li><li className="nav-item">
-                            <a className="nav-link" href="#">Sign Up </a>
                         </li>
+                        {/* <li className="nav-item">
+                            <a className="nav-link" href="#">Sign Up </a>
+                        </li> */}
                     </ul>
                 </div>
             </nav>
