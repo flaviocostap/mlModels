@@ -161,8 +161,8 @@ class HomePage extends Component {
                 },
                 selectedRows: {
                     text: "linhas(s) selecionadas",
-                    delete: "Deletar",
-                    deleteAria: "Deletar linhas selecionadas",
+                    delete: "Arquivar",
+                    deleteAria: "Arquivar linhas selecionadas",
                 },
             },
             onRowsDelete: (rowsDeleted) => {

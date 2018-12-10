@@ -48,9 +48,9 @@ class Sobre extends Component {
                             </li>
                         </ul>
                         <ul className="navbar-nav">
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <a className="nav-link" href="#">Sign Up </a>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </nav>
