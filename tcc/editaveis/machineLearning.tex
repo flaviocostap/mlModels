@@ -49,7 +49,7 @@ Outro conceito importante sobre AMs, é a \textbf{redução de dimensionalidade}
 Um exemplo de  tecnica de redução de dimensionalidade é a PCA (sigla do inglês: \textit{Principal Component Analysis}) ou Análise de componentes principais, sendo esta uma das tecnicas mais difundidas na redução de dimenção.
 
 \subsection{PCA}
-A PCApossibilita reduzir consideravelmente o número de variáveis disponíveis, além de, eliminar sobreposições e escolher formas mais representativas do conjunto de dados original, por meio de combinações lineares ortogonais das variáveis originais, para um novo sistema de coordenadas \cite{jolliffe2011principal}.
+A PCA possibilita reduzir consideravelmente o número de variáveis disponíveis, além de, eliminar sobreposições e escolher formas mais representativas do conjunto de dados original, por meio de combinações lineares ortogonais das variáveis originais, para um novo sistema de coordenadas \cite{jolliffe2011principal}.
 
 \section{Desafios do Aprendizado de Máquinas}
 Em um projeto de AM, existem diversos aspectos que podem levar a um péssimo resultado ou problemas na execução do mesmo. Em resumo, a tarefa principal do AM é a seleção de um algoritmo, ou modelo, e treiná-lo utilizando algum tipo de dado. Logo, ao analisar os problemas provenientes de um resultado ineficiente, pode-se encontrar principalmente duas origens para o problema a escolha de um “algoritmo ruim” ou “dados ruins” \cite{geron2017hands}.
@@ -131,7 +131,7 @@ No \textit{k-fold} dividi-se o conjunto total de dados em \textbf{\textit{k}} su
 As seções seguintes descrevem os principais algoritmos de AM utilizados em classificação, segundo \citeonline{scikitlearn}, sendo eles:
 \begin{itemize}
     \item SVM;
-    \item Floresta aleatória;
+    \item \textit{Random forest};
     \item K Vizinhos Mais Próximos.
 \end{itemize}
 
@@ -233,7 +233,7 @@ A função para classificação em um SVM, pode ser generalizada pela Equação 
     min\left \| f \right \|_{k}^{2}+C\sum_{i=0}^{l}\left | 1-y_{i}f(x_{i})\right |_{+}\
 \end{equation}
 
-\section{Floresta aleatória}
+\section{\textit{Random Forest}}
 
 Desenvolvido por \cite{breiman2001random}, o método combina a abordagem de amostragem de Breiman, e a seleção aleatória de características, introduzida independentemente por \cite{ho1995random} \cite{amit1997shape}, a fim de construir uma coleção de árvores de decisão, com variação controlada, Usando ensacamento, cada árvore de decisão no conjunto é construída usando uma amostra com substituição dos dados de treinamento. Estatisticamente, a amostra provavelmente terá cerca de 64\% de instâncias aparecendo pelo menos uma vez na amostra. As instâncias na amostra são referidas como instâncias de embalagem e as instâncias restantes (cerca de 36\%) são referidas como instâncias fora do pacote. Cada árvore no conjunto funciona como um classificador base para determinar o rótulo de classe de uma instância não rotulada. Isso é feito por meio de votação por maioria, em que cada classificador atribui um voto ao rótulo de classe previsto. Em seguida, o rótulo de classe com o maior número de votos é usado para classificar a instância \cite{fawagreh2014random}.
 

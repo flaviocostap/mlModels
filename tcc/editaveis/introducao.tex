@@ -1,21 +1,21 @@
 \chapter[Introdução]{Introdução} 
 \section{Preâmbulo} 
-Este trabalho visa o desenvolvimento de um \textit{software} capaz de auxiliar o diagnóstico da DP (Doença de Parkinson) avaliando tremores patológicos de repouso, utilizando AM (aprendizado de máquinas) para identificar se o indivíduo é um possível portador ou não da doença. Com relação aos dados que serão analisados pelo algoritimo, estes dados serão coletados através da sEMG (sigla do inglês: \textit{surface electromyography}, eletromiografia de superfície).
+Este trabalho visa o desenvolvimento de um \textit{software} capaz de auxiliar o diagnóstico da DP (Doença de Parkinson) avaliando tremores patológicos de repouso, utilizando AM (aprendizado de máquinas) para identificar se é uma pessoa com deficiência ou não. Com relação aos dados que serão analisados pelo algoritimo, esses serão coletados através da sEMG (sigla do inglês: \textit{surface electromyography}, eletromiografia de superfície).
 
-A DP é uma doença crônica que afeta o sistema nervoso central, prejudicando a mobilidade dos doentes. A doença não possui cura e sua causa ainda é desconhecida. Deste modo, o tratamento é focado na melhora de qualidade de vida dos pacientes \cite{da2016aspectos}. O diagnóstico da doença é clínico, onde identifica-se a presença de três principais sintomas a bradicinesia, os tremores corporais em repouso e a rigidez corporal. Atualmente, existem estudos que buscam identificar a DP utilizando sEMG \cite{eftaxias2015detection}.
+A DP é uma doença crônica que afeta o sistema nervoso central, prejudicando, entre outros fatores, principalmente a mobilidade dos doentes. A doença não possui cura e sua causa ainda é desconhecida. Deste modo, o tratamento é focado na melhora de qualidade de vida dos pacientes \cite{da2016aspectos}. O diagnóstico da doença é clínico, onde identifica-se a presença de três principais sintomas a bradicinesia, os tremores corporais em repouso e a rigidez corporal. Atualmente, existem estudos que buscam identificar a DP utilizando sEMG \cite{eftaxias2015detection}.
 
 A sEMG é uma técnica rápida e não invasiva para monitorar a atividade elétrica envolvendo as fibras musculares, através do uso de eletrodos sobre a pele do paciente, gerando um sinal eletromiográfico. Um sinal eletromiográfico é o somatório das contrações musculares identificadas pelos eletrodos \cite{de2010eletromiografia}. Este sinal gerado não é de facil compreensão e pode ser melhor analisado utilizando AM, como realizado por \citeonline{kugler2013automated} e \citeonline{loconsole2018model}. 
 
 A AM é a uma área da inteligência artificial e da ciência de dados, onde se estuda o desenvolvimento de algoritmos autônomos capazes de aprender com os seus erros e realizar predições sobre novos dados. Se executado corretamente obtém um alto nível de acerto, muitas vezes superior ao realizado por humanos \cite{Kohavi}.
 
 \section{Justificativa} 
-Atualmente, o diagnóstico da DP é basicamente clínico, onde um neurologista identifica alguns sintomas associados a doença, como a bradicinesia, tremor em repouso, rigidez muscular e instabilidade postural \cite{gago2014manual}. A sEMG pode auxiliar esse processo, porém a onda gerada não é de fácil interpretação, sendo que com AM é possível obter um resultado rápido e com alta precisão, como demonstrado por \citeonline{camara2015resting}, onde obteve-se aproximadamente 98\% de acerto num possível diagnóstico da doença. 
+Atualmente, o diagnóstico da DP é basicamente clínico, onde o neurologista identifica alguns sintomas associados a doença, como a bradicinesia, tremor em repouso, rigidez muscular e instabilidade postural \cite{gago2014manual}. A sEMG pode auxiliar esse processo, porém a onda gerada não é de fácil interpretação, sendo que com AM é possível obter um resultado rápido e com alta precisão, como demonstrado por \citeonline{camara2015resting}, onde obteve-se aproximadamente 98\% de acerto num possível diagnóstico da doença. 
 
-Logo, com o desenvolvimento do \textit{software} proposto neste trabalho, este processo de diagnóstico poderá ser facilitado utilizando um único exame não invasivo de sEMG, combinado com AM para classificar os portadores de DP. Assim auxiliando com rapidez e eficácia a detecção da doença. 
+Logo, com o desenvolvimento do \textit{software} proposto neste trabalho, este processo de diagnóstico poderá ser facilitado utilizando um único exame não invasivo de sEMG, combinado com AM para classificar os deficientes. Assim auxiliando com rapidez e eficácia a detecção da doença. 
 
 \section{Objetivos} 
 \subsection{Objetivo Geral} 
-O Objetivo deste Trabalho é o desenvolvimento de um \textit{software} utilizando algoritimos de AM capazes de auxiliar no diagnóstico da DP, focando em analisar o estado do tremor de repouso do paciente, classificando os indivíduos em portadores da DP e não portadores. 
+O Objetivo deste Trabalho é o desenvolvimento de um \textit{software} utilizando algoritimos de AM capazes de auxiliar no diagnóstico da DP, focando em analisar o estado do tremor de repouso do paciente, classificando os indivíduos em deficientes da DP e não deficientes. 
 
 \subsection{Objetivos Específicos}
 \begin{itemize}

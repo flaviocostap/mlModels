@@ -20,7 +20,7 @@
    Foi adotado devido a seu leve consumo de dados, além de possuir uma fácil implementação.
 
     \section{Representação da Arquitetura}
-    A arquitetura se baseia em dois modelos arquiteturais, REST e SPA, interligados com um modelo de aprendizado de máquinas. No caso a Floresta Aleatória ou o SVM, como observado na figura A Figura \ref{diagramadepacotes}. Deste modo a aplicação possui três pacotes:
+    A arquitetura se baseia em dois modelos arquiteturais, REST e SPA, interligados com um modelo de aprendizado de máquinas. No caso a \textit{Random Forest} ou o SVM, como observado na figura A Figura \ref{diagramadepacotes}. Deste modo a aplicação possui três pacotes:
 
     \begin{itemize}
         \item \textit{Machine Learning models};
@@ -38,7 +38,7 @@
         \label{diagramadepacotes}
     \end{figure}
     \subsubsection{\textit{Machine Learning models}}
-    Consiste no modelo já treinado e validado do algoritmo Floresta Aleatória, sendo que este é armazenado no banco de dados \textit{PickleDB}. Deste modo, a comunicação é somente de leitura, com o modelo sendo enviado por completo para a API.
+    Consiste no modelo já treinado e validado do algoritmo \textit{Random Forest}, sendo que este é armazenado no banco de dados \textit{PickleDB}. Deste modo, a comunicação é somente de leitura, com o modelo sendo enviado por completo para a API.
     \subsubsection{API}
     A API execulta todas as manipulações envolvendo os dados, como o pré-processamento do arquivo enviado pelo usuário, e classificando estes com o modelo salvo. Além de salvar os dados no banco de dados e enviá-los quando requisitados, foi desenvolvida utilizando os padrões de projeto definidos pelo Django-Rest-Framework, possuindo o maior esforço na \textit{View}.
 
@@ -89,11 +89,11 @@
 
     \subsection{Oportunidade de Negócios}
 
-    Apesar dos meios para o diagnóstico da doença de Parkinson serem considerados suficientes, o desenvolvimento de um sistema capaz de melhorar ainda mais essa eficiência desse diagnóstico utilizando os conceitos do aprendizado de máquina, ainda tendo em vista que não existem outros meios semelhantes a esse sistema para aferir um diagnóstico preliminar da doença, pode significar um passo a mais no quesito diagnóstico não apenas da doença de parkinson, mas também de outros distúrbios neurológicos.
+    Apesar dos meios para o diagnóstico da doença de Parkinson serem considerados suficientes, o desenvolvimento de um sistema capaz de melhorar ainda mais a eficiência desse diagnóstico, utilizando os conceitos do aprendizado de máquina, ainda tendo em vista que não existem outros meios semelhantes a esse sistema para aferir um diagnóstico preliminar da doença, pode significar um passo a mais nas pesquisas sobre novos diagnósticos, não apenas da doença de Parkinson, mas também de outros distúrbios neurológicos.
 
     \subsection{Instrução do Problema}
 
-    A tabela \ref{table:Instrucao do Problema} descreve brevemente a oportunidade de negócios que é tratada por este projeto segundo o problema no qual o mesmo se dedica a solucionar em uma instrução geral resumida no nível mais alto.
+    A tabela \ref{table:Instrucao do Problema} descreve brevemente a oportunidade de negócios que é tratada por este projeto segundo o problema no qual o mesmo se dedica a solucionar em uma instrução geral resumida.
 
     \begin{table}[ht]
         \caption{Instrução do Problema}
@@ -110,7 +110,7 @@
 
     \section{Descrições da Parte Interessada e do Usuário}
 
-    Para fornecer produtos e serviços que atendam às necessidades das partes interessadas e dos usuários, é necessário identificar e envolver todas as partes interessadas como parte do processo de definição dos requisitos. Essa seção se dedica a apresentar e detalhar os perfis dos interessados no projeto e usuários do sistema.
+    Para fornecer produtos e serviços que atendam às necessidades das partes interessadas e dos usuários, é necessário identificar e envolver todas essas partes dentro do processo de definição dos requisitos. Essa seção se dedica a apresentar e detalhar os perfis dos interessados no projeto e usuários do sistema.
 
     \subsection{Resumo da Parte Interessada}
 
