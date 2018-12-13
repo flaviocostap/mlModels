@@ -22,12 +22,22 @@ Com os dados brutos foi iniciada a etapa de pré-processamento dos dados. Inicia
 
 Com relação aos dados obtidos em cada canal, como pode ser observado na Figura \ref{fcomparativo1}. Utilizando a FFT obteve-se um bom resultado nos canais \textbf{CH1} com uma precisão média de 78\% e um resultado razoável no \textbf{CH3} com precisão média de 69\%. Já o \textbf{CH4} obteve uma precisão insatisfatória de  59\% de acerto, resultado semelhante ao \textbf{CH2} que teve a precisão de 58\%.
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.8\textwidth]{figuras/fcomparativo.eps}
-    \caption{Comparativo da precisão entre os canais, com a FFT.}
-    \label{fcomparativo1}
-\end{figure}
+
+\begin{table}[]
+\centering
+\begin{tabular}{lccc}
+\hline
+\multicolumn{4}{c}{Comparativo entre os canais com a FFT.}                                                                \\ \hline
+    & \multicolumn{1}{l}{\textbf{Parkinson}} & \multicolumn{1}{l}{\textbf{Controle}} & \multicolumn{1}{l}{\textbf{Média}} \\
+CH1 & 86\%                                   & 67\%                                  & \textbf{78\%}                      \\
+CH2 & 64\%                                   & 50\%                                  & 58\%                               \\
+CH3 & 71\%                                   & 67\%                                  & 69\%                               \\
+CH4 & 71\%                                   & 25\%                                  & 59\%                               \\ \hline
+\end{tabular}
+\caption{Comparativo da precisão entre os canais com a FFT.}
+\label{fcomparativo1}
+\end{table}
+
 
 Uma Visão mais detalhada sobre este resultado pode ser observada nas matrizes de confusão na Figura \ref{fcomparativo2} e na Figura \ref{fcomparativo3}. Com relação ao \textbf{CH1} obteve-se uma precisão de 86\% com 14\% de falsos positivos no grupo de DP e uma precisão de 67\% de acerto e 33\% de falsos positivos no grupo de controle. Já o canal \textbf{CH2} obteve um péssimo resultado no grupo de controle com somente 50\% de acerto. 
 
@@ -48,7 +58,7 @@ Outro canal que teve um resultado ruim foi o canal \textbf{CH4}, mesmo com 71\% 
 \end{figure}
 
 
-Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta. Porém estes filtros diminuíram a acurácia obtida, como observado na figura \ref{comesemfiltro}, que exemplifica a matriz de confusão referente ao \textbf{CH1}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acurácia caiu. 
+Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta. Porém estes filtros diminuíram a acurácia obtida, como observado na Figura \ref{comesemfiltro}, que exemplifica a matriz de confusão referente ao \textbf{CH1}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acurácia caiu. 
 
 Na Figura \ref{comesemfiltro} tem-se que, com a utilização do filtro passa-banda com um total de 11 amostras de pessoas com DP, o sistema conseguiu classificar corretamente 7 amostras ou 64\%, e no grupo de controle classificou-se corretamente 5 amostras de um total de 6 ou 83\%. Com relação aos testes sem a utilização do filtro, obteve-se uma previsão de 90\% no grupo de DP e 71\% no grupo de controle, portanto superior ao testes utilizando o filtro.
 
@@ -62,16 +72,29 @@ Na Figura \ref{comesemfiltro} tem-se que, com a utilização do filtro passa-ban
 
 Também realizou-se a classificação utilizando todos os canais ao mesmo tempo, porém o resultado foi insatisfatório.
 
-Outra técnica de seleção de feature utilizada foi a PCA, com a utilização desta técnica obteve-se uma leve melhora na acurácia, como pode ser observado na figura \ref{pcavalidator}, a qual utilizou-se o \textit{cross-validator} para verificar a precisão real do modelo.
+Outra técnica de seleção de feature utilizada foi a PCA, com a utilização desta técnica obteve-se uma leve melhora na acurácia, como pode ser observado na Tabela \ref{pcavalidator}, a qual utilizou-se o \textit{cross-validator} para verificar a precisão real do modelo.
 
-Como pode ser observado na figura \ref{pcavalidator}, com o auxílio do k-fold, pode-se inferir que o \textit{Random Forest} possui uma precisão superior ao SVM, além de que o PCA aumenta a acurácia consideravelmente do modelo.
+Como pode ser observado na Figura \ref{pcavalidator}, com o auxílio do k-fold, pode-se inferir que o \textit{Random Forest} possui uma precisão superior ao SVM, além de que o PCA aumenta a acurácia consideravelmente do modelo.
 
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=1\textwidth]{figuras/modeloComp.eps}
-    \caption{Comparativo entre os algoritmos com PCA do \textbf{Ch1}.}
-    \label{pcavalidator}
-\end{figure}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+\centering
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\multicolumn{4}{c}{Comparativo entre os algoritmos com PCA e a FFT.}                                                                                \\ \midrule
+                                 & \multicolumn{1}{l}{\textbf{SVM}} & \multicolumn{1}{l}{\textbf{Random Forest}} & \multicolumn{1}{l}{\textbf{KNN}} \\
+Somente FFT                      & \textbf{80,76923\%}              & 69,23076\%                                 & 53,84615\%                       \\
+FFT com PCA                      & \textbf{84,61538\%}              & 80,76923\%                                 & 53,84615\%                       \\
+Somente FFT com Cross-validation & 68\%                             & \textbf{75\%}                              & 59\%                             \\
+FFT com PCA e Cross-validation   & 74\%                             & \textbf{79\%}                              & 59\%                             \\ \bottomrule
+\end{tabular}
+\caption{Comparativo entre os algoritmos do \textbf{Ch1}.}
+\label{pcavalidator}
+\end{table}
+
+
 
 
 Finalizando a etapa de pré-processamento dos dados, optou-se pela utilização da FFT com o PCA, uma vez que, esta combinação obteve os melhores resultados. Utilizou-se então o \textit{Random Forest} devido a sua acurácia ser levemente superior ao SVM e o consideravelmente superior ao KNN.
@@ -163,7 +186,7 @@ Para exibir os itens arquivados, clica-se na aba \textbf{ARQUIVADOS}, como na fi
 \end{figure}
 
 \subsubsection{Página sobre}
-A página sobre exibe as informações referentes ao trabalho, figura ~\ref{fsobre}.
+A página sobre exibe as informações referentes ao trabalho, Figura ~\ref{fsobre}.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=1\textwidth]{figuras/paginasobre.eps}
