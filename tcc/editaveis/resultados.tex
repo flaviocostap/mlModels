@@ -18,7 +18,21 @@ Foram realizadas três coletas por colaborador, com duração de cinco segundos 
 Estes dados coletados em sEMG em cada canal, foram cedidos no formato \textit{edf}. Sendo que, os grupos consistiam em 14 pessoas no grupo de controle, cada um com três amostras e 14 pessoas no grupo de pessoas com a DP, também com três amostras cada.
 
 \subsection{Processamento dos dados}
-Com os dados brutos foi iniciada a etapa de pré-processamento dos dados. Inicialmente utilizou-se como técnica para a filtragem dos dados a FFT, onde se realizou testes nos quatro canais disponíveis, realizando um comparativo da acurácia com e sem a FFT, além de um comparativo sobre a acurácia entre os canais.
+Com os dados brutos foi iniciada a etapa de pré-processamento dos dados. Inicialmente utilizou-se como técnica para a filtragem dos dados a FFT, onde se realizou testes nos quatro canais disponíveis, realizando um comparativo da acurácia com e sem a FFT, além de um comparativo sobre a acurácia entre os canais, um exemplo do sinal pode ser observado na Figura \cite{fftimage}, já o sinal bruto pode ser observado na Figura \cite{sinalbruto}.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/fft.eps}
+    \caption{Amostra de um sinal após a aplicação do FFT no canal 1.}
+    \label{fftimage}
+\end{figure}
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/sinalbruto.eps}
+    \caption{Amostra de um sinal bruto no canal 1.}
+    \label{sinalbruto}
+\end{figure}
 
 Com relação aos dados obtidos em cada canal, como pode ser observado na Figura \ref{fcomparativo1}. Utilizando a FFT obteve-se um bom resultado nos canais \textbf{CH1} com uma precisão média de 78\% e um resultado razoável no \textbf{CH3} com precisão média de 69\%. Já o \textbf{CH4} obteve uma precisão insatisfatória de  59\% de acerto, resultado semelhante ao \textbf{CH2} que teve a precisão de 58\%.
 
@@ -58,9 +72,11 @@ Outro canal que teve um resultado ruim foi o canal \textbf{CH4}, mesmo com 71\% 
 \end{figure}
 
 
-Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta. Porém estes filtros diminuíram a acurácia obtida, como observado na Figura \ref{comesemfiltro}, que exemplifica a matriz de confusão referente ao \textbf{CH1}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acurácia caiu. 
+Realizou-se também a aplicação separadamente de filtros de frequência, passa-banda, passa-baixa e passa-alta. Porém estes filtros diminuíram a acurácia obtida, como observado na Figura \ref{comesemfiltro}, que exemplifica a matriz de confusão referente ao \textbf{CH1}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acurácia caiu. 
 
 Na Figura \ref{comesemfiltro} tem-se que, com a utilização do filtro passa-banda com um total de 11 amostras de pessoas com DP, o sistema conseguiu classificar corretamente 7 amostras ou 64\%, e no grupo de controle classificou-se corretamente 5 amostras de um total de 6 ou 83\%. Com relação aos testes sem a utilização do filtro, obteve-se uma previsão de 90\% no grupo de DP e 71\% no grupo de controle, portanto superior ao testes utilizando o filtro.
+
+
 
 
 \begin{figure}[t]
