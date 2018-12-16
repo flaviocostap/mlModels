@@ -18,15 +18,15 @@ Considerando ainda que o AM, com seu foco na predição no desenvolvimento de al
 Os algoritmos são classificados quanto ao seu tipo de aprendizado. Existem três categorias, as quais se distinguem de acordo com a natureza do comportamento no tratamento dos dados. Estas categorias são aprendizado supervisionado, não supervisionado e por reforço \cite{geron2017hands}.
  
 \subsection{Aprendizado Supervisionado}
-O objetivo principal do aprendizado supervisionado é ensinar um modelo através de uma base de treino etiquetada, que permite fazer predições de dados futuros. O termo supervisionado se refere a um grupo de dados onde a “resposta”, sinal ou valor esperado já é conhecido. Este valor é conhecido como etiqueta e é utilizada para verificar se o algoritmo identificou corretamente os dados durante o treinamento. As tarefas do aprendizado supervisionado podem ser divididas em classificação e regressão, onde a classificação tem as etiquetas esperadas com um valor fixo, por exemplo, uma avaliação binária, e a regressão é referente a um sinal com valor contínuo, como uma regressão polinomial \cite{geron2017hands}, ou segundo \cite{kirk2014thoughtful}, a regressão é ajustar o conjunto de dados á uma função qualquer.
+O objetivo principal do aprendizado supervisionado é ensinar um modelo através de uma base de treino etiquetada, que permite fazer predições de dados futuros. O termo supervisionado se refere a um grupo de dados onde a “resposta”, sinal ou valor esperado já é conhecido. Este valor é conhecido como etiqueta e é utilizada para verificar se o algoritmo identificou corretamente os dados durante o treinamento. As tarefas do aprendizado supervisionado podem ser divididas em classificação e regressão, onde a classificação tem as etiquetas esperadas com um valor fixo, por exemplo, uma avaliação binária, e a regressão é referente a um sinal com valor contínuo, como uma regressão polinomial \cite{geron2017hands}, ou segundo \citeonline{kirk2014thoughtful}, a regressão é ajustar o conjunto de dados á uma função qualquer.
 
-Exemplos de algoritmos existentes \cite{lorena2007introduccao}; \cite{kirk2014thoughtful}; \cite{murthy1998automatic} \cite{ho1995random}:
+Exemplos de algoritmos existentes \cite{lorena2007introduccao}; \cite{kirk2014thoughtful}; \cite{murthy1998automatic}; \cite{ho1995random}:
 
 \begin{itemize}
-    \item \textbf{KNN}: Determina o rótulo de classificação de um dado baseando nos valores das amostras vizinhas mais próximos;
+    \item \textbf{KNN}: Sigla do inglês: \textit{k-nearest neighbors}, K-vizinhos mais próximos. Determina o rótulo de classificação de um dado baseando nos valores das amostras vizinhas mais próximos;
     \item \textit{Decision Trees}: é uma forma de organizar regras referentes a dados com estruturas hierárquicas e sequências, que particionam estes dados recursivamente;
-    \item \textbf{SVM}: separado em linear e não linear, consiste na separação de dados de um conjunto maior em classes de conjuntos mais restritos.
-    \item \textbf{RF}: são um método de aprendizado conjunto para classificação, regressão e outras tarefas, que operam construindo uma multiplicidade de árvores de decisão no momento do treinamento e gerando a classe que é o modo das classes ou previsão média das árvores individuais.
+    \item \textbf{SVM}: Sigla do inglês: \textit{Support Vector Machine}, máquina de vetores de suporte. Separado em linear e não linear, consiste na separação de dados de um conjunto maior em classes de conjuntos mais restritos.
+    \item \textbf{Random Forest}: É um método de aprendizado conjunto para classificação, regressão e outras tarefas, que operam construindo uma multiplicidade de árvores de decisão no momento do treinamento e gerando a classe que é o modo das classes ou previsão média das árvores individuais.
 \end{itemize}
 
 \subsection{Aprendizado não-supervisionado}
@@ -46,13 +46,13 @@ Uma \textit{feature} é uma característica ou variável do problema, que pode s
 
 Outro conceito importante sobre AMs, é a \textbf{redução de dimensionalidade}, muito utilizada em estatística, refere-se ao processo de diminuição do número de variáveis aleatórias, selecionando um subconjunto com variáveis relevantes. Serve, dentre outras funcionalidades, para transformar o processo de aprendizado mais eficiente \cite{borges2006reduccao}. Isto ocorre devido a modelos com um número elevado de variáveis ocasionam em um maior tempo de computação e um baixo desempenho da previsão \cite{chandrashekar2014survey}.
 
-Um exemplo de  tecnica de redução de dimensionalidade é a PCA (sigla do inglês: \textit{Principal Component Analysis}) ou Análise de componentes principais, sendo esta uma das tecnicas mais difundidas na redução de dimenção.
+Um exemplo de técnica de redução de dimensionalidade é a PCA (sigla do inglês: \textit{Principal Component Analysis}, Análise de componentes principais), sendo esta uma das tecnicas mais difundidas na redução de dimenção.
 
 \subsection{PCA}
-A PCA (sigla do inglês: \textit{Principal Component Analysis}, Análise de Componentes Principais) possibilita reduzir consideravelmente o número de variáveis disponíveis, além de, eliminar sobreposições e escolher formas mais representativas do conjunto de dados original, por meio de combinações lineares ortogonais das variáveis originais, para um novo sistema de coordenadas \cite{jolliffe2011principal}.
+A PCA possibilita reduzir consideravelmente o número de variáveis disponíveis, além de, eliminar sobreposições e escolher formas mais representativas do conjunto de dados original, por meio de combinações lineares ortogonais das variáveis originais, para um novo sistema de coordenadas \cite{jolliffe2011principal}.
 
 \subsection{FFT}
-A FFT (sigla do inglês: \textit{fast Fourier transform}, Transformada rápida de Fourier) é um algoritimo capaz de realizar a Transformada de discreta de Fourier e sua inversa. Este processo é realizado com uma alta eficiência, reduzindo a complexidade de \textbf{O(N²)} para \textbf{O(N*log(N))}, ou seja de reduzindo o tempo de processamento em centenas de horas \cite{brigham1988fast}. 
+A FFT (sigla do inglês: \textit{fast Fourier transform}, Transformada rápida de Fourier) é um algoritimo capaz de realizar a Transformada de discreta de Fourier e sua inversa. Este processo é realizado com uma alta eficiência, reduzindo a complexidade de $O(N^2)$ para $O(N*log_2 (N))$, ou seja de reduzindo o tempo de processamento em centenas de horas \cite{brigham1988fast}. 
 
 \section{Desafios do Aprendizado de Máquinas}
 Em um projeto de AM, existem diversos aspectos que podem levar a um péssimo resultado ou problemas na execução do mesmo. Em resumo, a tarefa principal do AM é a seleção de um algoritmo, ou modelo, e treiná-lo utilizando algum tipo de dado. Logo, ao analisar os problemas provenientes de um resultado ineficiente, pode-se encontrar principalmente duas origens para o problema a escolha de um “algoritmo ruim” ou “dados ruins” \cite{geron2017hands}.
@@ -75,11 +75,11 @@ Com relação a “algoritmo ruim”, também não deve ser interpretado literal
 
 \section{Ferramentas}
 \label{sec:MAFerramentas}
-Existem diversas ferramentas para auxiliar o desenvolvimento em AM, sendo que atualmente \textit{Python} é uma das linguagens mais utilizadas nesse seguimento. Segundo \citeonline{senders2017machine}, essa utilização é devido ao conjunto bem eficiente de bibliotecas disponíveis, o fato de ser de código aberto, a facilidade de plotar gráficos e demais esquemas de visualização, além da simplicidade de identificar erros no \textit{software}, tornam a linguagem \textit{Python} uma boa indicação para trabalhar com AM.
+Existem diversas ferramentas para auxiliar o desenvolvimento em AM, sendo que atualmente \textit{Python} é uma das linguagens mais utilizadas nesse segimento. Segundo \citeonline{senders2017machine}, essa utilização é devido ao conjunto bem eficiente de bibliotecas disponíveis, o fato de ser de código aberto, a facilidade de plotar gráficos e demais esquemas de visualização, além da simplicidade de identificar erros no \textit{software}, tornam a linguagem \textit{Python} uma boa indicação para trabalhar com AM.
 
 Algumas ferramentas amplamente utilizadas em AM, podem ser elucidadas a seguir \cite{scikitlearn}; \cite{abadi2016tensorflow}; \cite{McKinney2012datapython}:
 \begin{itemize}
-    \item \textbf{\textit{Scikit-learn}}: Possui uma ampla gama de algoritmos, com uma alta facilidade de uso, boa documentação e uma API amplamente consistente. API (sigla do Inglês: \textit{Application Programming Interface}, Interface de Programação de Aplicação), é um conjunto de funções que são utilizados para facilitar o desenvolvimento de um \textit{software};
+    \item \textbf{\textit{Scikit-learn}}: Possui uma ampla gama de algoritmos, com uma alta facilidade de uso, boa documentação e uma API (sigla do Inglês: \textit{Application Programming Interface}, Interface de Programação de Aplicação) amplamente consistente. API é um conjunto de funções que são utilizados para facilitar o desenvolvimento de um \textit{software};++
     \item \textbf{\textit{TensorFlow}}: Projetado pelo Google para operar em larga escala, utiliza ferramentas avançadas sendo utilizado inclusive pelo próprio Google;
     \item \textbf{\textit{Keras}}: API de alto nível com foco em RNAs (Redes Neurais Artificiais);
     \item \textbf{\textit{Matplotlib}}: Ferramenta para a criação de gráficos;
@@ -93,12 +93,12 @@ Construir visualizações informativas são umas das mais importantes tarefas de
 
 \subsection{Matriz de Confusão}
 \label{sc:matrizconsusao}
-Um dos métodos mais utilizadas para apresentar a solução do modelo é a matriz de confusão. Uma matriz de confusão, é um método para visualizar graficamente a eficiência de um modelo de AM. Onde, realiza-se o cruzamento entre os valores esperados com os valores alcançados pelo algoritmo \cite{caelen2017bayesian}. Por exemplo na Figura \ref{matriz_consusao}, existem três tipos de flores e o algoritmo, no caso o SVM, deveria classificar os dados de entradas em um destes três grupos. Como observado, existiam 13 dados do tipo “setosa”, e o SVM acertou todos os 13. O mesmo ocorre com os dados do tipo “virginica”, onde ocorreu 100\% de acerto. Porém, nos dados do tipo “versicolor” existiam 16 amostras, e o SVM acertou 10 e errou os outros 6 restantes, já que o valor alcançado nestes 6 dados foi de “virginica”.
+Um dos métodos mais utilizadas para apresentar a solução do modelo é a matriz de confusão. Uma matriz de confusão, é um método para visualizar graficamente a eficiência de um modelo de AM. Onde, realiza-se o cruzamento entre os valores esperados com os valores alcançados pelo algoritmo \cite{caelen2017bayesian}. Por exemplo na Figura \ref{matriz_consusao}, existem três tipos de flores e o algoritmo, no caso o SVM, deveria classificar os dados de entradas em um destes três grupos. Como observado, existiam 13 dados do tipo “setosa”, e o SVM acertou todos os 13. O mesmo ocorre com os dados do tipo “virginica”, onde ocorreu 100\% de acerto. Porém, nos dados do tipo “versicolor” existiam 16 amostras, e o SVM acertou 10 e errou os outros 6 restantes, já que o valor alcançado nestes 6 dados foi de “virginica” \cite{scikitlearn}.
 
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.1\textwidth]{figuras/ma_normalizedy.eps}
-    \caption{Ilustração da matriz de confusão, adaptado de \cite{scikitlearn}}
+    \caption{Ilustração da matriz de confusão, adaptado de \cite{scikitlearn}.}
 	\label{matriz_consusao}
 \end{figure}
 
@@ -113,16 +113,16 @@ A validação cruzada ou \textit{Cross-Validation} é uma técnica para verifica
     \item Ao final, verifica-se a generalização do algoritmo treinado, utilizando o conjunto de validação. Deste modo, o conjunto de validação é utilizada apenas uma vez no processo de AM.
 \end{enumerate}
 
-A validação cruzada possue ainda algumas variações, sendo elas: \textit{holdout cross-validation}, \textit{k-Fold Cross-Validation} e \textit{Leave-one-out cross-validation (LOOCV)}.
+A validação cruzada possue ainda algumas variações, sendo elas: \textit{holdout cross-validation}, \textit{k-Fold Cross-Validation} e \textit{Leave-one-out cross-validation (LOOCV)} \cite{raschka2015python}.
 
 
 \subsection{\textit{Holdout Cross-Validation}}
 Modelo clássico da validação cruzada, consiste em separar os dados em dois conjuntos mutualmente exclusivos (treino e validação), porém essa abordagem acaba não sendo eficiente, por aumentar a probabilidade de \textit{overfitting}, para uma maior eficiência, utiliza-se a variações com os três conjuntos explicados anteriormente \cite{raschka2015python}.
 
 \subsection{\textit{k-Fold Cross-Validation}}
-No \textit{k-fold} dividi-se o conjunto total de dados em \textbf{\textit{k}} subconjuntos mutualmente exclusivos, com a mesma quantidade de dados, um destes subconjuntos é utilizado para teste e os outros \textbf{\textit{k-1}} restantes são utilizados no treinamento do modelo com os devidos ajuste de parâmetros necessários, tal processo é repetido \textbf{\textit{k}} vezes, alternando o conjunto de teste nestas iterações. Após as \textbf{\textit{k}} iterações, se calcula a média do erro esperado. A Figura \ref{kfold} na página \pageref{kfold} ilustra este método.
+No \textit{k-fold} divide-se o conjunto total de dados em \textbf{\textit{k}} subconjuntos mutualmente exclusivos, com a mesma quantidade de dados, um destes subconjuntos é utilizado para teste e os outros \textbf{\textit{k-1}} restantes são utilizados no treinamento do modelo com os devidos ajuste de parâmetros necessários, tal processo é repetido \textbf{\textit{k}} vezes, alternando o conjunto de teste nestas iterações. Após as \textbf{\textit{k}} iterações, se calcula a média do erro esperado. A Figura \ref{kfold} ilustra este método \cite{raschka2015python}.
 
-\subsection{\textit{Leave-One-Out Cross-Validation (LOOCV)}} Uma variação do \textit{k-fold}, com \textbf{\textit{k}} igual ao total de dados de entrada \textbf{\textit{N}}. Possue um alto custo operacional.
+\subsection{\textit{Leave-One-Out Cross-Validation (LOOCV)}} Uma variação do \textit{k-fold}, com \textbf{\textit{k}} igual ao total de dados de entrada \textbf{\textit{N}}. Possui um alto custo operacional \cite{raschka2015python}.
 
 \begin{figure}[!htb]
     \centering
@@ -135,7 +135,7 @@ As seções seguintes descrevem os principais algoritmos de AM utilizados em cla
 \begin{itemize}
     \item SVM;
     \item \textit{Random forest};
-    \item K Vizinhos Mais Próximos.
+    \item K-Vizinhos Mais Próximos.
 \end{itemize}
 
 \section{SVM}
@@ -147,9 +147,9 @@ Os SVMs são divididas em dois grupos, categorizadas conforme o estado dados a s
 Segundo \citeonline{scikitlearn}, as principais vantagens em SVMs são:
 
 \begin{itemize}
-    \item sua eficácia em grandes espaços dimensionais ou quando o numero de dimensões supera o de amostras;
-    \item a eficiência em termo de memória;
-    \item a versátilidade: possui diferentes tipos de funções de \textit{kernel} (linear, polinomial, sigmoide e RBF (sigla do inglês: \textit{radial basis function}, função de base radial), possibilita também a utilização de um \textit{kernel} customizado, ou seja, uma função matemática classificação personalizada. A Figura \ref{svmkernel} exemplifica algumas funções de \textit{kernel}, onde os dados são classificados em três grupos distintos.
+    \item Sua eficácia em grandes espaços dimensionais ou quando o numero de dimensões supera o de amostras;
+    \item A eficiência em termo de memória;
+    \item A versátilidade: possui diferentes tipos de funções de \textit{kernel} (linear, polinomial, sigmoide e RBF (sigla do inglês: \textit{radial basis function}, função de base radial), possibilita também a utilização de um \textit{kernel} customizado, ou seja, uma função matemática classificação personalizada. A Figura \ref{svmkernel} exemplifica algumas funções de \textit{kernel}, onde os dados são classificados em três grupos distintos.
 \end{itemize}
 
 \begin{figure}[!htb]
@@ -240,17 +240,17 @@ A função para classificação em um SVM, pode ser generalizada pela Equação 
 
 Desenvolvido por \citeonline{breiman2001random}, o método combina a abordagem de amostragem de Breiman, e a seleção aleatória de características, introduzida independentemente por \citeonline{ho1995random} e \citeonline{amit1997shape}, a fim de construir uma coleção de árvores de decisão, com variação controlada, Usando ensacamento, cada árvore de decisão no conjunto é construída usando uma amostra com substituição dos dados de treinamento. Estatisticamente, a amostra provavelmente terá cerca de 64\% de instâncias aparecendo pelo menos uma vez na amostra. As instâncias na amostra são referidas como instâncias de embalagem e as instâncias restantes (cerca de 36\%) são referidas como instâncias fora do pacote. Cada árvore no conjunto funciona como um classificador base para determinar o rótulo de classe de uma instância não rotulada. Isso é feito por meio de votação por maioria, em que cada classificador atribui um voto ao rótulo de classe previsto. Em seguida, o rótulo de classe com o maior número de votos é usado para classificar a instância \cite{fawagreh2014random}.
 
-O Autor \citeonline{scikitlearn} define \textit{Random Forest} como um meta estimador que se ajusta a vários classificadores de árvore de decisão em várias subamostras do conjunto de dados e usa a média para melhorar a precisão preditiva e controlar o ajuste excessivo. O tamanho da subamostra é sempre o mesmo que o tamanho da amostra de entrada original.
+\citeonline{scikitlearn} define \textit{Random Forest} como um meta estimador que se ajusta a vários classificadores de árvore de decisão em várias subamostras do conjunto de dados e usa a média para melhorar a precisão preditiva e controlar o ajuste excessivo. O tamanho da subamostra é sempre o mesmo que o tamanho da amostra de entrada original.
 
 \subsection{Funcionamento}
 
-Segundo \citeonline{bastos2013proposta}, as \textit{Random Forest} são obtidas através de \textit{bootstrapping aggregating} (ou simplesmente \textit{bagging}), um método utilizado para gerar múltiplas versões de um preditor \cite{breiman1996bagging}. Tais versões são construídas a partir de amostras do conjunto original, obtidas via sorteio simples com reposição. Apresentamos a seguir a notação sugerida por \citeonline{breiman2001random}. 
+Segundo \citeonline{bastos2013proposta}, as \textit{Random Forests} são obtidas através de \textit{bootstrapping aggregating} (ou simplesmente \textit{bagging}), um método utilizado para gerar múltiplas versões de um preditor \cite{breiman1996bagging}. Tais versões são construídas a partir de amostras do conjunto original, obtidas via sorteio simples com reposição. Apresentamos a seguir a notação sugerida por \citeonline{breiman2001random}. 
 
-Um conjunto de treinamento e denotado por $ L = {(xn, yn), n = 1, 2,...,N} $, onde $ N $  é a quantidade de exemplos, $ xn $ e o vetor de atributos e $ yn \gamma {1, 2,...,C} $ e a classe verdadeira do 50 n-ésimo exemplo. Os atributos são indexados por $ m = 1, 2,...,M $, e assim o vetor de atributos do n-ésimo exemplo é denotado por  $ xn = (xn,1, xn,2,...,xn,M) $. Denote por $ \psi (x,L) $ um preditor para a classe de $ x $ construído a partir do conjunto de treinamento L. Suponha que exista uma sequência finita de conjuntos de treinamento $ {L(k) }, k = 1, 2,...,K $, cada um consistindo de $ N $ observações independentes provenientes da mesma distribuição subjacente ao conjunto L. A ideia central é usar $ {L(k) } $ para obter um preditor melhor do que o preditor simples $ \psi (x,L) $, tendo como restrição utilizar apenas a sequência de preditores $ \psi (x,L(k)) $. Indexando-se as classes por $ c = 1, 2,...,C $, um método de agregar os preditores $ \psi (x,L(k)) $ e através de votação, escolhendo para x a classe mais votada entre os preditores. Formalmente, denotando por $ Nc = |{k e\psi lon {1 ...K} : \psi (x,L(k) ) = c}| $ o número de “votos” na classe $ c $, o classificador agregado pode ser definido por $ \psi A(x) = arg max(c) N(c) $. O subscrito $ A $ em $ \psi A $ denota agregação. A obtenção de $ {L(k) }, k = 1, 2,...,K $ é feita tomando-se amostras \textit{bootstrap} de $ L $, via sorteio com repetição, cada qual de tamanho N. Em cada amostra de treinamento bootstrap, aproximadamente 37\% das instâncias do conjunto original  não são utilizadas para o treinamento \cite{breiman1996bagging}. 
+Um conjunto de treinamento e denotado por $ L = {(xn, yn), n = 1, 2,...,N} $, onde $ N $  é a quantidade de exemplos, $ xn $ e o vetor de atributos e $ yn \gamma {1, 2,...,C} $ e a classe verdadeira do 50 n-ésimo exemplo. Os atributos são indexados por $ m = 1, 2,...,M $, e assim o vetor de atributos do n-ésimo exemplo é denotado por  $ xn = (xn,1, xn,2,...,xn,M) $. Denote por $ \psi (x,L) $ um preditor para a classe de $ x $ construído a partir do conjunto de treinamento L. Suponha que exista uma sequência finita de conjuntos de treinamento $ {L(k) }, k = 1, 2,...,K $, cada um consistindo de $ N $ observações independentes provenientes da mesma distribuição subjacente ao conjunto L. A ideia central é usar $ {L(k) } $ para obter um preditor melhor do que o preditor simples $ \psi (x,L) $, tendo como restrição utilizar apenas a sequência de preditores $ \psi (x,L(k)) $. Indexando-se as classes por $ c = 1, 2,...,C $, um método de agregar os preditores $ \psi (x,L(k)) $ e através de votação, escolhendo para x a classe mais votada entre os preditores. Formalmente, denotando por $ Nc = |{k e\psi lon {1 ...K} : \psi (x,L(k) ) = c}| $ o número de “votos” na classe $ c $, o classificador agregado pode ser definido por $ \psi A(x) = arg max(c) N(c) $. O subscrito $ A $ em $ \psi A $ denota agregação. A obtenção de $ {L(k) }, k = 1, 2,...,K $ é feita tomando-se amostras \textit{bootstrap} de $ L $, via sorteio com repetição, cada qual de tamanho N. Em cada amostra de treinamento \textit{bootstrap}, aproximadamente 37\% das instâncias do conjunto original  não são utilizadas para o treinamento \cite{breiman1996bagging}. 
 
 Essas instâncias são usadas como um conjunto de teste, para estimar o erro de cada classificador e, a partir deste, o erro do classificador agregado. O erro \textit{out-of-bag} de cada classificador $ \psi (x,L(k)) $ é definido como o percentual do conjunto de teste (constituído por $ L\L(k) $) classificado erroneamente. 
 
-Na formulação das FAs propostas por \citeonline{breiman2001random}, o algoritmo básico de construção das árvores e o CART(sigla do inglês: \textit{Classification and Regression Trees}, Classificação e Árvores de regressão)\cite{breiman2017classification}. As árvores são expandidas ao máximo, sem poda. Para a divisão de cada nó, um subconjunto de tamanho fixo dos atributos de entrada é selecionado aleatoriamente, escolhendo-se a divisão ótima dentro desse subconjunto.
+Na formulação das \textit{Random Forests} propostas por \citeonline{breiman2001random}, o algoritmo básico de construção das árvores e o CART(sigla do inglês: \textit{Classification and Regression Trees}, Classificação e Árvores de regressão)\cite{breiman2017classification}. As árvores são expandidas ao máximo, sem poda. Para a divisão de cada nó, um subconjunto de tamanho fixo dos atributos de entrada é selecionado aleatoriamente, escolhendo-se a divisão ótima dentro desse subconjunto.
 
 \section{K Vizinhos Mais Próximos}
 
@@ -260,7 +260,7 @@ Apesar de sua simplicidade, os algorítimos KNN tiveram sucesso em um grande nú
 
 \subsection{Funcionamento}
 
-Foi utilizado como referência \cite{peterson2009k} no qual é apresentanda a característica da distância geométrica entre amostras desse algoritimo com uma representação gráfica, a fim de detalhar o funcionamento do mesmo.
+Em \citeonline{peterson2009k} é apresentada a característica da distância geométrica entre amostras desse algoritimo com uma representação gráfica, a fim de detalhar o funcionamento do mesmo.
 
 O classificador de $ k $ mais próximo do vizinho é comumente baseado na distância euclidiana entre uma amostra de teste e as amostras de treinamento especificadas. Utilizando $ x_{eu} $ como uma amostra de entrada com $ p $ características $ (x_{eu1},x_{eu2},\cdots ,x_{eup}) $ $ n $ ser o número total de amostras de entrada $ (i=1,2,\cdots,n) $ e p o número total de recursos $ (j=1,2,\cdots,p) $ . A distância euclidiana entre a amostra $ x_{i} $ e $ x_{j} $ $ (l=1,2,\cdots,n) $  é definido como:
 
@@ -268,6 +268,7 @@ O classificador de $ k $ mais próximo do vizinho é comumente baseado na distâ
     d(x_{i},x_{l})=\sqrt{(x_{i1}-x_{l1})^{2}+(x_{i2}-x_{l2})^{2}+\cdots+(x_{ip}-x_{lp})^{2}}
 \end{equation}
 
+Uma representação gráfica do conceito de vizinho mais próximo é ilustrada na tesselação de Voronoi \cite{voronoi1907g} mostrada na Figura. \ref{voronoiEx}. O mosaico mostra 19 amostras marcadas com um "+", e a célula de Voronoi, $ R $ ,em torno de cada amostra. Uma célula de Voronoi encapsula todos os pontos vizinhos que estão mais próximos de cada amostra e é definida como
 
 \begin{figure}[!htb]
     \centering
@@ -275,8 +276,6 @@ O classificador de $ k $ mais próximo do vizinho é comumente baseado na distâ
     \caption{Tesselação de Voronoi mostrando células de Voronoi de 19 amostras marcadas com um "+". A tesselação de Voronoi reflete duas características do sistema de coordenadas bidimensional do exemplo: i) todos os pontos possíveis dentro da célula de Voronoi de uma amostra são os pontos vizinhos mais próximos para essa amostra, e ii) para qualquer amostra, a amostra mais próxima é determinada pelo Voronoi mais próximo. borda da célula.}
     \label{voronoiEx}
 \end{figure}
-
-Uma representação gráfica do conceito de vizinho mais próximo é ilustrada na tesselação de Voronoi \cite{voronoi1907g} mostrada na Figura. \ref{voronoiEx}. O mosaico mostra 19 amostras marcadas com um "+", e a célula de Voronoi, $ R $ ,em torno de cada amostra. Uma célula de Voronoi encapsula todos os pontos vizinhos que estão mais próximos de cada amostra e é definida como
 
 \begin{equation} \label{eq:celVoroniEncap}
     R_{i}= \left \{ x \epsilon R^{p}: d(x,x_{i})\leq d(x,x_{m}),\forall i\neq m\right \}

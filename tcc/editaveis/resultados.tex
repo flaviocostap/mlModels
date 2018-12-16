@@ -6,7 +6,7 @@ Esta seção descreve a realização do processo de AM, deste a coleta até a ap
 \subsection{Coleta}
 Os dados utilizados para a classificação, são referentes a \textbf{Coleta 1 - Tremor de Repouso}, uma vez que esta apresentou os melhores resultados na classificação, já que as outras três coletas apresentaram um alto ruído que acabaram comprometendo os dados. A seguir um pequeno resumo sobre esta coleta.
 
-Foram realizadas três coletas por colaborador, com duração de cinco segundos cada, a disposição dos eletrodos encontra-se no Apêndice \ref{apendicetae}. Os dados do sinal foram armazenadas através da utilização de 4 canais, sendo eles:
+Foram realizadas três coletas por colaborador, com duração de cinco segundos cada, a disposição dos eletrodos encontra-se no Anexo \ref{apendicetae}. Os dados do sinal foram armazenadas através da utilização de 4 canais, sendo eles:
 
 \begin{enumerate}
     \item \textbf{CH1}: Extensor radial do longo do carpo direito;
@@ -88,9 +88,9 @@ Na Figura \ref{comesemfiltro} tem-se que, com a utilização do filtro passa-ban
 
 Também realizou-se a classificação utilizando todos os canais ao mesmo tempo, porém o resultado foi insatisfatório.
 
-Outra técnica de seleção de feature utilizada foi a PCA, com a utilização desta técnica obteve-se uma leve melhora na acurácia, como pode ser observado na Tabela \ref{pcavalidator}, a qual utilizou-se o \textit{cross-validator} para verificar a precisão real do modelo.
+Outra técnica de seleção de \textit{feature} utilizada foi a PCA, com a utilização desta técnica obteve-se uma leve melhora na acurácia, como pode ser observado na Tabela \ref{pcavalidator}, a qual utilizou-se o \textit{cross-validator} para verificar a precisão real do modelo.
 
-Como pode ser observado na Figura \ref{pcavalidator}, com o auxílio do k-fold, pode-se inferir que o \textit{Random Forest} possui uma precisão superior ao SVM, além de que o PCA aumenta a acurácia consideravelmente do modelo.
+Como pode ser observado na Tabela \ref{pcavalidator}, com o auxílio do k-fold, pode-se inferir que o \textit{Random Forest} possui uma precisão superior ao SVM, além de que o PCA aumenta a acurácia consideravelmente do modelo.
 
 
 % Please add the following required packages to your document preamble:
@@ -103,34 +103,32 @@ Como pode ser observado na Figura \ref{pcavalidator}, com o auxílio do k-fold, 
                                  & \multicolumn{1}{l}{\textbf{SVM}} & \multicolumn{1}{l}{\textbf{Random Forest}} & \multicolumn{1}{l}{\textbf{KNN}} \\
 Somente FFT                      & \textbf{80,76923\%}              & 69,23076\%                                 & 53,84615\%                       \\
 FFT com PCA                      & \textbf{84,61538\%}              & 80,76923\%                                 & 53,84615\%                       \\
-Somente FFT com Cross-validation & 68\%                             & \textbf{75\%}                              & 59\%                             \\
-FFT com PCA e Cross-validation   & 74\%                             & \textbf{79\%}                              & 59\%                             \\ \bottomrule
+Somente FFT com \textit{Cross-validation} & 68\%                             & \textbf{75\%}                              & 59\%                             \\
+FFT com PCA e textit{Cross-validation}   & 74\%                             & \textbf{79\%}                              & 59\%                             \\ \bottomrule
 \end{tabular}
 \caption{Comparativo entre os algoritmos do \textbf{Ch1}.}
 \label{pcavalidator}
 \end{table}
 
 
-
-
 Finalizando a etapa de pré-processamento dos dados, optou-se pela utilização da FFT com o PCA, uma vez que, esta combinação obteve os melhores resultados. Utilizou-se então o \textit{Random Forest} devido a sua acurácia ser levemente superior ao SVM e o consideravelmente superior ao KNN.
 
 
-\section{Solução de software}
-O software pode ser acessado livremente no GitHub, através do seguinte repositório \textbf{https://github.com/SkiNgK/mlModels}, na pasta \textbf{sistema}, divididos em \textit{backend} e \textit{frontend}. Os detalhes referentes a implementação estão descritos nas seções seguintes.
+\section{Solução de \textit{software}}
+O \textit{software} pode ser acessado livremente no GitHub, através do seguinte repositório \textbf{https://github.com/SkiNgK/mlModels}, na pasta \textbf{sistema}, divididos em \textit{backend} e \textit{frontend}. Os detalhes referentes a implementação estão descritos nas seções seguintes.
 
 \subsection{Arquitetura}
-O documento de Arquitetura encontra-se no anexo \ref{adoarquitetura}.
+O documento de Arquitetura encontra-se no Apêndice \ref{adoarquitetura}.
 
 \subsection{Visão}
-O documento de Visão encontra-se no anexo \ref{adocvisao}.
+O documento de Visão encontra-se no Apêndice \ref{adocvisao}.
 
 \subsection{Produto}
 Os detalhes referentes a construção do produto encontram-se descritos no documento de Visão \ref{adocvisao} e no documento de Arquitetura \ref{adoarquitetura}, a seguir as telas do sistema.
 
 
 \subsubsection{Pagina inicial}
-A figura ~\ref{fighome} exemplifica a página inicial da aplicação, sendo que esta aplicação  conterá somente três páginas. Além da página inicial tem-se a página de pacientes arquivados e a página sobre com as informações relacionadas a metodologia e resultados sobre o processo de Aprendizado de Máquinas utilizado no desenvolvimento da aplicação.
+A Figura ~\ref{fighome} exemplifica a página inicial da aplicação, sendo que esta aplicação  conterá somente três páginas. Além da página inicial tem-se a página de pacientes arquivados e a página sobre com as informações relacionadas a metodologia e resultados sobre o processo de Aprendizado de Máquinas utilizado no desenvolvimento da aplicação.
 
 \begin{figure}[!htb]
     \centering
@@ -140,7 +138,7 @@ A figura ~\ref{fighome} exemplifica a página inicial da aplicação, sendo que 
 \end{figure}
 
 \subsubsection{Cadastro de pacientes}
-A figura ~\ref{figcadastro} refere-se ao cadastro de pacientes. Nesta tela inserem-se os seguintes itens, todos obrigatórios:
+A Figura ~\ref{figcadastro} refere-se ao cadastro de pacientes. Nesta tela inserem-se os seguintes itens, todos obrigatórios:
 \begin{itemize}
     \item Nome completo;
     \item Idade;
@@ -156,7 +154,7 @@ A figura ~\ref{figcadastro} refere-se ao cadastro de pacientes. Nesta tela inser
 \end{figure}
 
 \subsubsection{Edição de pacientes}
-Para realizar a edição dos dados de um paciente, como demonstrado na figura ~\ref{figcadastro}, ao pressionar o botão \textbf{EDITAR} na aba de opções é aberto um \textit{modal} contendo as informações do paciente para a alteração. Para alterar o arquivo sEMG é necessário clicar em alterar arquivo, o qual após adicionado substitui o antigo.
+Para realizar a edição dos dados de um paciente, como demonstrado na Figura ~\ref{figcadastro}, ao pressionar o botão \textbf{EDITAR} na aba de opções é aberto um \textit{modal} contendo as informações do paciente para a alteração. Para alterar o arquivo sEMG é necessário clicar em alterar arquivo, o qual após adicionado substitui o antigo.
 
 \begin{figure}[!htb]
     \centering
@@ -166,7 +164,7 @@ Para realizar a edição dos dados de um paciente, como demonstrado na figura ~\
 \end{figure}
 
 \subsubsection{Avaliar pacientes}
-Para avaliar um paciente recém inserido, é necessário clicar no botão \textbf{AVALIAR}, como na figura ~\ref{figavaliar}.
+Para avaliar um paciente recém inserido, é necessário clicar no botão \textbf{AVALIAR}, como na Figura ~\ref{figavaliar}.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=1\textwidth]{figuras/produto/avaliar.eps}
@@ -175,7 +173,7 @@ Para avaliar um paciente recém inserido, é necessário clicar no botão \textb
 \end{figure}
 
 \subsubsection{Pesquisar pacientes}
-Para pesquisar por qualquer um dos itens das colunas, basta clicar no ícone de pesquisa como na figura ~\ref{figpesquisar} e inserir o termo da pesquisa.
+Para pesquisar por qualquer um dos itens das colunas, basta clicar no ícone de pesquisa como na Figura ~\ref{figpesquisar} e inserir o termo da pesquisa.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=1\textwidth]{figuras/produto/pesquisar.eps}
@@ -184,7 +182,7 @@ Para pesquisar por qualquer um dos itens das colunas, basta clicar no ícone de 
 \end{figure}
 
 \subsubsection{Pesquisar pacientes}
-Também é possível executar outras opções como \textit{download} da tabela, impressão e exibir colunas. Como pode ser observado na figura ~\ref{figpesquisar}.
+Também é possível executar outras opções como \textit{download} da tabela, impressão e exibir colunas. Como pode ser observado na Figura ~\ref{figpesquisar}.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=1\textwidth]{figuras/produto/outrasop.eps}
@@ -193,7 +191,7 @@ Também é possível executar outras opções como \textit{download} da tabela, 
 \end{figure}
 
 \subsubsection{Pagina arquivados}
-Para exibir os itens arquivados, clica-se na aba \textbf{ARQUIVADOS}, como na figura ~\ref{farquivados}.
+Para exibir os itens arquivados, clica-se na aba \textbf{ARQUIVADOS}, como na Figura ~\ref{farquivados}.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=1\textwidth]{figuras/produto/arquivados.eps}
@@ -211,6 +209,6 @@ A página sobre exibe as informações referentes ao trabalho, Figura ~\ref{fsob
 \end{figure}
 
 \section{Passos futuros e considerações finais}
-   Conseguiu-se atingir os objetivos propostos, provando que é possível classificar com uma boa acurácia a doença de Parkinson utilizado Aprendizado de Máquinas. Com aproximadamente 79\% de precisão,isto considerando o baixo nível de amostras, 36 no total. Além disto, foi desenvolvida uma software totalmente operacional, onde um profissional da saúde consegue classificar facilmente uma pessoa em alta ou baixa probabilidade de possuir a DP.
+   Conseguiu-se atingir os objetivos propostos, provando que é possível classificar com uma boa acurácia a DP utilizado AM. Com aproximadamente 79\% de precisão, isto considerando o baixo nível de amostras, 36 no total. Além disto, foi desenvolvida um \textit{software} totalmente operacional, onde um profissional da saúde consegue classificar facilmente uma pessoa em alta ou baixa probabilidade de possuir a DP.
 
-   Como passos futuros, é desejável a realização de mais coletas, com a finalidade de aumentar as amostras de treinamento e consequentemente aumentar a acurácia na classificação da DP. Também é desejável a realização de uma anamnese mais detalhada.
+   É desejável a realização de mais coletas, com a finalidade de aumentar as amostras de treinamento e consequentemente aumentar a acurácia na classificação da DP, também é desejável a realização de uma anamnese mais detalhada. Isso em passos futuros.
