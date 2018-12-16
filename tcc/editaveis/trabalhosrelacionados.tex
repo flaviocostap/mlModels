@@ -14,14 +14,14 @@ Segundo \citeonline{yousefi2014characterizing} a decomposição de um sinal sEMG
 
 A seleção das \textit{features} ou características é a distinção de um sinal bruto em informações úteis, esta informação tratada consiste uma \textit{feature}, a qual será utilizada para treinar o modelo, além disto busca-se remover a parte indesejada do sinal e interferências associadas \cite{phinyomark2012feature}.
 
-Segundo \citeonline{phinyomark2012feature}, essa etapa deve ser trabalhada cuidadosamente, uma vez que erros podem prejudicar a classificação dos dados. Em sua pesquisa sobre as \textit{features} em sEMG, verificou-se utilizando gráficos de dispersão, análise estatística e classificação, que a maioria das \textit{features} no domínio do tempo são redundantes e desnecessárias, sendo melhor agrupadas em quatro tipos: energia e complexidade, frequência, modelo de previsão e dependência do tempo. O estudo recomendou o uso das seguintes \textit{features}:
+Segundo \citeonline{phinyomark2012feature}, essa etapa deve ser trabalhada cuidadosamente, uma vez que erros podem prejudicar a classificação dos dados. Em sua pesquisa sobre as \textit{features} em sEMG, verificou-se utilizando gráficos de dispersão, análise estatística e classificação, que a maioria das \textit{features} no domínio do tempo são redundantes e desnecessárias, sendo melhor agrupadas em quatro tipos: energia e complexidade, frequência, modelo de previsão e dependência do tempo. O estudo análisou 37 métodos de extração de \textit{features} e recomendou o uso das seguintes \textit{features}:
 
 \begin{itemize}
-    \item \textbf{MAV}: método de informação de energia;
-    \item \textbf{WL}: informação de complexidade;
-    \item \textbf{WAMP}: informação de frequência;
-    \item \textbf{AR}: método de predição;
-    \item \textbf{MAVS}: dependência do tempo.
+    \item \textbf{MAV}: Sigla do inglês: \textit{Mean absolute value}, Valor absoluto médio. É uma média do valor absoluto da amplitude de um sinal EMG em um segmento, é uma das \textit{features} mais utilizadas em análise de sinais EMG. Utilizado como método de informação de energia.
+    \item \textbf{WL}: Sigla do inglês: \textit{Waveform length}, Comprimento da forma da onda. É definido como o comprimento da forma de onda EMG, ao longo do tempo, também
+    é conhecido como comprimento de onda. Utilizado como método de informação de complexidade;
+    \item \textbf{WAMP}: Sigla do inglês: \textit{Wilson amplitude}, Amplitude de Willison. É definido como a diferença entre a amplitude do sinal EMG entre dois segmentos adjacentes que excede um limite pré-definido. Utilizado como método de informação de frequência;
+    \item \textbf{AR}: Sigla do inglês: \textit{Auto-regressive coefficients}, Amplitude de Willison. É um modelo de predição que descreve cada amostra do sinal EMG como uma combinação linear das amostras anteriores. Utilizado como método de modelo de predição;
 \end{itemize}
 
 Outro estudo realizado por \citeonline{yousefi2014characterizing}, cita algumas \textit{features} compiladas de outros trabalhos, como observado na Figura \ref{featuresEMG}, sendo elas:
