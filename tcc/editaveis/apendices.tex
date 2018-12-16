@@ -3,7 +3,7 @@
     \partanexos
     \chapter{Documento de Arquitetura}
     \label{adoarquitetura}
-    \section{introdução}
+    \section{Introdução}
     Este documento descreve a arquitetura e tecnologias da solução de \textit{software}, utilizadas no desenvolvido do sistema de auxílio na detecção da doença de Parkinson avaliando o Tremor em Repouso. Desenvolvido pelos alunos de Trabalho de Conclusão de Curso 2 da Universidade de Brasília.
 
     Essa solução de \textit{software} trata-se de uma aplicação \textit{web}, na qual pode-se facilmente ser migrada para uma aplicação \textit{mobile} em projetos futuros.
@@ -20,12 +20,12 @@
    Foi adotado devido a seu leve consumo de dados, além de possuir uma fácil implementação.
 
     \section{Representação da Arquitetura}
-    A arquitetura se baseia em dois modelos arquiteturais, REST e SPA, interligados com um modelo de aprendizado de máquinas. No caso a \textit{Random Forest} ou o SVM, como observado na figura A Figura \ref{diagramadepacotes}. Deste modo a aplicação possui três pacotes:
+    A arquitetura se baseia em dois modelos arquiteturais, REST e SPA, interligados com um modelo de aprendizado de máquinas. No caso a \textit{Random Forest} ou o SVM, como observado na Figura \ref{diagramadepacotes}. Deste modo a aplicação possui três pacotes:
 
     \begin{itemize}
         \item \textit{Machine Learning models};
         \item API;
-        \item \textit{web}.
+        \item \textit{Web}.
     \end{itemize}
 
 
@@ -39,6 +39,7 @@
     \end{figure}
     \subsubsection{\textit{Machine Learning models}}
     Consiste no modelo já treinado e validado do algoritmo \textit{Random Forest}, sendo que este é armazenado no banco de dados \textit{PickleDB}. Deste modo, a comunicação é somente de leitura, com o modelo sendo enviado por completo para a API.
+
     \subsubsection{API}
     A API execulta todas as manipulações envolvendo os dados, como o pré-processamento do arquivo enviado pelo usuário, e classificando estes com o modelo salvo. Além de salvar os dados no banco de dados e enviá-los quando requisitados, foi desenvolvida utilizando os padrões de projeto definidos pelo Django-Rest-Framework, possuindo o maior esforço na \textit{View}.
 
@@ -51,11 +52,11 @@
         \item CLS: possui apenas um método GET, que recebe um \textit{id} de um paciente. Com auxílio de outros métodos carrega o arquivo sEMG associado a este paciente, realiza o pré-processamento aplicando a FFT, carrega o modelo e por fim retorna o resultado da classificação.
     \end{enumerate}
 
-    \subsubsection{\textit{web}}
+    \subsubsection{\textit{Web}}
     Responsável pela exibição dos dados, desenvolvido em react. Possui somente três componentes, cadastrado, editar e home.
 
    \subsection{Diagrama de Classes}
-   A seguir na figura \ref{diagramadeclasses}, encontra-se o diagrama de classes do projeto.
+   A seguir na Figura \ref{diagramadeclasses}, encontra-se o diagrama de classes do projeto.
    \begin{figure}[!htb]
         \centering
         \includegraphics[width=0.9\textwidth]{figuras/diagramadeclasses.eps}
@@ -93,7 +94,7 @@
 
     \subsection{Instrução do Problema}
 
-    A tabela \ref{table:Instrucao do Problema} descreve brevemente a oportunidade de negócios que é tratada por este projeto segundo o problema no qual o mesmo se dedica a solucionar em uma instrução geral resumida.
+    A Tabela \ref{table:Instrucao do Problema} descreve brevemente a oportunidade de negócios que é tratada por este projeto segundo o problema no qual o mesmo se dedica a solucionar em uma instrução geral resumida.
 
     \begin{table}[ht]
         \caption{Instrução do Problema}
@@ -114,7 +115,7 @@
 
     \subsection{Resumo da Parte Interessada}
 
-    A tabela \ref{table:Resumo da Parte Interessada} possui um breve resumo dos interessados no projeto, descrevendo-os e apresentando suas respectivas responsabilidades dentro do mesmo.
+    A Tabela \ref{table:Resumo da Parte Interessada} possui um breve resumo dos interessados no projeto, descrevendo-os e apresentando suas respectivas responsabilidades dentro do mesmo.
 
     \begin{table}[ht]
         \centering
@@ -132,7 +133,7 @@
 
     \subsection{Resumo do Usuário}
 
-    A tabela \ref{table:Resumo do Usuário} apresenta um breve resumo do usuário do sistema com sua descrição e seu papel desempenhado na operação do mesmo.
+    A Tabela \ref{table:Resumo do Usuário} apresenta um breve resumo do usuário do sistema com sua descrição e seu papel desempenhado na operação do mesmo.
 
     \begin{table}[ht]
         \centering
@@ -151,7 +152,7 @@
 
     \subsubsection{Orientandos}
 
-    A tabela \ref{table:Perfil dos Orientandos} detalha o perfil dos orientados do projeto.
+    A Tabela \ref{table:Perfil dos Orientandos} detalha o perfil dos orientados do projeto.
 
     \begin{table}[ht!]
         \centering
@@ -170,7 +171,7 @@
 
     \subsubsection{Orientadores}
     
-    A tabela \ref{table:Perfil dos Orientadores} detalha o perfil dos orientadores do projeto.
+    A Tabela \ref{table:Perfil dos Orientadores} detalha o perfil dos orientadores do projeto.
 
     \begin{table}[ht!]
         \centering
@@ -189,11 +190,11 @@
 
     \subsection{Perfis do Usuário}
 
-    Essa seção descreve o usuário do sistema e assim como os perfis das partes interessadas apresentadas na tabela \ref{table:Perfil dos Orientandos} e tabela \ref{table:Perfil dos Orientadores} também descreve de maneira mais detalhada demonstrando seu grau de envolvimento no projeto, critérios para sucesso do mesmo e suas responsabilidades dentro do projeto.
+    Essa seção descreve o usuário do sistema e assim como os perfis das partes interessadas apresentadas na Tabela \ref{table:Perfil dos Orientandos} e Tabela \ref{table:Perfil dos Orientadores} também descreve de maneira mais detalhada demonstrando seu grau de envolvimento no projeto, critérios para sucesso do mesmo e suas responsabilidades dentro do projeto.
 
     \subsubsection{Médicos}
 
-    A tabela \ref{table:Perfil dos Médicos} descreve o perfil do médico, usuário principal do sistema.
+    A Tabela \ref{table:Perfil dos Médicos} descreve o perfil do médico, usuário principal do sistema.
 
     \begin{table}[ht!]
         \centering
@@ -218,7 +219,7 @@
 
     \subsection{Resumo dos recursos}
 
-    A tabela \ref{table:Resumo dos recursos} Apresenta os principais recursos do sistema.
+    A Tabela \ref{table:Resumo dos recursos} Apresenta os principais recursos do sistema.
 
     \begin{table}[ht!]
         \centering
@@ -252,7 +253,7 @@
 
     \subsection{Requisitos Funcionais}
 
-    A tabela \ref{table:Requisitos Funcionais} apresenta todos os requisitos que um o sistema atende.
+    A Tabela \ref{table:Requisitos Funcionais} apresenta todos os requisitos que um o sistema atende.
 
     \begin{table}[ht!]
         \centering

@@ -48,7 +48,7 @@ Outro canal que teve um resultado ruim foi o canal \textbf{CH4}, mesmo com 71\% 
 \end{figure}
 
 
-Realizou-se também a aplicação de filtros de frequência, passa-banda, passa-baixa e passa-alta. Porém estes filtros diminuíram a acurácia obtida, como observado na figura \ref{comesemfiltro}, que exemplifica a matriz de confusão referente ao \textbf{CH1}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acurácia caiu. 
+Realizou-se também a aplicação de filtros de frequência, passa-baixa e passa-alta. Porém estes filtros diminuíram a acurácia obtida, como observado na Figura \ref{comesemfiltro}, que exemplifica a matriz de confusão referente ao \textbf{CH1}, assim como normalizou-se os dados em diferentes escalas e do mesmo modo a acurácia caiu. 
 
 Na Figura \ref{comesemfiltro} tem-se que, com a utilização do filtro passa-banda com um total de 11 amostras de pessoas com DP, o sistema conseguiu classificar corretamente 7 amostras ou 64\%, e no grupo de controle classificou-se corretamente 5 amostras de um total de 6 ou 83\%. Com relação aos testes sem a utilização do filtro, obteve-se uma previsão de 90\% no grupo de DP e 71\% no grupo de controle, portanto superior ao testes utilizando o filtro.
 
@@ -62,9 +62,9 @@ Na Figura \ref{comesemfiltro} tem-se que, com a utilização do filtro passa-ban
 
 Também realizou-se a classificação utilizando todos os canais ao mesmo tempo, porém o resultado foi insatisfatório.
 
-Outra técnica de seleção de feature utilizada foi a PCA, com a utilização desta técnica obteve-se uma leve melhora na acurácia, como pode ser observado na figura \ref{pcavalidator}, a qual utilizou-se o \textit{cross-validator} para verificar a precisão real do modelo.
+Outra técnica de seleção de \textit{feature} utilizada foi a PCA, com a utilização desta técnica obteve-se uma leve melhora na acurácia, como pode ser observado na figura \ref{pcavalidator}, a qual utilizou-se o \textit{cross-validator} para verificar a precisão real do modelo.
 
-Como pode ser observado na figura \ref{pcavalidator}, com o auxílio do k-fold, pode-se inferir que o \textit{Random Forest} possui uma precisão superior ao SVM, além de que o PCA aumenta a acurácia consideravelmente do modelo.
+Como pode ser observado na Figura \ref{pcavalidator}, com o auxílio do \textit{k-fold}, pode-se inferir que o \textit{Random Forest} possui uma precisão superior ao SVM, além de que o PCA aumenta a acurácia consideravelmente do modelo.
 
 \begin{figure}[!htb]
     \centering
@@ -91,7 +91,7 @@ Os detalhes referentes a construção do produto encontram-se descritos no docum
 
 
 \subsubsection{Pagina inicial}
-A figura ~\ref{fighome} exemplifica a página inicial da aplicação, sendo que esta aplicação  conterá somente três páginas. Além da página inicial tem-se a página de pacientes arquivados e a página sobre com as informações relacionadas a metodologia e resultados sobre o processo de Aprendizado de Máquinas utilizado no desenvolvimento da aplicação.
+A Figura ~\ref{fighome} exemplifica a página inicial da aplicação, sendo que esta aplicação  conterá somente três páginas. Além da página inicial tem-se a página de pacientes arquivados e a página sobre com as informações relacionadas a metodologia e resultados sobre o processo de Aprendizado de Máquinas utilizado no desenvolvimento da aplicação.
 
 \begin{figure}[!htb]
     \centering
@@ -101,7 +101,7 @@ A figura ~\ref{fighome} exemplifica a página inicial da aplicação, sendo que 
 \end{figure}
 
 \subsubsection{Cadastro de pacientes}
-A figura ~\ref{figcadastro} refere-se ao cadastro de pacientes. Nesta tela inserem-se os seguintes itens, todos obrigatórios:
+A Figura ~\ref{figcadastro} refere-se ao cadastro de pacientes. Nesta tela inserem-se os seguintes itens, todos obrigatórios:
 \begin{itemize}
     \item Nome completo;
     \item Idade;
@@ -127,7 +127,7 @@ Para realizar a edição dos dados de um paciente, como demonstrado na figura ~\
 \end{figure}
 
 \subsubsection{Avaliar pacientes}
-Para avaliar um paciente recém inserido, é necessário clicar no botão \textbf{AVALIAR}, como na figura ~\ref{figavaliar}.
+Para avaliar um paciente recém inserido, é necessário clicar no botão \textbf{AVALIAR}, como na Figura ~\ref{figavaliar}.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=1\textwidth]{figuras/produto/avaliar.eps}
@@ -136,7 +136,7 @@ Para avaliar um paciente recém inserido, é necessário clicar no botão \textb
 \end{figure}
 
 \subsubsection{Pesquisar pacientes}
-Para pesquisar por qualquer um dos itens das colunas, basta clicar no ícone de pesquisa como na figura ~\ref{figpesquisar} e inserir o termo da pesquisa.
+Para pesquisar por qualquer um dos itens das colunas, basta clicar no ícone de pesquisa como na Figura ~\ref{figpesquisar} e inserir o termo da pesquisa.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=1\textwidth]{figuras/produto/pesquisar.eps}
@@ -145,7 +145,7 @@ Para pesquisar por qualquer um dos itens das colunas, basta clicar no ícone de 
 \end{figure}
 
 \subsubsection{Pesquisar pacientes}
-Também é possível executar outras opções como \textit{download} da tabela, impressão e exibir colunas. Como pode ser observado na figura ~\ref{figpesquisar}.
+Também é possível executar outras opções como \textit{download} da tabela, impressão e exibir colunas. Como pode ser observado na Figura ~\ref{figpesquisar}.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=1\textwidth]{figuras/produto/outrasop.eps}
@@ -154,7 +154,7 @@ Também é possível executar outras opções como \textit{download} da tabela, 
 \end{figure}
 
 \subsubsection{Pagina arquivados}
-Para exibir os itens arquivados, clica-se na aba \textbf{ARQUIVADOS}, como na figura ~\ref{farquivados}.
+Para exibir os itens arquivados, clica-se na aba \textbf{ARQUIVADOS}, como na Figura ~\ref{farquivados}.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=1\textwidth]{figuras/produto/arquivados.eps}
@@ -163,7 +163,7 @@ Para exibir os itens arquivados, clica-se na aba \textbf{ARQUIVADOS}, como na fi
 \end{figure}
 
 \subsubsection{Página sobre}
-A página sobre exibe as informações referentes ao trabalho, figura ~\ref{fsobre}.
+A página sobre exibe as informações referentes ao trabalho, Figura ~\ref{fsobre}.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=1\textwidth]{figuras/paginasobre.eps}
@@ -172,6 +172,6 @@ A página sobre exibe as informações referentes ao trabalho, figura ~\ref{fsob
 \end{figure}
 
 \section{Passos futuros e considerações finais}
-   Conseguiu-se atingir os objetivos propostos, provando que é possível classificar com uma boa acurácia a doença de Parkinson utilizado Aprendizado de Máquinas. Com aproximadamente 79\% de precisão,isto considerando o baixo nível de amostras, 36 no total. Além disto, foi desenvolvida uma software totalmente operacional, onde um profissional da saúde consegue classificar facilmente uma pessoa em alta ou baixa probabilidade de possuir a DP.
+   Conseguiu-se atingir os objetivos propostos, provando que é possível classificar com uma boa acurácia a DP utilizado AM. Com aproximadamente 79\% de precisão, isto considerando o baixo nível de amostras, 36 no total. Além disto, foi desenvolvida uma \textit{software} totalmente operacional, onde um profissional da saúde consegue classificar facilmente uma pessoa em alta ou baixa probabilidade de possuir a DP.
 
    Como passos futuros, é desejável a realização de mais coletas, com a finalidade de aumentar as amostras de treinamento e consequentemente aumentar a acurácia na classificação da DP. Também é desejável a realização de uma anamnese mais detalhada.
