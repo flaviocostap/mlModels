@@ -18,7 +18,9 @@ Foram realizadas três coletas por colaborador, com duração de cinco segundos 
 Estes dados coletados em sEMG em cada canal, foram cedidos no formato \textit{edf}. Sendo que, os grupos consistiam em 14 pessoas no grupo de controle, cada um com três amostras e 14 pessoas no grupo de pessoas com a DP, também com três amostras cada.
 
 \subsection{Processamento dos dados}
-Com os dados brutos foi iniciada a etapa de pré-processamento dos dados. Inicialmente utilizou-se como técnica para a filtragem dos dados a FFT, onde se realizou testes nos quatro canais disponíveis, realizando um comparativo da acurácia com e sem a FFT, além de um comparativo sobre a acurácia entre os canais, um exemplo do sinal pode ser observado na Figura \cite{fftimage}, já o sinal bruto pode ser observado na Figura \cite{sinalbruto}.
+Com os dados brutos foi iniciada a etapa de pré-processamento dos dados. Inicialmente padronizou-se os dados utilizando os pontos entre 2000 a 11000, pegando assim somente os dados uteis, uma vez que os dados não tinham a mesma continuidade. Utilizou-se como técnica para a filtragem dos dados a FFT, onde se realizou testes nos quatro canais disponíveis, realizando um comparativo da acurácia com e sem a FFT, além de um comparativo sobre a acurácia entre os canais, um exemplo do sinal pode ser observado na Figura \cite{fftimage}, já o sinal bruto pode ser observado na Figura \cite{sinalbruto}.
+
+Como a FFT retorna numeros imaginarios, utilizou-se somente o valor absoluto
 
 \begin{figure}[!t]
     \centering
