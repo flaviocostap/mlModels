@@ -20,7 +20,7 @@ Os algoritmos são classificados quanto ao seu tipo de aprendizado. Existem trê
 \subsection{Aprendizado Supervisionado}
 O objetivo principal do aprendizado supervisionado é ensinar um modelo através de uma base de treino etiquetada, que permite fazer predições de dados futuros. O termo supervisionado se refere a um grupo de dados onde a “resposta”, sinal ou valor esperado já é conhecido. Este valor é conhecido como etiqueta e é utilizada para verificar se o algoritmo identificou corretamente os dados durante o treinamento. As tarefas do aprendizado supervisionado podem ser divididas em classificação e regressão, onde a classificação tem as etiquetas esperadas com um valor fixo, por exemplo, uma avaliação binária, e a regressão é referente a um sinal com valor contínuo, como uma regressão polinomial \cite{geron2017hands}, ou segundo \citeonline{kirk2014thoughtful}, a regressão é ajustar o conjunto de dados á uma função qualquer.
 
-Exemplos de algoritmos existentes \cite{lorena2007introduccao}; \cite{kirk2014thoughtful}; \cite{murthy1998automatic} \cite{ho1995random}:
+Exemplos de algoritmos existentes \cite{lorena2007introduccao}; \cite{kirk2014thoughtful}; \cite{murthy1998automatic}; \cite{ho1995random}:
 
 \begin{itemize}
     \item \textbf{KNN}: Determina o rótulo de classificação de um dado baseando nos valores das amostras vizinhas mais próximos;
@@ -46,10 +46,13 @@ Uma \textit{feature} é uma característica ou variável do problema, que pode s
 
 Outro conceito importante sobre AMs, é a \textbf{redução de dimensionalidade}, muito utilizada em estatística, refere-se ao processo de diminuição do número de variáveis aleatórias, selecionando um subconjunto com variáveis relevantes. Serve, dentre outras funcionalidades, para transformar o processo de aprendizado mais eficiente \cite{borges2006reduccao}. Isto ocorre devido a modelos com um número elevado de variáveis ocasionam em um maior tempo de computação e um baixo desempenho da previsão \cite{chandrashekar2014survey}.
 
-Um exemplo de  tecnica de redução de dimensionalidade é a PCA (sigla do inglês: \textit{Principal Component Analysis}, Análise de Componentes Principais), sendo esta uma das tecnicas mais difundidas na redução de dimenção.
+Um exemplo de técnica de redução de dimensionalidade é a PCA (sigla do inglês: \textit{Principal Component Analysis}, Análise de componentes principais), sendo esta uma das tecnicas mais difundidas na redução de dimenção.
 
 \subsection{PCA}
 A PCA possibilita reduzir consideravelmente o número de variáveis disponíveis, além de, eliminar sobreposições e escolher formas mais representativas do conjunto de dados original, por meio de combinações lineares ortogonais das variáveis originais, para um novo sistema de coordenadas \cite{jolliffe2011principal}.
+
+\subsection{FFT}
+A FFT (sigla do inglês: \textit{fast Fourier transform}, Transformada rápida de Fourier) é um algoritimo capaz de realizar a Transformada de discreta de Fourier e sua inversa. Este processo é realizado com uma alta eficiência, reduzindo a complexidade de $O(N^2)$ para $O(N*log_2 (N))$, ou seja de reduzindo o tempo de processamento em centenas de horas \cite{brigham1988fast}. 
 
 \section{Desafios do Aprendizado de Máquinas}
 Em um projeto de AM, existem diversos aspectos que podem levar a um péssimo resultado ou problemas na execução do mesmo. Em resumo, a tarefa principal do AM é a seleção de um algoritmo, ou modelo, e treiná-lo utilizando algum tipo de dado. Logo, ao analisar os problemas provenientes de um resultado ineficiente, pode-se encontrar principalmente duas origens para o problema a escolha de um “algoritmo ruim” ou “dados ruins” \cite{geron2017hands}.
@@ -72,11 +75,12 @@ Com relação a “algoritmo ruim”, também não deve ser interpretado literal
 
 \section{Ferramentas}
 \label{sec:MAFerramentas}
-Existem diversas ferramentas para auxiliar o desenvolvimento em AM, sendo que atualmente \textit{Python} é uma das linguagens mais utilizadas nesse seguimento. Segundo \citeonline{senders2017machine}, essa utilização é devido ao conjunto bem eficiente de bibliotecas disponíveis, o fato de ser de código aberto, a facilidade de plotar gráficos e demais esquemas de visualização, além da simplicidade de identificar erros no \textit{software}, tornam a linguagem \textit{Python} uma boa indicação para trabalhar com AM.
+Existem diversas ferramentas para auxiliar o desenvolvimento em AM, sendo que atualmente \textit{Python} é uma das linguagens mais utilizadas nesse segimento. Segundo \citeonline{senders2017machine}, essa utilização é devido ao conjunto bem eficiente de bibliotecas disponíveis, o fato de ser de código aberto, a facilidade de plotar gráficos e demais esquemas de visualização, além da simplicidade de identificar erros no \textit{software}, tornam a linguagem \textit{Python} uma boa indicação para trabalhar com AM.
 
 Algumas ferramentas amplamente utilizadas em AM, podem ser elucidadas a seguir \cite{scikitlearn}; \cite{abadi2016tensorflow}; \cite{McKinney2012datapython}:
+
 \begin{itemize}
-    \item \textbf{\textit{Scikit-learn}}: Possui uma ampla gama de algoritmos, com uma alta facilidade de uso, boa documentação e uma API(sigla do Inglês: \textit{Application Programming Interface}, Interface de Programação de Aplicação) amplamente consistente. A API é um conjunto de funções que são utilizados para facilitar o desenvolvimento de um \textit{software};
+    \item \textbf{\textit{Scikit-learn}}: Possui uma ampla gama de algoritmos, com uma alta facilidade de uso, boa documentação e uma API (sigla do Inglês: \textit{Application Programming Interface}, Interface de Programação de Aplicação) amplamente consistente. API é um conjunto de funções que são utilizados para facilitar o desenvolvimento de um \textit{software};++
     \item \textbf{\textit{TensorFlow}}: Projetado pelo Google para operar em larga escala, utiliza ferramentas avançadas sendo utilizado inclusive pelo próprio Google;
     \item \textbf{\textit{Keras}}: API de alto nível com foco em RNAs (Redes Neurais Artificiais);
     \item \textbf{\textit{Matplotlib}}: Ferramenta para a criação de gráficos;
@@ -90,12 +94,12 @@ Construir visualizações informativas são umas das mais importantes tarefas de
 
 \subsection{Matriz de Confusão}
 \label{sc:matrizconsusao}
-Um dos métodos mais utilizadas para apresentar a solução do modelo é a matriz de confusão. Uma matriz de confusão, é um método para visualizar graficamente a eficiência de um modelo de AM. Onde, realiza-se o cruzamento entre os valores esperados com os valores alcançados pelo algoritmo \cite{caelen2017bayesian}. Por exemplo na Figura \ref{matriz_consusao}, existem três tipos de flores e o algoritmo, no caso o SVM, deveria classificar os dados de entradas em um destes três grupos. Como observado, existiam 13 dados do tipo “setosa”, e o SVM acertou todos os 13. O mesmo ocorre com os dados do tipo “virginica”, onde ocorreu 100\% de acerto. Porém, nos dados do tipo “versicolor” existiam 16 amostras, e o SVM acertou 10 e errou os outros 6 restantes, já que o valor alcançado nestes 6 dados foi de “virginica”.
+Um dos métodos mais utilizadas para apresentar a solução do modelo é a matriz de confusão. Uma matriz de confusão, é um método para visualizar graficamente a eficiência de um modelo de AM. Onde, realiza-se o cruzamento entre os valores esperados com os valores alcançados pelo algoritmo \cite{caelen2017bayesian}. Por exemplo na Figura \ref{matriz_consusao}, existem três tipos de flores e o algoritmo, no caso o SVM, deveria classificar os dados de entradas em um destes três grupos. Como observado, existiam 13 dados do tipo “setosa”, e o SVM acertou todos os 13. O mesmo ocorre com os dados do tipo “virginica”, onde ocorreu 100\% de acerto. Porém, nos dados do tipo “versicolor” existiam 16 amostras, e o SVM acertou 10 e errou os outros 6 restantes, já que o valor alcançado nestes 6 dados foi de “virginica” \cite{scikitlearn}.
 
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.1\textwidth]{figuras/ma_normalizedy.eps}
-    \caption{Ilustração da matriz de confusão, adaptado de \cite{scikitlearn}}
+    \caption{Ilustração da matriz de confusão, adaptado de \cite{scikitlearn}.}
 	\label{matriz_consusao}
 \end{figure}
 
@@ -110,16 +114,16 @@ A validação cruzada ou \textit{Cross-Validation} é uma técnica para verifica
     \item Ao final, verifica-se a generalização do algoritmo treinado, utilizando o conjunto de validação. Deste modo, o conjunto de validação é utilizada apenas uma vez no processo de AM.
 \end{enumerate}
 
-A validação cruzada possue ainda algumas variações, sendo elas: \textit{holdout cross-validation}, \textit{k-Fold Cross-Validation} e \textit{Leave-one-out cross-validation (LOOCV)}.
+A validação cruzada possue ainda algumas variações, sendo elas: \textit{holdout cross-validation}, \textit{k-Fold Cross-Validation} e \textit{Leave-one-out cross-validation (LOOCV)} \cite{raschka2015python}.
 
 
 \subsection{\textit{Holdout Cross-Validation}}
 Modelo clássico da validação cruzada, consiste em separar os dados em dois conjuntos mutualmente exclusivos (treino e validação), porém essa abordagem acaba não sendo eficiente, por aumentar a probabilidade de \textit{overfitting}, para uma maior eficiência, utiliza-se a variações com os três conjuntos explicados anteriormente \cite{raschka2015python}.
 
 \subsection{\textit{k-Fold Cross-Validation}}
-No \textit{k-fold} divide-se o conjunto total de dados em \textbf{\textit{k}} subconjuntos mutualmente exclusivos, com a mesma quantidade de dados, um destes subconjuntos é utilizado para teste e os outros \textbf{\textit{k-1}} restantes são utilizados no treinamento do modelo com os devidos ajuste de parâmetros necessários, tal processo é repetido \textbf{\textit{k}} vezes, alternando o conjunto de teste nestas iterações. Após as \textbf{\textit{k}} iterações, se calcula a média do erro esperado \cite{scikitlearn}. A Figura \ref{kfold} ilustra este método.
+No \textit{k-fold} divide-se o conjunto total de dados em \textbf{\textit{k}} subconjuntos mutualmente exclusivos, com a mesma quantidade de dados, um destes subconjuntos é utilizado para teste e os outros \textbf{\textit{k-1}} restantes são utilizados no treinamento do modelo com os devidos ajuste de parâmetros necessários, tal processo é repetido \textbf{\textit{k}} vezes, alternando o conjunto de teste nestas iterações. Após as \textbf{\textit{k}} iterações, se calcula a média do erro esperado. A Figura \ref{kfold} ilustra este método \cite{raschka2015python}.
 
-\subsection{\textit{Leave-One-Out Cross-Validation (LOOCV)}} Uma variação do \textit{k-fold}, com \textbf{\textit{k}} igual ao total de dados de entrada \textbf{\textit{N}}. Possue um alto custo operacional.
+\subsection{\textit{Leave-One-Out Cross-Validation (LOOCV)}} Uma variação do \textit{k-fold}, com \textbf{\textit{k}} igual ao total de dados de entrada \textbf{\textit{N}}. Possui um alto custo operacional \cite{raschka2015python}.
 
 \begin{figure}[!htb]
     \centering
@@ -132,7 +136,7 @@ As seções seguintes descrevem os principais algoritmos de AM utilizados em cla
 \begin{itemize}
     \item SVM;
     \item \textit{Random forest};
-    \item K Vizinhos Mais Próximos.
+    \item K-Vizinhos Mais Próximos.
 \end{itemize}
 
 \section{SVM}
@@ -144,9 +148,9 @@ As SVMs são divididas em dois grupos, categorizadas conforme o estado dados a s
 Segundo \citeonline{scikitlearn}, as principais vantagens em SVMs são:
 
 \begin{itemize}
-    \item sua eficácia em grandes espaços dimensionais ou quando o numero de dimensões supera o de amostras;
-    \item a eficiência em termo de memória;
-    \item a versátilidade: possui diferentes tipos de funções de \textit{kernel} (linear, polinomial, sigmoide e RBF (sigla do inglês: \textit{radial basis function}, função de base radial), possibilita também a utilização de um \textit{kernel} customizado, ou seja, uma função matemática classificação personalizada. A Figura \ref{svmkernel} exemplifica algumas funções de \textit{kernel}, onde os dados são classificados em três grupos distintos.
+    \item Sua eficácia em grandes espaços dimensionais ou quando o numero de dimensões supera o de amostras;
+    \item A eficiência em termo de memória;
+    \item A versátilidade: possui diferentes tipos de funções de \textit{kernel} (linear, polinomial, sigmoide e RBF (sigla do inglês: \textit{radial basis function}, função de base radial), possibilita também a utilização de um \textit{kernel} customizado, ou seja, uma função matemática classificação personalizada. A Figura \ref{svmkernel} exemplifica algumas funções de \textit{kernel}, onde os dados são classificados em três grupos distintos.
 \end{itemize}
 
 \begin{figure}[!htb]
@@ -269,6 +273,7 @@ O classificador de $ k $ mais próximo do vizinho é comumente baseado na distâ
     d(x_{i},x_{l})=\sqrt{(x_{i1}-x_{l1})^{2}+(x_{i2}-x_{l2})^{2}+\cdots+(x_{ip}-x_{lp})^{2}}
 \end{equation}
 
+Uma representação gráfica do conceito de vizinho mais próximo é ilustrada na tesselação de Voronoi \cite{voronoi1907g} mostrada na Figura. \ref{voronoiEx}. O mosaico mostra 19 amostras marcadas com um "+", e a célula de Voronoi, $ R $ ,em torno de cada amostra. Uma célula de Voronoi encapsula todos os pontos vizinhos que estão mais próximos de cada amostra e é definida como
 
 \begin{figure}[!htb]
     \centering
